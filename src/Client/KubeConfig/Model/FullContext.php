@@ -59,7 +59,7 @@ class FullContext
 
     public function getServerCertificateAuthorityData(): string|null
     {
-        return $this->cluster->getCertificateAuthority();
+        return $this->cluster->getCertificateAuthorityData();
     }
 
     public function getAuthType(): AuthType

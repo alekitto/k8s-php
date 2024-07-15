@@ -14,4 +14,9 @@ interface HttpClientFactoryInterface
      * @param bool $isStreaming Whether this client is intended for a streaming API call.
      */
     public function makeClient(ContextConfigInterface $fullContext, bool $isStreaming): ClientInterface;
+
+    /**
+     * Whether this factory can be used to create a valid client.
+     */
+    public static function isAvailable(): bool;
 }

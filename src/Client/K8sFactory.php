@@ -9,6 +9,8 @@ use Kcs\K8s\Client\KubeConfig\KubeConfigParser;
 use Kcs\K8s\Client\KubeConfig\Model\FullContext;
 use Kcs\K8s\Contract\HttpClientFactoryInterface;
 use Kcs\K8s\Contract\WebsocketClientFactoryInterface;
+use Kcs\K8s\Http\Guzzle\ClientFactory as GuzzleClientFactory;
+use Kcs\K8s\Symfony\HttpClient\ClientFactory as SymfonyClientFactory;
 
 use function class_exists;
 use function file_exists;
@@ -20,14 +22,14 @@ use const DIRECTORY_SEPARATOR;
 
 class K8sFactory
 {
-    private const WEBSOCKET_FACTORIES = [
-        'K8s\WsSwoole\AdapterFactory',
-        'K8s\WsRatchet\AdapterFactory',
+    public const WEBSOCKET_FACTORIES = [
+        'Kcs\K8s\WsSwoole\AdapterFactory',
+        'Kcs\K8s\WsRatchet\AdapterFactory',
     ];
 
-    private const HTTPCLIENT_FACTORIES = [
-        'K8s\HttpSymfony\ClientFactory',
-        'K8s\HttpGuzzle\ClientFactory',
+    public const HTTPCLIENT_FACTORIES = [
+        SymfonyClientFactory::class,
+        GuzzleClientFactory::class,
     ];
 
     private const KUBE_CONFIG_PATH =  DIRECTORY_SEPARATOR . '.kube' . DIRECTORY_SEPARATOR . 'config';
@@ -134,7 +136,7 @@ class K8sFactory
         $httpClientFactory = $this->httpClientFactory;
         if (! $httpClientFactory) {
             foreach (self::HTTPCLIENT_FACTORIES as $clientFactory) {
-                if (! class_exists($clientFactory)) {
+                if (! $clientFactory::isAvailable()) {
                     continue;
                 }
 

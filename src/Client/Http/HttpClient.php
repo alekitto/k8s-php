@@ -47,10 +47,10 @@ class HttpClient
 
         $acceptType = null;
         if ($model) {
-            $acceptType = RequestFactory::CONTENT_TYPE_JSON;
+            $acceptType = self::CONTENT_TYPE_JSON;
         }
 
-        if ($proxy && $proxy instanceof RequestInterface) {
+        if ($proxy instanceof RequestInterface) {
             $request = $this->requestFactory->makeFromRequest(
                 $uri,
                 $proxy,

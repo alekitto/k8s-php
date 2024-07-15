@@ -9,6 +9,9 @@ use Kcs\K8s\Client\KubeConfig\Model\Context;
 use Kcs\K8s\Client\KubeConfig\Model\User;
 use Symfony\Component\Yaml\Yaml;
 
+use function function_exists;
+use function yaml_parse;
+
 readonly class KubeConfigParser
 {
     /**
@@ -18,7 +21,7 @@ readonly class KubeConfigParser
      */
     public function parse(string $config): KubeConfig
     {
-        $data = Yaml::parse($config);
+        $data = function_exists('yaml_parse') ? yaml_parse($config) : Yaml::parse($config);
 
         $clusters = [];
         if (isset($data['clusters'])) {

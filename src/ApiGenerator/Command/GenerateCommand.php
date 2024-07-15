@@ -148,7 +148,7 @@ class GenerateCommand extends Command
             return self::FAILURE;
         }
 
-        $codeOptions =  new CodeOptions(
+        $codeOptions = new CodeOptions(
             $tag->getCommonName(),
             $this->getAppVersion(),
             $rootNamespace,

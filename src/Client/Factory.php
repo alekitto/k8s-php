@@ -119,7 +119,7 @@ class Factory
         return $this->serializer;
     }
 
-    public function metadataFactory(FinderInterface $classFinder = new ComposerFinder()): MetadataFactoryInterface
+    public function metadataFactory(FinderInterface|null $classFinder = null): MetadataFactoryInterface
     {
         if (isset($this->metadataFactory)) {
             return $this->metadataFactory;
@@ -128,7 +128,13 @@ class Factory
         $processorFactory = new ProcessorFactory();
         $processorFactory->registerProcessors(__DIR__ . '/Metadata/Processor');
 
-        return $this->metadataFactory = new ClassMetadataFactory(new AttributesProcessorLoader($processorFactory), $classFinder, cache: $this->cacheItemPool);
+        $classFinder ??= (new ComposerFinder())->skipBogonFiles();
+
+        return $this->metadataFactory = new ClassMetadataFactory(
+            new AttributesProcessorLoader($processorFactory),
+            $classFinder,
+            cache: $this->cacheItemPool,
+        );
     }
 
     public function requestFactory(): RequestFactory

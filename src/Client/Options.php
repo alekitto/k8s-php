@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kcs\K8s\Client;
 
+use Kcs\K8s\Client\KubeConfig\KubeConfigParser;
 use Kcs\K8s\Client\KubeConfig\Model\FullContext;
 use Kcs\K8s\Contract\AuthType;
 use Kcs\K8s\Contract\HttpClientFactoryInterface;
@@ -14,6 +15,9 @@ use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\UriFactoryInterface;
+
+use function class_exists;
+use function file_get_contents;
 
 class Options
 {
@@ -47,6 +51,43 @@ class Options
         private string $endpoint,
         private string $namespace = 'default',
     ) {
+    }
+
+    public static function fromKubeconfigFile(string $filename): self
+    {
+        return self::fromKubeconfig(file_get_contents($filename));
+    }
+
+    public static function fromKubeconfig(string $kubeConfig): self
+    {
+        $kubeConfigParser = new KubeConfigParser();
+        $context = $kubeConfigParser->parse($kubeConfig);
+
+        $fullContext = $context->getFullContext();
+
+        $opts = new self($fullContext->getServer(), $fullContext->getNamespace() ?? 'default');
+        $opts->setAuthType($fullContext->getAuthType());
+        $opts->setKubeConfigContext($fullContext);
+
+        foreach (K8sFactory::HTTPCLIENT_FACTORIES as $clientFactory) {
+            if (! $clientFactory::isAvailable()) {
+                continue;
+            }
+
+            $opts->setHttpClientFactory(new $clientFactory());
+            break;
+        }
+
+        foreach (K8sFactory::WEBSOCKET_FACTORIES as $websocketFactory) {
+            if (! class_exists($websocketFactory)) {
+                continue;
+            }
+
+            $opts->setWebsocketClientFactory(new $websocketFactory());
+            break;
+        }
+
+        return $opts;
     }
 
     public function getEndpoint(): string
