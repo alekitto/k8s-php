@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Kcs\K8s\ApiGenerator\Command\ApiVersionsCommand;
+use Kcs\K8s\ApiGenerator\Command\GenerateCommand;
+use Symfony\Component\Console\Application;
+
+$app = new Application(
+    'K8s API Generator',
+    '1.0.0'
+);
+$app->add(new GenerateCommand());
+$app->add(new ApiVersionsCommand());
+$app->run();

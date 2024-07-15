@@ -1,0 +1,290 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Kcs\K8s\ApiGenerator\Code\CodeGenerator\Model;
+
+use Kcs\K8s\ApiGenerator\Code\CodeOptions;
+use Kcs\K8s\ApiGenerator\Code\Formatter\PhpPropertyNameFormatter;
+use Kcs\K8s\ApiGenerator\Code\ModelProperty;
+use Kcs\K8s\ApiGenerator\Parser\Metadata\DefinitionMetadata;
+use Kcs\K8s\ApiGenerator\Parser\Metadata\Metadata;
+use Kcs\K8s\Collection;
+use Nette\PhpGenerator\ClassType;
+use Nette\PhpGenerator\Method;
+use Nette\PhpGenerator\PhpNamespace;
+
+use function array_filter;
+use function assert;
+use function count;
+use function implode;
+use function sprintf;
+
+readonly class ModelConstructorGenerator
+{
+    use ModelPropsTrait;
+
+    private PhpPropertyNameFormatter $propertyNameFormatter;
+
+    public function __construct()
+    {
+        $this->propertyNameFormatter = new PhpPropertyNameFormatter();
+    }
+
+    /** @param ModelProperty[] $properties */
+    public function generate(
+        DefinitionMetadata $model,
+        array $properties,
+        ClassType $class,
+        PhpNamespace $namespace,
+        Metadata $metadata,
+        CodeOptions $options,
+    ): void {
+        ['metadata' => $metadataProp, 'spec' => $specProp] = $this->getCoreProps($properties);
+        $requiredProps = $this->getRequiredProps($properties);
+
+        if (! empty($requiredProps) || ($specProp || $metadataProp)) {
+            $this->addModelConstructor(
+                $metadata,
+                $options,
+                $class,
+                $namespace,
+                $properties,
+            );
+        } elseif (count($properties) <= 5) {
+            $this->addGenericConstructor(
+                $class,
+                $namespace,
+                $properties,
+            );
+        }
+
+        if ($model->getClassName() !== 'ObjectMeta') {
+            return;
+        }
+
+        $this->addObjectMetaConstructor($class);
+    }
+
+    /** @param ModelProperty[] $properties */
+    private function addModelConstructor(
+        Metadata $metadata,
+        CodeOptions $options,
+        ClassType $class,
+        PhpNamespace $namespace,
+        array $properties,
+    ): void {
+        ['metadata' => $metadataProp, 'spec' => $specProp] = $this->getCoreProps($properties);
+        $requiredProps = $this->getRequiredProps($properties);
+        $docblockParams = [];
+        $constructor = $class->addMethod('__construct');
+
+        if ($metadataProp && $metadataProp->getModelClassName() === 'ObjectMeta') {
+            $param = $constructor->addParameter('name');
+            $param->setType('string');
+            $param->setNullable(true);
+
+            $constructor->addBody(sprintf(
+                '$this->%s = new %s($name);',
+                $metadataProp->getPhpPropertyName(),
+                $metadataProp->getModelClassName(),
+            ));
+        }
+
+        foreach ($requiredProps as $requiredProp) {
+            if ($requiredProp === $specProp && count($specProp->getModelRequiredProps()) > 0) {
+                continue;
+            }
+
+            if ($requiredProp === $metadataProp) {
+                continue;
+            }
+
+            $this->addPropertyToConstructor(
+                $constructor,
+                $requiredProp,
+                $namespace,
+                true,
+            );
+        }
+
+        if ($specProp) {
+            $specParams = [];
+
+            foreach ($specProp->getModelRequiredProps() as $specReqProp) {
+                $modelProp = new ModelProperty(
+                    $this->propertyNameFormatter->format($specReqProp->getName()),
+                    $specReqProp,
+                    $options,
+                    $metadata->findDefinitionByGoPackageName($specReqProp->getGoPackageName()),
+                );
+                if ($modelProp->isCollection()) {
+                    $namespace->addUse(Collection::class);
+                }
+
+                if ($modelProp->getModelFqcn()) {
+                    $namespace->addUse($modelProp->getModelFqcn());
+                }
+
+                $param = $constructor->addParameter($modelProp->getPhpPropertyName());
+                $param->setType($modelProp->getPhpReturnType());
+                $docblockParams[$param->getName()] = $modelProp;
+                $specParams[] = '$' . $modelProp->getPhpPropertyName();
+            }
+
+            // TOFIX: Hack
+            if ($class->getName() === 'ResourceClaimTemplate') {
+                $specParams = ['$name', '$resourceClassName'];
+                unset($docblockParams['spec']);
+
+                $constructor->setParameters([]);
+                $constructor->setComment('');
+
+                $param = $constructor->addParameter('name');
+                $param->setType('string');
+                $param->setNullable(false);
+
+                $param = $constructor->addParameter('resourceClassName');
+                $param->setType('string');
+                $param->setNullable(false);
+
+                $constructor->addComment('@param string $name');
+                $constructor->addComment('@param string $resourceClassName');
+            }
+
+            if (! empty($specParams)) {
+                $constructor->addBody(sprintf(
+                    '$this->%s = new %s(%s);',
+                    $specProp->getPhpPropertyName(),
+                    $specProp->getModelClassName(),
+                    implode(', ', $specParams),
+                ));
+            }
+        }
+
+        // Hacky solution as image is not mark as required, but in most cases you want to specify it.
+        if ($class->getName() === 'Container') {
+            $imageProp = null;
+            foreach ($properties as $property) {
+                if ($property->getName() === 'image') {
+                    $imageProp = $property;
+                    break;
+                }
+            }
+
+            if ($imageProp) {
+                $constructor->addParameter($imageProp->getPhpPropertyName())
+                    ->setType($imageProp->getPhpReturnType())
+                    ->setNullable(true)
+                    ->setDefaultValue(null);
+                $constructor->addBody('$this->image = $image;');
+                $docblockParams[$imageProp->getPhpPropertyName()] = $imageProp;
+            }
+        }
+
+        foreach ($docblockParams as $paramName => $prop) {
+            assert($prop instanceof ModelProperty);
+            $docType = $prop->getPhpDocType();
+            if (! $prop->isRequired() && ! $prop->isCollection()) {
+                $docType .= '|null';
+            }
+
+            $constructor->addComment(sprintf(
+                '@param %s $%s',
+                $docType,
+                $paramName,
+            ));
+        }
+    }
+
+    /** @param ModelProperty[] $properties */
+    private function addGenericConstructor(
+        ClassType $classType,
+        PhpNamespace $namespace,
+        array $properties,
+    ): void {
+        $constructor = $classType->addMethod('__construct');
+
+        foreach ($properties as $property) {
+            $this->addPropertyToConstructor(
+                $constructor,
+                $property,
+                $namespace,
+                false,
+            );
+        }
+    }
+
+    private function addObjectMetaConstructor(ClassType $classType): void
+    {
+        $constructor = $classType->addMethod('__construct');
+        $constructor->addParameter('name')
+            ->setType('string')
+            ->setNullable(true)
+            ->setDefaultValue(null);
+        $constructor->addParameter('namespace')
+            ->setType('string')
+            ->setNullable(true)
+            ->setDefaultValue(null);
+
+        $constructor->addBody(<<<'BODY'
+        if ($name) {
+            $this->name = $name;
+        }
+        if ($namespace) {
+            $this->namespace = $namespace;
+        }
+        BODY);
+    }
+
+    private function addPropertyToConstructor(
+        Method $constructor,
+        ModelProperty $prop,
+        PhpNamespace $namespace,
+        bool $isRequired,
+    ): void {
+        $param = $constructor->addParameter($prop->getPhpPropertyName());
+        $param->setType($prop->getPhpReturnType());
+        $param->setNullable(! ($isRequired || $prop->isCollection()));
+
+        if (! $isRequired) {
+            $param->setDefaultValue($prop->getDefaultConstructorValue());
+        }
+
+        if ($prop->isCollection()) {
+            $namespace->addUse(Collection::class);
+            $constructor->addBody(sprintf(
+                '$this->%s = new Collection($%s);',
+                $prop->getPhpPropertyName(),
+                $prop->getPhpPropertyName(),
+            ));
+        } else {
+            $constructor->addBody(sprintf(
+                '$this->%s = $%s;',
+                $prop->getPhpPropertyName(),
+                $prop->getPhpPropertyName(),
+            ));
+        }
+
+        $docType = $prop->getPhpDocType();
+        if (! $isRequired && ! $prop->isCollection()) {
+            $docType .= '|null';
+        }
+
+        $constructor->addComment(sprintf(
+            '@param %s $%s',
+            $docType,
+            $prop->getPhpPropertyName(),
+        ));
+    }
+
+    /**
+     * @param ModelProperty[] $properties
+     *
+     * @return ModelProperty[]
+     */
+    protected function getRequiredProps(array $properties): array
+    {
+        return array_filter($properties, static fn (ModelProperty $prop) => $prop->isRequired());
+    }
+}
