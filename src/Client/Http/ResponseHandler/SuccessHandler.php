@@ -9,7 +9,7 @@ use Psr\Http\Message\ResponseInterface;
 
 class SuccessHandler extends AbstractHandler
 {
-    public function handle(ResponseInterface $response, array $options): string|ResponseInterface
+    public function handle(ResponseInterface $response, array $options): mixed
     {
         $isProxy = $options['proxy'] ?? false;
         $model = $options['model'] ?? null;

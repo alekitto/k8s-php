@@ -55,7 +55,7 @@ readonly class ClientFactory implements HttpClientFactoryInterface
             $options = $this->setCurlExtraSslDataOpt(
                 $options,
                 'CURLOPT_CAINFO_BLOB',
-                (string) $fullContext->getClientCertificateData(),
+                (string) $fullContext->getServerCertificateAuthorityData(),
             );
         }
 

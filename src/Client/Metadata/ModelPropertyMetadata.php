@@ -52,6 +52,13 @@ class ModelPropertyMetadata extends PropertyMetadata
         $reflection = $this->getReflection();
         $reflection->setAccessible(true);
 
+        if (is_array($value)) {
+            $propertyType = $reflection->getType();
+            if ($propertyType instanceof \ReflectionNamedType && $propertyType->getName() === 'object') {
+                $value = json_decode(json_encode($value), false);
+            }
+        }
+
         $reflection->setValue($object, $value);
     }
 }
