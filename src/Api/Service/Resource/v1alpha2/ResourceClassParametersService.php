@@ -41,6 +41,8 @@ class ResourceClassParametersService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-resourceclassparameters-v1alpha2-resource-k8s-io
      */
     public function listResourceV1alpha2Namespaced(array $query = [], callable|object|null $handler = null): ResourceClassParametersList|null
     {
@@ -79,6 +81,8 @@ class ResourceClassParametersService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-resourceclassparameters-v1alpha2-resource-k8s-io
      */
     public function deleteResourceV1alpha2CollectionNamespaced(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class ResourceClassParametersService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-resourceclassparameters-v1alpha2-resource-k8s-io
      */
     public function createResourceV1alpha2Namespaced(
         ResourceClassParameters $resourceClassParameters,
@@ -135,6 +141,8 @@ class ResourceClassParametersService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-resourceclassparameters-v1alpha2-resource-k8s-io
      */
     public function readResourceV1alpha2Namespaced(string $name, array $query = []): ResourceClassParameters
     {
@@ -164,6 +172,8 @@ class ResourceClassParametersService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-resourceclassparameters-v1alpha2-resource-k8s-io
      */
     public function deleteResourceV1alpha2Namespaced(string $name, array $query = []): ResourceClassParameters
     {
@@ -193,6 +203,8 @@ class ResourceClassParametersService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-resourceclassparameters-v1alpha2-resource-k8s-io
      */
     public function patchResourceV1alpha2Namespaced(
         string $name,
@@ -225,6 +237,8 @@ class ResourceClassParametersService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-resourceclassparameters-v1alpha2-resource-k8s-io
      */
     public function replaceResourceV1alpha2Namespaced(
         string $name,
@@ -264,6 +278,8 @@ class ResourceClassParametersService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-resourceclassparameters-v1alpha2-resource-k8s-io
      */
     public function listResourceV1alpha2ForAllNamespaces(
         array $query = [],
@@ -305,6 +321,8 @@ class ResourceClassParametersService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-resourceclassparameters-v1alpha2-resource-k8s-io
      */
     public function watchResourceV1alpha2NamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -344,6 +362,8 @@ class ResourceClassParametersService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-resourceclassparameters-v1alpha2-resource-k8s-io
      */
     public function watchResourceV1alpha2Namespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -383,6 +403,8 @@ class ResourceClassParametersService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-resourceclassparameters-v1alpha2-resource-k8s-io
      */
     public function watchResourceV1alpha2ListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

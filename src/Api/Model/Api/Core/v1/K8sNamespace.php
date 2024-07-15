@@ -8,6 +8,8 @@ use DateTimeInterface;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -18,13 +20,13 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/api/v1/namespaces/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/api/v1/namespaces/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/api/v1/namespaces', body: 'model', response: 'self')]
-#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{name}', response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status')]
+#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{name}', response: Status::class)]
 #[Kubernetes\Operation('put', path: '/api/v1/namespaces/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation('put-status', path: '/api/v1/namespaces/{name}/status', body: 'model', response: 'self')]
-#[Kubernetes\Operation('watch-all', path: '/api/v1/namespaces', response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent')]
+#[Kubernetes\Operation('watch-all', path: '/api/v1/namespaces', response: WatchEvent::class)]
 #[Kubernetes\Operation('patch', path: '/api/v1/namespaces/{name}', body: 'patch', response: 'self')]
 #[Kubernetes\Operation('patch-status', path: '/api/v1/namespaces/{name}/status', body: 'patch', response: 'self')]
-#[Kubernetes\Operation('list-all', path: '/api/v1/namespaces', response: 'Kcs\K8s\Api\Model\Api\Core\v1\NamespaceList')]
+#[Kubernetes\Operation('list-all', path: '/api/v1/namespaces', response: NamespaceList::class)]
 class K8sNamespace
 {
     #[Kubernetes\Attribute('apiVersion')]

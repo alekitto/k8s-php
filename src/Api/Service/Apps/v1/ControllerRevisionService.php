@@ -41,6 +41,8 @@ class ControllerRevisionService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-controllerrevision-v1-apps
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): ControllerRevisionList|null
     {
@@ -77,6 +79,8 @@ class ControllerRevisionService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-controllerrevision-v1-apps
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): ControllerRevisionList|null
     {
@@ -115,6 +119,8 @@ class ControllerRevisionService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-controllerrevision-v1-apps
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -143,6 +149,8 @@ class ControllerRevisionService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-controllerrevision-v1-apps
      */
     public function createNamespaced(ControllerRevision $controllerRevision, array $query = []): ControllerRevision
     {
@@ -169,6 +177,8 @@ class ControllerRevisionService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-controllerrevision-v1-apps
      */
     public function readNamespaced(string $name, array $query = []): ControllerRevision
     {
@@ -198,6 +208,8 @@ class ControllerRevisionService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-controllerrevision-v1-apps
      */
     public function deleteNamespaced(string $name, array $query = []): Status
     {
@@ -227,6 +239,8 @@ class ControllerRevisionService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-controllerrevision-v1-apps
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): ControllerRevision
     {
@@ -256,6 +270,8 @@ class ControllerRevisionService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-controllerrevision-v1-apps
      */
     public function replaceNamespaced(
         string $name,
@@ -298,6 +314,8 @@ class ControllerRevisionService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-controllerrevision-v1-apps
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
@@ -337,6 +355,8 @@ class ControllerRevisionService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-controllerrevision-v1-apps
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -376,6 +396,8 @@ class ControllerRevisionService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-controllerrevision-v1-apps
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {

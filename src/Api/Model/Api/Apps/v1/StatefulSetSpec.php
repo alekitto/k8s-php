@@ -116,7 +116,8 @@ class StatefulSetSpec
      * from volumeClaimTemplates. By default, all persistent volume claims are created as needed and
      * retained until manually deleted. This policy allows the lifecycle to be altered, for example by
      * deleting persistent volume claims when their stateful set is deleted, or when their pod is scaled
-     * down. This requires the StatefulSetAutoDeletePVC feature gate to be enabled, which is beta.
+     * down. This requires the StatefulSetAutoDeletePVC feature gate to be enabled, which is alpha.
+     * +optional
      */
     public function getPersistentVolumeClaimRetentionPolicy(): StatefulSetPersistentVolumeClaimRetentionPolicy|null
     {
@@ -128,7 +129,8 @@ class StatefulSetSpec
      * from volumeClaimTemplates. By default, all persistent volume claims are created as needed and
      * retained until manually deleted. This policy allows the lifecycle to be altered, for example by
      * deleting persistent volume claims when their stateful set is deleted, or when their pod is scaled
-     * down. This requires the StatefulSetAutoDeletePVC feature gate to be enabled, which is beta.
+     * down. This requires the StatefulSetAutoDeletePVC feature gate to be enabled, which is alpha.
+     * +optional
      *
      * @return static
      */

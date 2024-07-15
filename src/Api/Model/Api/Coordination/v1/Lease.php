@@ -8,6 +8,8 @@ use DateTimeInterface;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -20,31 +22,27 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'delete',
     path: '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation('put', path: '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch-all',
     path: '/apis/coordination.k8s.io/v1/leases',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation('patch', path: '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases/{name}', body: 'patch', response: 'self')]
-#[Kubernetes\Operation(
-    'list',
-    path: '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases',
-    response: 'Kcs\K8s\Api\Model\Api\Coordination\v1\LeaseList',
-)]
-#[Kubernetes\Operation('list-all', path: '/apis/coordination.k8s.io/v1/leases', response: 'Kcs\K8s\Api\Model\Api\Coordination\v1\LeaseList')]
+#[Kubernetes\Operation('list', path: '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases', response: LeaseList::class)]
+#[Kubernetes\Operation('list-all', path: '/apis/coordination.k8s.io/v1/leases', response: LeaseList::class)]
 class Lease
 {
     #[Kubernetes\Attribute('apiVersion')]

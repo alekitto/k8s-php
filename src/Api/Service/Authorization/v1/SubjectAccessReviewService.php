@@ -30,6 +30,8 @@ class SubjectAccessReviewService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-subjectaccessreview-v1-authorization-k8s-io
      */
     public function createAuthorizationV1(
         SubjectAccessReview $subjectAccessReview,

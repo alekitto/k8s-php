@@ -44,6 +44,8 @@ class ComponentStatusService
      *   watch
      *
      * @deprecated This API is deprecated in v1.19+
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-componentstatus-v1-core
      */
     public function list(array $query = [], callable|object|null $handler = null): ComponentStatusList|null
     {
@@ -72,6 +74,8 @@ class ComponentStatusService
      *   pretty
      *
      * @deprecated This API is deprecated in v1.19+
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-componentstatus-v1-core
      */
     public function read(string $name, array $query = []): ComponentStatus
     {

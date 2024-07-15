@@ -26,6 +26,8 @@ class PodProxyOptionsService
      *
      * Allowed query parameters:
      *   path
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
     public function connectGetNamespacedPodProxy(string $name, array $query = []): string
     {
@@ -50,6 +52,8 @@ class PodProxyOptionsService
      *
      * Allowed query parameters:
      *   path
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
     public function connectDeleteNamespacedPodProxy(string $name, array $query = []): string
     {
@@ -74,6 +78,8 @@ class PodProxyOptionsService
      *
      * Allowed query parameters:
      *   path
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
     public function connectPostNamespacedPodProxy(string $name, array $query = []): string
     {
@@ -98,6 +104,8 @@ class PodProxyOptionsService
      *
      * Allowed query parameters:
      *   path
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
     public function connectPatchNamespacedPodProxy(string $name, array $query = []): string
     {
@@ -122,6 +130,8 @@ class PodProxyOptionsService
      *
      * Allowed query parameters:
      *   path
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
     public function connectPutNamespacedPodProxy(string $name, array $query = []): string
     {
@@ -146,6 +156,8 @@ class PodProxyOptionsService
      *
      * Allowed query parameters:
      *   path
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
     public function connectOptionsNamespacedPodProxy(string $name, array $query = []): string
     {
@@ -170,6 +182,8 @@ class PodProxyOptionsService
      *
      * Allowed query parameters:
      *   path
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
     public function connectHeadNamespacedPodProxy(string $name, array $query = []): string
     {
@@ -194,6 +208,8 @@ class PodProxyOptionsService
      *
      * Allowed query parameters:
      *   path
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
     public function connectGetNamespacedPodProxyWithPath(string $name, array $query = []): string
     {
@@ -218,6 +234,8 @@ class PodProxyOptionsService
      *
      * Allowed query parameters:
      *   path
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
     public function connectDeleteNamespacedPodProxyWithPath(string $name, array $query = []): string
     {
@@ -242,6 +260,8 @@ class PodProxyOptionsService
      *
      * Allowed query parameters:
      *   path
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
     public function connectPostNamespacedPodProxyWithPath(string $name, array $query = []): string
     {
@@ -266,6 +286,8 @@ class PodProxyOptionsService
      *
      * Allowed query parameters:
      *   path
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
     public function connectPatchNamespacedPodProxyWithPath(string $name, array $query = []): string
     {
@@ -290,6 +312,8 @@ class PodProxyOptionsService
      *
      * Allowed query parameters:
      *   path
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
     public function connectPutNamespacedPodProxyWithPath(string $name, array $query = []): string
     {
@@ -314,6 +338,8 @@ class PodProxyOptionsService
      *
      * Allowed query parameters:
      *   path
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
     public function connectOptionsNamespacedPodProxyWithPath(string $name, array $query = []): string
     {
@@ -338,6 +364,8 @@ class PodProxyOptionsService
      *
      * Allowed query parameters:
      *   path
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
     public function connectHeadNamespacedPodProxyWithPath(string $name, array $query = []): string
     {

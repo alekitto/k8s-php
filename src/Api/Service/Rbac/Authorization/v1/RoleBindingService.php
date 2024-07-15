@@ -41,6 +41,8 @@ class RoleBindingService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-rolebinding-v1-rbac-authorization-k8s-io
      */
     public function listRbacAuthorizationV1Namespaced(array $query = [], callable|object|null $handler = null): RoleBindingList|null
     {
@@ -79,6 +81,8 @@ class RoleBindingService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-rolebinding-v1-rbac-authorization-k8s-io
      */
     public function deleteRbacAuthorizationV1CollectionNamespaced(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class RoleBindingService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-rolebinding-v1-rbac-authorization-k8s-io
      */
     public function createRbacAuthorizationV1Namespaced(RoleBinding $roleBinding, array $query = []): RoleBinding
     {
@@ -133,6 +139,8 @@ class RoleBindingService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-rolebinding-v1-rbac-authorization-k8s-io
      */
     public function readRbacAuthorizationV1Namespaced(string $name, array $query = []): RoleBinding
     {
@@ -162,6 +170,8 @@ class RoleBindingService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-rolebinding-v1-rbac-authorization-k8s-io
      */
     public function deleteRbacAuthorizationV1Namespaced(string $name, array $query = []): Status
     {
@@ -191,6 +201,8 @@ class RoleBindingService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-rolebinding-v1-rbac-authorization-k8s-io
      */
     public function patchRbacAuthorizationV1Namespaced(
         string $name,
@@ -223,6 +235,8 @@ class RoleBindingService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-rolebinding-v1-rbac-authorization-k8s-io
      */
     public function replaceRbacAuthorizationV1Namespaced(
         string $name,
@@ -262,6 +276,8 @@ class RoleBindingService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-rolebinding-v1-rbac-authorization-k8s-io
      */
     public function listRbacAuthorizationV1ForAllNamespaces(array $query = [], callable|object|null $handler = null): RoleBindingList|null
     {
@@ -301,6 +317,8 @@ class RoleBindingService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-rolebinding-v1-rbac-authorization-k8s-io
      */
     public function watchRbacAuthorizationV1NamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -340,6 +358,8 @@ class RoleBindingService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-rolebinding-v1-rbac-authorization-k8s-io
      */
     public function watchRbacAuthorizationV1Namespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -379,6 +399,8 @@ class RoleBindingService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-rolebinding-v1-rbac-authorization-k8s-io
      */
     public function watchRbacAuthorizationV1ListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

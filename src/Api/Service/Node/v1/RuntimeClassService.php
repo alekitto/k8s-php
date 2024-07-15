@@ -41,6 +41,8 @@ class RuntimeClassService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-runtimeclass-v1-node-k8s-io
      */
     public function listNodeV1(array $query = [], callable|object|null $handler = null): RuntimeClassList|null
     {
@@ -79,6 +81,8 @@ class RuntimeClassService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-runtimeclass-v1-node-k8s-io
      */
     public function deleteNodeV1Collection(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class RuntimeClassService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-runtimeclass-v1-node-k8s-io
      */
     public function createNodeV1(RuntimeClass $runtimeClass, array $query = []): RuntimeClass
     {
@@ -133,6 +139,8 @@ class RuntimeClassService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-runtimeclass-v1-node-k8s-io
      */
     public function readNodeV1(string $name, array $query = []): RuntimeClass
     {
@@ -162,6 +170,8 @@ class RuntimeClassService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-runtimeclass-v1-node-k8s-io
      */
     public function deleteNodeV1(string $name, array $query = []): Status
     {
@@ -191,6 +201,8 @@ class RuntimeClassService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-runtimeclass-v1-node-k8s-io
      */
     public function patchNodeV1(string $name, PatchInterface $patch, array $query = []): RuntimeClass
     {
@@ -220,6 +232,8 @@ class RuntimeClassService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-runtimeclass-v1-node-k8s-io
      */
     public function replaceNodeV1(string $name, RuntimeClass $runtimeClass, array $query = []): RuntimeClass
     {
@@ -259,6 +273,8 @@ class RuntimeClassService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-runtimeclass-v1-node-k8s-io
      */
     public function watchNodeV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -298,6 +314,8 @@ class RuntimeClassService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-runtimeclass-v1-node-k8s-io
      */
     public function watchNodeV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

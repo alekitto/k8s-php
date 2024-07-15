@@ -41,6 +41,8 @@ class LeaseService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-lease-v1-coordination-k8s-io
      */
     public function listCoordinationV1ForAllNamespaces(array $query = [], callable|object|null $handler = null): LeaseList|null
     {
@@ -77,6 +79,8 @@ class LeaseService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-lease-v1-coordination-k8s-io
      */
     public function listCoordinationV1Namespaced(array $query = [], callable|object|null $handler = null): LeaseList|null
     {
@@ -115,6 +119,8 @@ class LeaseService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-lease-v1-coordination-k8s-io
      */
     public function deleteCoordinationV1CollectionNamespaced(array $query = []): Status
     {
@@ -143,6 +149,8 @@ class LeaseService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-lease-v1-coordination-k8s-io
      */
     public function createCoordinationV1Namespaced(Lease $lease, array $query = []): Lease
     {
@@ -169,6 +177,8 @@ class LeaseService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-lease-v1-coordination-k8s-io
      */
     public function readCoordinationV1Namespaced(string $name, array $query = []): Lease
     {
@@ -198,6 +208,8 @@ class LeaseService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-lease-v1-coordination-k8s-io
      */
     public function deleteCoordinationV1Namespaced(string $name, array $query = []): Status
     {
@@ -227,6 +239,8 @@ class LeaseService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-lease-v1-coordination-k8s-io
      */
     public function patchCoordinationV1Namespaced(string $name, PatchInterface $patch, array $query = []): Lease
     {
@@ -256,6 +270,8 @@ class LeaseService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-lease-v1-coordination-k8s-io
      */
     public function replaceCoordinationV1Namespaced(string $name, Lease $lease, array $query = []): Lease
     {
@@ -295,6 +311,8 @@ class LeaseService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-lease-v1-coordination-k8s-io
      */
     public function watchCoordinationV1ListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
@@ -334,6 +352,8 @@ class LeaseService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-lease-v1-coordination-k8s-io
      */
     public function watchCoordinationV1NamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -373,6 +393,8 @@ class LeaseService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-lease-v1-coordination-k8s-io
      */
     public function watchCoordinationV1Namespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {

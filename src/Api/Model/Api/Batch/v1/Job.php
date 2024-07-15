@@ -10,6 +10,8 @@ use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\LabelSelector;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -23,25 +25,25 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'delete',
     path: '/apis/batch/v1/namespaces/{namespace}/jobs/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/batch/v1/namespaces/{namespace}/jobs',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation('put', path: '/apis/batch/v1/namespaces/{namespace}/jobs/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation('put-status', path: '/apis/batch/v1/namespaces/{namespace}/jobs/{name}/status', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/apis/batch/v1/namespaces/{namespace}/jobs',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
-#[Kubernetes\Operation('watch-all', path: '/apis/batch/v1/jobs', response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent')]
+#[Kubernetes\Operation('watch-all', path: '/apis/batch/v1/jobs', response: WatchEvent::class)]
 #[Kubernetes\Operation('patch', path: '/apis/batch/v1/namespaces/{namespace}/jobs/{name}', body: 'patch', response: 'self')]
 #[Kubernetes\Operation('patch-status', path: '/apis/batch/v1/namespaces/{namespace}/jobs/{name}/status', body: 'patch', response: 'self')]
-#[Kubernetes\Operation('list', path: '/apis/batch/v1/namespaces/{namespace}/jobs', response: 'Kcs\K8s\Api\Model\Api\Batch\v1\JobList')]
-#[Kubernetes\Operation('list-all', path: '/apis/batch/v1/jobs', response: 'Kcs\K8s\Api\Model\Api\Batch\v1\JobList')]
+#[Kubernetes\Operation('list', path: '/apis/batch/v1/namespaces/{namespace}/jobs', response: JobList::class)]
+#[Kubernetes\Operation('list-all', path: '/apis/batch/v1/jobs', response: JobList::class)]
 class Job
 {
     #[Kubernetes\Attribute('apiVersion')]
@@ -581,8 +583,7 @@ class Job
      * `kubernetes.io/job-controller`, but skips reconciling Jobs with a custom value for this field. The
      * value must be a valid domain-prefixed path (e.g. acme.io/foo) - all characters before the first "/"
      * must be a valid subdomain as defined by RFC 1123. All characters trailing the first "/" must be
-     * valid HTTP Path characters as defined by RFC 3986. The value cannot exceed 63 characters. This field
-     * is immutable.
+     * valid HTTP Path characters as defined by RFC 3986. The value cannot exceed 64 characters.
      *
      * This field is alpha-level. The job controller accepts setting the field when the feature gate
      * JobManagedBy is enabled (disabled by default).
@@ -598,8 +599,7 @@ class Job
      * `kubernetes.io/job-controller`, but skips reconciling Jobs with a custom value for this field. The
      * value must be a valid domain-prefixed path (e.g. acme.io/foo) - all characters before the first "/"
      * must be a valid subdomain as defined by RFC 1123. All characters trailing the first "/" must be
-     * valid HTTP Path characters as defined by RFC 3986. The value cannot exceed 63 characters. This field
-     * is immutable.
+     * valid HTTP Path characters as defined by RFC 3986. The value cannot exceed 64 characters.
      *
      * This field is alpha-level. The job controller accepts setting the field when the feature gate
      * JobManagedBy is enabled (disabled by default).
@@ -711,6 +711,9 @@ class Job
      * behaviour applies - the counter of failed pods, represented by the jobs's .status.failed field, is
      * incremented and it is checked against the backoffLimit. This field cannot be used in combination
      * with restartPolicy=OnFailure.
+     *
+     * This field is beta-level. It can be used when the `JobPodFailurePolicy` feature gate is enabled
+     * (enabled by default).
      */
     public function getPodFailurePolicy(): PodFailurePolicy|null
     {
@@ -723,6 +726,9 @@ class Job
      * behaviour applies - the counter of failed pods, represented by the jobs's .status.failed field, is
      * incremented and it is checked against the backoffLimit. This field cannot be used in combination
      * with restartPolicy=OnFailure.
+     *
+     * This field is beta-level. It can be used when the `JobPodFailurePolicy` feature gate is enabled
+     * (enabled by default).
      *
      * @return static
      */

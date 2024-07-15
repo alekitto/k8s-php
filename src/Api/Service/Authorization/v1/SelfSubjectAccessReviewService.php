@@ -30,6 +30,8 @@ class SelfSubjectAccessReviewService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-selfsubjectaccessreview-v1-authorization-k8s-io
      */
     public function createAuthorizationV1(
         SelfSubjectAccessReview $selfSubjectAccessReview,

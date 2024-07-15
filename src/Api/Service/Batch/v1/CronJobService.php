@@ -41,6 +41,8 @@ class CronJobService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-cronjob-v1-batch
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): CronJobList|null
     {
@@ -77,6 +79,8 @@ class CronJobService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-cronjob-v1-batch
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): CronJobList|null
     {
@@ -115,6 +119,8 @@ class CronJobService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-cronjob-v1-batch
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -143,6 +149,8 @@ class CronJobService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-cronjob-v1-batch
      */
     public function createNamespaced(CronJob $cronJob, array $query = []): CronJob
     {
@@ -169,6 +177,8 @@ class CronJobService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-cronjob-v1-batch
      */
     public function readNamespaced(string $name, array $query = []): CronJob
     {
@@ -198,6 +208,8 @@ class CronJobService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-cronjob-v1-batch
      */
     public function deleteNamespaced(string $name, array $query = []): Status
     {
@@ -227,6 +239,8 @@ class CronJobService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-cronjob-v1-batch
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): CronJob
     {
@@ -256,6 +270,8 @@ class CronJobService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-cronjob-v1-batch
      */
     public function replaceNamespaced(string $name, CronJob $cronJob, array $query = []): CronJob
     {
@@ -282,6 +298,8 @@ class CronJobService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-cronjob-v1-batch
      */
     public function readNamespacedStatus(string $name, array $query = []): CronJob
     {
@@ -311,6 +329,8 @@ class CronJobService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-cronjob-v1-batch
      */
     public function patchNamespacedStatus(string $name, PatchInterface $patch, array $query = []): CronJob
     {
@@ -340,6 +360,8 @@ class CronJobService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-cronjob-v1-batch
      */
     public function replaceNamespacedStatus(string $name, CronJob $cronJob, array $query = []): CronJob
     {
@@ -379,6 +401,8 @@ class CronJobService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-cronjob-v1-batch
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
@@ -418,6 +442,8 @@ class CronJobService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-cronjob-v1-batch
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -457,6 +483,8 @@ class CronJobService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-cronjob-v1-batch
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {

@@ -8,6 +8,8 @@ use DateTimeInterface;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -26,7 +28,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclaimtemplates',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation(
     'put',
@@ -37,12 +39,12 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclaimtemplates',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch-all',
     path: '/apis/resource.k8s.io/v1alpha2/resourceclaimtemplates',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation(
     'patch',
@@ -53,13 +55,9 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'list',
     path: '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclaimtemplates',
-    response: 'Kcs\K8s\Api\Model\Api\Resource\v1alpha2\ResourceClaimTemplateList',
+    response: ResourceClaimTemplateList::class,
 )]
-#[Kubernetes\Operation(
-    'list-all',
-    path: '/apis/resource.k8s.io/v1alpha2/resourceclaimtemplates',
-    response: 'Kcs\K8s\Api\Model\Api\Resource\v1alpha2\ResourceClaimTemplateList',
-)]
+#[Kubernetes\Operation('list-all', path: '/apis/resource.k8s.io/v1alpha2/resourceclaimtemplates', response: ResourceClaimTemplateList::class)]
 class ResourceClaimTemplate
 {
     #[Kubernetes\Attribute('apiVersion')]

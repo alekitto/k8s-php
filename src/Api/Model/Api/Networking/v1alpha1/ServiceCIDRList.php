@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Kcs\K8s\Api\Model\Api\Networking\v1beta1;
+namespace Kcs\K8s\Api\Model\Api\Networking\v1alpha1;
 
 use ArrayIterator;
 use IteratorAggregate;
@@ -15,27 +15,27 @@ use Traversable;
 use function iterator_to_array;
 
 /**
- * IPAddressList contains a list of IPAddress.
+ * ServiceCIDRList contains a list of ServiceCIDR objects.
  *
- * @implements IteratorAggregate<int, IPAddress>
+ * @implements IteratorAggregate<int, ServiceCIDR>
  */
-#[Kubernetes\Kind('IPAddressList', group: 'networking.k8s.io', version: 'v1beta1')]
-class IPAddressList implements IteratorAggregate
+#[Kubernetes\Kind('ServiceCIDRList', group: 'networking.k8s.io', version: 'v1alpha1')]
+class ServiceCIDRList implements IteratorAggregate
 {
     #[Kubernetes\Attribute('apiVersion')]
-    protected string|null $apiVersion = 'networking.k8s.io/v1beta1';
+    protected string|null $apiVersion = 'networking.k8s.io/v1alpha1';
 
-    /** @var iterable|IPAddress[] */
-    #[Kubernetes\Attribute('items', type: AttributeType::Collection, model: IPAddress::class, required: true)]
+    /** @var iterable|ServiceCIDR[] */
+    #[Kubernetes\Attribute('items', type: AttributeType::Collection, model: ServiceCIDR::class, required: true)]
     protected iterable $items;
 
     #[Kubernetes\Attribute('kind')]
-    protected string|null $kind = 'IPAddressList';
+    protected string|null $kind = 'ServiceCIDRList';
 
     #[Kubernetes\Attribute('metadata', type: AttributeType::Model, model: ListMeta::class)]
     protected ListMeta|null $metadata = null;
 
-    /** @param iterable|IPAddress[] $items */
+    /** @param iterable|ServiceCIDR[] $items */
     public function __construct(iterable $items)
     {
         $this->items = new Collection($items);
@@ -89,7 +89,7 @@ class IPAddressList implements IteratorAggregate
         return $this->metadata->getSelfLink();
     }
 
-    /** @return ArrayIterator|iterable|IPAddress[] */
+    /** @return ArrayIterator|iterable|ServiceCIDR[] */
     public function getIterator(): Traversable
     {
         return new ArrayIterator(iterator_to_array($this->items));
@@ -120,9 +120,9 @@ class IPAddressList implements IteratorAggregate
     }
 
     /**
-     * items is the list of IPAddresses.
+     * items is the list of ServiceCIDRs.
      *
-     * @return iterable|IPAddress[]
+     * @return iterable|ServiceCIDR[]
      */
     public function getItems(): iterable
     {
@@ -130,7 +130,7 @@ class IPAddressList implements IteratorAggregate
     }
 
     /**
-     * items is the list of IPAddresses.
+     * items is the list of ServiceCIDRs.
      *
      * @return static
      */
@@ -142,7 +142,7 @@ class IPAddressList implements IteratorAggregate
     }
 
     /** @return static */
-    public function addItems(IPAddress $item): static
+    public function addItems(ServiceCIDR $item): static
     {
         if (! $this->items) {
             $this->items = new Collection();

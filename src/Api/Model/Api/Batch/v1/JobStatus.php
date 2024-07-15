@@ -237,8 +237,7 @@ class JobStatus
     }
 
     /**
-     * The number of active pods which have a Ready condition and are not terminating (without a
-     * deletionTimestamp).
+     * The number of pods which have a Ready condition.
      */
     public function getReady(): int|null
     {
@@ -246,8 +245,7 @@ class JobStatus
     }
 
     /**
-     * The number of active pods which have a Ready condition and are not terminating (without a
-     * deletionTimestamp).
+     * The number of pods which have a Ready condition.
      *
      * @return static
      */

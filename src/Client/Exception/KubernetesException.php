@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Kcs\K8s\Client\Exception;
 
-use K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
 use Kcs\K8s\Exception\Exception;
 
 class KubernetesException extends Exception

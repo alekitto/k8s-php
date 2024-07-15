@@ -8,6 +8,8 @@ use DateTimeInterface;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -21,23 +23,23 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'delete',
     path: '/api/v1/namespaces/{namespace}/secrets/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch',
     path: '/api/v1/namespaces/{namespace}/secrets',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation('put', path: '/api/v1/namespaces/{namespace}/secrets/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/api/v1/namespaces/{namespace}/secrets',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
-#[Kubernetes\Operation('watch-all', path: '/api/v1/secrets', response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent')]
+#[Kubernetes\Operation('watch-all', path: '/api/v1/secrets', response: WatchEvent::class)]
 #[Kubernetes\Operation('patch', path: '/api/v1/namespaces/{namespace}/secrets/{name}', body: 'patch', response: 'self')]
-#[Kubernetes\Operation('list', path: '/api/v1/namespaces/{namespace}/secrets', response: 'Kcs\K8s\Api\Model\Api\Core\v1\SecretList')]
-#[Kubernetes\Operation('list-all', path: '/api/v1/secrets', response: 'Kcs\K8s\Api\Model\Api\Core\v1\SecretList')]
+#[Kubernetes\Operation('list', path: '/api/v1/namespaces/{namespace}/secrets', response: SecretList::class)]
+#[Kubernetes\Operation('list-all', path: '/api/v1/secrets', response: SecretList::class)]
 class Secret
 {
     #[Kubernetes\Attribute('apiVersion')]

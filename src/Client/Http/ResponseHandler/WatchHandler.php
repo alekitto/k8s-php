@@ -7,7 +7,7 @@ namespace Kcs\K8s\Client\Http\ResponseHandler;
 use Generator;
 use IteratorAggregate;
 use JsonMachine\Items;
-use K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Client\Exception\RuntimeException;
 use Kcs\K8s\Client\Http\HttpClient;
 use Psr\Http\Message\ResponseInterface;

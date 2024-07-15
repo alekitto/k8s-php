@@ -41,6 +41,8 @@ class EventService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-event-v1-events-k8s-io
      */
     public function listsV1ForAllNamespaces(array $query = [], callable|object|null $handler = null): EventList|null
     {
@@ -77,6 +79,8 @@ class EventService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-event-v1-events-k8s-io
      */
     public function listsV1Namespaced(array $query = [], callable|object|null $handler = null): EventList|null
     {
@@ -115,6 +119,8 @@ class EventService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-event-v1-events-k8s-io
      */
     public function deletesV1CollectionNamespaced(array $query = []): Status
     {
@@ -143,6 +149,8 @@ class EventService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-event-v1-events-k8s-io
      */
     public function createsV1Namespaced(Event $event, array $query = []): Event
     {
@@ -169,6 +177,8 @@ class EventService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-event-v1-events-k8s-io
      */
     public function readsV1Namespaced(string $name, array $query = []): Event
     {
@@ -198,6 +208,8 @@ class EventService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-event-v1-events-k8s-io
      */
     public function deletesV1Namespaced(string $name, array $query = []): Status
     {
@@ -227,6 +239,8 @@ class EventService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-event-v1-events-k8s-io
      */
     public function patchsV1Namespaced(string $name, PatchInterface $patch, array $query = []): Event
     {
@@ -256,6 +270,8 @@ class EventService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-event-v1-events-k8s-io
      */
     public function replacesV1Namespaced(string $name, Event $event, array $query = []): Event
     {
@@ -295,6 +311,8 @@ class EventService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-event-v1-events-k8s-io
      */
     public function watchsV1ListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
@@ -334,6 +352,8 @@ class EventService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-event-v1-events-k8s-io
      */
     public function watchsV1NamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -373,6 +393,8 @@ class EventService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-event-v1-events-k8s-io
      */
     public function watchsV1Namespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {

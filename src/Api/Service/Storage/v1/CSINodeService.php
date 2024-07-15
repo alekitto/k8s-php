@@ -41,6 +41,8 @@ class CSINodeService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-csinode-v1-storage-k8s-io
      */
     public function listStorageV1(array $query = [], callable|object|null $handler = null): CSINodeList|null
     {
@@ -79,6 +81,8 @@ class CSINodeService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-csinode-v1-storage-k8s-io
      */
     public function deleteStorageV1Collection(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class CSINodeService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-csinode-v1-storage-k8s-io
      */
     public function createStorageV1(CSINode $cSINode, array $query = []): CSINode
     {
@@ -133,6 +139,8 @@ class CSINodeService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-csinode-v1-storage-k8s-io
      */
     public function readStorageV1(string $name, array $query = []): CSINode
     {
@@ -162,6 +170,8 @@ class CSINodeService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-csinode-v1-storage-k8s-io
      */
     public function deleteStorageV1(string $name, array $query = []): CSINode
     {
@@ -191,6 +201,8 @@ class CSINodeService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-csinode-v1-storage-k8s-io
      */
     public function patchStorageV1(string $name, PatchInterface $patch, array $query = []): CSINode
     {
@@ -220,6 +232,8 @@ class CSINodeService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-csinode-v1-storage-k8s-io
      */
     public function replaceStorageV1(string $name, CSINode $cSINode, array $query = []): CSINode
     {
@@ -259,6 +273,8 @@ class CSINodeService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-csinode-v1-storage-k8s-io
      */
     public function watchStorageV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -298,6 +314,8 @@ class CSINodeService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-csinode-v1-storage-k8s-io
      */
     public function watchStorageV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

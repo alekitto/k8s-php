@@ -546,8 +546,7 @@ class JobTemplateSpec
      * `kubernetes.io/job-controller`, but skips reconciling Jobs with a custom value for this field. The
      * value must be a valid domain-prefixed path (e.g. acme.io/foo) - all characters before the first "/"
      * must be a valid subdomain as defined by RFC 1123. All characters trailing the first "/" must be
-     * valid HTTP Path characters as defined by RFC 3986. The value cannot exceed 63 characters. This field
-     * is immutable.
+     * valid HTTP Path characters as defined by RFC 3986. The value cannot exceed 64 characters.
      *
      * This field is alpha-level. The job controller accepts setting the field when the feature gate
      * JobManagedBy is enabled (disabled by default).
@@ -563,8 +562,7 @@ class JobTemplateSpec
      * `kubernetes.io/job-controller`, but skips reconciling Jobs with a custom value for this field. The
      * value must be a valid domain-prefixed path (e.g. acme.io/foo) - all characters before the first "/"
      * must be a valid subdomain as defined by RFC 1123. All characters trailing the first "/" must be
-     * valid HTTP Path characters as defined by RFC 3986. The value cannot exceed 63 characters. This field
-     * is immutable.
+     * valid HTTP Path characters as defined by RFC 3986. The value cannot exceed 64 characters.
      *
      * This field is alpha-level. The job controller accepts setting the field when the feature gate
      * JobManagedBy is enabled (disabled by default).
@@ -676,6 +674,9 @@ class JobTemplateSpec
      * behaviour applies - the counter of failed pods, represented by the jobs's .status.failed field, is
      * incremented and it is checked against the backoffLimit. This field cannot be used in combination
      * with restartPolicy=OnFailure.
+     *
+     * This field is beta-level. It can be used when the `JobPodFailurePolicy` feature gate is enabled
+     * (enabled by default).
      */
     public function getPodFailurePolicy(): PodFailurePolicy|null
     {
@@ -688,6 +689,9 @@ class JobTemplateSpec
      * behaviour applies - the counter of failed pods, represented by the jobs's .status.failed field, is
      * incremented and it is checked against the backoffLimit. This field cannot be used in combination
      * with restartPolicy=OnFailure.
+     *
+     * This field is beta-level. It can be used when the `JobPodFailurePolicy` feature gate is enabled
+     * (enabled by default).
      *
      * @return static
      */

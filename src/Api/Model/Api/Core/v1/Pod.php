@@ -8,6 +8,8 @@ use DateTimeInterface;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -20,19 +22,23 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get-status', path: '/api/v1/namespaces/{namespace}/pods/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/api/v1/namespaces/{namespace}/pods', body: 'model', response: 'self')]
 #[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{namespace}/pods/{name}', response: 'self')]
-#[Kubernetes\Operation('watch', path: '/api/v1/namespaces/{namespace}/pods', response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent')]
+#[Kubernetes\Operation(
+    'watch',
+    path: '/api/v1/namespaces/{namespace}/pods',
+    response: WatchEvent::class,
+)]
 #[Kubernetes\Operation('put', path: '/api/v1/namespaces/{namespace}/pods/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation('put-status', path: '/api/v1/namespaces/{namespace}/pods/{name}/status', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/api/v1/namespaces/{namespace}/pods',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
-#[Kubernetes\Operation('watch-all', path: '/api/v1/pods', response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent')]
+#[Kubernetes\Operation('watch-all', path: '/api/v1/pods', response: WatchEvent::class)]
 #[Kubernetes\Operation('patch', path: '/api/v1/namespaces/{namespace}/pods/{name}', body: 'patch', response: 'self')]
 #[Kubernetes\Operation('patch-status', path: '/api/v1/namespaces/{namespace}/pods/{name}/status', body: 'patch', response: 'self')]
-#[Kubernetes\Operation('list', path: '/api/v1/namespaces/{namespace}/pods', response: 'Kcs\K8s\Api\Model\Api\Core\v1\PodList')]
-#[Kubernetes\Operation('list-all', path: '/api/v1/pods', response: 'Kcs\K8s\Api\Model\Api\Core\v1\PodList')]
+#[Kubernetes\Operation('list', path: '/api/v1/namespaces/{namespace}/pods', response: PodList::class)]
+#[Kubernetes\Operation('list-all', path: '/api/v1/pods', response: PodList::class)]
 #[Kubernetes\Operation('proxy', path: '/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}')]
 class Pod
 {
@@ -849,11 +855,8 @@ class Pod
     }
 
     /**
-     * NodeName indicates in which node this pod is scheduled. If empty, this pod is a candidate for
-     * scheduling by the scheduler defined in schedulerName. Once this field is set, the kubelet for this
-     * node becomes responsible for the lifecycle of this pod. This field should not be used to express a
-     * desire for the pod to be scheduled on a specific node.
-     * https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename
+     * NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler
+     * simply schedules this pod onto that node, assuming that it fits resource requirements.
      */
     public function getNodeName(): string|null
     {
@@ -861,11 +864,8 @@ class Pod
     }
 
     /**
-     * NodeName indicates in which node this pod is scheduled. If empty, this pod is a candidate for
-     * scheduling by the scheduler defined in schedulerName. Once this field is set, the kubelet for this
-     * node becomes responsible for the lifecycle of this pod. This field should not be used to express a
-     * desire for the pod to be scheduled on a specific node.
-     * https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename
+     * NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler
+     * simply schedules this pod onto that node, assuming that it fits resource requirements.
      *
      * @return static
      */
@@ -911,8 +911,7 @@ class Pod
      * spec.securityContext.seccompProfile - spec.securityContext.fsGroup -
      * spec.securityContext.fsGroupChangePolicy - spec.securityContext.sysctls - spec.shareProcessNamespace
      * - spec.securityContext.runAsUser - spec.securityContext.runAsGroup -
-     * spec.securityContext.supplementalGroups - spec.securityContext.supplementalGroupsPolicy -
-     * spec.containers[*].securityContext.appArmorProfile -
+     * spec.securityContext.supplementalGroups - spec.containers[*].securityContext.appArmorProfile -
      * spec.containers[*].securityContext.seLinuxOptions -
      * spec.containers[*].securityContext.seccompProfile - spec.containers[*].securityContext.capabilities
      * - spec.containers[*].securityContext.readOnlyRootFilesystem -
@@ -937,8 +936,7 @@ class Pod
      * spec.securityContext.seccompProfile - spec.securityContext.fsGroup -
      * spec.securityContext.fsGroupChangePolicy - spec.securityContext.sysctls - spec.shareProcessNamespace
      * - spec.securityContext.runAsUser - spec.securityContext.runAsGroup -
-     * spec.securityContext.supplementalGroups - spec.securityContext.supplementalGroupsPolicy -
-     * spec.containers[*].securityContext.appArmorProfile -
+     * spec.securityContext.supplementalGroups - spec.containers[*].securityContext.appArmorProfile -
      * spec.containers[*].securityContext.seLinuxOptions -
      * spec.containers[*].securityContext.seccompProfile - spec.containers[*].securityContext.capabilities
      * - spec.containers[*].securityContext.readOnlyRootFilesystem -

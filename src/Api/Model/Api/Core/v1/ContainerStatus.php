@@ -47,9 +47,6 @@ class ContainerStatus
     #[Kubernetes\Attribute('state', type: AttributeType::Model, model: ContainerState::class)]
     protected ContainerState|null $state = null;
 
-    #[Kubernetes\Attribute('user', type: AttributeType::Model, model: ContainerUser::class)]
-    protected ContainerUser|null $user = null;
-
     /** @var iterable|VolumeMountStatus[]|null */
     #[Kubernetes\Attribute('volumeMounts', type: AttributeType::Collection, model: VolumeMountStatus::class)]
     protected $volumeMounts = null;
@@ -321,26 +318,6 @@ class ContainerStatus
     public function setState(ContainerState $state): static
     {
         $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * User represents user identity information initially attached to the first process of the container
-     */
-    public function getUser(): ContainerUser|null
-    {
-        return $this->user;
-    }
-
-    /**
-     * User represents user identity information initially attached to the first process of the container
-     *
-     * @return static
-     */
-    public function setUser(ContainerUser $user): static
-    {
-        $this->user = $user;
 
         return $this;
     }

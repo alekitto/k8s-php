@@ -41,6 +41,8 @@ class ClusterRoleBindingService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-clusterrolebinding-v1-rbac-authorization-k8s-io
      */
     public function listRbacAuthorizationV1(array $query = [], callable|object|null $handler = null): ClusterRoleBindingList|null
     {
@@ -79,6 +81,8 @@ class ClusterRoleBindingService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-clusterrolebinding-v1-rbac-authorization-k8s-io
      */
     public function deleteRbacAuthorizationV1Collection(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class ClusterRoleBindingService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-clusterrolebinding-v1-rbac-authorization-k8s-io
      */
     public function createRbacAuthorizationV1(
         ClusterRoleBinding $clusterRoleBinding,
@@ -135,6 +141,8 @@ class ClusterRoleBindingService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-clusterrolebinding-v1-rbac-authorization-k8s-io
      */
     public function readRbacAuthorizationV1(string $name, array $query = []): ClusterRoleBinding
     {
@@ -164,6 +172,8 @@ class ClusterRoleBindingService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-clusterrolebinding-v1-rbac-authorization-k8s-io
      */
     public function deleteRbacAuthorizationV1(string $name, array $query = []): Status
     {
@@ -193,6 +203,8 @@ class ClusterRoleBindingService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-clusterrolebinding-v1-rbac-authorization-k8s-io
      */
     public function patchRbacAuthorizationV1(
         string $name,
@@ -225,6 +237,8 @@ class ClusterRoleBindingService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-clusterrolebinding-v1-rbac-authorization-k8s-io
      */
     public function replaceRbacAuthorizationV1(
         string $name,
@@ -267,6 +281,8 @@ class ClusterRoleBindingService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-clusterrolebinding-v1-rbac-authorization-k8s-io
      */
     public function watchRbacAuthorizationV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -306,6 +322,8 @@ class ClusterRoleBindingService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-clusterrolebinding-v1-rbac-authorization-k8s-io
      */
     public function watchRbacAuthorizationV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Kcs\K8s\Api\Model\Api\Networking\v1beta1;
+namespace Kcs\K8s\Api\Model\Api\Networking\v1alpha1;
 
 use DateTimeInterface;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -20,35 +22,31 @@ use Kcs\K8s\Attribute\AttributeType;
  * 192.168.1.5 or 2001:db8::1 or 2001:db8:aaaa:bbbb:cccc:dddd:eeee:1 Invalid: 10.01.2.3 or
  * 2001:db8:0:0:0::1
  */
-#[Kubernetes\Kind('IPAddress', group: 'networking.k8s.io', version: 'v1beta1')]
-#[Kubernetes\Operation('get', path: '/apis/networking.k8s.io/v1beta1/ipaddresses/{name}', response: 'self')]
-#[Kubernetes\Operation('post', path: '/apis/networking.k8s.io/v1beta1/ipaddresses', body: 'model', response: 'self')]
+#[Kubernetes\Kind('IPAddress', group: 'networking.k8s.io', version: 'v1alpha1')]
+#[Kubernetes\Operation('get', path: '/apis/networking.k8s.io/v1alpha1/ipaddresses/{name}', response: 'self')]
+#[Kubernetes\Operation('post', path: '/apis/networking.k8s.io/v1alpha1/ipaddresses', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'delete',
-    path: '/apis/networking.k8s.io/v1beta1/ipaddresses/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    path: '/apis/networking.k8s.io/v1alpha1/ipaddresses/{name}',
+    response: Status::class,
 )]
-#[Kubernetes\Operation('put', path: '/apis/networking.k8s.io/v1beta1/ipaddresses/{name}', body: 'model', response: 'self')]
+#[Kubernetes\Operation('put', path: '/apis/networking.k8s.io/v1alpha1/ipaddresses/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',
-    path: '/apis/networking.k8s.io/v1beta1/ipaddresses',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    path: '/apis/networking.k8s.io/v1alpha1/ipaddresses',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch-all',
-    path: '/apis/networking.k8s.io/v1beta1/ipaddresses',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    path: '/apis/networking.k8s.io/v1alpha1/ipaddresses',
+    response: WatchEvent::class,
 )]
-#[Kubernetes\Operation('patch', path: '/apis/networking.k8s.io/v1beta1/ipaddresses/{name}', body: 'patch', response: 'self')]
-#[Kubernetes\Operation(
-    'list-all',
-    path: '/apis/networking.k8s.io/v1beta1/ipaddresses',
-    response: 'Kcs\K8s\Api\Model\Api\Networking\v1beta1\IPAddressList',
-)]
+#[Kubernetes\Operation('patch', path: '/apis/networking.k8s.io/v1alpha1/ipaddresses/{name}', body: 'patch', response: 'self')]
+#[Kubernetes\Operation('list-all', path: '/apis/networking.k8s.io/v1alpha1/ipaddresses', response: IPAddressList::class)]
 class IPAddress
 {
     #[Kubernetes\Attribute('apiVersion')]
-    protected string $apiVersion = 'networking.k8s.io/v1beta1';
+    protected string $apiVersion = 'networking.k8s.io/v1alpha1';
 
     #[Kubernetes\Attribute('kind')]
     protected string $kind = 'IPAddress';

@@ -8,6 +8,8 @@ use DateTimeInterface;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 use Kcs\K8s\Collection;
@@ -22,7 +24,7 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Operation(
     'delete',
     path: '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'put',
@@ -33,12 +35,12 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch-all',
     path: '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation(
     'patch',
@@ -49,7 +51,7 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Operation(
     'list-all',
     path: '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations',
-    response: 'Kcs\K8s\Api\Model\Api\AdmissionRegistration\v1\MutatingWebhookConfigurationList',
+    response: MutatingWebhookConfigurationList::class,
 )]
 class MutatingWebhookConfiguration
 {

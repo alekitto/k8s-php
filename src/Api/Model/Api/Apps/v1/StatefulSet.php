@@ -11,6 +11,8 @@ use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\LabelSelector;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -29,29 +31,29 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'delete',
     path: '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/apps/v1/namespaces/{namespace}/statefulsets',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation('put', path: '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation('put-status', path: '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/status', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/apis/apps/v1/namespaces/{namespace}/statefulsets',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
-#[Kubernetes\Operation('watch-all', path: '/apis/apps/v1/statefulsets', response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent')]
+#[Kubernetes\Operation(
+    'watch-all',
+    path: '/apis/apps/v1/statefulsets',
+    response: WatchEvent::class,
+)]
 #[Kubernetes\Operation('patch', path: '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}', body: 'patch', response: 'self')]
 #[Kubernetes\Operation('patch-status', path: '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/status', body: 'patch', response: 'self')]
-#[Kubernetes\Operation(
-    'list',
-    path: '/apis/apps/v1/namespaces/{namespace}/statefulsets',
-    response: 'Kcs\K8s\Api\Model\Api\Apps\v1\StatefulSetList',
-)]
-#[Kubernetes\Operation('list-all', path: '/apis/apps/v1/statefulsets', response: 'Kcs\K8s\Api\Model\Api\Apps\v1\StatefulSetList')]
+#[Kubernetes\Operation('list', path: '/apis/apps/v1/namespaces/{namespace}/statefulsets', response: StatefulSetList::class)]
+#[Kubernetes\Operation('list-all', path: '/apis/apps/v1/statefulsets', response: StatefulSetList::class)]
 class StatefulSet
 {
     #[Kubernetes\Attribute('apiVersion')]
@@ -490,7 +492,8 @@ class StatefulSet
      * from volumeClaimTemplates. By default, all persistent volume claims are created as needed and
      * retained until manually deleted. This policy allows the lifecycle to be altered, for example by
      * deleting persistent volume claims when their stateful set is deleted, or when their pod is scaled
-     * down. This requires the StatefulSetAutoDeletePVC feature gate to be enabled, which is beta.
+     * down. This requires the StatefulSetAutoDeletePVC feature gate to be enabled, which is alpha.
+     * +optional
      */
     public function getPersistentVolumeClaimRetentionPolicy(): StatefulSetPersistentVolumeClaimRetentionPolicy|null
     {
@@ -502,7 +505,8 @@ class StatefulSet
      * from volumeClaimTemplates. By default, all persistent volume claims are created as needed and
      * retained until manually deleted. This policy allows the lifecycle to be altered, for example by
      * deleting persistent volume claims when their stateful set is deleted, or when their pod is scaled
-     * down. This requires the StatefulSetAutoDeletePVC feature gate to be enabled, which is beta.
+     * down. This requires the StatefulSetAutoDeletePVC feature gate to be enabled, which is alpha.
+     * +optional
      *
      * @return static
      */

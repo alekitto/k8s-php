@@ -31,6 +31,8 @@ class PodExecOptionsService
      *   stdin
      *   stdout
      *   tty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podexecoptions-v1-core
      */
     public function connectGetNamespacedPodExec(string $name, callable|object $handler, array $query = []): void
     {
@@ -61,6 +63,8 @@ class PodExecOptionsService
      *   stdin
      *   stdout
      *   tty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podexecoptions-v1-core
      */
     public function connectPostNamespacedPodExec(string $name, callable|object $handler, array $query = []): void
     {

@@ -41,6 +41,8 @@ class ValidatingAdmissionPolicyBindingService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-validatingadmissionpolicybinding-v1-admissionregistration-k8s-io
      */
     public function listAdmissionRegistrationV1(
         array $query = [],
@@ -81,6 +83,8 @@ class ValidatingAdmissionPolicyBindingService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-validatingadmissionpolicybinding-v1-admissionregistration-k8s-io
      */
     public function deleteAdmissionRegistrationV1Collection(array $query = []): Status
     {
@@ -109,6 +113,8 @@ class ValidatingAdmissionPolicyBindingService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-validatingadmissionpolicybinding-v1-admissionregistration-k8s-io
      */
     public function createAdmissionRegistrationV1(
         ValidatingAdmissionPolicyBinding $validatingAdmissionPolicyBinding,
@@ -137,6 +143,8 @@ class ValidatingAdmissionPolicyBindingService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-validatingadmissionpolicybinding-v1-admissionregistration-k8s-io
      */
     public function readAdmissionRegistrationV1(string $name, array $query = []): ValidatingAdmissionPolicyBinding
     {
@@ -166,6 +174,8 @@ class ValidatingAdmissionPolicyBindingService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-validatingadmissionpolicybinding-v1-admissionregistration-k8s-io
      */
     public function deleteAdmissionRegistrationV1(string $name, array $query = []): Status
     {
@@ -195,6 +205,8 @@ class ValidatingAdmissionPolicyBindingService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-validatingadmissionpolicybinding-v1-admissionregistration-k8s-io
      */
     public function patchAdmissionRegistrationV1(
         string $name,
@@ -227,6 +239,8 @@ class ValidatingAdmissionPolicyBindingService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-validatingadmissionpolicybinding-v1-admissionregistration-k8s-io
      */
     public function replaceAdmissionRegistrationV1(
         string $name,
@@ -269,6 +283,8 @@ class ValidatingAdmissionPolicyBindingService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-validatingadmissionpolicybinding-v1-admissionregistration-k8s-io
      */
     public function watchAdmissionRegistrationV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -309,6 +325,8 @@ class ValidatingAdmissionPolicyBindingService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-validatingadmissionpolicybinding-v1-admissionregistration-k8s-io
      */
     public function watchAdmissionRegistrationV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

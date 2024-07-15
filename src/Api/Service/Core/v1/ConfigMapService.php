@@ -41,6 +41,8 @@ class ConfigMapService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-configmap-v1-core
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): ConfigMapList|null
     {
@@ -77,6 +79,8 @@ class ConfigMapService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-configmap-v1-core
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): ConfigMapList|null
     {
@@ -115,6 +119,8 @@ class ConfigMapService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-configmap-v1-core
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -143,6 +149,8 @@ class ConfigMapService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-configmap-v1-core
      */
     public function createNamespaced(ConfigMap $configMap, array $query = []): ConfigMap
     {
@@ -169,6 +177,8 @@ class ConfigMapService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-configmap-v1-core
      */
     public function readNamespaced(string $name, array $query = []): ConfigMap
     {
@@ -198,6 +208,8 @@ class ConfigMapService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-configmap-v1-core
      */
     public function deleteNamespaced(string $name, array $query = []): Status
     {
@@ -227,6 +239,8 @@ class ConfigMapService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-configmap-v1-core
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): ConfigMap
     {
@@ -256,6 +270,8 @@ class ConfigMapService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-configmap-v1-core
      */
     public function replaceNamespaced(string $name, ConfigMap $configMap, array $query = []): ConfigMap
     {
@@ -295,6 +311,8 @@ class ConfigMapService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-configmap-v1-core
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
@@ -334,6 +352,8 @@ class ConfigMapService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-configmap-v1-core
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -373,6 +393,8 @@ class ConfigMapService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-configmap-v1-core
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {

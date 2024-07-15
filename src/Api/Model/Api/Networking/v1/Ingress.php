@@ -8,6 +8,8 @@ use DateTimeInterface;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -23,12 +25,12 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'delete',
     path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/ingresses/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/ingresses',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation('put', path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/ingresses/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
@@ -40,12 +42,12 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/ingresses',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch-all',
     path: '/apis/networking.k8s.io/v1/ingresses',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation('patch', path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/ingresses/{name}', body: 'patch', response: 'self')]
 #[Kubernetes\Operation(
@@ -54,12 +56,8 @@ use Kcs\K8s\Attribute\AttributeType;
     body: 'patch',
     response: 'self',
 )]
-#[Kubernetes\Operation(
-    'list',
-    path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/ingresses',
-    response: 'Kcs\K8s\Api\Model\Api\Networking\v1\IngressList',
-)]
-#[Kubernetes\Operation('list-all', path: '/apis/networking.k8s.io/v1/ingresses', response: 'Kcs\K8s\Api\Model\Api\Networking\v1\IngressList')]
+#[Kubernetes\Operation('list', path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/ingresses', response: IngressList::class)]
+#[Kubernetes\Operation('list-all', path: '/apis/networking.k8s.io/v1/ingresses', response: IngressList::class)]
 class Ingress
 {
     #[Kubernetes\Attribute('apiVersion')]

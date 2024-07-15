@@ -30,6 +30,8 @@ class BindingService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-binding-v1-core
      */
     public function createNamespaced(Binding $binding, array $query = []): Binding
     {
@@ -59,6 +61,8 @@ class BindingService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-binding-v1-core
      */
     public function createNamespacedPod(string $name, Binding $binding, array $query = []): Binding
     {

@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Kcs\K8s\Api\Model\Api\AdmissionRegistration\v1alpha1;
 
+use DateTimeInterface;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
-use Kcs\K8s\Collection;
 
 /**
  * ValidatingAdmissionPolicyBinding binds the ValidatingAdmissionPolicy with paramerized resources.
@@ -36,7 +38,7 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Operation(
     'delete',
     path: '/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicybindings/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'put',
@@ -47,12 +49,12 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicybindings',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch-all',
     path: '/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicybindings',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation(
     'patch',
@@ -63,27 +65,23 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Operation(
     'list-all',
     path: '/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicybindings',
-    response: 'Kcs\K8s\Api\Model\Api\AdmissionRegistration\v1alpha1\ValidatingAdmissionPolicyBindingList',
+    response: ValidatingAdmissionPolicyBindingList::class,
 )]
 class ValidatingAdmissionPolicyBinding
 {
-    /** @var string */
     #[Kubernetes\Attribute('apiVersion')]
-    protected $apiVersion = 'admissionregistration.k8s.io/v1alpha1';
+    protected string $apiVersion = 'admissionregistration.k8s.io/v1alpha1';
 
-    /** @var string */
     #[Kubernetes\Attribute('kind')]
-    protected $kind = 'ValidatingAdmissionPolicyBinding';
+    protected string $kind = 'ValidatingAdmissionPolicyBinding';
 
-    /** @var ObjectMeta */
-    #[Kubernetes\Attribute('metadata', type: \Kcs\K8s\Attribute\AttributeType::Model, model: ObjectMeta::class)]
-    protected $metadata;
+    #[Kubernetes\Attribute('metadata', type: AttributeType::Model, model: ObjectMeta::class)]
+    protected ObjectMeta $metadata;
 
-    /** @var ValidatingAdmissionPolicyBindingSpec */
-    #[Kubernetes\Attribute('spec', type: \Kcs\K8s\Attribute\AttributeType::Model, model: ValidatingAdmissionPolicyBindingSpec::class)]
-    protected $spec;
+    #[Kubernetes\Attribute('spec', type: AttributeType::Model, model: ValidatingAdmissionPolicyBindingSpec::class)]
+    protected ValidatingAdmissionPolicyBindingSpec $spec;
 
-    public function __construct(?string $name)
+    public function __construct(string|null $name)
     {
         $this->metadata = new ObjectMeta($name);
     }
@@ -94,7 +92,7 @@ class ValidatingAdmissionPolicyBinding
      * modifying objects. More info:
      * https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations
      */
-    public function getAnnotations(): ?array
+    public function getAnnotations(): array|null
     {
         return $this->metadata->getAnnotations();
     }
@@ -107,7 +105,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setAnnotations(array $annotations)
+    public function setAnnotations(array $annotations): static
     {
         $this->metadata->setAnnotations($annotations);
 
@@ -122,7 +120,7 @@ class ValidatingAdmissionPolicyBinding
      * Populated by the system. Read-only. Null for lists. More info:
      * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      */
-    public function getCreationTimestamp(): ?\DateTimeInterface
+    public function getCreationTimestamp(): DateTimeInterface|null
     {
         return $this->metadata->getCreationTimestamp();
     }
@@ -131,7 +129,7 @@ class ValidatingAdmissionPolicyBinding
      * Number of seconds allowed for this object to gracefully terminate before it will be removed from the
      * system. Only set when deletionTimestamp is also set. May only be shortened. Read-only.
      */
-    public function getDeletionGracePeriodSeconds(): ?int
+    public function getDeletionGracePeriodSeconds(): int|null
     {
         return $this->metadata->getDeletionGracePeriodSeconds();
     }
@@ -153,7 +151,7 @@ class ValidatingAdmissionPolicyBinding
      * Populated by the system when a graceful deletion is requested. Read-only. More info:
      * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      */
-    public function getDeletionTimestamp(): ?\DateTimeInterface
+    public function getDeletionTimestamp(): DateTimeInterface|null
     {
         return $this->metadata->getDeletionTimestamp();
     }
@@ -170,7 +168,7 @@ class ValidatingAdmissionPolicyBinding
      * Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to
      * ordering changes in the list.
      */
-    public function getFinalizers(): ?array
+    public function getFinalizers(): array|null
     {
         return $this->metadata->getFinalizers();
     }
@@ -189,7 +187,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setFinalizers(array $finalizers)
+    public function setFinalizers(array $finalizers): static
     {
         $this->metadata->setFinalizers($finalizers);
 
@@ -208,7 +206,7 @@ class ValidatingAdmissionPolicyBinding
      * Applied only if Name is not specified. More info:
      * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency
      */
-    public function getGenerateName(): ?string
+    public function getGenerateName(): string|null
     {
         return $this->metadata->getGenerateName();
     }
@@ -227,7 +225,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setGenerateName(string $generateName)
+    public function setGenerateName(string $generateName): static
     {
         $this->metadata->setGenerateName($generateName);
 
@@ -238,7 +236,7 @@ class ValidatingAdmissionPolicyBinding
      * A sequence number representing a specific generation of the desired state. Populated by the system.
      * Read-only.
      */
-    public function getGeneration(): ?int
+    public function getGeneration(): int|null
     {
         return $this->metadata->getGeneration();
     }
@@ -248,7 +246,7 @@ class ValidatingAdmissionPolicyBinding
      * objects. May match selectors of replication controllers and services. More info:
      * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
      */
-    public function getLabels(): ?array
+    public function getLabels(): array|null
     {
         return $this->metadata->getLabels();
     }
@@ -260,7 +258,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setLabels(array $labels)
+    public function setLabels(array $labels): static
     {
         $this->metadata->setLabels($labels);
 
@@ -276,7 +274,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return iterable|ManagedFieldsEntry[]
      */
-    public function getManagedFields(): ?iterable
+    public function getManagedFields(): iterable|null
     {
         return $this->metadata->getManagedFields();
     }
@@ -290,17 +288,15 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setManagedFields(iterable $managedFields)
+    public function setManagedFields(iterable $managedFields): static
     {
         $this->metadata->setManagedFields($managedFields);
 
         return $this;
     }
 
-    /**
-     * @return static
-     */
-    public function addManagedFields(ManagedFieldsEntry $managedField)
+    /** @return static */
+    public function addManagedFields(ManagedFieldsEntry $managedField): static
     {
         $this->metadata->addManagedFields($managedField);
 
@@ -313,7 +309,7 @@ class ValidatingAdmissionPolicyBinding
      * intended for creation idempotence and configuration definition. Cannot be updated. More info:
      * https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names
      */
-    public function getName(): ?string
+    public function getName(): string|null
     {
         return $this->metadata->getName();
     }
@@ -326,7 +322,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setName(string $name)
+    public function setName(string $name): static
     {
         $this->metadata->setName($name);
 
@@ -341,7 +337,7 @@ class ValidatingAdmissionPolicyBinding
      * Must be a DNS_LABEL. Cannot be updated. More info:
      * https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces
      */
-    public function getNamespace(): ?string
+    public function getNamespace(): string|null
     {
         return $this->metadata->getNamespace();
     }
@@ -356,7 +352,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setNamespace(string $namespace)
+    public function setNamespace(string $namespace): static
     {
         $this->metadata->setNamespace($namespace);
 
@@ -371,7 +367,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return iterable|OwnerReference[]
      */
-    public function getOwnerReferences(): ?iterable
+    public function getOwnerReferences(): iterable|null
     {
         return $this->metadata->getOwnerReferences();
     }
@@ -384,17 +380,15 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setOwnerReferences(iterable $ownerReferences)
+    public function setOwnerReferences(iterable $ownerReferences): static
     {
         $this->metadata->setOwnerReferences($ownerReferences);
 
         return $this;
     }
 
-    /**
-     * @return static
-     */
-    public function addOwnerReferences(OwnerReference $ownerReference)
+    /** @return static */
+    public function addOwnerReferences(OwnerReference $ownerReference): static
     {
         $this->metadata->addOwnerReferences($ownerReference);
 
@@ -411,7 +405,7 @@ class ValidatingAdmissionPolicyBinding
      * Populated by the system. Read-only. Value must be treated as opaque by clients and . More info:
      * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
      */
-    public function getResourceVersion(): ?string
+    public function getResourceVersion(): string|null
     {
         return $this->metadata->getResourceVersion();
     }
@@ -419,7 +413,7 @@ class ValidatingAdmissionPolicyBinding
     /**
      * Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.
      */
-    public function getSelfLink(): ?string
+    public function getSelfLink(): string|null
     {
         return $this->metadata->getSelfLink();
     }
@@ -429,7 +423,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setSelfLink(string $selfLink)
+    public function setSelfLink(string $selfLink): static
     {
         $this->metadata->setSelfLink($selfLink);
 
@@ -443,7 +437,7 @@ class ValidatingAdmissionPolicyBinding
      * Populated by the system. Read-only. More info:
      * https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids
      */
-    public function getUid(): ?string
+    public function getUid(): string|null
     {
         return $this->metadata->getUid();
     }
@@ -456,7 +450,7 @@ class ValidatingAdmissionPolicyBinding
      * is matched by the other fields of this object, it will be validated. Note that this is differs from
      * ValidatingAdmissionPolicy matchConstraints, where resourceRules are required.
      */
-    public function getMatchResources(): ?MatchResources
+    public function getMatchResources(): MatchResources|null
     {
         return $this->spec->getMatchResources();
     }
@@ -471,7 +465,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setMatchResources(MatchResources $matchResources)
+    public function setMatchResources(MatchResources $matchResources): static
     {
         $this->spec->setMatchResources($matchResources);
 
@@ -486,7 +480,7 @@ class ValidatingAdmissionPolicyBinding
      * If the policy does not specify a ParamKind then this field is ignored, and the rules are evaluated
      * without a param.
      */
-    public function getParamRef(): ?ParamRef
+    public function getParamRef(): ParamRef|null
     {
         return $this->spec->getParamRef();
     }
@@ -501,7 +495,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setParamRef(ParamRef $paramRef)
+    public function setParamRef(ParamRef $paramRef): static
     {
         $this->spec->setParamRef($paramRef);
 
@@ -513,7 +507,7 @@ class ValidatingAdmissionPolicyBinding
      * binds to. If the referenced resource does not exist, this binding is considered invalid and will be
      * ignored Required.
      */
-    public function getPolicyName(): ?string
+    public function getPolicyName(): string|null
     {
         return $this->spec->getPolicyName();
     }
@@ -525,7 +519,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setPolicyName(string $policyName)
+    public function setPolicyName(string $policyName): static
     {
         $this->spec->setPolicyName($policyName);
 
@@ -569,7 +563,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * Required.
      */
-    public function getValidationActions(): ?array
+    public function getValidationActions(): array|null
     {
         return $this->spec->getValidationActions();
     }
@@ -607,13 +601,17 @@ class ValidatingAdmissionPolicyBinding
      * Clients should expect to handle additional values by ignoring any values not recognized.
      *
      * "Deny" and "Warn" may not be used together since this combination needlessly duplicates the
-     * validation failure both in the API response body and the HTTP warning headers.
+     *                                                        * * * * * * * * * * * validation failure both in the API response body and the HTTP warning headers.
      *
-     * Required.
+     *                                                        * * * * * * * * * * * Required.
+     *
+
+     *
+
      *
      * @return static
      */
-    public function setValidationActions(array $validationActions)
+    public function setValidationActions(array $validationActions): static
     {
         $this->spec->setValidationActions($validationActions);
 
@@ -637,7 +635,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setApiVersion(string $apiVersion)
+    public function setApiVersion(string $apiVersion): static
     {
         $this->apiVersion = $apiVersion;
 
@@ -661,7 +659,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setKind(string $kind)
+    public function setKind(string $kind): static
     {
         $this->kind = $kind;
 
@@ -683,7 +681,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setMetadata(ObjectMeta $metadata)
+    public function setMetadata(ObjectMeta $metadata): static
     {
         $this->metadata = $metadata;
 
@@ -703,7 +701,7 @@ class ValidatingAdmissionPolicyBinding
      *
      * @return static
      */
-    public function setSpec(ValidatingAdmissionPolicyBindingSpec $spec)
+    public function setSpec(ValidatingAdmissionPolicyBindingSpec $spec): static
     {
         $this->spec = $spec;
 

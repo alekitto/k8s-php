@@ -41,6 +41,8 @@ class APIServiceService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-apiservice-v1-apiregistration-k8s-io
      */
     public function listApiRegistrationV1(array $query = [], callable|object|null $handler = null): APIServiceList|null
     {
@@ -79,6 +81,8 @@ class APIServiceService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-apiservice-v1-apiregistration-k8s-io
      */
     public function deleteApiRegistrationV1Collection(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class APIServiceService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-apiservice-v1-apiregistration-k8s-io
      */
     public function createApiRegistrationV1(APIService $aPIService, array $query = []): APIService
     {
@@ -133,6 +139,8 @@ class APIServiceService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-apiservice-v1-apiregistration-k8s-io
      */
     public function readApiRegistrationV1(string $name, array $query = []): APIService
     {
@@ -162,6 +170,8 @@ class APIServiceService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-apiservice-v1-apiregistration-k8s-io
      */
     public function deleteApiRegistrationV1(string $name, array $query = []): Status
     {
@@ -191,6 +201,8 @@ class APIServiceService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-apiservice-v1-apiregistration-k8s-io
      */
     public function patchApiRegistrationV1(string $name, PatchInterface $patch, array $query = []): APIService
     {
@@ -220,6 +232,8 @@ class APIServiceService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-apiservice-v1-apiregistration-k8s-io
      */
     public function replaceApiRegistrationV1(string $name, APIService $aPIService, array $query = []): APIService
     {
@@ -246,6 +260,8 @@ class APIServiceService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-apiservice-v1-apiregistration-k8s-io
      */
     public function readApiRegistrationV1Status(string $name, array $query = []): APIService
     {
@@ -275,6 +291,8 @@ class APIServiceService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-apiservice-v1-apiregistration-k8s-io
      */
     public function patchApiRegistrationV1Status(string $name, PatchInterface $patch, array $query = []): APIService
     {
@@ -304,6 +322,8 @@ class APIServiceService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-apiservice-v1-apiregistration-k8s-io
      */
     public function replaceApiRegistrationV1Status(
         string $name,
@@ -346,6 +366,8 @@ class APIServiceService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-apiservice-v1-apiregistration-k8s-io
      */
     public function watchApiRegistrationV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -385,6 +407,8 @@ class APIServiceService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-apiservice-v1-apiregistration-k8s-io
      */
     public function watchApiRegistrationV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

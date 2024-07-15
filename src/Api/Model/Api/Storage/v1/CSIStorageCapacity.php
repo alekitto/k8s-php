@@ -9,6 +9,8 @@ use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\LabelSelector;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -39,12 +41,12 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'delete',
     path: '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation(
     'put',
@@ -55,12 +57,12 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch-all',
     path: '/apis/storage.k8s.io/v1/csistoragecapacities',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation(
     'patch',
@@ -71,13 +73,9 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'list',
     path: '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities',
-    response: 'Kcs\K8s\Api\Model\Api\Storage\v1\CSIStorageCapacityList',
+    response: CSIStorageCapacityList::class,
 )]
-#[Kubernetes\Operation(
-    'list-all',
-    path: '/apis/storage.k8s.io/v1/csistoragecapacities',
-    response: 'Kcs\K8s\Api\Model\Api\Storage\v1\CSIStorageCapacityList',
-)]
+#[Kubernetes\Operation('list-all', path: '/apis/storage.k8s.io/v1/csistoragecapacities', response: CSIStorageCapacityList::class)]
 class CSIStorageCapacity
 {
     #[Kubernetes\Attribute('apiVersion')]

@@ -41,6 +41,8 @@ class CSIStorageCapacityService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-csistoragecapacity-v1-storage-k8s-io
      */
     public function listStorageV1ForAllNamespaces(array $query = [], callable|object|null $handler = null): CSIStorageCapacityList|null
     {
@@ -77,6 +79,8 @@ class CSIStorageCapacityService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-csistoragecapacity-v1-storage-k8s-io
      */
     public function listStorageV1Namespaced(array $query = [], callable|object|null $handler = null): CSIStorageCapacityList|null
     {
@@ -115,6 +119,8 @@ class CSIStorageCapacityService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-csistoragecapacity-v1-storage-k8s-io
      */
     public function deleteStorageV1CollectionNamespaced(array $query = []): Status
     {
@@ -143,6 +149,8 @@ class CSIStorageCapacityService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-csistoragecapacity-v1-storage-k8s-io
      */
     public function createStorageV1Namespaced(
         CSIStorageCapacity $cSIStorageCapacity,
@@ -171,6 +179,8 @@ class CSIStorageCapacityService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-csistoragecapacity-v1-storage-k8s-io
      */
     public function readStorageV1Namespaced(string $name, array $query = []): CSIStorageCapacity
     {
@@ -200,6 +210,8 @@ class CSIStorageCapacityService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-csistoragecapacity-v1-storage-k8s-io
      */
     public function deleteStorageV1Namespaced(string $name, array $query = []): Status
     {
@@ -229,6 +241,8 @@ class CSIStorageCapacityService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-csistoragecapacity-v1-storage-k8s-io
      */
     public function patchStorageV1Namespaced(
         string $name,
@@ -261,6 +275,8 @@ class CSIStorageCapacityService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-csistoragecapacity-v1-storage-k8s-io
      */
     public function replaceStorageV1Namespaced(
         string $name,
@@ -303,6 +319,8 @@ class CSIStorageCapacityService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-csistoragecapacity-v1-storage-k8s-io
      */
     public function watchStorageV1ListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
@@ -342,6 +360,8 @@ class CSIStorageCapacityService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-csistoragecapacity-v1-storage-k8s-io
      */
     public function watchStorageV1NamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -381,6 +401,8 @@ class CSIStorageCapacityService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-csistoragecapacity-v1-storage-k8s-io
      */
     public function watchStorageV1Namespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {

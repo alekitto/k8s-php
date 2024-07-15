@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Kcs\K8s\Api\Model\Api\Networking\v1beta1;
+namespace Kcs\K8s\Api\Model\Api\Networking\v1alpha1;
 
 use DateTimeInterface;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -15,38 +17,34 @@ use Kcs\K8s\Attribute\AttributeType;
  * ServiceCIDR defines a range of IP addresses using CIDR format (e.g. 192.168.0.0/24 or
  * 2001:db2::/64). This range is used to allocate ClusterIPs to Service objects.
  */
-#[Kubernetes\Kind('ServiceCIDR', group: 'networking.k8s.io', version: 'v1beta1')]
-#[Kubernetes\Operation('get', path: '/apis/networking.k8s.io/v1beta1/servicecidrs/{name}', response: 'self')]
-#[Kubernetes\Operation('get-status', path: '/apis/networking.k8s.io/v1beta1/servicecidrs/{name}/status', response: 'self')]
-#[Kubernetes\Operation('post', path: '/apis/networking.k8s.io/v1beta1/servicecidrs', body: 'model', response: 'self')]
+#[Kubernetes\Kind('ServiceCIDR', group: 'networking.k8s.io', version: 'v1alpha1')]
+#[Kubernetes\Operation('get', path: '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}', response: 'self')]
+#[Kubernetes\Operation('get-status', path: '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}/status', response: 'self')]
+#[Kubernetes\Operation('post', path: '/apis/networking.k8s.io/v1alpha1/servicecidrs', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'delete',
-    path: '/apis/networking.k8s.io/v1beta1/servicecidrs/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    path: '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}',
+    response: Status::class,
 )]
-#[Kubernetes\Operation('put', path: '/apis/networking.k8s.io/v1beta1/servicecidrs/{name}', body: 'model', response: 'self')]
-#[Kubernetes\Operation('put-status', path: '/apis/networking.k8s.io/v1beta1/servicecidrs/{name}/status', body: 'model', response: 'self')]
+#[Kubernetes\Operation('put', path: '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}', body: 'model', response: 'self')]
+#[Kubernetes\Operation('put-status', path: '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}/status', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',
-    path: '/apis/networking.k8s.io/v1beta1/servicecidrs',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    path: '/apis/networking.k8s.io/v1alpha1/servicecidrs',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch-all',
-    path: '/apis/networking.k8s.io/v1beta1/servicecidrs',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    path: '/apis/networking.k8s.io/v1alpha1/servicecidrs',
+    response: WatchEvent::class,
 )]
-#[Kubernetes\Operation('patch', path: '/apis/networking.k8s.io/v1beta1/servicecidrs/{name}', body: 'patch', response: 'self')]
-#[Kubernetes\Operation('patch-status', path: '/apis/networking.k8s.io/v1beta1/servicecidrs/{name}/status', body: 'patch', response: 'self')]
-#[Kubernetes\Operation(
-    'list-all',
-    path: '/apis/networking.k8s.io/v1beta1/servicecidrs',
-    response: 'Kcs\K8s\Api\Model\Api\Networking\v1beta1\ServiceCIDRList',
-)]
+#[Kubernetes\Operation('patch', path: '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}', body: 'patch', response: 'self')]
+#[Kubernetes\Operation('patch-status', path: '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}/status', body: 'patch', response: 'self')]
+#[Kubernetes\Operation('list-all', path: '/apis/networking.k8s.io/v1alpha1/servicecidrs', response: ServiceCIDRList::class)]
 class ServiceCIDR
 {
     #[Kubernetes\Attribute('apiVersion')]
-    protected string $apiVersion = 'networking.k8s.io/v1beta1';
+    protected string $apiVersion = 'networking.k8s.io/v1alpha1';
 
     #[Kubernetes\Attribute('kind')]
     protected string $kind = 'ServiceCIDR';

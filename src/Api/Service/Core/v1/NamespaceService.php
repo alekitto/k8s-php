@@ -44,6 +44,8 @@ class NamespaceService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-namespace-v1-core
      */
     public function list(array $query = [], callable|object|null $handler = null): NamespaceList|null
     {
@@ -73,6 +75,8 @@ class NamespaceService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-namespace-v1-core
      */
     public function create(K8sNamespace $k8sNamespace, array $query = []): K8sNamespace
     {
@@ -99,6 +103,8 @@ class NamespaceService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-namespace-v1-core
      */
     public function read(string $name, array $query = []): K8sNamespace
     {
@@ -128,6 +134,8 @@ class NamespaceService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-namespace-v1-core
      */
     public function delete(string $name, array $query = []): Status
     {
@@ -157,6 +165,8 @@ class NamespaceService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-namespace-v1-core
      */
     public function patch(string $name, PatchInterface $patch, array $query = []): K8sNamespace
     {
@@ -186,6 +196,8 @@ class NamespaceService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-namespace-v1-core
      */
     public function replace(string $name, K8sNamespace $k8sNamespace, array $query = []): K8sNamespace
     {
@@ -215,6 +227,8 @@ class NamespaceService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-namespace-v1-core
      */
     public function replaceFinalize(string $name, K8sNamespace $k8sNamespace, array $query = []): K8sNamespace
     {
@@ -241,6 +255,8 @@ class NamespaceService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-namespace-v1-core
      */
     public function readStatus(string $name, array $query = []): K8sNamespace
     {
@@ -270,6 +286,8 @@ class NamespaceService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-namespace-v1-core
      */
     public function patchStatus(string $name, PatchInterface $patch, array $query = []): K8sNamespace
     {
@@ -299,6 +317,8 @@ class NamespaceService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-namespace-v1-core
      */
     public function replaceStatus(string $name, K8sNamespace $k8sNamespace, array $query = []): K8sNamespace
     {
@@ -338,6 +358,8 @@ class NamespaceService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-namespace-v1-core
      */
     public function watchList(array $query = [], callable|object|null $handler = null): void
     {
@@ -377,6 +399,8 @@ class NamespaceService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-namespace-v1-core
      */
     public function watch(string $name, array $query = [], callable|object|null $handler = null): void
     {

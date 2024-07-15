@@ -41,6 +41,8 @@ class NetworkPolicyService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-networkpolicy-v1-networking-k8s-io
      */
     public function listNetworkingV1Namespaced(array $query = [], callable|object|null $handler = null): NetworkPolicyList|null
     {
@@ -79,6 +81,8 @@ class NetworkPolicyService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-networkpolicy-v1-networking-k8s-io
      */
     public function deleteNetworkingV1CollectionNamespaced(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class NetworkPolicyService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-networkpolicy-v1-networking-k8s-io
      */
     public function createNetworkingV1Namespaced(NetworkPolicy $networkPolicy, array $query = []): NetworkPolicy
     {
@@ -133,6 +139,8 @@ class NetworkPolicyService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-networkpolicy-v1-networking-k8s-io
      */
     public function readNetworkingV1Namespaced(string $name, array $query = []): NetworkPolicy
     {
@@ -162,6 +170,8 @@ class NetworkPolicyService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-networkpolicy-v1-networking-k8s-io
      */
     public function deleteNetworkingV1Namespaced(string $name, array $query = []): Status
     {
@@ -191,6 +201,8 @@ class NetworkPolicyService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-networkpolicy-v1-networking-k8s-io
      */
     public function patchNetworkingV1Namespaced(string $name, PatchInterface $patch, array $query = []): NetworkPolicy
     {
@@ -220,6 +232,8 @@ class NetworkPolicyService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-networkpolicy-v1-networking-k8s-io
      */
     public function replaceNetworkingV1Namespaced(
         string $name,
@@ -259,6 +273,8 @@ class NetworkPolicyService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-networkpolicy-v1-networking-k8s-io
      */
     public function listNetworkingV1ForAllNamespaces(array $query = [], callable|object|null $handler = null): NetworkPolicyList|null
     {
@@ -298,6 +314,8 @@ class NetworkPolicyService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-networkpolicy-v1-networking-k8s-io
      */
     public function watchNetworkingV1NamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -337,6 +355,8 @@ class NetworkPolicyService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-networkpolicy-v1-networking-k8s-io
      */
     public function watchNetworkingV1Namespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -376,6 +396,8 @@ class NetworkPolicyService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-networkpolicy-v1-networking-k8s-io
      */
     public function watchNetworkingV1ListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

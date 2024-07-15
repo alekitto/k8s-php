@@ -15,15 +15,20 @@ class ResourceHandle
     #[Kubernetes\Attribute('data')]
     protected string|null $data = null;
 
-    #[Kubernetes\Attribute('driverName', required: true)]
-    protected string $driverName;
+    #[Kubernetes\Attribute('driverName')]
+    protected string|null $driverName = null;
 
     #[Kubernetes\Attribute('structuredData', type: AttributeType::Model, model: StructuredResourceHandle::class)]
     protected StructuredResourceHandle|null $structuredData = null;
 
-    public function __construct(string $driverName)
-    {
+    public function __construct(
+        string|null $data = null,
+        string|null $driverName = null,
+        StructuredResourceHandle|null $structuredData = null,
+    ) {
+        $this->data = $data;
         $this->driverName = $driverName;
+        $this->structuredData = $structuredData;
     }
 
     /**
@@ -61,7 +66,7 @@ class ResourceHandle
      * process this ResourceHandle's data once it lands on a node. This may differ from the DriverName set
      * in ResourceClaimStatus this ResourceHandle is embedded in.
      */
-    public function getDriverName(): string
+    public function getDriverName(): string|null
     {
         return $this->driverName;
     }

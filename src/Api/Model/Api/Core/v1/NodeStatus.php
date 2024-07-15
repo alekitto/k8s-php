@@ -127,7 +127,7 @@ class NodeStatus
 
     /**
      * Capacity represents the total resources of a node. More info:
-     * https://kubernetes.io/docs/reference/node/node-status/#capacity
+     * https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
      */
     public function getCapacity(): array|null
     {
@@ -136,7 +136,7 @@ class NodeStatus
 
     /**
      * Capacity represents the total resources of a node. More info:
-     * https://kubernetes.io/docs/reference/node/node-status/#capacity
+     * https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
      *
      * @return static
      */

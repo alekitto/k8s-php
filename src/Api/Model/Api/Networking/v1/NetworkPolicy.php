@@ -9,6 +9,8 @@ use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\LabelSelector;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -21,23 +23,23 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'delete',
     path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation('put', path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch-all',
     path: '/apis/networking.k8s.io/v1/networkpolicies',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation(
     'patch',
@@ -45,16 +47,8 @@ use Kcs\K8s\Attribute\AttributeType;
     body: 'patch',
     response: 'self',
 )]
-#[Kubernetes\Operation(
-    'list',
-    path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies',
-    response: 'Kcs\K8s\Api\Model\Api\Networking\v1\NetworkPolicyList',
-)]
-#[Kubernetes\Operation(
-    'list-all',
-    path: '/apis/networking.k8s.io/v1/networkpolicies',
-    response: 'Kcs\K8s\Api\Model\Api\Networking\v1\NetworkPolicyList',
-)]
+#[Kubernetes\Operation('list', path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies', response: NetworkPolicyList::class)]
+#[Kubernetes\Operation('list-all', path: '/apis/networking.k8s.io/v1/networkpolicies', response: NetworkPolicyList::class)]
 class NetworkPolicy
 {
     #[Kubernetes\Attribute('apiVersion')]

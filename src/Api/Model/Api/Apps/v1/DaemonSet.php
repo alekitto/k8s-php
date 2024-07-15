@@ -10,6 +10,8 @@ use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\LabelSelector;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -23,25 +25,25 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'delete',
     path: '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/apps/v1/namespaces/{namespace}/daemonsets',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation('put', path: '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation('put-status', path: '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}/status', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/apis/apps/v1/namespaces/{namespace}/daemonsets',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
-#[Kubernetes\Operation('watch-all', path: '/apis/apps/v1/daemonsets', response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent')]
+#[Kubernetes\Operation('watch-all', path: '/apis/apps/v1/daemonsets', response: WatchEvent::class)]
 #[Kubernetes\Operation('patch', path: '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}', body: 'patch', response: 'self')]
 #[Kubernetes\Operation('patch-status', path: '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}/status', body: 'patch', response: 'self')]
-#[Kubernetes\Operation('list', path: '/apis/apps/v1/namespaces/{namespace}/daemonsets', response: 'Kcs\K8s\Api\Model\Api\Apps\v1\DaemonSetList')]
-#[Kubernetes\Operation('list-all', path: '/apis/apps/v1/daemonsets', response: 'Kcs\K8s\Api\Model\Api\Apps\v1\DaemonSetList')]
+#[Kubernetes\Operation('list', path: '/apis/apps/v1/namespaces/{namespace}/daemonsets', response: DaemonSetList::class)]
+#[Kubernetes\Operation('list-all', path: '/apis/apps/v1/daemonsets', response: DaemonSetList::class)]
 class DaemonSet
 {
     #[Kubernetes\Attribute('apiVersion')]

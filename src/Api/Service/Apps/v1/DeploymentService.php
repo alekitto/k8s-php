@@ -41,6 +41,8 @@ class DeploymentService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-deployment-v1-apps
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): DeploymentList|null
     {
@@ -77,6 +79,8 @@ class DeploymentService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-deployment-v1-apps
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): DeploymentList|null
     {
@@ -115,6 +119,8 @@ class DeploymentService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-deployment-v1-apps
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -143,6 +149,8 @@ class DeploymentService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-deployment-v1-apps
      */
     public function createNamespaced(Deployment $deployment, array $query = []): Deployment
     {
@@ -169,6 +177,8 @@ class DeploymentService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-deployment-v1-apps
      */
     public function readNamespaced(string $name, array $query = []): Deployment
     {
@@ -198,6 +208,8 @@ class DeploymentService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-deployment-v1-apps
      */
     public function deleteNamespaced(string $name, array $query = []): Status
     {
@@ -227,6 +239,8 @@ class DeploymentService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-deployment-v1-apps
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): Deployment
     {
@@ -256,6 +270,8 @@ class DeploymentService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-deployment-v1-apps
      */
     public function replaceNamespaced(string $name, Deployment $deployment, array $query = []): Deployment
     {
@@ -282,6 +298,8 @@ class DeploymentService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-deployment-v1-apps
      */
     public function readNamespacedStatus(string $name, array $query = []): Deployment
     {
@@ -311,6 +329,8 @@ class DeploymentService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-deployment-v1-apps
      */
     public function patchNamespacedStatus(string $name, PatchInterface $patch, array $query = []): Deployment
     {
@@ -340,6 +360,8 @@ class DeploymentService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-deployment-v1-apps
      */
     public function replaceNamespacedStatus(string $name, Deployment $deployment, array $query = []): Deployment
     {
@@ -379,6 +401,8 @@ class DeploymentService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-deployment-v1-apps
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
@@ -418,6 +442,8 @@ class DeploymentService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-deployment-v1-apps
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -457,6 +483,8 @@ class DeploymentService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-deployment-v1-apps
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {

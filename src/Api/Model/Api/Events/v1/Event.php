@@ -10,6 +10,8 @@ use Kcs\K8s\Api\Model\Api\Core\v1\ObjectReference;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -26,27 +28,27 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'delete',
     path: '/apis/events.k8s.io/v1/namespaces/{namespace}/events/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/events.k8s.io/v1/namespaces/{namespace}/events',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation('put', path: '/apis/events.k8s.io/v1/namespaces/{namespace}/events/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/apis/events.k8s.io/v1/namespaces/{namespace}/events',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
-#[Kubernetes\Operation('watch-all', path: '/apis/events.k8s.io/v1/events', response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent')]
-#[Kubernetes\Operation('patch', path: '/apis/events.k8s.io/v1/namespaces/{namespace}/events/{name}', body: 'patch', response: 'self')]
 #[Kubernetes\Operation(
-    'list',
-    path: '/apis/events.k8s.io/v1/namespaces/{namespace}/events',
-    response: 'Kcs\K8s\Api\Model\Api\Events\v1\EventList',
+    'watch-all',
+    path: '/apis/events.k8s.io/v1/events',
+    response: WatchEvent::class,
 )]
-#[Kubernetes\Operation('list-all', path: '/apis/events.k8s.io/v1/events', response: 'Kcs\K8s\Api\Model\Api\Events\v1\EventList')]
+#[Kubernetes\Operation('patch', path: '/apis/events.k8s.io/v1/namespaces/{namespace}/events/{name}', body: 'patch', response: 'self')]
+#[Kubernetes\Operation('list', path: '/apis/events.k8s.io/v1/namespaces/{namespace}/events', response: EventList::class)]
+#[Kubernetes\Operation('list-all', path: '/apis/events.k8s.io/v1/events', response: EventList::class)]
 class Event
 {
     #[Kubernetes\Attribute('action')]

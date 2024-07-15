@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Kcs\K8s\Api\Service\Networking\v1beta1;
+namespace Kcs\K8s\Api\Service\Networking\v1alpha1;
 
-use Kcs\K8s\Api\Model\Api\Networking\v1beta1\IPAddress;
-use Kcs\K8s\Api\Model\Api\Networking\v1beta1\IPAddressList;
+use Kcs\K8s\Api\Model\Api\Networking\v1alpha1\IPAddress;
+use Kcs\K8s\Api\Model\Api\Networking\v1alpha1\IPAddressList;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Contract\ApiInterface;
@@ -41,15 +41,17 @@ class IPAddressService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-ipaddress-v1alpha1-networking-k8s-io
      */
-    public function listNetworkingV1beta1(array $query = [], callable|object|null $handler = null): IPAddressList|null
+    public function listNetworkingV1alpha1(array $query = [], callable|object|null $handler = null): IPAddressList|null
     {
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = IPAddressList::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/ipaddresses',
+            '/apis/networking.k8s.io/v1alpha1/ipaddresses',
             [],
             $query,
             $this->namespace,
@@ -79,14 +81,16 @@ class IPAddressService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-ipaddress-v1alpha1-networking-k8s-io
      */
-    public function deleteNetworkingV1beta1Collection(array $query = []): Status
+    public function deleteNetworkingV1alpha1Collection(array $query = []): Status
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/ipaddresses',
+            '/apis/networking.k8s.io/v1alpha1/ipaddresses',
             [],
             $query,
             $this->namespace,
@@ -107,15 +111,17 @@ class IPAddressService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-ipaddress-v1alpha1-networking-k8s-io
      */
-    public function createNetworkingV1beta1(IPAddress $iPAddress, array $query = []): IPAddress
+    public function createNetworkingV1alpha1(IPAddress $iPAddress, array $query = []): IPAddress
     {
         $options['query'] = $query;
         $options['method'] = 'post';
         $options['body'] = $iPAddress;
         $options['model'] = IPAddress::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/ipaddresses',
+            '/apis/networking.k8s.io/v1alpha1/ipaddresses',
             [],
             $query,
             $this->namespace,
@@ -133,14 +139,16 @@ class IPAddressService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-ipaddress-v1alpha1-networking-k8s-io
      */
-    public function readNetworkingV1beta1(string $name, array $query = []): IPAddress
+    public function readNetworkingV1alpha1(string $name, array $query = []): IPAddress
     {
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = IPAddress::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/ipaddresses/{name}',
+            '/apis/networking.k8s.io/v1alpha1/ipaddresses/{name}',
             ['{name}' => $name],
             $query,
             $this->namespace,
@@ -162,14 +170,16 @@ class IPAddressService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-ipaddress-v1alpha1-networking-k8s-io
      */
-    public function deleteNetworkingV1beta1(string $name, array $query = []): Status
+    public function deleteNetworkingV1alpha1(string $name, array $query = []): Status
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/ipaddresses/{name}',
+            '/apis/networking.k8s.io/v1alpha1/ipaddresses/{name}',
             ['{name}' => $name],
             $query,
             $this->namespace,
@@ -191,15 +201,17 @@ class IPAddressService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-ipaddress-v1alpha1-networking-k8s-io
      */
-    public function patchNetworkingV1beta1(string $name, PatchInterface $patch, array $query = []): IPAddress
+    public function patchNetworkingV1alpha1(string $name, PatchInterface $patch, array $query = []): IPAddress
     {
         $options['query'] = $query;
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = IPAddress::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/ipaddresses/{name}',
+            '/apis/networking.k8s.io/v1alpha1/ipaddresses/{name}',
             ['{name}' => $name],
             $query,
             $this->namespace,
@@ -220,15 +232,17 @@ class IPAddressService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-ipaddress-v1alpha1-networking-k8s-io
      */
-    public function replaceNetworkingV1beta1(string $name, IPAddress $iPAddress, array $query = []): IPAddress
+    public function replaceNetworkingV1alpha1(string $name, IPAddress $iPAddress, array $query = []): IPAddress
     {
         $options['query'] = $query;
         $options['method'] = 'put';
         $options['body'] = $iPAddress;
         $options['model'] = IPAddress::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/ipaddresses/{name}',
+            '/apis/networking.k8s.io/v1alpha1/ipaddresses/{name}',
             ['{name}' => $name],
             $query,
             $this->namespace,
@@ -259,15 +273,17 @@ class IPAddressService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-ipaddress-v1alpha1-networking-k8s-io
      */
-    public function watchNetworkingV1beta1List(array $query = [], callable|object|null $handler = null): void
+    public function watchNetworkingV1alpha1List(array $query = [], callable|object|null $handler = null): void
     {
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/watch/ipaddresses',
+            '/apis/networking.k8s.io/v1alpha1/watch/ipaddresses',
             [],
             $query,
             $this->namespace,
@@ -298,15 +314,17 @@ class IPAddressService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-ipaddress-v1alpha1-networking-k8s-io
      */
-    public function watchNetworkingV1beta1(string $name, array $query = [], callable|object|null $handler = null): void
+    public function watchNetworkingV1alpha1(string $name, array $query = [], callable|object|null $handler = null): void
     {
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/watch/ipaddresses/{name}',
+            '/apis/networking.k8s.io/v1alpha1/watch/ipaddresses/{name}',
             ['{name}' => $name],
             $query,
             $this->namespace,

@@ -8,6 +8,8 @@ use DateTimeInterface;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -32,7 +34,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'delete',
     path: '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation('put', path: '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
@@ -44,12 +46,12 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/apis/certificates.k8s.io/v1/certificatesigningrequests',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch-all',
     path: '/apis/certificates.k8s.io/v1/certificatesigningrequests',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation('patch', path: '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}', body: 'patch', response: 'self')]
 #[Kubernetes\Operation(
@@ -61,7 +63,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'list-all',
     path: '/apis/certificates.k8s.io/v1/certificatesigningrequests',
-    response: 'Kcs\K8s\Api\Model\Api\Certificates\v1\CertificateSigningRequestList',
+    response: CertificateSigningRequestList::class,
 )]
 class CertificateSigningRequest
 {

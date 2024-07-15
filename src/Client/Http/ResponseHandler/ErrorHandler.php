@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Kcs\K8s\Client\Http\ResponseHandler;
 
-use K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
 use Kcs\K8s\Client\Exception\KubernetesException;
 use Kcs\K8s\Client\Http\Exception\HttpException;
 use Kcs\K8s\Client\Http\HttpClient;

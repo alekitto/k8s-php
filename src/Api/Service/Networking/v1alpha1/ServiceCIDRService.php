@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Kcs\K8s\Api\Service\Networking\v1beta1;
+namespace Kcs\K8s\Api\Service\Networking\v1alpha1;
 
-use Kcs\K8s\Api\Model\Api\Networking\v1beta1\ServiceCIDR;
-use Kcs\K8s\Api\Model\Api\Networking\v1beta1\ServiceCIDRList;
+use Kcs\K8s\Api\Model\Api\Networking\v1alpha1\ServiceCIDR;
+use Kcs\K8s\Api\Model\Api\Networking\v1alpha1\ServiceCIDRList;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Contract\ApiInterface;
@@ -41,15 +41,17 @@ class ServiceCIDRService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-servicecidr-v1alpha1-networking-k8s-io
      */
-    public function listNetworkingV1beta1(array $query = [], callable|object|null $handler = null): ServiceCIDRList|null
+    public function listNetworkingV1alpha1(array $query = [], callable|object|null $handler = null): ServiceCIDRList|null
     {
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ServiceCIDRList::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/servicecidrs',
+            '/apis/networking.k8s.io/v1alpha1/servicecidrs',
             [],
             $query,
             $this->namespace,
@@ -79,14 +81,16 @@ class ServiceCIDRService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-servicecidr-v1alpha1-networking-k8s-io
      */
-    public function deleteNetworkingV1beta1Collection(array $query = []): Status
+    public function deleteNetworkingV1alpha1Collection(array $query = []): Status
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/servicecidrs',
+            '/apis/networking.k8s.io/v1alpha1/servicecidrs',
             [],
             $query,
             $this->namespace,
@@ -107,15 +111,17 @@ class ServiceCIDRService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-servicecidr-v1alpha1-networking-k8s-io
      */
-    public function createNetworkingV1beta1(ServiceCIDR $serviceCIDR, array $query = []): ServiceCIDR
+    public function createNetworkingV1alpha1(ServiceCIDR $serviceCIDR, array $query = []): ServiceCIDR
     {
         $options['query'] = $query;
         $options['method'] = 'post';
         $options['body'] = $serviceCIDR;
         $options['model'] = ServiceCIDR::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/servicecidrs',
+            '/apis/networking.k8s.io/v1alpha1/servicecidrs',
             [],
             $query,
             $this->namespace,
@@ -133,14 +139,16 @@ class ServiceCIDRService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-servicecidr-v1alpha1-networking-k8s-io
      */
-    public function readNetworkingV1beta1(string $name, array $query = []): ServiceCIDR
+    public function readNetworkingV1alpha1(string $name, array $query = []): ServiceCIDR
     {
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ServiceCIDR::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/servicecidrs/{name}',
+            '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}',
             ['{name}' => $name],
             $query,
             $this->namespace,
@@ -162,14 +170,16 @@ class ServiceCIDRService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-servicecidr-v1alpha1-networking-k8s-io
      */
-    public function deleteNetworkingV1beta1(string $name, array $query = []): Status
+    public function deleteNetworkingV1alpha1(string $name, array $query = []): Status
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/servicecidrs/{name}',
+            '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}',
             ['{name}' => $name],
             $query,
             $this->namespace,
@@ -191,15 +201,17 @@ class ServiceCIDRService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-servicecidr-v1alpha1-networking-k8s-io
      */
-    public function patchNetworkingV1beta1(string $name, PatchInterface $patch, array $query = []): ServiceCIDR
+    public function patchNetworkingV1alpha1(string $name, PatchInterface $patch, array $query = []): ServiceCIDR
     {
         $options['query'] = $query;
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ServiceCIDR::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/servicecidrs/{name}',
+            '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}',
             ['{name}' => $name],
             $query,
             $this->namespace,
@@ -220,15 +232,17 @@ class ServiceCIDRService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-servicecidr-v1alpha1-networking-k8s-io
      */
-    public function replaceNetworkingV1beta1(string $name, ServiceCIDR $serviceCIDR, array $query = []): ServiceCIDR
+    public function replaceNetworkingV1alpha1(string $name, ServiceCIDR $serviceCIDR, array $query = []): ServiceCIDR
     {
         $options['query'] = $query;
         $options['method'] = 'put';
         $options['body'] = $serviceCIDR;
         $options['model'] = ServiceCIDR::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/servicecidrs/{name}',
+            '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}',
             ['{name}' => $name],
             $query,
             $this->namespace,
@@ -246,14 +260,16 @@ class ServiceCIDRService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-servicecidr-v1alpha1-networking-k8s-io
      */
-    public function readNetworkingV1beta1Status(string $name, array $query = []): ServiceCIDR
+    public function readNetworkingV1alpha1Status(string $name, array $query = []): ServiceCIDR
     {
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ServiceCIDR::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/servicecidrs/{name}/status',
+            '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}/status',
             ['{name}' => $name],
             $query,
             $this->namespace,
@@ -275,15 +291,17 @@ class ServiceCIDRService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-servicecidr-v1alpha1-networking-k8s-io
      */
-    public function patchNetworkingV1beta1Status(string $name, PatchInterface $patch, array $query = []): ServiceCIDR
+    public function patchNetworkingV1alpha1Status(string $name, PatchInterface $patch, array $query = []): ServiceCIDR
     {
         $options['query'] = $query;
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ServiceCIDR::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/servicecidrs/{name}/status',
+            '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}/status',
             ['{name}' => $name],
             $query,
             $this->namespace,
@@ -304,8 +322,10 @@ class ServiceCIDRService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-servicecidr-v1alpha1-networking-k8s-io
      */
-    public function replaceNetworkingV1beta1Status(
+    public function replaceNetworkingV1alpha1Status(
         string $name,
         ServiceCIDR $serviceCIDR,
         array $query = [],
@@ -315,7 +335,7 @@ class ServiceCIDRService
         $options['body'] = $serviceCIDR;
         $options['model'] = ServiceCIDR::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/servicecidrs/{name}/status',
+            '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}/status',
             ['{name}' => $name],
             $query,
             $this->namespace,
@@ -346,15 +366,17 @@ class ServiceCIDRService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-servicecidr-v1alpha1-networking-k8s-io
      */
-    public function watchNetworkingV1beta1List(array $query = [], callable|object|null $handler = null): void
+    public function watchNetworkingV1alpha1List(array $query = [], callable|object|null $handler = null): void
     {
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/watch/servicecidrs',
+            '/apis/networking.k8s.io/v1alpha1/watch/servicecidrs',
             [],
             $query,
             $this->namespace,
@@ -385,15 +407,17 @@ class ServiceCIDRService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-servicecidr-v1alpha1-networking-k8s-io
      */
-    public function watchNetworkingV1beta1(string $name, array $query = [], callable|object|null $handler = null): void
+    public function watchNetworkingV1alpha1(string $name, array $query = [], callable|object|null $handler = null): void
     {
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
         $uri = $this->api->makeUri(
-            '/apis/networking.k8s.io/v1beta1/watch/servicecidrs/{name}',
+            '/apis/networking.k8s.io/v1alpha1/watch/servicecidrs/{name}',
             ['{name}' => $name],
             $query,
             $this->namespace,

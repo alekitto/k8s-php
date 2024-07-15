@@ -41,6 +41,8 @@ class StorageClassService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-storageclass-v1-storage-k8s-io
      */
     public function listStorageV1(array $query = [], callable|object|null $handler = null): StorageClassList|null
     {
@@ -79,6 +81,8 @@ class StorageClassService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-storageclass-v1-storage-k8s-io
      */
     public function deleteStorageV1Collection(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class StorageClassService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-storageclass-v1-storage-k8s-io
      */
     public function createStorageV1(StorageClass $storageClass, array $query = []): StorageClass
     {
@@ -133,6 +139,8 @@ class StorageClassService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-storageclass-v1-storage-k8s-io
      */
     public function readStorageV1(string $name, array $query = []): StorageClass
     {
@@ -162,6 +170,8 @@ class StorageClassService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-storageclass-v1-storage-k8s-io
      */
     public function deleteStorageV1(string $name, array $query = []): StorageClass
     {
@@ -191,6 +201,8 @@ class StorageClassService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-storageclass-v1-storage-k8s-io
      */
     public function patchStorageV1(string $name, PatchInterface $patch, array $query = []): StorageClass
     {
@@ -220,6 +232,8 @@ class StorageClassService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-storageclass-v1-storage-k8s-io
      */
     public function replaceStorageV1(string $name, StorageClass $storageClass, array $query = []): StorageClass
     {
@@ -259,6 +273,8 @@ class StorageClassService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-storageclass-v1-storage-k8s-io
      */
     public function watchStorageV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -298,6 +314,8 @@ class StorageClassService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-storageclass-v1-storage-k8s-io
      */
     public function watchStorageV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

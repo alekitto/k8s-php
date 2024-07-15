@@ -30,6 +30,8 @@ class TokenRequestService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-tokenrequest-v1-authentication-k8s-io
      */
     public function createCoreV1NamespacedServiceAccountToken(
         string $name,

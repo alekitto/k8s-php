@@ -13,13 +13,15 @@ use Kcs\K8s\Attribute\Kind;
 use Kcs\K8s\Attribute\Operation;
 use Nette\PhpGenerator\ClassType;
 
+use Nette\PhpGenerator\Literal;
+use Nette\PhpGenerator\PhpNamespace;
 use function array_filter;
 
 readonly class ModelAttributeGenerator
 {
     use CodeGeneratorTrait;
 
-    public function generate(DefinitionMetadata $model, ClassType $class, Metadata $metadata, CodeOptions $options): void
+    public function generate(DefinitionMetadata $model, ClassType $class, Metadata $metadata, CodeOptions $options, PhpNamespace $namespace): void
     {
         if (! ($model->getKubernetesKind() && $model->getKubernetesVersion())) {
             return;
@@ -82,11 +84,11 @@ readonly class ModelAttributeGenerator
             if ($returnedDefinition && ! $isWatchAction) {
                 $responseModel = $returnedDefinition === $model
                     ? 'self'
-                    : $this->makeFinalNamespace($returnedDefinition->getPhpFqcn(), $options);
+                    : new Literal($namespace->simplifyName($this->makeFinalNamespace($returnedDefinition->getPhpFqcn(), $options)) . '::class');
                 $params['response'] = $responseModel;
             } elseif ($isWatchAction) {
                 $responseModel = $metadata->findDefinitionByKind('WatchEvent', 'v1');
-                $responseModel = $this->makeFinalNamespace($responseModel->getPhpFqcn(), $options);
+                $responseModel = new Literal($namespace->simplifyName($this->makeFinalNamespace($responseModel->getPhpFqcn(), $options)) . '::class');
                 $params['response'] = $responseModel;
             }
 

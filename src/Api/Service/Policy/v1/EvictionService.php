@@ -30,6 +30,8 @@ class EvictionService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-eviction-v1-policy
      */
     public function createCoreV1NamespacedPod(string $name, Eviction $eviction, array $query = []): Eviction
     {

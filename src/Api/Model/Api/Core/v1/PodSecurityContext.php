@@ -43,9 +43,6 @@ class PodSecurityContext
     #[Kubernetes\Attribute('supplementalGroups')]
     protected array|null $supplementalGroups = null;
 
-    #[Kubernetes\Attribute('supplementalGroupsPolicy')]
-    protected string|null $supplementalGroupsPolicy = null;
-
     /** @var iterable|Sysctl[]|null */
     #[Kubernetes\Attribute('sysctls', type: AttributeType::Collection, model: Sysctl::class)]
     protected $sysctls = null;
@@ -267,11 +264,11 @@ class PodSecurityContext
 
     /**
      * A list of groups applied to the first process run in each container, in addition to the container's
-     * primary GID and fsGroup (if specified).  If the SupplementalGroupsPolicy feature is enabled, the
-     * supplementalGroupsPolicy field determines whether these are in addition to or instead of any group
-     * memberships defined in the container image. If unspecified, no additional groups are added, though
-     * group memberships defined in the container image may still be used, depending on the
-     * supplementalGroupsPolicy field. Note that this field cannot be set when spec.os.name is windows.
+     * primary GID, the fsGroup (if specified), and group memberships defined in the container image for
+     * the uid of the container process. If unspecified, no additional groups are added to any container.
+     * Note that group memberships defined in the container image for the uid of the container process are
+     * still effective, even if they are not included in this list. Note that this field cannot be set when
+     * spec.os.name is windows.
      */
     public function getSupplementalGroups(): array|null
     {
@@ -280,43 +277,17 @@ class PodSecurityContext
 
     /**
      * A list of groups applied to the first process run in each container, in addition to the container's
-     * primary GID and fsGroup (if specified).  If the SupplementalGroupsPolicy feature is enabled, the
-     * supplementalGroupsPolicy field determines whether these are in addition to or instead of any group
-     * memberships defined in the container image. If unspecified, no additional groups are added, though
-     * group memberships defined in the container image may still be used, depending on the
-     * supplementalGroupsPolicy field. Note that this field cannot be set when spec.os.name is windows.
+     * primary GID, the fsGroup (if specified), and group memberships defined in the container image for
+     * the uid of the container process. If unspecified, no additional groups are added to any container.
+     * Note that group memberships defined in the container image for the uid of the container process are
+     * still effective, even if they are not included in this list. Note that this field cannot be set when
+     * spec.os.name is windows.
      *
      * @return static
      */
     public function setSupplementalGroups(array $supplementalGroups): static
     {
         $this->supplementalGroups = $supplementalGroups;
-
-        return $this;
-    }
-
-    /**
-     * Defines how supplemental groups of the first container processes are calculated. Valid values are
-     * "Merge" and "Strict". If not specified, "Merge" is used. (Alpha) Using the field requires the
-     * SupplementalGroupsPolicy feature gate to be enabled and the container runtime must implement support
-     * for this feature. Note that this field cannot be set when spec.os.name is windows.
-     */
-    public function getSupplementalGroupsPolicy(): string|null
-    {
-        return $this->supplementalGroupsPolicy;
-    }
-
-    /**
-     * Defines how supplemental groups of the first container processes are calculated. Valid values are
-     * "Merge" and "Strict". If not specified, "Merge" is used. (Alpha) Using the field requires the
-     * SupplementalGroupsPolicy feature gate to be enabled and the container runtime must implement support
-     * for this feature. Note that this field cannot be set when spec.os.name is windows.
-     *
-     * @return static
-     */
-    public function setSupplementalGroupsPolicy(string $supplementalGroupsPolicy): static
-    {
-        $this->supplementalGroupsPolicy = $supplementalGroupsPolicy;
 
         return $this;
     }

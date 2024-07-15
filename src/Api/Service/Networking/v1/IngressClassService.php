@@ -41,6 +41,8 @@ class IngressClassService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-ingressclass-v1-networking-k8s-io
      */
     public function listNetworkingV1(array $query = [], callable|object|null $handler = null): IngressClassList|null
     {
@@ -79,6 +81,8 @@ class IngressClassService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-ingressclass-v1-networking-k8s-io
      */
     public function deleteNetworkingV1Collection(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class IngressClassService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-ingressclass-v1-networking-k8s-io
      */
     public function createNetworkingV1(IngressClass $ingressClass, array $query = []): IngressClass
     {
@@ -133,6 +139,8 @@ class IngressClassService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-ingressclass-v1-networking-k8s-io
      */
     public function readNetworkingV1(string $name, array $query = []): IngressClass
     {
@@ -162,6 +170,8 @@ class IngressClassService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-ingressclass-v1-networking-k8s-io
      */
     public function deleteNetworkingV1(string $name, array $query = []): Status
     {
@@ -191,6 +201,8 @@ class IngressClassService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-ingressclass-v1-networking-k8s-io
      */
     public function patchNetworkingV1(string $name, PatchInterface $patch, array $query = []): IngressClass
     {
@@ -220,6 +232,8 @@ class IngressClassService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-ingressclass-v1-networking-k8s-io
      */
     public function replaceNetworkingV1(string $name, IngressClass $ingressClass, array $query = []): IngressClass
     {
@@ -259,6 +273,8 @@ class IngressClassService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-ingressclass-v1-networking-k8s-io
      */
     public function watchNetworkingV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -298,6 +314,8 @@ class IngressClassService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-ingressclass-v1-networking-k8s-io
      */
     public function watchNetworkingV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

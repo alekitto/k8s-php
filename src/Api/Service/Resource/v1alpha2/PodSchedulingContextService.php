@@ -41,6 +41,8 @@ class PodSchedulingContextService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-podschedulingcontext-v1alpha2-resource-k8s-io
      */
     public function listResourceV1alpha2Namespaced(array $query = [], callable|object|null $handler = null): PodSchedulingContextList|null
     {
@@ -79,6 +81,8 @@ class PodSchedulingContextService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-podschedulingcontext-v1alpha2-resource-k8s-io
      */
     public function deleteResourceV1alpha2CollectionNamespaced(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class PodSchedulingContextService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-podschedulingcontext-v1alpha2-resource-k8s-io
      */
     public function createResourceV1alpha2Namespaced(
         PodSchedulingContext $podSchedulingContext,
@@ -135,6 +141,8 @@ class PodSchedulingContextService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-podschedulingcontext-v1alpha2-resource-k8s-io
      */
     public function readResourceV1alpha2Namespaced(string $name, array $query = []): PodSchedulingContext
     {
@@ -164,6 +172,8 @@ class PodSchedulingContextService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-podschedulingcontext-v1alpha2-resource-k8s-io
      */
     public function deleteResourceV1alpha2Namespaced(string $name, array $query = []): PodSchedulingContext
     {
@@ -193,6 +203,8 @@ class PodSchedulingContextService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-podschedulingcontext-v1alpha2-resource-k8s-io
      */
     public function patchResourceV1alpha2Namespaced(
         string $name,
@@ -225,6 +237,8 @@ class PodSchedulingContextService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-podschedulingcontext-v1alpha2-resource-k8s-io
      */
     public function replaceResourceV1alpha2Namespaced(
         string $name,
@@ -254,6 +268,8 @@ class PodSchedulingContextService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-podschedulingcontext-v1alpha2-resource-k8s-io
      */
     public function readResourceV1alpha2NamespacedStatus(string $name, array $query = []): PodSchedulingContext
     {
@@ -283,6 +299,8 @@ class PodSchedulingContextService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-podschedulingcontext-v1alpha2-resource-k8s-io
      */
     public function patchResourceV1alpha2NamespacedStatus(
         string $name,
@@ -315,6 +333,8 @@ class PodSchedulingContextService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-podschedulingcontext-v1alpha2-resource-k8s-io
      */
     public function replaceResourceV1alpha2NamespacedStatus(
         string $name,
@@ -354,6 +374,8 @@ class PodSchedulingContextService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-podschedulingcontext-v1alpha2-resource-k8s-io
      */
     public function listResourceV1alpha2ForAllNamespaces(
         array $query = [],
@@ -395,6 +417,8 @@ class PodSchedulingContextService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-podschedulingcontext-v1alpha2-resource-k8s-io
      */
     public function watchResourceV1alpha2NamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -434,6 +458,8 @@ class PodSchedulingContextService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-podschedulingcontext-v1alpha2-resource-k8s-io
      */
     public function watchResourceV1alpha2Namespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -473,6 +499,8 @@ class PodSchedulingContextService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-podschedulingcontext-v1alpha2-resource-k8s-io
      */
     public function watchResourceV1alpha2ListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

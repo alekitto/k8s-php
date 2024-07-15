@@ -41,6 +41,8 @@ class HorizontalPodAutoscalerService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-horizontalpodautoscaler-v2-autoscaling
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): HorizontalPodAutoscalerList|null
     {
@@ -77,6 +79,8 @@ class HorizontalPodAutoscalerService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-horizontalpodautoscaler-v2-autoscaling
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): HorizontalPodAutoscalerList|null
     {
@@ -115,6 +119,8 @@ class HorizontalPodAutoscalerService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-horizontalpodautoscaler-v2-autoscaling
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -143,6 +149,8 @@ class HorizontalPodAutoscalerService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-horizontalpodautoscaler-v2-autoscaling
      */
     public function createNamespaced(
         HorizontalPodAutoscaler $horizontalPodAutoscaler,
@@ -171,6 +179,8 @@ class HorizontalPodAutoscalerService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-horizontalpodautoscaler-v2-autoscaling
      */
     public function readNamespaced(string $name, array $query = []): HorizontalPodAutoscaler
     {
@@ -200,6 +210,8 @@ class HorizontalPodAutoscalerService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-horizontalpodautoscaler-v2-autoscaling
      */
     public function deleteNamespaced(string $name, array $query = []): Status
     {
@@ -229,6 +241,8 @@ class HorizontalPodAutoscalerService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-horizontalpodautoscaler-v2-autoscaling
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): HorizontalPodAutoscaler
     {
@@ -258,6 +272,8 @@ class HorizontalPodAutoscalerService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-horizontalpodautoscaler-v2-autoscaling
      */
     public function replaceNamespaced(
         string $name,
@@ -287,6 +303,8 @@ class HorizontalPodAutoscalerService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-horizontalpodautoscaler-v2-autoscaling
      */
     public function readNamespacedStatus(string $name, array $query = []): HorizontalPodAutoscaler
     {
@@ -316,6 +334,8 @@ class HorizontalPodAutoscalerService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-horizontalpodautoscaler-v2-autoscaling
      */
     public function patchNamespacedStatus(
         string $name,
@@ -348,6 +368,8 @@ class HorizontalPodAutoscalerService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-horizontalpodautoscaler-v2-autoscaling
      */
     public function replaceNamespacedStatus(
         string $name,
@@ -390,6 +412,8 @@ class HorizontalPodAutoscalerService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-horizontalpodautoscaler-v2-autoscaling
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
@@ -429,6 +453,8 @@ class HorizontalPodAutoscalerService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-horizontalpodautoscaler-v2-autoscaling
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -468,6 +494,8 @@ class HorizontalPodAutoscalerService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-horizontalpodautoscaler-v2-autoscaling
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {

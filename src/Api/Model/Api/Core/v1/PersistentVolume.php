@@ -8,6 +8,8 @@ use DateTimeInterface;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -25,12 +27,12 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/api/v1/persistentvolumes',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
-#[Kubernetes\Operation('watch-all', path: '/api/v1/persistentvolumes', response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent')]
+#[Kubernetes\Operation('watch-all', path: '/api/v1/persistentvolumes', response: WatchEvent::class)]
 #[Kubernetes\Operation('patch', path: '/api/v1/persistentvolumes/{name}', body: 'patch', response: 'self')]
 #[Kubernetes\Operation('patch-status', path: '/api/v1/persistentvolumes/{name}/status', body: 'patch', response: 'self')]
-#[Kubernetes\Operation('list-all', path: '/api/v1/persistentvolumes', response: 'Kcs\K8s\Api\Model\Api\Core\v1\PersistentVolumeList')]
+#[Kubernetes\Operation('list-all', path: '/api/v1/persistentvolumes', response: PersistentVolumeList::class)]
 class PersistentVolume
 {
     #[Kubernetes\Attribute('apiVersion')]

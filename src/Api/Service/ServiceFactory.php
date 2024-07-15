@@ -69,8 +69,8 @@ use Kcs\K8s\Api\Service\Internal\ApiServer\v1alpha1\StorageVersionService;
 use Kcs\K8s\Api\Service\Networking\v1\IngressClassService;
 use Kcs\K8s\Api\Service\Networking\v1\IngressService;
 use Kcs\K8s\Api\Service\Networking\v1\NetworkPolicyService;
-use Kcs\K8s\Api\Service\Networking\v1beta1\IPAddressService;
-use Kcs\K8s\Api\Service\Networking\v1beta1\ServiceCIDRService;
+use Kcs\K8s\Api\Service\Networking\v1alpha1\IPAddressService;
+use Kcs\K8s\Api\Service\Networking\v1alpha1\ServiceCIDRService;
 use Kcs\K8s\Api\Service\Node\v1\RuntimeClassService;
 use Kcs\K8s\Api\Service\Policy\v1\EvictionService;
 use Kcs\K8s\Api\Service\Policy\v1\PodDisruptionBudgetService;
@@ -436,12 +436,12 @@ class ServiceFactory
         return new NetworkPolicyService($this->api);
     }
 
-    public function v1beta1NetworkingIPAddress(): IPAddressService
+    public function v1alpha1NetworkingIPAddress(): IPAddressService
     {
         return new IPAddressService($this->api);
     }
 
-    public function v1beta1NetworkingServiceCIDR(): ServiceCIDRService
+    public function v1alpha1NetworkingServiceCIDR(): ServiceCIDRService
     {
         return new ServiceCIDRService($this->api);
     }

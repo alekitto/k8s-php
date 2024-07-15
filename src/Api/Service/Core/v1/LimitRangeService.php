@@ -41,6 +41,8 @@ class LimitRangeService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-limitrange-v1-core
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): LimitRangeList|null
     {
@@ -77,6 +79,8 @@ class LimitRangeService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-limitrange-v1-core
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): LimitRangeList|null
     {
@@ -115,6 +119,8 @@ class LimitRangeService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-limitrange-v1-core
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -143,6 +149,8 @@ class LimitRangeService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-limitrange-v1-core
      */
     public function createNamespaced(LimitRange $limitRange, array $query = []): LimitRange
     {
@@ -169,6 +177,8 @@ class LimitRangeService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-limitrange-v1-core
      */
     public function readNamespaced(string $name, array $query = []): LimitRange
     {
@@ -198,6 +208,8 @@ class LimitRangeService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-limitrange-v1-core
      */
     public function deleteNamespaced(string $name, array $query = []): Status
     {
@@ -227,6 +239,8 @@ class LimitRangeService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-limitrange-v1-core
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): LimitRange
     {
@@ -256,6 +270,8 @@ class LimitRangeService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-limitrange-v1-core
      */
     public function replaceNamespaced(string $name, LimitRange $limitRange, array $query = []): LimitRange
     {
@@ -295,6 +311,8 @@ class LimitRangeService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-limitrange-v1-core
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
@@ -334,6 +352,8 @@ class LimitRangeService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-limitrange-v1-core
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -373,6 +393,8 @@ class LimitRangeService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-limitrange-v1-core
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {

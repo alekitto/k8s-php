@@ -41,6 +41,8 @@ class ResourceClassService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-resourceclass-v1alpha2-resource-k8s-io
      */
     public function listResourceV1alpha2(array $query = [], callable|object|null $handler = null): ResourceClassList|null
     {
@@ -79,6 +81,8 @@ class ResourceClassService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-resourceclass-v1alpha2-resource-k8s-io
      */
     public function deleteResourceV1alpha2Collection(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class ResourceClassService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-resourceclass-v1alpha2-resource-k8s-io
      */
     public function createResourceV1alpha2(ResourceClass $resourceClass, array $query = []): ResourceClass
     {
@@ -133,6 +139,8 @@ class ResourceClassService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-resourceclass-v1alpha2-resource-k8s-io
      */
     public function readResourceV1alpha2(string $name, array $query = []): ResourceClass
     {
@@ -162,6 +170,8 @@ class ResourceClassService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-resourceclass-v1alpha2-resource-k8s-io
      */
     public function deleteResourceV1alpha2(string $name, array $query = []): ResourceClass
     {
@@ -191,6 +201,8 @@ class ResourceClassService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-resourceclass-v1alpha2-resource-k8s-io
      */
     public function patchResourceV1alpha2(string $name, PatchInterface $patch, array $query = []): ResourceClass
     {
@@ -220,6 +232,8 @@ class ResourceClassService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-resourceclass-v1alpha2-resource-k8s-io
      */
     public function replaceResourceV1alpha2(
         string $name,
@@ -262,6 +276,8 @@ class ResourceClassService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-resourceclass-v1alpha2-resource-k8s-io
      */
     public function watchResourceV1alpha2List(array $query = [], callable|object|null $handler = null): void
     {
@@ -301,6 +317,8 @@ class ResourceClassService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-resourceclass-v1alpha2-resource-k8s-io
      */
     public function watchResourceV1alpha2(string $name, array $query = [], callable|object|null $handler = null): void
     {

@@ -41,6 +41,8 @@ class StorageVersionMigrationService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-storageversionmigration-v1alpha1-storagemigration-k8s-io
      */
     public function listStoragemigrationV1alpha1(array $query = [], callable|object|null $handler = null): StorageVersionMigrationList|null
     {
@@ -79,6 +81,8 @@ class StorageVersionMigrationService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-storageversionmigration-v1alpha1-storagemigration-k8s-io
      */
     public function deleteStoragemigrationV1alpha1Collection(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class StorageVersionMigrationService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-storageversionmigration-v1alpha1-storagemigration-k8s-io
      */
     public function createStoragemigrationV1alpha1(
         StorageVersionMigration $storageVersionMigration,
@@ -135,6 +141,8 @@ class StorageVersionMigrationService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-storageversionmigration-v1alpha1-storagemigration-k8s-io
      */
     public function readStoragemigrationV1alpha1(string $name, array $query = []): StorageVersionMigration
     {
@@ -164,6 +172,8 @@ class StorageVersionMigrationService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-storageversionmigration-v1alpha1-storagemigration-k8s-io
      */
     public function deleteStoragemigrationV1alpha1(string $name, array $query = []): Status
     {
@@ -193,6 +203,8 @@ class StorageVersionMigrationService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-storageversionmigration-v1alpha1-storagemigration-k8s-io
      */
     public function patchStoragemigrationV1alpha1(
         string $name,
@@ -225,6 +237,8 @@ class StorageVersionMigrationService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-storageversionmigration-v1alpha1-storagemigration-k8s-io
      */
     public function replaceStoragemigrationV1alpha1(
         string $name,
@@ -254,6 +268,8 @@ class StorageVersionMigrationService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-storageversionmigration-v1alpha1-storagemigration-k8s-io
      */
     public function readStoragemigrationV1alpha1Status(string $name, array $query = []): StorageVersionMigration
     {
@@ -283,6 +299,8 @@ class StorageVersionMigrationService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-storageversionmigration-v1alpha1-storagemigration-k8s-io
      */
     public function patchStoragemigrationV1alpha1Status(
         string $name,
@@ -315,6 +333,8 @@ class StorageVersionMigrationService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-storageversionmigration-v1alpha1-storagemigration-k8s-io
      */
     public function replaceStoragemigrationV1alpha1Status(
         string $name,
@@ -357,6 +377,8 @@ class StorageVersionMigrationService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-storageversionmigration-v1alpha1-storagemigration-k8s-io
      */
     public function watchStoragemigrationV1alpha1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -396,6 +418,8 @@ class StorageVersionMigrationService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-storageversionmigration-v1alpha1-storagemigration-k8s-io
      */
     public function watchStoragemigrationV1alpha1(string $name, array $query = [], callable|object|null $handler = null): void
     {

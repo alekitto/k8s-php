@@ -54,7 +54,7 @@ readonly class ModelCodeGenerator
 
         $class = $namespace->addClass($model->getClassName());
         $class->addComment($this->formatDocblockDescription($model->getDescription()));
-        $this->modelAnnotationGenerator->generate($model, $class, $metadata, $options);
+        $this->modelAnnotationGenerator->generate($model, $class, $metadata, $options, $namespace);
 
         $properties = [];
         foreach ($model->getProperties() as $property) {

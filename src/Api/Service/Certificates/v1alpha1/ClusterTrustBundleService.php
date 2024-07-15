@@ -41,6 +41,8 @@ class ClusterTrustBundleService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-clustertrustbundle-v1alpha1-certificates-k8s-io
      */
     public function listCertificatesV1alpha1(array $query = [], callable|object|null $handler = null): ClusterTrustBundleList|null
     {
@@ -79,6 +81,8 @@ class ClusterTrustBundleService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-clustertrustbundle-v1alpha1-certificates-k8s-io
      */
     public function deleteCertificatesV1alpha1Collection(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class ClusterTrustBundleService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-clustertrustbundle-v1alpha1-certificates-k8s-io
      */
     public function createCertificatesV1alpha1(
         ClusterTrustBundle $clusterTrustBundle,
@@ -135,6 +141,8 @@ class ClusterTrustBundleService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-clustertrustbundle-v1alpha1-certificates-k8s-io
      */
     public function readCertificatesV1alpha1(string $name, array $query = []): ClusterTrustBundle
     {
@@ -164,6 +172,8 @@ class ClusterTrustBundleService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-clustertrustbundle-v1alpha1-certificates-k8s-io
      */
     public function deleteCertificatesV1alpha1(string $name, array $query = []): Status
     {
@@ -193,6 +203,8 @@ class ClusterTrustBundleService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-clustertrustbundle-v1alpha1-certificates-k8s-io
      */
     public function patchCertificatesV1alpha1(
         string $name,
@@ -225,6 +237,8 @@ class ClusterTrustBundleService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-clustertrustbundle-v1alpha1-certificates-k8s-io
      */
     public function replaceCertificatesV1alpha1(
         string $name,
@@ -267,6 +281,8 @@ class ClusterTrustBundleService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-clustertrustbundle-v1alpha1-certificates-k8s-io
      */
     public function watchCertificatesV1alpha1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -306,6 +322,8 @@ class ClusterTrustBundleService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-clustertrustbundle-v1alpha1-certificates-k8s-io
      */
     public function watchCertificatesV1alpha1(string $name, array $query = [], callable|object|null $handler = null): void
     {

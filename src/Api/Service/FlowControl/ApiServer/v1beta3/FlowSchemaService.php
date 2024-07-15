@@ -41,6 +41,8 @@ class FlowSchemaService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-flowschema-v1beta3-flowcontrol-apiserver-k8s-io
      */
     public function listFlowControlApiServerV1beta3(array $query = [], callable|object|null $handler = null): FlowSchemaList|null
     {
@@ -79,6 +81,8 @@ class FlowSchemaService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-flowschema-v1beta3-flowcontrol-apiserver-k8s-io
      */
     public function deleteFlowControlApiServerV1beta3Collection(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class FlowSchemaService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-flowschema-v1beta3-flowcontrol-apiserver-k8s-io
      */
     public function createFlowControlApiServerV1beta3(FlowSchema $flowSchema, array $query = []): FlowSchema
     {
@@ -133,6 +139,8 @@ class FlowSchemaService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-flowschema-v1beta3-flowcontrol-apiserver-k8s-io
      */
     public function readFlowControlApiServerV1beta3(string $name, array $query = []): FlowSchema
     {
@@ -162,6 +170,8 @@ class FlowSchemaService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-flowschema-v1beta3-flowcontrol-apiserver-k8s-io
      */
     public function deleteFlowControlApiServerV1beta3(string $name, array $query = []): Status
     {
@@ -191,6 +201,8 @@ class FlowSchemaService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-flowschema-v1beta3-flowcontrol-apiserver-k8s-io
      */
     public function patchFlowControlApiServerV1beta3(
         string $name,
@@ -223,6 +235,8 @@ class FlowSchemaService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-flowschema-v1beta3-flowcontrol-apiserver-k8s-io
      */
     public function replaceFlowControlApiServerV1beta3(
         string $name,
@@ -252,6 +266,8 @@ class FlowSchemaService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-flowschema-v1beta3-flowcontrol-apiserver-k8s-io
      */
     public function readFlowControlApiServerV1beta3Status(string $name, array $query = []): FlowSchema
     {
@@ -281,6 +297,8 @@ class FlowSchemaService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-flowschema-v1beta3-flowcontrol-apiserver-k8s-io
      */
     public function patchFlowControlApiServerV1beta3Status(
         string $name,
@@ -313,6 +331,8 @@ class FlowSchemaService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-flowschema-v1beta3-flowcontrol-apiserver-k8s-io
      */
     public function replaceFlowControlApiServerV1beta3Status(
         string $name,
@@ -355,6 +375,8 @@ class FlowSchemaService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-flowschema-v1beta3-flowcontrol-apiserver-k8s-io
      */
     public function watchFlowControlApiServerV1beta3List(array $query = [], callable|object|null $handler = null): void
     {
@@ -394,6 +416,8 @@ class FlowSchemaService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-flowschema-v1beta3-flowcontrol-apiserver-k8s-io
      */
     public function watchFlowControlApiServerV1beta3(string $name, array $query = [], callable|object|null $handler = null): void
     {

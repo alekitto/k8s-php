@@ -10,6 +10,8 @@ use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\LabelSelector;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
@@ -23,29 +25,25 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation(
     'delete',
     path: '/apis/apps/v1/namespaces/{namespace}/deployments/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/apps/v1/namespaces/{namespace}/deployments',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation('put', path: '/apis/apps/v1/namespaces/{namespace}/deployments/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation('put-status', path: '/apis/apps/v1/namespaces/{namespace}/deployments/{name}/status', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/apis/apps/v1/namespaces/{namespace}/deployments',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
-#[Kubernetes\Operation('watch-all', path: '/apis/apps/v1/deployments', response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent')]
+#[Kubernetes\Operation('watch-all', path: '/apis/apps/v1/deployments', response: WatchEvent::class)]
 #[Kubernetes\Operation('patch', path: '/apis/apps/v1/namespaces/{namespace}/deployments/{name}', body: 'patch', response: 'self')]
 #[Kubernetes\Operation('patch-status', path: '/apis/apps/v1/namespaces/{namespace}/deployments/{name}/status', body: 'patch', response: 'self')]
-#[Kubernetes\Operation(
-    'list',
-    path: '/apis/apps/v1/namespaces/{namespace}/deployments',
-    response: 'Kcs\K8s\Api\Model\Api\Apps\v1\DeploymentList',
-)]
-#[Kubernetes\Operation('list-all', path: '/apis/apps/v1/deployments', response: 'Kcs\K8s\Api\Model\Api\Apps\v1\DeploymentList')]
+#[Kubernetes\Operation('list', path: '/apis/apps/v1/namespaces/{namespace}/deployments', response: DeploymentList::class)]
+#[Kubernetes\Operation('list-all', path: '/apis/apps/v1/deployments', response: DeploymentList::class)]
 class Deployment
 {
     #[Kubernetes\Attribute('apiVersion')]

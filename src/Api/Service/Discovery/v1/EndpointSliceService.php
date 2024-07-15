@@ -41,6 +41,8 @@ class EndpointSliceService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-endpointslice-v1-discovery-k8s-io
      */
     public function listDiscoveryV1ForAllNamespaces(array $query = [], callable|object|null $handler = null): EndpointSliceList|null
     {
@@ -77,6 +79,8 @@ class EndpointSliceService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-endpointslice-v1-discovery-k8s-io
      */
     public function listDiscoveryV1Namespaced(array $query = [], callable|object|null $handler = null): EndpointSliceList|null
     {
@@ -115,6 +119,8 @@ class EndpointSliceService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-endpointslice-v1-discovery-k8s-io
      */
     public function deleteDiscoveryV1CollectionNamespaced(array $query = []): Status
     {
@@ -143,6 +149,8 @@ class EndpointSliceService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-endpointslice-v1-discovery-k8s-io
      */
     public function createDiscoveryV1Namespaced(EndpointSlice $endpointSlice, array $query = []): EndpointSlice
     {
@@ -169,6 +177,8 @@ class EndpointSliceService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-endpointslice-v1-discovery-k8s-io
      */
     public function readDiscoveryV1Namespaced(string $name, array $query = []): EndpointSlice
     {
@@ -198,6 +208,8 @@ class EndpointSliceService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-endpointslice-v1-discovery-k8s-io
      */
     public function deleteDiscoveryV1Namespaced(string $name, array $query = []): Status
     {
@@ -227,6 +239,8 @@ class EndpointSliceService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-endpointslice-v1-discovery-k8s-io
      */
     public function patchDiscoveryV1Namespaced(string $name, PatchInterface $patch, array $query = []): EndpointSlice
     {
@@ -256,6 +270,8 @@ class EndpointSliceService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-endpointslice-v1-discovery-k8s-io
      */
     public function replaceDiscoveryV1Namespaced(
         string $name,
@@ -298,6 +314,8 @@ class EndpointSliceService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-endpointslice-v1-discovery-k8s-io
      */
     public function watchDiscoveryV1ListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
@@ -337,6 +355,8 @@ class EndpointSliceService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-endpointslice-v1-discovery-k8s-io
      */
     public function watchDiscoveryV1NamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -376,6 +396,8 @@ class EndpointSliceService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-endpointslice-v1-discovery-k8s-io
      */
     public function watchDiscoveryV1Namespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {

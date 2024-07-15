@@ -41,6 +41,8 @@ class ResourceClaimTemplateService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-resourceclaimtemplate-v1alpha2-resource-k8s-io
      */
     public function listResourceV1alpha2Namespaced(array $query = [], callable|object|null $handler = null): ResourceClaimTemplateList|null
     {
@@ -79,6 +81,8 @@ class ResourceClaimTemplateService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-resourceclaimtemplate-v1alpha2-resource-k8s-io
      */
     public function deleteResourceV1alpha2CollectionNamespaced(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class ResourceClaimTemplateService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-resourceclaimtemplate-v1alpha2-resource-k8s-io
      */
     public function createResourceV1alpha2Namespaced(
         ResourceClaimTemplate $resourceClaimTemplate,
@@ -135,6 +141,8 @@ class ResourceClaimTemplateService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-resourceclaimtemplate-v1alpha2-resource-k8s-io
      */
     public function readResourceV1alpha2Namespaced(string $name, array $query = []): ResourceClaimTemplate
     {
@@ -164,6 +172,8 @@ class ResourceClaimTemplateService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-resourceclaimtemplate-v1alpha2-resource-k8s-io
      */
     public function deleteResourceV1alpha2Namespaced(string $name, array $query = []): ResourceClaimTemplate
     {
@@ -193,6 +203,8 @@ class ResourceClaimTemplateService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-resourceclaimtemplate-v1alpha2-resource-k8s-io
      */
     public function patchResourceV1alpha2Namespaced(
         string $name,
@@ -225,6 +237,8 @@ class ResourceClaimTemplateService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-resourceclaimtemplate-v1alpha2-resource-k8s-io
      */
     public function replaceResourceV1alpha2Namespaced(
         string $name,
@@ -264,6 +278,8 @@ class ResourceClaimTemplateService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-resourceclaimtemplate-v1alpha2-resource-k8s-io
      */
     public function listResourceV1alpha2ForAllNamespaces(
         array $query = [],
@@ -305,6 +321,8 @@ class ResourceClaimTemplateService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-resourceclaimtemplate-v1alpha2-resource-k8s-io
      */
     public function watchResourceV1alpha2NamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -344,6 +362,8 @@ class ResourceClaimTemplateService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-resourceclaimtemplate-v1alpha2-resource-k8s-io
      */
     public function watchResourceV1alpha2Namespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -383,6 +403,8 @@ class ResourceClaimTemplateService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-resourceclaimtemplate-v1alpha2-resource-k8s-io
      */
     public function watchResourceV1alpha2ListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Kcs\K8s\Api\Model\Api\Networking\v1beta1;
+namespace Kcs\K8s\Api\Model\Api\Networking\v1alpha1;
 
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;

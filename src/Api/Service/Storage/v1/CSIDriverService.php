@@ -41,6 +41,8 @@ class CSIDriverService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-csidriver-v1-storage-k8s-io
      */
     public function listStorageV1(array $query = [], callable|object|null $handler = null): CSIDriverList|null
     {
@@ -79,6 +81,8 @@ class CSIDriverService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-csidriver-v1-storage-k8s-io
      */
     public function deleteStorageV1Collection(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class CSIDriverService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-csidriver-v1-storage-k8s-io
      */
     public function createStorageV1(CSIDriver $cSIDriver, array $query = []): CSIDriver
     {
@@ -133,6 +139,8 @@ class CSIDriverService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-csidriver-v1-storage-k8s-io
      */
     public function readStorageV1(string $name, array $query = []): CSIDriver
     {
@@ -162,6 +170,8 @@ class CSIDriverService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-csidriver-v1-storage-k8s-io
      */
     public function deleteStorageV1(string $name, array $query = []): CSIDriver
     {
@@ -191,6 +201,8 @@ class CSIDriverService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-csidriver-v1-storage-k8s-io
      */
     public function patchStorageV1(string $name, PatchInterface $patch, array $query = []): CSIDriver
     {
@@ -220,6 +232,8 @@ class CSIDriverService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-csidriver-v1-storage-k8s-io
      */
     public function replaceStorageV1(string $name, CSIDriver $cSIDriver, array $query = []): CSIDriver
     {
@@ -259,6 +273,8 @@ class CSIDriverService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-csidriver-v1-storage-k8s-io
      */
     public function watchStorageV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -298,6 +314,8 @@ class CSIDriverService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-csidriver-v1-storage-k8s-io
      */
     public function watchStorageV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

@@ -8,6 +8,8 @@ use DateTimeInterface;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ManagedFieldsEntry;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\ObjectMeta;
 use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\OwnerReference;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status;
+use Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 use Kcs\K8s\Collection;
@@ -23,35 +25,27 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Operation(
     'delete',
     path: '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices/{name}',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation('put', path: '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',
     path: '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\Status',
+    response: Status::class,
 )]
 #[Kubernetes\Operation(
     'watch-all',
     path: '/apis/discovery.k8s.io/v1/endpointslices',
-    response: 'Kcs\K8s\Api\Model\ApiMachinery\Apis\Meta\v1\WatchEvent',
+    response: WatchEvent::class,
 )]
 #[Kubernetes\Operation('patch', path: '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices/{name}', body: 'patch', response: 'self')]
-#[Kubernetes\Operation(
-    'list',
-    path: '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices',
-    response: 'Kcs\K8s\Api\Model\Api\Discovery\v1\EndpointSliceList',
-)]
-#[Kubernetes\Operation(
-    'list-all',
-    path: '/apis/discovery.k8s.io/v1/endpointslices',
-    response: 'Kcs\K8s\Api\Model\Api\Discovery\v1\EndpointSliceList',
-)]
+#[Kubernetes\Operation('list', path: '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices', response: EndpointSliceList::class)]
+#[Kubernetes\Operation('list-all', path: '/apis/discovery.k8s.io/v1/endpointslices', response: EndpointSliceList::class)]
 class EndpointSlice
 {
     #[Kubernetes\Attribute('addressType', required: true)]

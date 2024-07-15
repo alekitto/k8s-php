@@ -41,6 +41,8 @@ class SecretService
      *   timeoutSeconds
      *   watch
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-secret-v1-core
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): SecretList|null
     {
@@ -79,6 +81,8 @@ class SecretService
      *   sendInitialEvents
      *   timeoutSeconds
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-secret-v1-core
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -107,6 +111,8 @@ class SecretService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-secret-v1-core
      */
     public function createNamespaced(Secret $secret, array $query = []): Secret
     {
@@ -133,6 +139,8 @@ class SecretService
      *
      * Allowed query parameters:
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-secret-v1-core
      */
     public function readNamespaced(string $name, array $query = []): Secret
     {
@@ -162,6 +170,8 @@ class SecretService
      *   orphanDependents
      *   propagationPolicy
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-secret-v1-core
      */
     public function deleteNamespaced(string $name, array $query = []): Status
     {
@@ -191,6 +201,8 @@ class SecretService
      *   fieldValidation
      *   force
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-secret-v1-core
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): Secret
     {
@@ -220,6 +232,8 @@ class SecretService
      *   fieldManager
      *   fieldValidation
      *   pretty
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-secret-v1-core
      */
     public function replaceNamespaced(string $name, Secret $secret, array $query = []): Secret
     {
@@ -256,6 +270,8 @@ class SecretService
      *   sendInitialEvents
      *   timeoutSeconds
      *   watch
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-secret-v1-core
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): SecretList|null
     {
@@ -295,6 +311,8 @@ class SecretService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-secret-v1-core
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -334,6 +352,8 @@ class SecretService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-secret-v1-core
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -373,6 +393,8 @@ class SecretService
      *   watch
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
+     *
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-secret-v1-core
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
