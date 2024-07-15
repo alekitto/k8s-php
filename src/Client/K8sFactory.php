@@ -163,7 +163,7 @@ class K8sFactory
             $options->setWebsocketClientFactory($websocketClientFactory);
         }
 
-        return new K8s($options);
+        return K8s::fromOptions($options);
     }
 
     private function getKubeConfigContents(string|null $configFilePath = null): string

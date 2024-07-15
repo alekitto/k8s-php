@@ -14,7 +14,7 @@ readonly class ContextConfigFactory
     {
     }
 
-    public function makeContextConfig(): ContextConfigInterface
+    public function contextConfig(): ContextConfigInterface
     {
         return new ContextConfig(
             $this->options,

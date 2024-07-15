@@ -27,7 +27,7 @@ class K8sTest extends TestCase
     {
         parent::setUp();
         $this->options = new Options('https://foo');
-        $this->subject = new K8s($this->options);
+        $this->subject = K8s::fromOptions($this->options);
     }
 
     public function testLogsReturnsLogClass(): void
@@ -98,10 +98,5 @@ class K8sTest extends TestCase
         ]);
 
         $this->assertInstanceOf(Pod::class, $result);
-    }
-
-    public function testGetOptions(): void
-    {
-        $this->assertEquals($this->options, $this->subject->getOptions());
     }
 }

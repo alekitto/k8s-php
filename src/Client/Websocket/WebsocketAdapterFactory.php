@@ -33,7 +33,7 @@ readonly class WebsocketAdapterFactory
 
         if ($this->options->getWebsocketClientFactory()) {
             return $this->options->getWebsocketClientFactory()
-                ->makeClient($this->configFactory->makeContextConfig());
+                ->makeClient($this->configFactory->contextConfig());
         }
 
         foreach ($this->adapterClasses as $adapter) {

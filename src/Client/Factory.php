@@ -78,7 +78,7 @@ class Factory
             return $this->serviceFactory;
         }
 
-        $this->serviceFactory = new ServiceFactory($this->makeApi());
+        $this->serviceFactory = new ServiceFactory($this->api());
 
         return $this->serviceFactory;
     }
@@ -215,7 +215,7 @@ class Factory
         return $this->httpClient;
     }
 
-    public function makeUriBuilder(): UriBuilder
+    public function uriBuilder(): UriBuilder
     {
         if (isset($this->uriBuilder)) {
             return $this->uriBuilder;
@@ -251,7 +251,7 @@ class Factory
         return $this->websocketAdapterFactory;
     }
 
-    public function makeWebsocketClientFactory(): WebsocketClientFactory
+    public function websocketClientFactory(): WebsocketClientFactory
     {
         if (isset($this->websocketClientFactory)) {
             return $this->websocketClientFactory;
@@ -265,7 +265,7 @@ class Factory
         return $this->websocketClientFactory;
     }
 
-    public function makeKindManager(): KindManager
+    public function kindManager(): KindManager
     {
         if (isset($this->kindManager)) {
             return $this->kindManager;
@@ -273,7 +273,7 @@ class Factory
 
         $this->kindManager = new KindManager(
             $this->httpClient(),
-            $this->makeUriBuilder(),
+            $this->uriBuilder(),
             $this->metadataFactory(),
             $this->options,
         );
@@ -281,7 +281,7 @@ class Factory
         return $this->kindManager;
     }
 
-    public function makeApi(): ApiInterface
+    public function api(): ApiInterface
     {
         if (isset($this->api)) {
             return $this->api;
@@ -289,8 +289,8 @@ class Factory
 
         $this->api = new Api(
             $this->httpClient(),
-            $this->makeWebsocketClientFactory(),
-            $this->makeUriBuilder(),
+            $this->websocketClientFactory(),
+            $this->uriBuilder(),
         );
 
         return $this->api;

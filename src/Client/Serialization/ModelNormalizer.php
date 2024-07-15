@@ -12,7 +12,6 @@ use Kcs\Metadata\Factory\MetadataFactoryInterface;
 use ReflectionObject;
 
 use function array_map;
-use function assert;
 use function iterator_to_array;
 
 use const DATE_RFC3339;
@@ -30,7 +29,9 @@ readonly class ModelNormalizer implements NormalizerInterface
 
         $instanceRef = new ReflectionObject($model);
         foreach ($metadata->getAttributesMetadata() as $property) {
-            assert($property instanceof ModelPropertyMetadata);
+            if (! $property instanceof ModelPropertyMetadata) {
+                continue;
+            }
 
             $phpValue = $property->getValue($model);
             if ($phpValue === null) {

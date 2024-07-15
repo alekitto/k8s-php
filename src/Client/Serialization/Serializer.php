@@ -35,7 +35,7 @@ readonly class Serializer
     }
 
     /** @param class-string $model */
-    public function deserialize(string|array $data, string $model): object
+    public function deserialize(string|array $data, string|null $model = null): object
     {
         if (is_string($data)) {
             $data = json_decode($data, true, 512, JSON_THROW_ON_ERROR);

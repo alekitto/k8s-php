@@ -91,7 +91,7 @@ readonly class RequestFactory
 
     private function addAuthIfNeeded(RequestInterface $request): RequestInterface
     {
-        $config = $this->configFactory->makeContextConfig();
+        $config = $this->configFactory->contextConfig();
 
         if ($config->getAuthType() === AuthType::Token) {
             $request = $request->withHeader(

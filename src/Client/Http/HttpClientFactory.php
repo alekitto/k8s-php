@@ -28,7 +28,7 @@ readonly class HttpClientFactory
 
         if ($this->httpClientFactory) {
             return $this->httpClientFactory->makeClient(
-                $this->configFactory->makeContextConfig(),
+                $this->configFactory->contextConfig(),
                 $isStreaming,
             );
         }

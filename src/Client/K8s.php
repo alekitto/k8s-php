@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace Kcs\K8s\Client;
 
 use Kcs\K8s\Api\Service\ServiceFactory;
+use Kcs\K8s\Client\File\ArchiveFactory;
 use Kcs\K8s\Client\File\FileDownloader;
 use Kcs\K8s\Client\File\FileUploader;
+use Kcs\K8s\Client\Kind\KindManager;
 use Kcs\K8s\Client\Kind\PodAttachService;
 use Kcs\K8s\Client\Kind\PodExecService;
 use Kcs\K8s\Client\Kind\PodLogService;
 use Kcs\K8s\Client\Kind\PortForwardService;
+use Kcs\K8s\Client\Serialization\Serializer;
 use Kcs\K8s\PatchInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -19,11 +22,26 @@ use function array_map;
 
 readonly class K8s
 {
-    private Factory $factory;
+    public function __construct(
+        private string $defaultNamespace,
+        private ServiceFactory $serviceFactory,
+        private KindManager $kindManager,
+        private ArchiveFactory $archiveFactory,
+        private Serializer $serializer,
+    ) {
+    }
 
-    public function __construct(private Options $options)
+    public static function fromOptions(Options $options): self
     {
-        $this->factory = new Factory($options);
+        $factory = new Factory($options);
+
+        return new self(
+            $options->getNamespace(),
+            $factory->serviceFactory(),
+            $factory->kindManager(),
+            $factory->archiveFactory(),
+            $factory->serializer(),
+        );
     }
 
     /**
@@ -33,7 +51,7 @@ readonly class K8s
      */
     public function api(): ServiceFactory
     {
-        return $this->factory->serviceFactory();
+        return $this->serviceFactory;
     }
 
     /**
@@ -52,7 +70,7 @@ readonly class K8s
         array $query = [],
         string|null $namespace = null,
     ): object {
-        return $this->factory->makeKindManager()->create(
+        return $this->kindManager->create(
             $kind,
             $query,
             $namespace,
@@ -73,7 +91,7 @@ readonly class K8s
         object $kind,
         array $query = [],
     ): object {
-        return $this->factory->makeKindManager()->delete(
+        return $this->kindManager->delete(
             $kind,
             $query,
         );
@@ -95,7 +113,7 @@ readonly class K8s
         string $kindFqcn,
         array $query = [],
     ): object {
-        return $this->factory->makeKindManager()->read(
+        return $this->kindManager->read(
             $name,
             $kindFqcn,
             $query,
@@ -114,7 +132,7 @@ readonly class K8s
         string $kindFqcn,
         array $query = [],
     ): object {
-        return $this->factory->makeKindManager()->readStatus(
+        return $this->kindManager->readStatus(
             $name,
             $kindFqcn,
             $query,
@@ -133,7 +151,7 @@ readonly class K8s
         string $kindFqcn,
         array $query = [],
     ): object {
-        return $this->factory->makeKindManager()->deleteAll(
+        return $this->kindManager->deleteAll(
             $kindFqcn,
             $query,
         );
@@ -153,7 +171,7 @@ readonly class K8s
         array $query = [],
         string|null $namespace = null,
     ): object {
-        return $this->factory->makeKindManager()->deleteAllNamespaced(
+        return $this->kindManager->deleteAllNamespaced(
             $kindFqcn,
             $query,
             $namespace,
@@ -172,7 +190,7 @@ readonly class K8s
         string $kindFqcn,
         array $query = [],
     ): void {
-        $this->factory->makeKindManager()->watchAll(
+        $this->kindManager->watchAll(
             $handler,
             $kindFqcn,
             $query,
@@ -193,7 +211,7 @@ readonly class K8s
         array $query = [],
         string|null $namespace = null,
     ): void {
-        $this->factory->makeKindManager()->watchNamespaced(
+        $this->kindManager->watchNamespaced(
             $handler,
             $kindFqcn,
             $query,
@@ -215,7 +233,7 @@ readonly class K8s
         string $kindFqcn,
         array $query = [],
     ): iterable {
-        return $this->factory->makeKindManager()->listAll(
+        return $this->kindManager->listAll(
             $kindFqcn,
             $query,
         );
@@ -239,7 +257,7 @@ readonly class K8s
         array $query = [],
         string|null $namespace = null,
     ): object {
-        return $this->factory->makeKindManager()->patch(
+        return $this->kindManager->patch(
             $kind,
             $patch,
             $query,
@@ -263,7 +281,7 @@ readonly class K8s
         array $query = [],
         string|null $namespace = null,
     ): object {
-        return $this->factory->makeKindManager()->patchStatus(
+        return $this->kindManager->patchStatus(
             $kind,
             $patch,
             $query,
@@ -285,14 +303,15 @@ readonly class K8s
         object $kind,
         array $query = [],
     ): object {
-        return $this->factory->makeKindManager()->replace(
+        return $this->kindManager->replace(
             $kind,
             $query,
         );
     }
 
     /**
-     * Replace a Kubernetes status sub-resource of the specified Kind (an atomic patch operation that requires a resourceVersion).
+     * Replace a Kubernetes status sub-resource of the specified Kind (an atomic patch operation that requires a
+     * resourceVersion).
      *
      * @param object $kind The Kind object model.
      * @param array $query Any additional query parameters.
@@ -303,7 +322,7 @@ readonly class K8s
         object $kind,
         array $query = [],
     ): object {
-        return $this->factory->makeKindManager()->replaceStatus(
+        return $this->kindManager->replaceStatus(
             $kind,
             $query,
         );
@@ -325,7 +344,7 @@ readonly class K8s
         array $query = [],
         string|null $namespace = null,
     ): iterable {
-        return $this->factory->makeKindManager()->listNamespaced(
+        return $this->kindManager->listNamespaced(
             $kindFqcn,
             $query,
             $namespace,
@@ -342,7 +361,7 @@ readonly class K8s
         object $kind,
         RequestInterface $request,
     ): ResponseInterface {
-        return $this->factory->makeKindManager()->proxy(
+        return $this->kindManager->proxy(
             $kind,
             $request,
         );
@@ -361,7 +380,7 @@ readonly class K8s
         return new PodLogService(
             $this->api()->v1CorePod(),
             $podName,
-            $namespace ?? $this->options->getNamespace(),
+            $namespace ?? $this->defaultNamespace,
         );
     }
 
@@ -369,7 +388,8 @@ readonly class K8s
      * Attach to the main running process of a container in a Pod.
      *
      * @param string $podName The Pod name to attach to.
-     * @param string|null $container The specific container to attach to. If not specified, defaults to the first container.
+     * @param string|null $container The specific container to attach to. If not specified, defaults to the first
+     *                               container.
      * @param string|null $namespace The specific namespace the pod is in. Defaults to the one specified in options.
      */
     public function attach(
@@ -380,7 +400,7 @@ readonly class K8s
         $attach = new PodAttachService(
             $this->api()->v1CorePodAttachOptions(),
             $podName,
-            $namespace ?? $this->options->getNamespace(),
+            $namespace ?? $this->defaultNamespace,
         );
 
         if (! empty($container)) {
@@ -405,7 +425,7 @@ readonly class K8s
         $exec = new PodExecService(
             $this->api()->v1CorePodExecOptions(),
             $podName,
-            $namespace ?? $this->options->getNamespace(),
+            $namespace ?? $this->defaultNamespace,
         );
 
         if (! empty($command)) {
@@ -430,7 +450,7 @@ readonly class K8s
         string|null $destination = null,
     ): FileUploader {
         $fileUpload = new FileUploader(
-            $this->factory->archiveFactory(),
+            $this->archiveFactory,
             $this->exec($podName),
         );
 
@@ -453,7 +473,7 @@ readonly class K8s
     ): FileDownloader {
         $fileDownloader = new FileDownloader(
             $this->exec($podName),
-            $this->factory->archiveFactory(),
+            $this->archiveFactory,
         );
 
         if (! empty($path)) {
@@ -487,14 +507,6 @@ readonly class K8s
      */
     public function newKind(array $data): object
     {
-        return $this->factory->denormalizer()->denormalize($data);
-    }
-
-    /**
-     * Get the options the client was constructed with.
-     */
-    public function getOptions(): Options
-    {
-        return $this->options;
+        return $this->serializer->deserialize($data);
     }
 }
