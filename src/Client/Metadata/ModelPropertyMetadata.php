@@ -4,8 +4,14 @@ declare(strict_types=1);
 
 namespace Kcs\K8s\Client\Metadata;
 
+use ArrayObject;
 use Kcs\K8s\Attribute\AttributeType;
 use Kcs\Metadata\PropertyMetadata;
+use ReflectionNamedType;
+
+use function is_array;
+use function json_decode;
+use function json_encode;
 
 class ModelPropertyMetadata extends PropertyMetadata
 {
@@ -54,8 +60,8 @@ class ModelPropertyMetadata extends PropertyMetadata
 
         if (is_array($value)) {
             $propertyType = $reflection->getType();
-            if ($propertyType instanceof \ReflectionNamedType && $propertyType->getName() === 'object') {
-                $value = json_decode(json_encode($value), false);
+            if ($propertyType instanceof ReflectionNamedType && $propertyType->getName() === 'object') {
+                $value = empty($value) ? new ArrayObject() : json_decode(json_encode($value), false);
             }
         }
 

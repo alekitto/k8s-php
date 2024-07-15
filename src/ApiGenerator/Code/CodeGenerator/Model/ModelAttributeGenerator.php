@@ -12,9 +12,9 @@ use Kcs\K8s\ApiGenerator\Parser\Metadata\OperationMetadata;
 use Kcs\K8s\Attribute\Kind;
 use Kcs\K8s\Attribute\Operation;
 use Nette\PhpGenerator\ClassType;
-
 use Nette\PhpGenerator\Literal;
 use Nette\PhpGenerator\PhpNamespace;
+
 use function array_filter;
 
 readonly class ModelAttributeGenerator
