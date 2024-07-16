@@ -17,9 +17,11 @@ use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\PhpNamespace;
 
 use function array_merge;
+use function assert;
 use function in_array;
 use function sprintf;
 use function str_replace;
+use function str_starts_with;
 
 readonly class OperationMethodCodeGenerator
 {
@@ -135,6 +137,11 @@ readonly class OperationMethodCodeGenerator
         switch ($operation->getReturnedType()) {
             case 'model':
                 $model = $operation->getReturnedDefinition();
+                assert($model !== null);
+                if (! $model->isValidModel() && str_starts_with($model->getGoPackageName(), 'io.k8s.')) {
+                    $options = new CodeOptions($options->getApiVersion(), '1.0.0', 'Kcs\K8s\Api', $options->getSrcDir());
+                }
+
                 $namespace->addUse($this->computeNamespace($model->getPhpFqcn(), $options));
                 $method->setReturnType($this->computeNamespace(
                     $model->getPhpFqcn(),

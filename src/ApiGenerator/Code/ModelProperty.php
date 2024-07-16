@@ -11,6 +11,8 @@ use Kcs\K8s\ApiGenerator\Parser\Metadata\PropertyMetadata;
 use Kcs\K8s\Attribute\AttributeType;
 use OpenApi\Generator;
 
+use function str_starts_with;
+
 readonly class ModelProperty
 {
     use CodeGeneratorTrait;
@@ -187,6 +189,13 @@ readonly class ModelProperty
             $docType = 'array';
         } else {
             $docType = 'object';
+
+            if (str_starts_with($this->definition->getGoPackageName(), 'io.k8s.')) {
+                $proposedType = 'Kcs\K8s\Api\\'.$this->definition->getPhpFqcn();
+                if (class_exists($proposedType)) {
+                    $docType = '\\'.$proposedType;
+                }
+            }
         }
 
         if ($this->property->isArray() && $docType !== 'array') {

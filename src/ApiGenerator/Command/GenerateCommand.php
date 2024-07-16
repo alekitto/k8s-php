@@ -14,7 +14,6 @@ use Kcs\K8s\ApiGenerator\Github\GithubClient;
 use Kcs\K8s\ApiGenerator\Github\GitTag;
 use Kcs\K8s\ApiGenerator\Parser\MetadataParser;
 use OpenApi\Annotations\OpenApi;
-use OpenApi\Context;
 use OpenApi\Serializer;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -22,8 +21,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\VarDumper\Caster\StubCaster;
-use Symfony\Component\VarDumper\Cloner\AbstractCloner;
 use Throwable;
 use ZipArchive;
 
@@ -96,8 +93,6 @@ class GenerateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        AbstractCloner::$defaultCasters[Context::class] = StubCaster::class . '::cutInternals';
-
         $apiVersion = $input->getOption('api-version');
         $rootNamespace = $input->getOption('root-namespace');
         $srcDir = $input->getOption('src-dir');

@@ -123,7 +123,7 @@ readonly class OperationMetadata
     /** @return string[] */
     public function getRequiredPathParameters(): array
     {
-        if (empty($this->path->parameters)) {
+        if ($this->path->parameters === Generator::UNDEFINED) {
             return [];
         }
 

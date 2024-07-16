@@ -19,7 +19,7 @@ readonly class PropertyMetadata
 
     public function getType(): string|null
     {
-        if ($this->property->type === 'object' && $this->property->additionalProperties->type !== Generator::UNDEFINED) {
+        if ($this->property->type === 'object' && $this->property->additionalProperties !== Generator::UNDEFINED && $this->property->additionalProperties->type !== Generator::UNDEFINED) {
             return $this->property->additionalProperties->type;
         }
 
