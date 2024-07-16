@@ -50,7 +50,7 @@ class CronJobService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = CronJobList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/batch/v1/cronjobs',
             [],
             $query,
@@ -88,7 +88,7 @@ class CronJobService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = CronJobList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/batch/v1/namespaces/{namespace}/cronjobs',
             [],
             $query,
@@ -127,7 +127,7 @@ class CronJobService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/batch/v1/namespaces/{namespace}/cronjobs',
             [],
             $query,
@@ -158,7 +158,7 @@ class CronJobService
         $options['method'] = 'post';
         $options['body'] = $cronJob;
         $options['model'] = CronJob::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/batch/v1/namespaces/{namespace}/cronjobs',
             [],
             $query,
@@ -185,7 +185,7 @@ class CronJobService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = CronJob::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/batch/v1/namespaces/{namespace}/cronjobs/{name}',
             ['{name}' => $name],
             $query,
@@ -216,7 +216,7 @@ class CronJobService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/batch/v1/namespaces/{namespace}/cronjobs/{name}',
             ['{name}' => $name],
             $query,
@@ -248,7 +248,7 @@ class CronJobService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = CronJob::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/batch/v1/namespaces/{namespace}/cronjobs/{name}',
             ['{name}' => $name],
             $query,
@@ -279,7 +279,7 @@ class CronJobService
         $options['method'] = 'put';
         $options['body'] = $cronJob;
         $options['model'] = CronJob::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/batch/v1/namespaces/{namespace}/cronjobs/{name}',
             ['{name}' => $name],
             $query,
@@ -306,7 +306,7 @@ class CronJobService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = CronJob::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/batch/v1/namespaces/{namespace}/cronjobs/{name}/status',
             ['{name}' => $name],
             $query,
@@ -338,7 +338,7 @@ class CronJobService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = CronJob::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/batch/v1/namespaces/{namespace}/cronjobs/{name}/status',
             ['{name}' => $name],
             $query,
@@ -369,7 +369,7 @@ class CronJobService
         $options['method'] = 'put';
         $options['body'] = $cronJob;
         $options['model'] = CronJob::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/batch/v1/namespaces/{namespace}/cronjobs/{name}/status',
             ['{name}' => $name],
             $query,
@@ -410,7 +410,7 @@ class CronJobService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/batch/v1/watch/cronjobs',
             [],
             $query,
@@ -451,7 +451,7 @@ class CronJobService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/batch/v1/watch/namespaces/{namespace}/cronjobs',
             [],
             $query,
@@ -492,7 +492,7 @@ class CronJobService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/batch/v1/watch/namespaces/{namespace}/cronjobs/{name}',
             ['{name}' => $name],
             $query,

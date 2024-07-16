@@ -50,7 +50,7 @@ class EventService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = EventList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/events.k8s.io/v1/events',
             [],
             $query,
@@ -88,7 +88,7 @@ class EventService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = EventList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/events.k8s.io/v1/namespaces/{namespace}/events',
             [],
             $query,
@@ -127,7 +127,7 @@ class EventService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/events.k8s.io/v1/namespaces/{namespace}/events',
             [],
             $query,
@@ -158,7 +158,7 @@ class EventService
         $options['method'] = 'post';
         $options['body'] = $event;
         $options['model'] = Event::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/events.k8s.io/v1/namespaces/{namespace}/events',
             [],
             $query,
@@ -185,7 +185,7 @@ class EventService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = Event::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/events.k8s.io/v1/namespaces/{namespace}/events/{name}',
             ['{name}' => $name],
             $query,
@@ -216,7 +216,7 @@ class EventService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/events.k8s.io/v1/namespaces/{namespace}/events/{name}',
             ['{name}' => $name],
             $query,
@@ -248,7 +248,7 @@ class EventService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = Event::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/events.k8s.io/v1/namespaces/{namespace}/events/{name}',
             ['{name}' => $name],
             $query,
@@ -279,7 +279,7 @@ class EventService
         $options['method'] = 'put';
         $options['body'] = $event;
         $options['model'] = Event::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/events.k8s.io/v1/namespaces/{namespace}/events/{name}',
             ['{name}' => $name],
             $query,
@@ -320,7 +320,7 @@ class EventService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/events.k8s.io/v1/watch/events',
             [],
             $query,
@@ -361,7 +361,7 @@ class EventService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/events.k8s.io/v1/watch/namespaces/{namespace}/events',
             [],
             $query,
@@ -402,7 +402,7 @@ class EventService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/events.k8s.io/v1/watch/namespaces/{namespace}/events/{name}',
             ['{name}' => $name],
             $query,

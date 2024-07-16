@@ -51,7 +51,7 @@ class PodLogServiceTest extends TestCase
             ->showPrevious()
             ->withTimestamps()
             ->limitBytes(100)
-            ->makePretty()
+            ->pretty()
             ->sinceSeconds(1800)
             ->tailLines(10)
             ->read();
@@ -75,7 +75,7 @@ class PodLogServiceTest extends TestCase
 
         $this->subject
             ->withTimestamps()
-            ->makePretty()
+            ->pretty()
             ->follow($callable);
     }
 

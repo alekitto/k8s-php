@@ -10,7 +10,7 @@ use function sprintf;
 
 trait CodeGeneratorTrait
 {
-    private function makeFinalNamespace(string $namespace, CodeOptions $options): string
+    private function computeNamespace(string $namespace, CodeOptions $options): string
     {
         return sprintf(
             '%s\\%s',

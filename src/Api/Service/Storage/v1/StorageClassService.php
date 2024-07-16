@@ -50,7 +50,7 @@ class StorageClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = StorageClassList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/storageclasses',
             [],
             $query,
@@ -89,7 +89,7 @@ class StorageClassService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/storageclasses',
             [],
             $query,
@@ -120,7 +120,7 @@ class StorageClassService
         $options['method'] = 'post';
         $options['body'] = $storageClass;
         $options['model'] = StorageClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/storageclasses',
             [],
             $query,
@@ -147,7 +147,7 @@ class StorageClassService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = StorageClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/storageclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class StorageClassService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = StorageClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/storageclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class StorageClassService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = StorageClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/storageclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class StorageClassService
         $options['method'] = 'put';
         $options['body'] = $storageClass;
         $options['model'] = StorageClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/storageclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -282,7 +282,7 @@ class StorageClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/watch/storageclasses',
             [],
             $query,
@@ -323,7 +323,7 @@ class StorageClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/watch/storageclasses/{name}',
             ['{name}' => $name],
             $query,

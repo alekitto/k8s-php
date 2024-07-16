@@ -35,8 +35,8 @@ class GithubClient
         try {
             $response = $this->httpClient->request(
                 'GET',
-                $this->makeApiUri('/repos/' . $owner . '/' . $repo . '/git/refs/tags'),
-                $this->makeHttpOptions(),
+                $this->getUrl('/repos/' . $owner . '/' . $repo . '/git/refs/tags'),
+                $this->options(),
             );
             $tags = json_decode($response->getContent(), true, 512, JSON_THROW_ON_ERROR);
         } catch (ClientException $e) {
@@ -61,8 +61,8 @@ class GithubClient
 
         $response = $this->httpClient->request(
             'GET',
-            $this->makeApiUri('/repos/' . $owner . '/' . $repo . '/git/trees/' . $tag->getCommonName() . ':' . $basePath),
-            $this->makeHttpOptions(),
+            $this->getUrl('/repos/' . $owner . '/' . $repo . '/git/trees/' . $tag->getCommonName() . ':' . $basePath),
+            $this->options(),
         );
         $tree = json_decode($response->getContent(), true, 512, JSON_THROW_ON_ERROR);
 
@@ -84,8 +84,8 @@ class GithubClient
 
         $response = $this->httpClient->request(
             'GET',
-            $this->makeApiUri('/repos/' . $owner . '/' . $repo . '/git/blobs/' . $sha),
-            $this->makeHttpOptions(),
+            $this->getUrl('/repos/' . $owner . '/' . $repo . '/git/blobs/' . $sha),
+            $this->options(),
         );
 
         $content = json_decode($response->getContent(), true, 512, JSON_THROW_ON_ERROR);
@@ -93,13 +93,13 @@ class GithubClient
         return new GitBlob($content);
     }
 
-    private function makeApiUri(string $path): string
+    private function getUrl(string $path): string
     {
         return self::GITHUB_API_BASE . $path;
     }
 
     /** @return array<string, mixed> */
-    private function makeHttpOptions(): array
+    private function options(): array
     {
         return [
             'headers' => ['User-Agent' => 'K8s API Generator'],

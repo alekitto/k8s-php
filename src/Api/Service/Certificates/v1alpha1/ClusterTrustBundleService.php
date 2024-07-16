@@ -50,7 +50,7 @@ class ClusterTrustBundleService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ClusterTrustBundleList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1alpha1/clustertrustbundles',
             [],
             $query,
@@ -89,7 +89,7 @@ class ClusterTrustBundleService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1alpha1/clustertrustbundles',
             [],
             $query,
@@ -122,7 +122,7 @@ class ClusterTrustBundleService
         $options['method'] = 'post';
         $options['body'] = $clusterTrustBundle;
         $options['model'] = ClusterTrustBundle::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1alpha1/clustertrustbundles',
             [],
             $query,
@@ -149,7 +149,7 @@ class ClusterTrustBundleService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ClusterTrustBundle::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1alpha1/clustertrustbundles/{name}',
             ['{name}' => $name],
             $query,
@@ -180,7 +180,7 @@ class ClusterTrustBundleService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1alpha1/clustertrustbundles/{name}',
             ['{name}' => $name],
             $query,
@@ -215,7 +215,7 @@ class ClusterTrustBundleService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ClusterTrustBundle::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1alpha1/clustertrustbundles/{name}',
             ['{name}' => $name],
             $query,
@@ -249,7 +249,7 @@ class ClusterTrustBundleService
         $options['method'] = 'put';
         $options['body'] = $clusterTrustBundle;
         $options['model'] = ClusterTrustBundle::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1alpha1/clustertrustbundles/{name}',
             ['{name}' => $name],
             $query,
@@ -290,7 +290,7 @@ class ClusterTrustBundleService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1alpha1/watch/clustertrustbundles',
             [],
             $query,
@@ -331,7 +331,7 @@ class ClusterTrustBundleService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1alpha1/watch/clustertrustbundles/{name}',
             ['{name}' => $name],
             $query,

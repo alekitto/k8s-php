@@ -16,10 +16,10 @@ readonly class WebsocketClientFactory
     }
 
     /** @throws RuntimeException */
-    public function makeClient(): WebsocketClient
+    public function factory(): WebsocketClient
     {
         return new WebsocketClient(
-            $this->adapterFactory->makeAdapter(),
+            $this->adapterFactory->factory(),
             $this->requestFactory,
         );
     }

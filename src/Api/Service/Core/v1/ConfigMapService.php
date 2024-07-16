@@ -50,7 +50,7 @@ class ConfigMapService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ConfigMapList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/configmaps',
             [],
             $query,
@@ -88,7 +88,7 @@ class ConfigMapService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ConfigMapList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/configmaps',
             [],
             $query,
@@ -127,7 +127,7 @@ class ConfigMapService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/configmaps',
             [],
             $query,
@@ -158,7 +158,7 @@ class ConfigMapService
         $options['method'] = 'post';
         $options['body'] = $configMap;
         $options['model'] = ConfigMap::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/configmaps',
             [],
             $query,
@@ -185,7 +185,7 @@ class ConfigMapService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ConfigMap::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/configmaps/{name}',
             ['{name}' => $name],
             $query,
@@ -216,7 +216,7 @@ class ConfigMapService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/configmaps/{name}',
             ['{name}' => $name],
             $query,
@@ -248,7 +248,7 @@ class ConfigMapService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ConfigMap::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/configmaps/{name}',
             ['{name}' => $name],
             $query,
@@ -279,7 +279,7 @@ class ConfigMapService
         $options['method'] = 'put';
         $options['body'] = $configMap;
         $options['model'] = ConfigMap::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/configmaps/{name}',
             ['{name}' => $name],
             $query,
@@ -320,7 +320,7 @@ class ConfigMapService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/configmaps',
             [],
             $query,
@@ -361,7 +361,7 @@ class ConfigMapService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/configmaps',
             [],
             $query,
@@ -402,7 +402,7 @@ class ConfigMapService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/configmaps/{name}',
             ['{name}' => $name],
             $query,

@@ -34,7 +34,7 @@ class PodPortForwardOptionsService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['handler'] = $handler;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/pods/{name}/portforward',
             ['{name}' => $name],
             $query,
@@ -61,7 +61,7 @@ class PodPortForwardOptionsService
         $options['query'] = $query;
         $options['method'] = 'post';
         $options['handler'] = $handler;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/pods/{name}/portforward',
             ['{name}' => $name],
             $query,

@@ -50,7 +50,7 @@ class DaemonSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = DaemonSetList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/daemonsets',
             [],
             $query,
@@ -88,7 +88,7 @@ class DaemonSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = DaemonSetList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/daemonsets',
             [],
             $query,
@@ -127,7 +127,7 @@ class DaemonSetService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/daemonsets',
             [],
             $query,
@@ -158,7 +158,7 @@ class DaemonSetService
         $options['method'] = 'post';
         $options['body'] = $daemonSet;
         $options['model'] = DaemonSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/daemonsets',
             [],
             $query,
@@ -185,7 +185,7 @@ class DaemonSetService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = DaemonSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}',
             ['{name}' => $name],
             $query,
@@ -216,7 +216,7 @@ class DaemonSetService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}',
             ['{name}' => $name],
             $query,
@@ -248,7 +248,7 @@ class DaemonSetService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = DaemonSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}',
             ['{name}' => $name],
             $query,
@@ -279,7 +279,7 @@ class DaemonSetService
         $options['method'] = 'put';
         $options['body'] = $daemonSet;
         $options['model'] = DaemonSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}',
             ['{name}' => $name],
             $query,
@@ -306,7 +306,7 @@ class DaemonSetService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = DaemonSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}/status',
             ['{name}' => $name],
             $query,
@@ -338,7 +338,7 @@ class DaemonSetService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = DaemonSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}/status',
             ['{name}' => $name],
             $query,
@@ -369,7 +369,7 @@ class DaemonSetService
         $options['method'] = 'put';
         $options['body'] = $daemonSet;
         $options['model'] = DaemonSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}/status',
             ['{name}' => $name],
             $query,
@@ -410,7 +410,7 @@ class DaemonSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/watch/daemonsets',
             [],
             $query,
@@ -451,7 +451,7 @@ class DaemonSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/watch/namespaces/{namespace}/daemonsets',
             [],
             $query,
@@ -492,7 +492,7 @@ class DaemonSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/watch/namespaces/{namespace}/daemonsets/{name}',
             ['{name}' => $name],
             $query,

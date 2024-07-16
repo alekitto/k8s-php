@@ -20,14 +20,14 @@ readonly class HttpClientFactory
     ) {
     }
 
-    public function makeClient(bool $isStreaming): ClientInterface
+    public function factory(bool $isStreaming): ClientInterface
     {
         if ($this->client) {
             return $this->client;
         }
 
         if ($this->httpClientFactory) {
-            return $this->httpClientFactory->makeClient(
+            return $this->httpClientFactory->factory(
                 $this->configFactory->contextConfig(),
                 $isStreaming,
             );

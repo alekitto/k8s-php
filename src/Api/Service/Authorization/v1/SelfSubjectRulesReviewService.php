@@ -41,7 +41,7 @@ class SelfSubjectRulesReviewService
         $options['method'] = 'post';
         $options['body'] = $selfSubjectRulesReview;
         $options['model'] = SelfSubjectRulesReview::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/authorization.k8s.io/v1/selfsubjectrulesreviews',
             [],
             $query,

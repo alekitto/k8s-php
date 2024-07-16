@@ -50,7 +50,7 @@ class ReplicationControllerService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ReplicationControllerList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/replicationcontrollers',
             [],
             $query,
@@ -89,7 +89,7 @@ class ReplicationControllerService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/replicationcontrollers',
             [],
             $query,
@@ -122,7 +122,7 @@ class ReplicationControllerService
         $options['method'] = 'post';
         $options['body'] = $replicationController;
         $options['model'] = ReplicationController::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/replicationcontrollers',
             [],
             $query,
@@ -149,7 +149,7 @@ class ReplicationControllerService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ReplicationController::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}',
             ['{name}' => $name],
             $query,
@@ -180,7 +180,7 @@ class ReplicationControllerService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}',
             ['{name}' => $name],
             $query,
@@ -212,7 +212,7 @@ class ReplicationControllerService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ReplicationController::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}',
             ['{name}' => $name],
             $query,
@@ -246,7 +246,7 @@ class ReplicationControllerService
         $options['method'] = 'put';
         $options['body'] = $replicationController;
         $options['model'] = ReplicationController::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}',
             ['{name}' => $name],
             $query,
@@ -273,7 +273,7 @@ class ReplicationControllerService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ReplicationController::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/status',
             ['{name}' => $name],
             $query,
@@ -308,7 +308,7 @@ class ReplicationControllerService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ReplicationController::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/status',
             ['{name}' => $name],
             $query,
@@ -342,7 +342,7 @@ class ReplicationControllerService
         $options['method'] = 'put';
         $options['body'] = $replicationController;
         $options['model'] = ReplicationController::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/status',
             ['{name}' => $name],
             $query,
@@ -380,7 +380,7 @@ class ReplicationControllerService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ReplicationControllerList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/replicationcontrollers',
             [],
             $query,
@@ -421,7 +421,7 @@ class ReplicationControllerService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/replicationcontrollers',
             [],
             $query,
@@ -462,7 +462,7 @@ class ReplicationControllerService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/replicationcontrollers/{name}',
             ['{name}' => $name],
             $query,
@@ -503,7 +503,7 @@ class ReplicationControllerService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/replicationcontrollers',
             [],
             $query,

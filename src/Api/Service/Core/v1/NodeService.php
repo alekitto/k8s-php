@@ -54,7 +54,7 @@ class NodeService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = NodeList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes',
             [],
             $query,
@@ -93,7 +93,7 @@ class NodeService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes',
             [],
             $query,
@@ -124,7 +124,7 @@ class NodeService
         $options['method'] = 'post';
         $options['body'] = $node;
         $options['model'] = Node::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes',
             [],
             $query,
@@ -151,7 +151,7 @@ class NodeService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = Node::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}',
             ['{name}' => $name],
             $query,
@@ -182,7 +182,7 @@ class NodeService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}',
             ['{name}' => $name],
             $query,
@@ -214,7 +214,7 @@ class NodeService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = Node::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}',
             ['{name}' => $name],
             $query,
@@ -245,7 +245,7 @@ class NodeService
         $options['method'] = 'put';
         $options['body'] = $node;
         $options['model'] = Node::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}',
             ['{name}' => $name],
             $query,
@@ -272,7 +272,7 @@ class NodeService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = Node::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/status',
             ['{name}' => $name],
             $query,
@@ -304,7 +304,7 @@ class NodeService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = Node::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/status',
             ['{name}' => $name],
             $query,
@@ -335,7 +335,7 @@ class NodeService
         $options['method'] = 'put';
         $options['body'] = $node;
         $options['model'] = Node::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/status',
             ['{name}' => $name],
             $query,
@@ -376,7 +376,7 @@ class NodeService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/nodes',
             [],
             $query,
@@ -417,7 +417,7 @@ class NodeService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/nodes/{name}',
             ['{name}' => $name],
             $query,

@@ -25,7 +25,7 @@ readonly class WebsocketClient
 
     public function connect(string $uri, string $type, mixed $handler): void
     {
-        $request = $this->requestFactory->makeRequest($uri, 'connect');
+        $request = $this->requestFactory->build($uri, 'connect');
         $request = $request->withUri(
             $request->getUri()->withScheme('wss'),
         );
@@ -35,7 +35,7 @@ readonly class WebsocketClient
                 $frameHandler = new ExecHandler($handler);
                 break;
             case 'portforward':
-                $frameHandler = $this->makePortForwardHandler(
+                $frameHandler = $this->createPortForwardHandler(
                     $request,
                     $handler,
                 );
@@ -53,7 +53,7 @@ readonly class WebsocketClient
         );
     }
 
-    private function makePortForwardHandler(RequestInterface $request, callable|PortForwardInterface $handler): PortForwardHandler
+    private function createPortForwardHandler(RequestInterface $request, callable|PortForwardInterface $handler): PortForwardHandler
     {
         $query = $request->getUri()->getQuery();
         $ports = $this->parsePortsFromQueryString($query);

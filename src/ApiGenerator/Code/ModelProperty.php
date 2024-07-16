@@ -70,7 +70,7 @@ readonly class ModelProperty
             return null;
         }
 
-        return $this->makeFinalNamespace($this->definition->getPhpFqcn(), $this->options);
+        return $this->computeNamespace($this->definition->getPhpFqcn(), $this->options);
     }
 
     public function getModelClassName(): string|null
@@ -100,7 +100,7 @@ readonly class ModelProperty
         }
 
         if ($this->definition->isValidModel()) {
-            return $this->makeFinalNamespace($this->definition->getPhpFqcn(), $this->options);
+            return $this->computeNamespace($this->definition->getPhpFqcn(), $this->options);
         }
 
         if ($this->definition->isDateTime()) {

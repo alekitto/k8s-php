@@ -51,12 +51,12 @@ class HttpClient
         }
 
         if ($proxy instanceof RequestInterface) {
-            $request = $this->requestFactory->makeFromRequest(
+            $request = $this->requestFactory->fromRequest(
                 $uri,
                 $proxy,
             );
         } else {
-            $request = $this->requestFactory->makeRequest(
+            $request = $this->requestFactory->build(
                 $uri,
                 $action,
                 $acceptType,
@@ -66,9 +66,9 @@ class HttpClient
             );
         }
 
-        $client = $this->clientFactory->makeClient($this->isStreamingRequest($options));
+        $client = $this->clientFactory->factory($this->isStreamingRequest($options));
         $response = $client->sendRequest($request);
-        $responseHandlers = $this->handlerFactory->makeHandlers($this->serializer);
+        $responseHandlers = $this->handlerFactory->factory($this->serializer);
 
         foreach ($responseHandlers as $responseHandler) {
             if ($responseHandler->supports($response, $options)) {

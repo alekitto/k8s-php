@@ -39,7 +39,7 @@ class BindingService
         $options['method'] = 'post';
         $options['body'] = $binding;
         $options['model'] = Binding::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/bindings',
             [],
             $query,
@@ -70,7 +70,7 @@ class BindingService
         $options['method'] = 'post';
         $options['body'] = $binding;
         $options['model'] = Binding::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/pods/{name}/binding',
             ['{name}' => $name],
             $query,

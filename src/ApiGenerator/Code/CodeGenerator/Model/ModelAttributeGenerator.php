@@ -84,11 +84,11 @@ readonly class ModelAttributeGenerator
             if ($returnedDefinition && ! $isWatchAction) {
                 $responseModel = $returnedDefinition === $model
                     ? 'self'
-                    : new Literal($namespace->simplifyName($this->makeFinalNamespace($returnedDefinition->getPhpFqcn(), $options)) . '::class');
+                    : new Literal($namespace->simplifyName($this->computeNamespace($returnedDefinition->getPhpFqcn(), $options)) . '::class');
                 $params['response'] = $responseModel;
             } elseif ($isWatchAction) {
                 $responseModel = $metadata->findDefinitionByKind('WatchEvent', 'v1');
-                $responseModel = new Literal($namespace->simplifyName($this->makeFinalNamespace($responseModel->getPhpFqcn(), $options)) . '::class');
+                $responseModel = new Literal($namespace->simplifyName($this->computeNamespace($responseModel->getPhpFqcn(), $options)) . '::class');
                 $params['response'] = $responseModel;
             }
 

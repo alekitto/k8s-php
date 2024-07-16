@@ -50,7 +50,7 @@ class CSIDriverService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = CSIDriverList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csidrivers',
             [],
             $query,
@@ -89,7 +89,7 @@ class CSIDriverService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csidrivers',
             [],
             $query,
@@ -120,7 +120,7 @@ class CSIDriverService
         $options['method'] = 'post';
         $options['body'] = $cSIDriver;
         $options['model'] = CSIDriver::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csidrivers',
             [],
             $query,
@@ -147,7 +147,7 @@ class CSIDriverService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = CSIDriver::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csidrivers/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class CSIDriverService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = CSIDriver::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csidrivers/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class CSIDriverService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = CSIDriver::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csidrivers/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class CSIDriverService
         $options['method'] = 'put';
         $options['body'] = $cSIDriver;
         $options['model'] = CSIDriver::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csidrivers/{name}',
             ['{name}' => $name],
             $query,
@@ -282,7 +282,7 @@ class CSIDriverService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/watch/csidrivers',
             [],
             $query,
@@ -323,7 +323,7 @@ class CSIDriverService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/watch/csidrivers/{name}',
             ['{name}' => $name],
             $query,

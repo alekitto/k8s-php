@@ -50,7 +50,7 @@ class ServiceCIDRService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ServiceCIDRList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/servicecidrs',
             [],
             $query,
@@ -89,7 +89,7 @@ class ServiceCIDRService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/servicecidrs',
             [],
             $query,
@@ -120,7 +120,7 @@ class ServiceCIDRService
         $options['method'] = 'post';
         $options['body'] = $serviceCIDR;
         $options['model'] = ServiceCIDR::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/servicecidrs',
             [],
             $query,
@@ -147,7 +147,7 @@ class ServiceCIDRService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ServiceCIDR::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class ServiceCIDRService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class ServiceCIDRService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ServiceCIDR::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class ServiceCIDRService
         $options['method'] = 'put';
         $options['body'] = $serviceCIDR;
         $options['model'] = ServiceCIDR::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}',
             ['{name}' => $name],
             $query,
@@ -268,7 +268,7 @@ class ServiceCIDRService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ServiceCIDR::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}/status',
             ['{name}' => $name],
             $query,
@@ -300,7 +300,7 @@ class ServiceCIDRService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ServiceCIDR::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}/status',
             ['{name}' => $name],
             $query,
@@ -334,7 +334,7 @@ class ServiceCIDRService
         $options['method'] = 'put';
         $options['body'] = $serviceCIDR;
         $options['model'] = ServiceCIDR::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/servicecidrs/{name}/status',
             ['{name}' => $name],
             $query,
@@ -375,7 +375,7 @@ class ServiceCIDRService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/watch/servicecidrs',
             [],
             $query,
@@ -416,7 +416,7 @@ class ServiceCIDRService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/watch/servicecidrs/{name}',
             ['{name}' => $name],
             $query,

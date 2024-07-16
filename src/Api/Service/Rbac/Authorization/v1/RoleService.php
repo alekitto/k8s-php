@@ -50,7 +50,7 @@ class RoleService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = RoleList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles',
             [],
             $query,
@@ -89,7 +89,7 @@ class RoleService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles',
             [],
             $query,
@@ -120,7 +120,7 @@ class RoleService
         $options['method'] = 'post';
         $options['body'] = $role;
         $options['model'] = Role::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles',
             [],
             $query,
@@ -147,7 +147,7 @@ class RoleService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = Role::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class RoleService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class RoleService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = Role::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class RoleService
         $options['method'] = 'put';
         $options['body'] = $role;
         $options['model'] = Role::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles/{name}',
             ['{name}' => $name],
             $query,
@@ -279,7 +279,7 @@ class RoleService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = RoleList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/roles',
             [],
             $query,
@@ -320,7 +320,7 @@ class RoleService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/watch/namespaces/{namespace}/roles',
             [],
             $query,
@@ -361,7 +361,7 @@ class RoleService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/watch/namespaces/{namespace}/roles/{name}',
             ['{name}' => $name],
             $query,
@@ -402,7 +402,7 @@ class RoleService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/watch/roles',
             [],
             $query,

@@ -50,7 +50,7 @@ class CustomResourceDefinitionService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = CustomResourceDefinitionList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiextensions.k8s.io/v1/customresourcedefinitions',
             [],
             $query,
@@ -89,7 +89,7 @@ class CustomResourceDefinitionService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiextensions.k8s.io/v1/customresourcedefinitions',
             [],
             $query,
@@ -122,7 +122,7 @@ class CustomResourceDefinitionService
         $options['method'] = 'post';
         $options['body'] = $customResourceDefinition;
         $options['model'] = CustomResourceDefinition::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiextensions.k8s.io/v1/customresourcedefinitions',
             [],
             $query,
@@ -149,7 +149,7 @@ class CustomResourceDefinitionService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = CustomResourceDefinition::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiextensions.k8s.io/v1/customresourcedefinitions/{name}',
             ['{name}' => $name],
             $query,
@@ -180,7 +180,7 @@ class CustomResourceDefinitionService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiextensions.k8s.io/v1/customresourcedefinitions/{name}',
             ['{name}' => $name],
             $query,
@@ -215,7 +215,7 @@ class CustomResourceDefinitionService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = CustomResourceDefinition::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiextensions.k8s.io/v1/customresourcedefinitions/{name}',
             ['{name}' => $name],
             $query,
@@ -249,7 +249,7 @@ class CustomResourceDefinitionService
         $options['method'] = 'put';
         $options['body'] = $customResourceDefinition;
         $options['model'] = CustomResourceDefinition::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiextensions.k8s.io/v1/customresourcedefinitions/{name}',
             ['{name}' => $name],
             $query,
@@ -276,7 +276,7 @@ class CustomResourceDefinitionService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = CustomResourceDefinition::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiextensions.k8s.io/v1/customresourcedefinitions/{name}/status',
             ['{name}' => $name],
             $query,
@@ -311,7 +311,7 @@ class CustomResourceDefinitionService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = CustomResourceDefinition::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiextensions.k8s.io/v1/customresourcedefinitions/{name}/status',
             ['{name}' => $name],
             $query,
@@ -345,7 +345,7 @@ class CustomResourceDefinitionService
         $options['method'] = 'put';
         $options['body'] = $customResourceDefinition;
         $options['model'] = CustomResourceDefinition::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiextensions.k8s.io/v1/customresourcedefinitions/{name}/status',
             ['{name}' => $name],
             $query,
@@ -386,7 +386,7 @@ class CustomResourceDefinitionService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiextensions.k8s.io/v1/watch/customresourcedefinitions',
             [],
             $query,
@@ -427,7 +427,7 @@ class CustomResourceDefinitionService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiextensions.k8s.io/v1/watch/customresourcedefinitions/{name}',
             ['{name}' => $name],
             $query,

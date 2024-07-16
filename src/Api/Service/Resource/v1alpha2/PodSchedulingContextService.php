@@ -50,7 +50,7 @@ class PodSchedulingContextService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = PodSchedulingContextList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/podschedulingcontexts',
             [],
             $query,
@@ -89,7 +89,7 @@ class PodSchedulingContextService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/podschedulingcontexts',
             [],
             $query,
@@ -122,7 +122,7 @@ class PodSchedulingContextService
         $options['method'] = 'post';
         $options['body'] = $podSchedulingContext;
         $options['model'] = PodSchedulingContext::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/podschedulingcontexts',
             [],
             $query,
@@ -149,7 +149,7 @@ class PodSchedulingContextService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = PodSchedulingContext::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/podschedulingcontexts/{name}',
             ['{name}' => $name],
             $query,
@@ -180,7 +180,7 @@ class PodSchedulingContextService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = PodSchedulingContext::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/podschedulingcontexts/{name}',
             ['{name}' => $name],
             $query,
@@ -215,7 +215,7 @@ class PodSchedulingContextService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = PodSchedulingContext::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/podschedulingcontexts/{name}',
             ['{name}' => $name],
             $query,
@@ -249,7 +249,7 @@ class PodSchedulingContextService
         $options['method'] = 'put';
         $options['body'] = $podSchedulingContext;
         $options['model'] = PodSchedulingContext::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/podschedulingcontexts/{name}',
             ['{name}' => $name],
             $query,
@@ -276,7 +276,7 @@ class PodSchedulingContextService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = PodSchedulingContext::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/podschedulingcontexts/{name}/status',
             ['{name}' => $name],
             $query,
@@ -311,7 +311,7 @@ class PodSchedulingContextService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = PodSchedulingContext::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/podschedulingcontexts/{name}/status',
             ['{name}' => $name],
             $query,
@@ -345,7 +345,7 @@ class PodSchedulingContextService
         $options['method'] = 'put';
         $options['body'] = $podSchedulingContext;
         $options['model'] = PodSchedulingContext::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/podschedulingcontexts/{name}/status',
             ['{name}' => $name],
             $query,
@@ -385,7 +385,7 @@ class PodSchedulingContextService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = PodSchedulingContextList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/podschedulingcontexts',
             [],
             $query,
@@ -426,7 +426,7 @@ class PodSchedulingContextService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/watch/namespaces/{namespace}/podschedulingcontexts',
             [],
             $query,
@@ -467,7 +467,7 @@ class PodSchedulingContextService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/watch/namespaces/{namespace}/podschedulingcontexts/{name}',
             ['{name}' => $name],
             $query,
@@ -508,7 +508,7 @@ class PodSchedulingContextService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/watch/podschedulingcontexts',
             [],
             $query,

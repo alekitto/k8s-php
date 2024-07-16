@@ -50,7 +50,7 @@ class CSINodeService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = CSINodeList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csinodes',
             [],
             $query,
@@ -89,7 +89,7 @@ class CSINodeService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csinodes',
             [],
             $query,
@@ -120,7 +120,7 @@ class CSINodeService
         $options['method'] = 'post';
         $options['body'] = $cSINode;
         $options['model'] = CSINode::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csinodes',
             [],
             $query,
@@ -147,7 +147,7 @@ class CSINodeService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = CSINode::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csinodes/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class CSINodeService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = CSINode::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csinodes/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class CSINodeService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = CSINode::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csinodes/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class CSINodeService
         $options['method'] = 'put';
         $options['body'] = $cSINode;
         $options['model'] = CSINode::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csinodes/{name}',
             ['{name}' => $name],
             $query,
@@ -282,7 +282,7 @@ class CSINodeService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/watch/csinodes',
             [],
             $query,
@@ -323,7 +323,7 @@ class CSINodeService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/watch/csinodes/{name}',
             ['{name}' => $name],
             $query,

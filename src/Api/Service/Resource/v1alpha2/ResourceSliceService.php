@@ -50,7 +50,7 @@ class ResourceSliceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ResourceSliceList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceslices',
             [],
             $query,
@@ -89,7 +89,7 @@ class ResourceSliceService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceslices',
             [],
             $query,
@@ -120,7 +120,7 @@ class ResourceSliceService
         $options['method'] = 'post';
         $options['body'] = $resourceSlice;
         $options['model'] = ResourceSlice::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceslices',
             [],
             $query,
@@ -147,7 +147,7 @@ class ResourceSliceService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ResourceSlice::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceslices/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class ResourceSliceService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = ResourceSlice::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceslices/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class ResourceSliceService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ResourceSlice::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceslices/{name}',
             ['{name}' => $name],
             $query,
@@ -244,7 +244,7 @@ class ResourceSliceService
         $options['method'] = 'put';
         $options['body'] = $resourceSlice;
         $options['model'] = ResourceSlice::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceslices/{name}',
             ['{name}' => $name],
             $query,
@@ -285,7 +285,7 @@ class ResourceSliceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/watch/resourceslices',
             [],
             $query,
@@ -326,7 +326,7 @@ class ResourceSliceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/watch/resourceslices/{name}',
             ['{name}' => $name],
             $query,

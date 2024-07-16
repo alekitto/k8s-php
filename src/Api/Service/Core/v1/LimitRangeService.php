@@ -50,7 +50,7 @@ class LimitRangeService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = LimitRangeList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/limitranges',
             [],
             $query,
@@ -88,7 +88,7 @@ class LimitRangeService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = LimitRangeList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/limitranges',
             [],
             $query,
@@ -127,7 +127,7 @@ class LimitRangeService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/limitranges',
             [],
             $query,
@@ -158,7 +158,7 @@ class LimitRangeService
         $options['method'] = 'post';
         $options['body'] = $limitRange;
         $options['model'] = LimitRange::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/limitranges',
             [],
             $query,
@@ -185,7 +185,7 @@ class LimitRangeService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = LimitRange::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/limitranges/{name}',
             ['{name}' => $name],
             $query,
@@ -216,7 +216,7 @@ class LimitRangeService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/limitranges/{name}',
             ['{name}' => $name],
             $query,
@@ -248,7 +248,7 @@ class LimitRangeService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = LimitRange::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/limitranges/{name}',
             ['{name}' => $name],
             $query,
@@ -279,7 +279,7 @@ class LimitRangeService
         $options['method'] = 'put';
         $options['body'] = $limitRange;
         $options['model'] = LimitRange::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/limitranges/{name}',
             ['{name}' => $name],
             $query,
@@ -320,7 +320,7 @@ class LimitRangeService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/limitranges',
             [],
             $query,
@@ -361,7 +361,7 @@ class LimitRangeService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/limitranges',
             [],
             $query,
@@ -402,7 +402,7 @@ class LimitRangeService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/limitranges/{name}',
             ['{name}' => $name],
             $query,

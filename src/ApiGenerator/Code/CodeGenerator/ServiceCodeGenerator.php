@@ -27,7 +27,7 @@ readonly class ServiceCodeGenerator
 
     public function generate(ServiceGroupMetadata $serviceGroup, Metadata $metadata, CodeOptions $options): CodeFile
     {
-        $namespace = new PhpNamespace($this->makeFinalNamespace($serviceGroup->getFinalNamespace(), $options));
+        $namespace = new PhpNamespace($this->computeNamespace($serviceGroup->getFinalNamespace(), $options));
         $namespace->addUse(ApiInterface::class);
 
         $class = $namespace->addClass($serviceGroup->getClassName());

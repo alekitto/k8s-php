@@ -48,7 +48,7 @@ readonly class ModelCodeGenerator
 
     public function generate(DefinitionMetadata $model, Metadata $metadata, CodeOptions $options): CodeFile
     {
-        $namespace = new PhpNamespace($this->makeFinalNamespace($model->getNamespace(), $options));
+        $namespace = new PhpNamespace($this->computeNamespace($model->getNamespace(), $options));
         $namespace->addUse($options->getAnnotationsNamespace(), 'Kubernetes');
         $namespace->addUse(AttributeType::class);
 

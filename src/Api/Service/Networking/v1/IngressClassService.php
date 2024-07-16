@@ -50,7 +50,7 @@ class IngressClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = IngressClassList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/ingressclasses',
             [],
             $query,
@@ -89,7 +89,7 @@ class IngressClassService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/ingressclasses',
             [],
             $query,
@@ -120,7 +120,7 @@ class IngressClassService
         $options['method'] = 'post';
         $options['body'] = $ingressClass;
         $options['model'] = IngressClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/ingressclasses',
             [],
             $query,
@@ -147,7 +147,7 @@ class IngressClassService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = IngressClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/ingressclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class IngressClassService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/ingressclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class IngressClassService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = IngressClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/ingressclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class IngressClassService
         $options['method'] = 'put';
         $options['body'] = $ingressClass;
         $options['model'] = IngressClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/ingressclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -282,7 +282,7 @@ class IngressClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/watch/ingressclasses',
             [],
             $query,
@@ -323,7 +323,7 @@ class IngressClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/watch/ingressclasses/{name}',
             ['{name}' => $name],
             $query,

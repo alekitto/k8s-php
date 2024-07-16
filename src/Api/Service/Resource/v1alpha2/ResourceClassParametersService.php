@@ -50,7 +50,7 @@ class ResourceClassParametersService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ResourceClassParametersList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclassparameters',
             [],
             $query,
@@ -89,7 +89,7 @@ class ResourceClassParametersService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclassparameters',
             [],
             $query,
@@ -122,7 +122,7 @@ class ResourceClassParametersService
         $options['method'] = 'post';
         $options['body'] = $resourceClassParameters;
         $options['model'] = ResourceClassParameters::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclassparameters',
             [],
             $query,
@@ -149,7 +149,7 @@ class ResourceClassParametersService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ResourceClassParameters::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclassparameters/{name}',
             ['{name}' => $name],
             $query,
@@ -180,7 +180,7 @@ class ResourceClassParametersService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = ResourceClassParameters::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclassparameters/{name}',
             ['{name}' => $name],
             $query,
@@ -215,7 +215,7 @@ class ResourceClassParametersService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ResourceClassParameters::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclassparameters/{name}',
             ['{name}' => $name],
             $query,
@@ -249,7 +249,7 @@ class ResourceClassParametersService
         $options['method'] = 'put';
         $options['body'] = $resourceClassParameters;
         $options['model'] = ResourceClassParameters::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclassparameters/{name}',
             ['{name}' => $name],
             $query,
@@ -289,7 +289,7 @@ class ResourceClassParametersService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ResourceClassParametersList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceclassparameters',
             [],
             $query,
@@ -330,7 +330,7 @@ class ResourceClassParametersService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/watch/namespaces/{namespace}/resourceclassparameters',
             [],
             $query,
@@ -371,7 +371,7 @@ class ResourceClassParametersService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/watch/namespaces/{namespace}/resourceclassparameters/{name}',
             ['{name}' => $name],
             $query,
@@ -412,7 +412,7 @@ class ResourceClassParametersService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/watch/resourceclassparameters',
             [],
             $query,

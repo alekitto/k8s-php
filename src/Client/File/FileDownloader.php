@@ -126,7 +126,7 @@ class FileDownloader
                 ->command($this->getDownloadCommand())
                 ->run($execHandler);
 
-            return $this->archiveFactory->makeArchive($file->getPath());
+            return $this->archiveFactory->factory($file->getPath());
         } catch (Throwable $e) {
             throw new FileDownloadException(
                 sprintf('Failed to download files: %s', $e->getMessage()),

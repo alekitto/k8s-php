@@ -50,7 +50,7 @@ class VolumeAttachmentService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = VolumeAttachmentList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/volumeattachments',
             [],
             $query,
@@ -89,7 +89,7 @@ class VolumeAttachmentService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/volumeattachments',
             [],
             $query,
@@ -120,7 +120,7 @@ class VolumeAttachmentService
         $options['method'] = 'post';
         $options['body'] = $volumeAttachment;
         $options['model'] = VolumeAttachment::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/volumeattachments',
             [],
             $query,
@@ -147,7 +147,7 @@ class VolumeAttachmentService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = VolumeAttachment::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/volumeattachments/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class VolumeAttachmentService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = VolumeAttachment::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/volumeattachments/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class VolumeAttachmentService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = VolumeAttachment::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/volumeattachments/{name}',
             ['{name}' => $name],
             $query,
@@ -244,7 +244,7 @@ class VolumeAttachmentService
         $options['method'] = 'put';
         $options['body'] = $volumeAttachment;
         $options['model'] = VolumeAttachment::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/volumeattachments/{name}',
             ['{name}' => $name],
             $query,
@@ -271,7 +271,7 @@ class VolumeAttachmentService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = VolumeAttachment::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/volumeattachments/{name}/status',
             ['{name}' => $name],
             $query,
@@ -303,7 +303,7 @@ class VolumeAttachmentService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = VolumeAttachment::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/volumeattachments/{name}/status',
             ['{name}' => $name],
             $query,
@@ -337,7 +337,7 @@ class VolumeAttachmentService
         $options['method'] = 'put';
         $options['body'] = $volumeAttachment;
         $options['model'] = VolumeAttachment::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/volumeattachments/{name}/status',
             ['{name}' => $name],
             $query,
@@ -378,7 +378,7 @@ class VolumeAttachmentService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/watch/volumeattachments',
             [],
             $query,
@@ -419,7 +419,7 @@ class VolumeAttachmentService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/watch/volumeattachments/{name}',
             ['{name}' => $name],
             $query,

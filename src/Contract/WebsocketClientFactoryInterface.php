@@ -11,5 +11,5 @@ interface WebsocketClientFactoryInterface
     /**
      * Make an instance of the Websocket Client based on a specific Kubernetes context configuration.
      */
-    public function makeClient(ContextConfigInterface $fullContext): WebsocketClientInterface;
+    public function factory(ContextConfigInterface $fullContext): WebsocketClientInterface;
 }

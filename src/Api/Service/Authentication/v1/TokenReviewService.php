@@ -39,7 +39,7 @@ class TokenReviewService
         $options['method'] = 'post';
         $options['body'] = $tokenReview;
         $options['model'] = TokenReview::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/authentication.k8s.io/v1/tokenreviews',
             [],
             $query,

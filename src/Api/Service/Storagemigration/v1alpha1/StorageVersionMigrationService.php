@@ -50,7 +50,7 @@ class StorageVersionMigrationService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = StorageVersionMigrationList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storagemigration.k8s.io/v1alpha1/storageversionmigrations',
             [],
             $query,
@@ -89,7 +89,7 @@ class StorageVersionMigrationService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storagemigration.k8s.io/v1alpha1/storageversionmigrations',
             [],
             $query,
@@ -122,7 +122,7 @@ class StorageVersionMigrationService
         $options['method'] = 'post';
         $options['body'] = $storageVersionMigration;
         $options['model'] = StorageVersionMigration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storagemigration.k8s.io/v1alpha1/storageversionmigrations',
             [],
             $query,
@@ -149,7 +149,7 @@ class StorageVersionMigrationService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = StorageVersionMigration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storagemigration.k8s.io/v1alpha1/storageversionmigrations/{name}',
             ['{name}' => $name],
             $query,
@@ -180,7 +180,7 @@ class StorageVersionMigrationService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storagemigration.k8s.io/v1alpha1/storageversionmigrations/{name}',
             ['{name}' => $name],
             $query,
@@ -215,7 +215,7 @@ class StorageVersionMigrationService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = StorageVersionMigration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storagemigration.k8s.io/v1alpha1/storageversionmigrations/{name}',
             ['{name}' => $name],
             $query,
@@ -249,7 +249,7 @@ class StorageVersionMigrationService
         $options['method'] = 'put';
         $options['body'] = $storageVersionMigration;
         $options['model'] = StorageVersionMigration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storagemigration.k8s.io/v1alpha1/storageversionmigrations/{name}',
             ['{name}' => $name],
             $query,
@@ -276,7 +276,7 @@ class StorageVersionMigrationService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = StorageVersionMigration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storagemigration.k8s.io/v1alpha1/storageversionmigrations/{name}/status',
             ['{name}' => $name],
             $query,
@@ -311,7 +311,7 @@ class StorageVersionMigrationService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = StorageVersionMigration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storagemigration.k8s.io/v1alpha1/storageversionmigrations/{name}/status',
             ['{name}' => $name],
             $query,
@@ -345,7 +345,7 @@ class StorageVersionMigrationService
         $options['method'] = 'put';
         $options['body'] = $storageVersionMigration;
         $options['model'] = StorageVersionMigration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storagemigration.k8s.io/v1alpha1/storageversionmigrations/{name}/status',
             ['{name}' => $name],
             $query,
@@ -386,7 +386,7 @@ class StorageVersionMigrationService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storagemigration.k8s.io/v1alpha1/watch/storageversionmigrations',
             [],
             $query,
@@ -427,7 +427,7 @@ class StorageVersionMigrationService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storagemigration.k8s.io/v1alpha1/watch/storageversionmigrations/{name}',
             ['{name}' => $name],
             $query,

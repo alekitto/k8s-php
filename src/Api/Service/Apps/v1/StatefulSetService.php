@@ -50,7 +50,7 @@ class StatefulSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = StatefulSetList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/statefulsets',
             [],
             $query,
@@ -89,7 +89,7 @@ class StatefulSetService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/statefulsets',
             [],
             $query,
@@ -120,7 +120,7 @@ class StatefulSetService
         $options['method'] = 'post';
         $options['body'] = $statefulSet;
         $options['model'] = StatefulSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/statefulsets',
             [],
             $query,
@@ -147,7 +147,7 @@ class StatefulSetService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = StatefulSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class StatefulSetService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class StatefulSetService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = StatefulSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class StatefulSetService
         $options['method'] = 'put';
         $options['body'] = $statefulSet;
         $options['model'] = StatefulSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}',
             ['{name}' => $name],
             $query,
@@ -268,7 +268,7 @@ class StatefulSetService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = StatefulSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/status',
             ['{name}' => $name],
             $query,
@@ -300,7 +300,7 @@ class StatefulSetService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = StatefulSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/status',
             ['{name}' => $name],
             $query,
@@ -331,7 +331,7 @@ class StatefulSetService
         $options['method'] = 'put';
         $options['body'] = $statefulSet;
         $options['model'] = StatefulSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/status',
             ['{name}' => $name],
             $query,
@@ -369,7 +369,7 @@ class StatefulSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = StatefulSetList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/statefulsets',
             [],
             $query,
@@ -410,7 +410,7 @@ class StatefulSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/watch/namespaces/{namespace}/statefulsets',
             [],
             $query,
@@ -451,7 +451,7 @@ class StatefulSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/watch/namespaces/{namespace}/statefulsets/{name}',
             ['{name}' => $name],
             $query,
@@ -492,7 +492,7 @@ class StatefulSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/watch/statefulsets',
             [],
             $query,

@@ -50,7 +50,7 @@ class ServiceAccountService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ServiceAccountList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/serviceaccounts',
             [],
             $query,
@@ -89,7 +89,7 @@ class ServiceAccountService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/serviceaccounts',
             [],
             $query,
@@ -120,7 +120,7 @@ class ServiceAccountService
         $options['method'] = 'post';
         $options['body'] = $serviceAccount;
         $options['model'] = ServiceAccount::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/serviceaccounts',
             [],
             $query,
@@ -147,7 +147,7 @@ class ServiceAccountService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ServiceAccount::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/serviceaccounts/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class ServiceAccountService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = ServiceAccount::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/serviceaccounts/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class ServiceAccountService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ServiceAccount::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/serviceaccounts/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class ServiceAccountService
         $options['method'] = 'put';
         $options['body'] = $serviceAccount;
         $options['model'] = ServiceAccount::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/serviceaccounts/{name}',
             ['{name}' => $name],
             $query,
@@ -279,7 +279,7 @@ class ServiceAccountService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ServiceAccountList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/serviceaccounts',
             [],
             $query,
@@ -320,7 +320,7 @@ class ServiceAccountService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/serviceaccounts',
             [],
             $query,
@@ -361,7 +361,7 @@ class ServiceAccountService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/serviceaccounts/{name}',
             ['{name}' => $name],
             $query,
@@ -402,7 +402,7 @@ class ServiceAccountService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/serviceaccounts',
             [],
             $query,

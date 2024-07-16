@@ -26,5 +26,5 @@ interface ApiInterface
     /**
      * Given a URI path from kubernetes, the parameters, and the query options, form the complete path.
      */
-    public function makeUri(string $uri, array $parameters, array $query = [], string|null $namespace = null): string;
+    public function buildUri(string $uri, array $parameters, array $query = [], string|null $namespace = null): string;
 }

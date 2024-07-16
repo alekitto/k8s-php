@@ -41,7 +41,7 @@ class SubjectAccessReviewService
         $options['method'] = 'post';
         $options['body'] = $subjectAccessReview;
         $options['model'] = SubjectAccessReview::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/authorization.k8s.io/v1/subjectaccessreviews',
             [],
             $query,

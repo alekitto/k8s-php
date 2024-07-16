@@ -50,7 +50,7 @@ class FlowSchemaService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = FlowSchemaList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1/flowschemas',
             [],
             $query,
@@ -89,7 +89,7 @@ class FlowSchemaService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1/flowschemas',
             [],
             $query,
@@ -120,7 +120,7 @@ class FlowSchemaService
         $options['method'] = 'post';
         $options['body'] = $flowSchema;
         $options['model'] = FlowSchema::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1/flowschemas',
             [],
             $query,
@@ -147,7 +147,7 @@ class FlowSchemaService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = FlowSchema::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1/flowschemas/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class FlowSchemaService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1/flowschemas/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class FlowSchemaService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = FlowSchema::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1/flowschemas/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class FlowSchemaService
         $options['method'] = 'put';
         $options['body'] = $flowSchema;
         $options['model'] = FlowSchema::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1/flowschemas/{name}',
             ['{name}' => $name],
             $query,
@@ -268,7 +268,7 @@ class FlowSchemaService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = FlowSchema::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1/flowschemas/{name}/status',
             ['{name}' => $name],
             $query,
@@ -303,7 +303,7 @@ class FlowSchemaService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = FlowSchema::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1/flowschemas/{name}/status',
             ['{name}' => $name],
             $query,
@@ -337,7 +337,7 @@ class FlowSchemaService
         $options['method'] = 'put';
         $options['body'] = $flowSchema;
         $options['model'] = FlowSchema::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1/flowschemas/{name}/status',
             ['{name}' => $name],
             $query,
@@ -378,7 +378,7 @@ class FlowSchemaService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1/watch/flowschemas',
             [],
             $query,
@@ -419,7 +419,7 @@ class FlowSchemaService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1/watch/flowschemas/{name}',
             ['{name}' => $name],
             $query,

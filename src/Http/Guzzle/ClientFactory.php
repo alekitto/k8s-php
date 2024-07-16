@@ -23,7 +23,7 @@ readonly class ClientFactory implements HttpClientFactoryInterface
         return class_exists(Client::class);
     }
 
-    public function makeClient(ContextConfigInterface $fullContext, bool $isStreaming): ClientInterface
+    public function factory(ContextConfigInterface $fullContext, bool $isStreaming): ClientInterface
     {
         $options = $this->defaults;
         $options['timeout'] = $isStreaming ? -1 : ($options['timeout'] ?? 15);

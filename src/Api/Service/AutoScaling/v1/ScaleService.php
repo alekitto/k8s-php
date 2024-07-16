@@ -36,7 +36,7 @@ class ScaleService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = Scale::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/scale',
             ['{name}' => $name],
             $query,
@@ -71,7 +71,7 @@ class ScaleService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = Scale::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/scale',
             ['{name}' => $name],
             $query,
@@ -102,7 +102,7 @@ class ScaleService
         $options['method'] = 'put';
         $options['body'] = $scale;
         $options['model'] = Scale::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/scale',
             ['{name}' => $name],
             $query,
@@ -129,7 +129,7 @@ class ScaleService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = Scale::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/deployments/{name}/scale',
             ['{name}' => $name],
             $query,
@@ -161,7 +161,7 @@ class ScaleService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = Scale::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/deployments/{name}/scale',
             ['{name}' => $name],
             $query,
@@ -192,7 +192,7 @@ class ScaleService
         $options['method'] = 'put';
         $options['body'] = $scale;
         $options['model'] = Scale::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/deployments/{name}/scale',
             ['{name}' => $name],
             $query,
@@ -219,7 +219,7 @@ class ScaleService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = Scale::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/scale',
             ['{name}' => $name],
             $query,
@@ -251,7 +251,7 @@ class ScaleService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = Scale::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/scale',
             ['{name}' => $name],
             $query,
@@ -282,7 +282,7 @@ class ScaleService
         $options['method'] = 'put';
         $options['body'] = $scale;
         $options['model'] = Scale::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/scale',
             ['{name}' => $name],
             $query,
@@ -309,7 +309,7 @@ class ScaleService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = Scale::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/scale',
             ['{name}' => $name],
             $query,
@@ -341,7 +341,7 @@ class ScaleService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = Scale::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/scale',
             ['{name}' => $name],
             $query,
@@ -372,7 +372,7 @@ class ScaleService
         $options['method'] = 'put';
         $options['body'] = $scale;
         $options['model'] = Scale::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/scale',
             ['{name}' => $name],
             $query,

@@ -50,7 +50,7 @@ class SecretService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = SecretList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/secrets',
             [],
             $query,
@@ -89,7 +89,7 @@ class SecretService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/secrets',
             [],
             $query,
@@ -120,7 +120,7 @@ class SecretService
         $options['method'] = 'post';
         $options['body'] = $secret;
         $options['model'] = Secret::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/secrets',
             [],
             $query,
@@ -147,7 +147,7 @@ class SecretService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = Secret::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/secrets/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class SecretService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/secrets/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class SecretService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = Secret::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/secrets/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class SecretService
         $options['method'] = 'put';
         $options['body'] = $secret;
         $options['model'] = Secret::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/secrets/{name}',
             ['{name}' => $name],
             $query,
@@ -279,7 +279,7 @@ class SecretService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = SecretList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/secrets',
             [],
             $query,
@@ -320,7 +320,7 @@ class SecretService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/secrets',
             [],
             $query,
@@ -361,7 +361,7 @@ class SecretService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/secrets/{name}',
             ['{name}' => $name],
             $query,
@@ -402,7 +402,7 @@ class SecretService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/secrets',
             [],
             $query,

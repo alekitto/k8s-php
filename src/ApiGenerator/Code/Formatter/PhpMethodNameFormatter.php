@@ -16,17 +16,17 @@ readonly class PhpMethodNameFormatter
     {
         $prefix = $this->getPrefix($property->isBool(), $mode);
 
-        return $this->makeFinalName($prefix, $property->getPhpPropertyName());
+        return $this->formatName($prefix, $property->getPhpPropertyName());
     }
 
     public function formatQueryParameter(ParameterMetadata $parameter, string $mode = 'get'): string
     {
         $prefix = $this->getPrefix($parameter->isBool(), $mode);
 
-        return $this->makeFinalName($prefix, $parameter->getName());
+        return $this->formatName($prefix, $parameter->getName());
     }
 
-    private function makeFinalName(string $prefix, string $propertyName): string
+    private function formatName(string $prefix, string $propertyName): string
     {
         return sprintf(
             '%s%s',

@@ -14,7 +14,7 @@ use Kcs\K8s\Client\Serialization\Serializer;
 readonly class ResponseHandlerFactory
 {
     /** @return ResponseHandlerInterface[] */
-    public function makeHandlers(Serializer $serializer): array
+    public function factory(Serializer $serializer): array
     {
         return [
             new ErrorHandler($serializer),

@@ -50,7 +50,7 @@ class MutatingWebhookConfigurationService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = MutatingWebhookConfigurationList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations',
             [],
             $query,
@@ -89,7 +89,7 @@ class MutatingWebhookConfigurationService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations',
             [],
             $query,
@@ -122,7 +122,7 @@ class MutatingWebhookConfigurationService
         $options['method'] = 'post';
         $options['body'] = $mutatingWebhookConfiguration;
         $options['model'] = MutatingWebhookConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations',
             [],
             $query,
@@ -149,7 +149,7 @@ class MutatingWebhookConfigurationService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = MutatingWebhookConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations/{name}',
             ['{name}' => $name],
             $query,
@@ -180,7 +180,7 @@ class MutatingWebhookConfigurationService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations/{name}',
             ['{name}' => $name],
             $query,
@@ -215,7 +215,7 @@ class MutatingWebhookConfigurationService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = MutatingWebhookConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations/{name}',
             ['{name}' => $name],
             $query,
@@ -249,7 +249,7 @@ class MutatingWebhookConfigurationService
         $options['method'] = 'put';
         $options['body'] = $mutatingWebhookConfiguration;
         $options['model'] = MutatingWebhookConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations/{name}',
             ['{name}' => $name],
             $query,
@@ -290,7 +290,7 @@ class MutatingWebhookConfigurationService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/watch/mutatingwebhookconfigurations',
             [],
             $query,
@@ -332,7 +332,7 @@ class MutatingWebhookConfigurationService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/watch/mutatingwebhookconfigurations/{name}',
             ['{name}' => $name],
             $query,

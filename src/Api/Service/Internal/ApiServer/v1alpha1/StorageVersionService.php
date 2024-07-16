@@ -50,7 +50,7 @@ class StorageVersionService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = StorageVersionList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions',
             [],
             $query,
@@ -89,7 +89,7 @@ class StorageVersionService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions',
             [],
             $query,
@@ -120,7 +120,7 @@ class StorageVersionService
         $options['method'] = 'post';
         $options['body'] = $storageVersion;
         $options['model'] = StorageVersion::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions',
             [],
             $query,
@@ -147,7 +147,7 @@ class StorageVersionService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = StorageVersion::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class StorageVersionService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions/{name}',
             ['{name}' => $name],
             $query,
@@ -213,7 +213,7 @@ class StorageVersionService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = StorageVersion::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions/{name}',
             ['{name}' => $name],
             $query,
@@ -247,7 +247,7 @@ class StorageVersionService
         $options['method'] = 'put';
         $options['body'] = $storageVersion;
         $options['model'] = StorageVersion::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions/{name}',
             ['{name}' => $name],
             $query,
@@ -274,7 +274,7 @@ class StorageVersionService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = StorageVersion::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions/{name}/status',
             ['{name}' => $name],
             $query,
@@ -309,7 +309,7 @@ class StorageVersionService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = StorageVersion::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions/{name}/status',
             ['{name}' => $name],
             $query,
@@ -343,7 +343,7 @@ class StorageVersionService
         $options['method'] = 'put';
         $options['body'] = $storageVersion;
         $options['model'] = StorageVersion::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions/{name}/status',
             ['{name}' => $name],
             $query,
@@ -384,7 +384,7 @@ class StorageVersionService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/internal.apiserver.k8s.io/v1alpha1/watch/storageversions',
             [],
             $query,
@@ -425,7 +425,7 @@ class StorageVersionService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/internal.apiserver.k8s.io/v1alpha1/watch/storageversions/{name}',
             ['{name}' => $name],
             $query,

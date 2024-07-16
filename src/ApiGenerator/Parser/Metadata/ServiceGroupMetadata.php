@@ -22,12 +22,12 @@ readonly class ServiceGroupMetadata
 
     public function getFqcn(): string
     {
-        return $this->makeFinalNamespace($this->group->getFqcn());
+        return $this->computeNamespace($this->group->getFqcn());
     }
 
     public function getFinalNamespace(): string
     {
-        return $this->makeFinalNamespace($this->group->getFullNamespace());
+        return $this->computeNamespace($this->group->getFullNamespace());
     }
 
     public function getNamespace(): string
@@ -248,7 +248,7 @@ readonly class ServiceGroupMetadata
         return null;
     }
 
-    private function makeFinalNamespace(string $namespace): string
+    private function computeNamespace(string $namespace): string
     {
         return sprintf(
             'Service\\%s',

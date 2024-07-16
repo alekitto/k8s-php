@@ -126,7 +126,7 @@ class FileUploader
         }
 
         try {
-            $this->archive = $this->archiveFactory->makeArchive($this->getTempFilename());
+            $this->archive = $this->archiveFactory->factory($this->getTempFilename());
         } catch (Throwable $e) {
             throw new FileUploadException(
                 sprintf('Failed to create tar archive for upload: %s', $e->getMessage()),

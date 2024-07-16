@@ -50,7 +50,7 @@ class PriorityClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = PriorityClassList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/scheduling.k8s.io/v1/priorityclasses',
             [],
             $query,
@@ -89,7 +89,7 @@ class PriorityClassService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/scheduling.k8s.io/v1/priorityclasses',
             [],
             $query,
@@ -120,7 +120,7 @@ class PriorityClassService
         $options['method'] = 'post';
         $options['body'] = $priorityClass;
         $options['model'] = PriorityClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/scheduling.k8s.io/v1/priorityclasses',
             [],
             $query,
@@ -147,7 +147,7 @@ class PriorityClassService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = PriorityClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/scheduling.k8s.io/v1/priorityclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class PriorityClassService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/scheduling.k8s.io/v1/priorityclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class PriorityClassService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = PriorityClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/scheduling.k8s.io/v1/priorityclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class PriorityClassService
         $options['method'] = 'put';
         $options['body'] = $priorityClass;
         $options['model'] = PriorityClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/scheduling.k8s.io/v1/priorityclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -282,7 +282,7 @@ class PriorityClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/scheduling.k8s.io/v1/watch/priorityclasses',
             [],
             $query,
@@ -323,7 +323,7 @@ class PriorityClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/scheduling.k8s.io/v1/watch/priorityclasses/{name}',
             ['{name}' => $name],
             $query,

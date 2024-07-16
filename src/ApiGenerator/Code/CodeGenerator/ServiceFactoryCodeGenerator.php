@@ -23,7 +23,7 @@ readonly class ServiceFactoryCodeGenerator
 
     public function generate(Metadata $metadata, CodeOptions $options): CodeFile
     {
-        $namespace = new PhpNamespace($this->makeFinalNamespace('Service', $options));
+        $namespace = new PhpNamespace($this->computeNamespace('Service', $options));
         $namespace->addUse(ApiInterface::class);
 
         $class = $namespace->addClass('ServiceFactory');
@@ -37,14 +37,14 @@ readonly class ServiceFactoryCodeGenerator
         $constructor->addBody('$this->api = $api;');
 
         foreach ($metadata->getServiceGroups() as $serviceGroup) {
-            $serviceFqcn = $this->makeFinalNamespace(
+            $serviceFqcn = $this->computeNamespace(
                 $serviceGroup->getFqcn(),
                 $options,
             );
 
             $namespace->addUse($serviceFqcn);
 
-            $method = $class->addMethod($this->makeMethodName($serviceGroup));
+            $method = $class->addMethod($this->generateMethodName($serviceGroup));
             $method->setReturnType($serviceFqcn);
             $method->addBody(sprintf(
                 'return new %s($this->api);',
@@ -58,7 +58,7 @@ readonly class ServiceFactoryCodeGenerator
         );
     }
 
-    private function makeMethodName(ServiceGroupMetadata $serviceGroup): string
+    private function generateMethodName(ServiceGroupMetadata $serviceGroup): string
     {
         $method = lcfirst($serviceGroup->getVersion());
 

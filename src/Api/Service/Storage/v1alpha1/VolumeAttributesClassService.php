@@ -50,7 +50,7 @@ class VolumeAttributesClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = VolumeAttributesClassList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1alpha1/volumeattributesclasses',
             [],
             $query,
@@ -89,7 +89,7 @@ class VolumeAttributesClassService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1alpha1/volumeattributesclasses',
             [],
             $query,
@@ -122,7 +122,7 @@ class VolumeAttributesClassService
         $options['method'] = 'post';
         $options['body'] = $volumeAttributesClass;
         $options['model'] = VolumeAttributesClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1alpha1/volumeattributesclasses',
             [],
             $query,
@@ -149,7 +149,7 @@ class VolumeAttributesClassService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = VolumeAttributesClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1alpha1/volumeattributesclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -180,7 +180,7 @@ class VolumeAttributesClassService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = VolumeAttributesClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1alpha1/volumeattributesclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -215,7 +215,7 @@ class VolumeAttributesClassService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = VolumeAttributesClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1alpha1/volumeattributesclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -249,7 +249,7 @@ class VolumeAttributesClassService
         $options['method'] = 'put';
         $options['body'] = $volumeAttributesClass;
         $options['model'] = VolumeAttributesClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1alpha1/volumeattributesclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -290,7 +290,7 @@ class VolumeAttributesClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1alpha1/watch/volumeattributesclasses',
             [],
             $query,
@@ -331,7 +331,7 @@ class VolumeAttributesClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1alpha1/watch/volumeattributesclasses/{name}',
             ['{name}' => $name],
             $query,

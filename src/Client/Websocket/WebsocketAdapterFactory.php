@@ -25,7 +25,7 @@ readonly class WebsocketAdapterFactory
     ) {
     }
 
-    public function makeAdapter(): WebsocketClientInterface
+    public function factory(): WebsocketClientInterface
     {
         if ($this->options->getWebsocketClient()) {
             return $this->options->getWebsocketClient();
@@ -33,7 +33,7 @@ readonly class WebsocketAdapterFactory
 
         if ($this->options->getWebsocketClientFactory()) {
             return $this->options->getWebsocketClientFactory()
-                ->makeClient($this->configFactory->contextConfig());
+                ->factory($this->configFactory->contextConfig());
         }
 
         foreach ($this->adapterClasses as $adapter) {

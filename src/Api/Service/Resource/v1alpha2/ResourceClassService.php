@@ -50,7 +50,7 @@ class ResourceClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ResourceClassList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceclasses',
             [],
             $query,
@@ -89,7 +89,7 @@ class ResourceClassService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceclasses',
             [],
             $query,
@@ -120,7 +120,7 @@ class ResourceClassService
         $options['method'] = 'post';
         $options['body'] = $resourceClass;
         $options['model'] = ResourceClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceclasses',
             [],
             $query,
@@ -147,7 +147,7 @@ class ResourceClassService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ResourceClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class ResourceClassService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = ResourceClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class ResourceClassService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ResourceClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -244,7 +244,7 @@ class ResourceClassService
         $options['method'] = 'put';
         $options['body'] = $resourceClass;
         $options['model'] = ResourceClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/resourceclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -285,7 +285,7 @@ class ResourceClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/watch/resourceclasses',
             [],
             $query,
@@ -326,7 +326,7 @@ class ResourceClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/resource.k8s.io/v1alpha2/watch/resourceclasses/{name}',
             ['{name}' => $name],
             $query,

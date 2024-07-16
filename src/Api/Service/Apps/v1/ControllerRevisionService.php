@@ -50,7 +50,7 @@ class ControllerRevisionService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ControllerRevisionList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/controllerrevisions',
             [],
             $query,
@@ -88,7 +88,7 @@ class ControllerRevisionService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ControllerRevisionList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/controllerrevisions',
             [],
             $query,
@@ -127,7 +127,7 @@ class ControllerRevisionService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/controllerrevisions',
             [],
             $query,
@@ -158,7 +158,7 @@ class ControllerRevisionService
         $options['method'] = 'post';
         $options['body'] = $controllerRevision;
         $options['model'] = ControllerRevision::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/controllerrevisions',
             [],
             $query,
@@ -185,7 +185,7 @@ class ControllerRevisionService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ControllerRevision::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/controllerrevisions/{name}',
             ['{name}' => $name],
             $query,
@@ -216,7 +216,7 @@ class ControllerRevisionService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/controllerrevisions/{name}',
             ['{name}' => $name],
             $query,
@@ -248,7 +248,7 @@ class ControllerRevisionService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ControllerRevision::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/controllerrevisions/{name}',
             ['{name}' => $name],
             $query,
@@ -282,7 +282,7 @@ class ControllerRevisionService
         $options['method'] = 'put';
         $options['body'] = $controllerRevision;
         $options['model'] = ControllerRevision::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/controllerrevisions/{name}',
             ['{name}' => $name],
             $query,
@@ -323,7 +323,7 @@ class ControllerRevisionService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/watch/controllerrevisions',
             [],
             $query,
@@ -364,7 +364,7 @@ class ControllerRevisionService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/watch/namespaces/{namespace}/controllerrevisions',
             [],
             $query,
@@ -405,7 +405,7 @@ class ControllerRevisionService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/watch/namespaces/{namespace}/controllerrevisions/{name}',
             ['{name}' => $name],
             $query,

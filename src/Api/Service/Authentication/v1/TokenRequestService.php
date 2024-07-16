@@ -42,7 +42,7 @@ class TokenRequestService
         $options['method'] = 'post';
         $options['body'] = $tokenRequest;
         $options['model'] = TokenRequest::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/serviceaccounts/{name}/token',
             ['{name}' => $name],
             $query,

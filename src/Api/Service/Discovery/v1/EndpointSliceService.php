@@ -50,7 +50,7 @@ class EndpointSliceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = EndpointSliceList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/discovery.k8s.io/v1/endpointslices',
             [],
             $query,
@@ -88,7 +88,7 @@ class EndpointSliceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = EndpointSliceList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices',
             [],
             $query,
@@ -127,7 +127,7 @@ class EndpointSliceService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices',
             [],
             $query,
@@ -158,7 +158,7 @@ class EndpointSliceService
         $options['method'] = 'post';
         $options['body'] = $endpointSlice;
         $options['model'] = EndpointSlice::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices',
             [],
             $query,
@@ -185,7 +185,7 @@ class EndpointSliceService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = EndpointSlice::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices/{name}',
             ['{name}' => $name],
             $query,
@@ -216,7 +216,7 @@ class EndpointSliceService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices/{name}',
             ['{name}' => $name],
             $query,
@@ -248,7 +248,7 @@ class EndpointSliceService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = EndpointSlice::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices/{name}',
             ['{name}' => $name],
             $query,
@@ -282,7 +282,7 @@ class EndpointSliceService
         $options['method'] = 'put';
         $options['body'] = $endpointSlice;
         $options['model'] = EndpointSlice::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices/{name}',
             ['{name}' => $name],
             $query,
@@ -323,7 +323,7 @@ class EndpointSliceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/discovery.k8s.io/v1/watch/endpointslices',
             [],
             $query,
@@ -364,7 +364,7 @@ class EndpointSliceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/discovery.k8s.io/v1/watch/namespaces/{namespace}/endpointslices',
             [],
             $query,
@@ -405,7 +405,7 @@ class EndpointSliceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/discovery.k8s.io/v1/watch/namespaces/{namespace}/endpointslices/{name}',
             ['{name}' => $name],
             $query,

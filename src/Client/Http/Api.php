@@ -25,13 +25,13 @@ readonly class Api implements ApiInterface
     /** @inheritDoc */
     public function executeWebsocket(string $uri, string $type, $handler): void
     {
-        $wsClient = $this->websocketClientFactory->makeClient();
+        $wsClient = $this->websocketClientFactory->factory();
 
         $wsClient->connect($uri, $type, $handler);
     }
 
     /** @inheritDoc */
-    public function makeUri(string $uri, array $parameters, array $query = [], string|null $namespace = null): string
+    public function buildUri(string $uri, array $parameters, array $query = [], string|null $namespace = null): string
     {
         return $this->uriBuilder->buildUri(
             $uri,

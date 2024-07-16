@@ -50,7 +50,7 @@ class RoleBindingService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = RoleBindingList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/rolebindings',
             [],
             $query,
@@ -89,7 +89,7 @@ class RoleBindingService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/rolebindings',
             [],
             $query,
@@ -120,7 +120,7 @@ class RoleBindingService
         $options['method'] = 'post';
         $options['body'] = $roleBinding;
         $options['model'] = RoleBinding::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/rolebindings',
             [],
             $query,
@@ -147,7 +147,7 @@ class RoleBindingService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = RoleBinding::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/rolebindings/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class RoleBindingService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/rolebindings/{name}',
             ['{name}' => $name],
             $query,
@@ -213,7 +213,7 @@ class RoleBindingService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = RoleBinding::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/rolebindings/{name}',
             ['{name}' => $name],
             $query,
@@ -247,7 +247,7 @@ class RoleBindingService
         $options['method'] = 'put';
         $options['body'] = $roleBinding;
         $options['model'] = RoleBinding::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/rolebindings/{name}',
             ['{name}' => $name],
             $query,
@@ -285,7 +285,7 @@ class RoleBindingService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = RoleBindingList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/rolebindings',
             [],
             $query,
@@ -326,7 +326,7 @@ class RoleBindingService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/watch/namespaces/{namespace}/rolebindings',
             [],
             $query,
@@ -367,7 +367,7 @@ class RoleBindingService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/watch/namespaces/{namespace}/rolebindings/{name}',
             ['{name}' => $name],
             $query,
@@ -408,7 +408,7 @@ class RoleBindingService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/watch/rolebindings',
             [],
             $query,

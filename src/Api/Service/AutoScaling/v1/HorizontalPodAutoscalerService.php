@@ -50,7 +50,7 @@ class HorizontalPodAutoscalerService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = HorizontalPodAutoscalerList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/autoscaling/v1/horizontalpodautoscalers',
             [],
             $query,
@@ -88,7 +88,7 @@ class HorizontalPodAutoscalerService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = HorizontalPodAutoscalerList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers',
             [],
             $query,
@@ -127,7 +127,7 @@ class HorizontalPodAutoscalerService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers',
             [],
             $query,
@@ -160,7 +160,7 @@ class HorizontalPodAutoscalerService
         $options['method'] = 'post';
         $options['body'] = $horizontalPodAutoscaler;
         $options['model'] = HorizontalPodAutoscaler::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers',
             [],
             $query,
@@ -187,7 +187,7 @@ class HorizontalPodAutoscalerService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = HorizontalPodAutoscaler::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers/{name}',
             ['{name}' => $name],
             $query,
@@ -218,7 +218,7 @@ class HorizontalPodAutoscalerService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers/{name}',
             ['{name}' => $name],
             $query,
@@ -250,7 +250,7 @@ class HorizontalPodAutoscalerService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = HorizontalPodAutoscaler::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers/{name}',
             ['{name}' => $name],
             $query,
@@ -284,7 +284,7 @@ class HorizontalPodAutoscalerService
         $options['method'] = 'put';
         $options['body'] = $horizontalPodAutoscaler;
         $options['model'] = HorizontalPodAutoscaler::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers/{name}',
             ['{name}' => $name],
             $query,
@@ -311,7 +311,7 @@ class HorizontalPodAutoscalerService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = HorizontalPodAutoscaler::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status',
             ['{name}' => $name],
             $query,
@@ -346,7 +346,7 @@ class HorizontalPodAutoscalerService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = HorizontalPodAutoscaler::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status',
             ['{name}' => $name],
             $query,
@@ -380,7 +380,7 @@ class HorizontalPodAutoscalerService
         $options['method'] = 'put';
         $options['body'] = $horizontalPodAutoscaler;
         $options['model'] = HorizontalPodAutoscaler::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers/{name}/status',
             ['{name}' => $name],
             $query,
@@ -421,7 +421,7 @@ class HorizontalPodAutoscalerService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/autoscaling/v1/watch/horizontalpodautoscalers',
             [],
             $query,
@@ -462,7 +462,7 @@ class HorizontalPodAutoscalerService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/autoscaling/v1/watch/namespaces/{namespace}/horizontalpodautoscalers',
             [],
             $query,
@@ -503,7 +503,7 @@ class HorizontalPodAutoscalerService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/autoscaling/v1/watch/namespaces/{namespace}/horizontalpodautoscalers/{name}',
             ['{name}' => $name],
             $query,

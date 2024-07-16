@@ -39,7 +39,7 @@ readonly class OperationMethodBodyGenerator
 
         if ($operation->getReturnedDefinition()) {
             $model = $operation->getReturnedDefinition();
-            $namespace->addUse($this->makeFinalNamespace($model->getPhpFqcn(), $options));
+            $namespace->addUse($this->computeNamespace($model->getPhpFqcn(), $options));
             $method->addBody(sprintf(
                 '$options[\'model\'] = %s::class;',
                 $model->getClassName(),
@@ -93,7 +93,7 @@ readonly class OperationMethodBodyGenerator
 
         $method->addBody(
             <<<PHP_BODY
-            \$uri = \$this->api->makeUri(
+            \$uri = \$this->api->buildUri(
                 ?,
                 $params,
                 \$query,

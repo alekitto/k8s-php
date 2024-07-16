@@ -50,7 +50,7 @@ class NetworkPolicyService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = NetworkPolicyList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies',
             [],
             $query,
@@ -89,7 +89,7 @@ class NetworkPolicyService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies',
             [],
             $query,
@@ -120,7 +120,7 @@ class NetworkPolicyService
         $options['method'] = 'post';
         $options['body'] = $networkPolicy;
         $options['model'] = NetworkPolicy::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies',
             [],
             $query,
@@ -147,7 +147,7 @@ class NetworkPolicyService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = NetworkPolicy::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class NetworkPolicyService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class NetworkPolicyService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = NetworkPolicy::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}',
             ['{name}' => $name],
             $query,
@@ -244,7 +244,7 @@ class NetworkPolicyService
         $options['method'] = 'put';
         $options['body'] = $networkPolicy;
         $options['model'] = NetworkPolicy::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}',
             ['{name}' => $name],
             $query,
@@ -282,7 +282,7 @@ class NetworkPolicyService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = NetworkPolicyList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/networkpolicies',
             [],
             $query,
@@ -323,7 +323,7 @@ class NetworkPolicyService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/watch/namespaces/{namespace}/networkpolicies',
             [],
             $query,
@@ -364,7 +364,7 @@ class NetworkPolicyService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/watch/namespaces/{namespace}/networkpolicies/{name}',
             ['{name}' => $name],
             $query,
@@ -405,7 +405,7 @@ class NetworkPolicyService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/watch/networkpolicies',
             [],
             $query,

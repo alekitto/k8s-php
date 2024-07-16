@@ -50,7 +50,7 @@ class ValidatingAdmissionPolicyService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ValidatingAdmissionPolicyList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicies',
             [],
             $query,
@@ -89,7 +89,7 @@ class ValidatingAdmissionPolicyService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicies',
             [],
             $query,
@@ -122,7 +122,7 @@ class ValidatingAdmissionPolicyService
         $options['method'] = 'post';
         $options['body'] = $validatingAdmissionPolicy;
         $options['model'] = ValidatingAdmissionPolicy::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicies',
             [],
             $query,
@@ -149,7 +149,7 @@ class ValidatingAdmissionPolicyService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ValidatingAdmissionPolicy::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicies/{name}',
             ['{name}' => $name],
             $query,
@@ -180,7 +180,7 @@ class ValidatingAdmissionPolicyService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicies/{name}',
             ['{name}' => $name],
             $query,
@@ -215,7 +215,7 @@ class ValidatingAdmissionPolicyService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ValidatingAdmissionPolicy::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicies/{name}',
             ['{name}' => $name],
             $query,
@@ -249,7 +249,7 @@ class ValidatingAdmissionPolicyService
         $options['method'] = 'put';
         $options['body'] = $validatingAdmissionPolicy;
         $options['model'] = ValidatingAdmissionPolicy::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicies/{name}',
             ['{name}' => $name],
             $query,
@@ -276,7 +276,7 @@ class ValidatingAdmissionPolicyService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ValidatingAdmissionPolicy::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicies/{name}/status',
             ['{name}' => $name],
             $query,
@@ -311,7 +311,7 @@ class ValidatingAdmissionPolicyService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ValidatingAdmissionPolicy::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicies/{name}/status',
             ['{name}' => $name],
             $query,
@@ -345,7 +345,7 @@ class ValidatingAdmissionPolicyService
         $options['method'] = 'put';
         $options['body'] = $validatingAdmissionPolicy;
         $options['model'] = ValidatingAdmissionPolicy::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicies/{name}/status',
             ['{name}' => $name],
             $query,
@@ -386,7 +386,7 @@ class ValidatingAdmissionPolicyService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/watch/validatingadmissionpolicies',
             [],
             $query,
@@ -427,7 +427,7 @@ class ValidatingAdmissionPolicyService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/watch/validatingadmissionpolicies/{name}',
             ['{name}' => $name],
             $query,

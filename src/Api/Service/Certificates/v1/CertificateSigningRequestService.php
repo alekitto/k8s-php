@@ -50,7 +50,7 @@ class CertificateSigningRequestService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = CertificateSigningRequestList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/certificatesigningrequests',
             [],
             $query,
@@ -89,7 +89,7 @@ class CertificateSigningRequestService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/certificatesigningrequests',
             [],
             $query,
@@ -122,7 +122,7 @@ class CertificateSigningRequestService
         $options['method'] = 'post';
         $options['body'] = $certificateSigningRequest;
         $options['model'] = CertificateSigningRequest::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/certificatesigningrequests',
             [],
             $query,
@@ -149,7 +149,7 @@ class CertificateSigningRequestService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = CertificateSigningRequest::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}',
             ['{name}' => $name],
             $query,
@@ -180,7 +180,7 @@ class CertificateSigningRequestService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}',
             ['{name}' => $name],
             $query,
@@ -215,7 +215,7 @@ class CertificateSigningRequestService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = CertificateSigningRequest::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}',
             ['{name}' => $name],
             $query,
@@ -249,7 +249,7 @@ class CertificateSigningRequestService
         $options['method'] = 'put';
         $options['body'] = $certificateSigningRequest;
         $options['model'] = CertificateSigningRequest::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}',
             ['{name}' => $name],
             $query,
@@ -276,7 +276,7 @@ class CertificateSigningRequestService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = CertificateSigningRequest::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}/approval',
             ['{name}' => $name],
             $query,
@@ -311,7 +311,7 @@ class CertificateSigningRequestService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = CertificateSigningRequest::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}/approval',
             ['{name}' => $name],
             $query,
@@ -345,7 +345,7 @@ class CertificateSigningRequestService
         $options['method'] = 'put';
         $options['body'] = $certificateSigningRequest;
         $options['model'] = CertificateSigningRequest::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}/approval',
             ['{name}' => $name],
             $query,
@@ -372,7 +372,7 @@ class CertificateSigningRequestService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = CertificateSigningRequest::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}/status',
             ['{name}' => $name],
             $query,
@@ -407,7 +407,7 @@ class CertificateSigningRequestService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = CertificateSigningRequest::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}/status',
             ['{name}' => $name],
             $query,
@@ -441,7 +441,7 @@ class CertificateSigningRequestService
         $options['method'] = 'put';
         $options['body'] = $certificateSigningRequest;
         $options['model'] = CertificateSigningRequest::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}/status',
             ['{name}' => $name],
             $query,
@@ -482,7 +482,7 @@ class CertificateSigningRequestService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/watch/certificatesigningrequests',
             [],
             $query,
@@ -523,7 +523,7 @@ class CertificateSigningRequestService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/watch/certificatesigningrequests/{name}',
             ['{name}' => $name],
             $query,

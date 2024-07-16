@@ -50,7 +50,7 @@ class IPAddressService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = IPAddressList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/ipaddresses',
             [],
             $query,
@@ -89,7 +89,7 @@ class IPAddressService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/ipaddresses',
             [],
             $query,
@@ -120,7 +120,7 @@ class IPAddressService
         $options['method'] = 'post';
         $options['body'] = $iPAddress;
         $options['model'] = IPAddress::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/ipaddresses',
             [],
             $query,
@@ -147,7 +147,7 @@ class IPAddressService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = IPAddress::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/ipaddresses/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class IPAddressService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/ipaddresses/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class IPAddressService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = IPAddress::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/ipaddresses/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class IPAddressService
         $options['method'] = 'put';
         $options['body'] = $iPAddress;
         $options['model'] = IPAddress::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/ipaddresses/{name}',
             ['{name}' => $name],
             $query,
@@ -282,7 +282,7 @@ class IPAddressService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/watch/ipaddresses',
             [],
             $query,
@@ -323,7 +323,7 @@ class IPAddressService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1alpha1/watch/ipaddresses/{name}',
             ['{name}' => $name],
             $query,

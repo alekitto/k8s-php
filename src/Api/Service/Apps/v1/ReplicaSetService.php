@@ -50,7 +50,7 @@ class ReplicaSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ReplicaSetList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/replicasets',
             [],
             $query,
@@ -89,7 +89,7 @@ class ReplicaSetService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/replicasets',
             [],
             $query,
@@ -120,7 +120,7 @@ class ReplicaSetService
         $options['method'] = 'post';
         $options['body'] = $replicaSet;
         $options['model'] = ReplicaSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/replicasets',
             [],
             $query,
@@ -147,7 +147,7 @@ class ReplicaSetService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ReplicaSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/replicasets/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class ReplicaSetService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/replicasets/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class ReplicaSetService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ReplicaSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/replicasets/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class ReplicaSetService
         $options['method'] = 'put';
         $options['body'] = $replicaSet;
         $options['model'] = ReplicaSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/replicasets/{name}',
             ['{name}' => $name],
             $query,
@@ -268,7 +268,7 @@ class ReplicaSetService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ReplicaSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/status',
             ['{name}' => $name],
             $query,
@@ -300,7 +300,7 @@ class ReplicaSetService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ReplicaSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/status',
             ['{name}' => $name],
             $query,
@@ -331,7 +331,7 @@ class ReplicaSetService
         $options['method'] = 'put';
         $options['body'] = $replicaSet;
         $options['model'] = ReplicaSet::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/status',
             ['{name}' => $name],
             $query,
@@ -369,7 +369,7 @@ class ReplicaSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ReplicaSetList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/replicasets',
             [],
             $query,
@@ -410,7 +410,7 @@ class ReplicaSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/watch/namespaces/{namespace}/replicasets',
             [],
             $query,
@@ -451,7 +451,7 @@ class ReplicaSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/watch/namespaces/{namespace}/replicasets/{name}',
             ['{name}' => $name],
             $query,
@@ -492,7 +492,7 @@ class ReplicaSetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apps/v1/watch/replicasets',
             [],
             $query,

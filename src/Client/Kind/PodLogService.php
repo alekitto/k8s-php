@@ -68,9 +68,9 @@ class PodLogService
     /**
      * The output is pretty printed.
      */
-    public function makePretty(): self
+    public function pretty($pretty = true): self
     {
-        $this->options['pretty'] = true;
+        $this->options['pretty'] = $pretty;
 
         return $this;
     }

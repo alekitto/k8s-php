@@ -52,7 +52,7 @@ class ValidatingWebhookConfigurationService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ValidatingWebhookConfigurationList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingwebhookconfigurations',
             [],
             $query,
@@ -91,7 +91,7 @@ class ValidatingWebhookConfigurationService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingwebhookconfigurations',
             [],
             $query,
@@ -124,7 +124,7 @@ class ValidatingWebhookConfigurationService
         $options['method'] = 'post';
         $options['body'] = $validatingWebhookConfiguration;
         $options['model'] = ValidatingWebhookConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingwebhookconfigurations',
             [],
             $query,
@@ -151,7 +151,7 @@ class ValidatingWebhookConfigurationService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ValidatingWebhookConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingwebhookconfigurations/{name}',
             ['{name}' => $name],
             $query,
@@ -182,7 +182,7 @@ class ValidatingWebhookConfigurationService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingwebhookconfigurations/{name}',
             ['{name}' => $name],
             $query,
@@ -217,7 +217,7 @@ class ValidatingWebhookConfigurationService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ValidatingWebhookConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingwebhookconfigurations/{name}',
             ['{name}' => $name],
             $query,
@@ -251,7 +251,7 @@ class ValidatingWebhookConfigurationService
         $options['method'] = 'put';
         $options['body'] = $validatingWebhookConfiguration;
         $options['model'] = ValidatingWebhookConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingwebhookconfigurations/{name}',
             ['{name}' => $name],
             $query,
@@ -292,7 +292,7 @@ class ValidatingWebhookConfigurationService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/watch/validatingwebhookconfigurations',
             [],
             $query,
@@ -334,7 +334,7 @@ class ValidatingWebhookConfigurationService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/watch/validatingwebhookconfigurations/{name}',
             ['{name}' => $name],
             $query,

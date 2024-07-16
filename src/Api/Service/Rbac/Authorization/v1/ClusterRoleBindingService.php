@@ -50,7 +50,7 @@ class ClusterRoleBindingService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ClusterRoleBindingList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/clusterrolebindings',
             [],
             $query,
@@ -89,7 +89,7 @@ class ClusterRoleBindingService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/clusterrolebindings',
             [],
             $query,
@@ -122,7 +122,7 @@ class ClusterRoleBindingService
         $options['method'] = 'post';
         $options['body'] = $clusterRoleBinding;
         $options['model'] = ClusterRoleBinding::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/clusterrolebindings',
             [],
             $query,
@@ -149,7 +149,7 @@ class ClusterRoleBindingService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ClusterRoleBinding::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/clusterrolebindings/{name}',
             ['{name}' => $name],
             $query,
@@ -180,7 +180,7 @@ class ClusterRoleBindingService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/clusterrolebindings/{name}',
             ['{name}' => $name],
             $query,
@@ -215,7 +215,7 @@ class ClusterRoleBindingService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ClusterRoleBinding::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/clusterrolebindings/{name}',
             ['{name}' => $name],
             $query,
@@ -249,7 +249,7 @@ class ClusterRoleBindingService
         $options['method'] = 'put';
         $options['body'] = $clusterRoleBinding;
         $options['model'] = ClusterRoleBinding::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/clusterrolebindings/{name}',
             ['{name}' => $name],
             $query,
@@ -290,7 +290,7 @@ class ClusterRoleBindingService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/watch/clusterrolebindings',
             [],
             $query,
@@ -331,7 +331,7 @@ class ClusterRoleBindingService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/watch/clusterrolebindings/{name}',
             ['{name}' => $name],
             $query,

@@ -41,12 +41,12 @@ readonly class DefinitionMetadata
 
     public function getPhpFqcn(): string
     {
-        return $this->makeFinalNamespace($this->goPackageName->getPhpFqcn());
+        return $this->computeNamespace($this->goPackageName->getPhpFqcn());
     }
 
     public function getNamespace(): string
     {
-        return $this->makeFinalNamespace($this->goPackageName->getPhpNamespace());
+        return $this->computeNamespace($this->goPackageName->getPhpNamespace());
     }
 
     /** @return PropertyMetadata[] */
@@ -254,7 +254,7 @@ readonly class DefinitionMetadata
         return substr_compare($this->definition->definition, $value, -strlen($value)) === 0;
     }
 
-    private function makeFinalNamespace(string $fqcn): string
+    private function computeNamespace(string $fqcn): string
     {
         return sprintf(
             'Model\\%s',

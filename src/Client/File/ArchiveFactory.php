@@ -14,7 +14,7 @@ readonly class ArchiveFactory
     {
     }
 
-    public function makeArchive(string $file): ArchiveInterface
+    public function factory(string $file): ArchiveInterface
     {
         return new Tar(
             $file,

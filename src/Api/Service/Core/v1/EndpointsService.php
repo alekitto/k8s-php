@@ -50,7 +50,7 @@ class EndpointsService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = EndpointsList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/endpoints',
             [],
             $query,
@@ -88,7 +88,7 @@ class EndpointsService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = EndpointsList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/endpoints',
             [],
             $query,
@@ -127,7 +127,7 @@ class EndpointsService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/endpoints',
             [],
             $query,
@@ -158,7 +158,7 @@ class EndpointsService
         $options['method'] = 'post';
         $options['body'] = $endpoints;
         $options['model'] = Endpoints::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/endpoints',
             [],
             $query,
@@ -185,7 +185,7 @@ class EndpointsService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = Endpoints::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/endpoints/{name}',
             ['{name}' => $name],
             $query,
@@ -216,7 +216,7 @@ class EndpointsService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/endpoints/{name}',
             ['{name}' => $name],
             $query,
@@ -248,7 +248,7 @@ class EndpointsService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = Endpoints::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/endpoints/{name}',
             ['{name}' => $name],
             $query,
@@ -279,7 +279,7 @@ class EndpointsService
         $options['method'] = 'put';
         $options['body'] = $endpoints;
         $options['model'] = Endpoints::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/endpoints/{name}',
             ['{name}' => $name],
             $query,
@@ -320,7 +320,7 @@ class EndpointsService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/endpoints',
             [],
             $query,
@@ -361,7 +361,7 @@ class EndpointsService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/endpoints',
             [],
             $query,
@@ -402,7 +402,7 @@ class EndpointsService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/endpoints/{name}',
             ['{name}' => $name],
             $query,

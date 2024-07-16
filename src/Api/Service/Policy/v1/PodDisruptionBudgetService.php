@@ -50,7 +50,7 @@ class PodDisruptionBudgetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = PodDisruptionBudgetList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets',
             [],
             $query,
@@ -89,7 +89,7 @@ class PodDisruptionBudgetService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets',
             [],
             $query,
@@ -120,7 +120,7 @@ class PodDisruptionBudgetService
         $options['method'] = 'post';
         $options['body'] = $podDisruptionBudget;
         $options['model'] = PodDisruptionBudget::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets',
             [],
             $query,
@@ -147,7 +147,7 @@ class PodDisruptionBudgetService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = PodDisruptionBudget::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class PodDisruptionBudgetService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class PodDisruptionBudgetService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = PodDisruptionBudget::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets/{name}',
             ['{name}' => $name],
             $query,
@@ -244,7 +244,7 @@ class PodDisruptionBudgetService
         $options['method'] = 'put';
         $options['body'] = $podDisruptionBudget;
         $options['model'] = PodDisruptionBudget::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets/{name}',
             ['{name}' => $name],
             $query,
@@ -271,7 +271,7 @@ class PodDisruptionBudgetService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = PodDisruptionBudget::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets/{name}/status',
             ['{name}' => $name],
             $query,
@@ -303,7 +303,7 @@ class PodDisruptionBudgetService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = PodDisruptionBudget::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets/{name}/status',
             ['{name}' => $name],
             $query,
@@ -337,7 +337,7 @@ class PodDisruptionBudgetService
         $options['method'] = 'put';
         $options['body'] = $podDisruptionBudget;
         $options['model'] = PodDisruptionBudget::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets/{name}/status',
             ['{name}' => $name],
             $query,
@@ -375,7 +375,7 @@ class PodDisruptionBudgetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = PodDisruptionBudgetList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/policy/v1/poddisruptionbudgets',
             [],
             $query,
@@ -416,7 +416,7 @@ class PodDisruptionBudgetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/policy/v1/watch/namespaces/{namespace}/poddisruptionbudgets',
             [],
             $query,
@@ -457,7 +457,7 @@ class PodDisruptionBudgetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/policy/v1/watch/namespaces/{namespace}/poddisruptionbudgets/{name}',
             ['{name}' => $name],
             $query,
@@ -498,7 +498,7 @@ class PodDisruptionBudgetService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/policy/v1/watch/poddisruptionbudgets',
             [],
             $query,

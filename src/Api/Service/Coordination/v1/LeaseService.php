@@ -50,7 +50,7 @@ class LeaseService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = LeaseList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/coordination.k8s.io/v1/leases',
             [],
             $query,
@@ -88,7 +88,7 @@ class LeaseService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = LeaseList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases',
             [],
             $query,
@@ -127,7 +127,7 @@ class LeaseService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases',
             [],
             $query,
@@ -158,7 +158,7 @@ class LeaseService
         $options['method'] = 'post';
         $options['body'] = $lease;
         $options['model'] = Lease::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases',
             [],
             $query,
@@ -185,7 +185,7 @@ class LeaseService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = Lease::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases/{name}',
             ['{name}' => $name],
             $query,
@@ -216,7 +216,7 @@ class LeaseService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases/{name}',
             ['{name}' => $name],
             $query,
@@ -248,7 +248,7 @@ class LeaseService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = Lease::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases/{name}',
             ['{name}' => $name],
             $query,
@@ -279,7 +279,7 @@ class LeaseService
         $options['method'] = 'put';
         $options['body'] = $lease;
         $options['model'] = Lease::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases/{name}',
             ['{name}' => $name],
             $query,
@@ -320,7 +320,7 @@ class LeaseService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/coordination.k8s.io/v1/watch/leases',
             [],
             $query,
@@ -361,7 +361,7 @@ class LeaseService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/coordination.k8s.io/v1/watch/namespaces/{namespace}/leases',
             [],
             $query,
@@ -402,7 +402,7 @@ class LeaseService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/coordination.k8s.io/v1/watch/namespaces/{namespace}/leases/{name}',
             ['{name}' => $name],
             $query,

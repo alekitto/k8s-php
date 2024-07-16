@@ -33,7 +33,7 @@ class NodeProxyOptionsService
     {
         $options['query'] = $query;
         $options['method'] = 'get';
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy',
             ['{name}' => $name],
             $query,
@@ -59,7 +59,7 @@ class NodeProxyOptionsService
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy',
             ['{name}' => $name],
             $query,
@@ -85,7 +85,7 @@ class NodeProxyOptionsService
     {
         $options['query'] = $query;
         $options['method'] = 'post';
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy',
             ['{name}' => $name],
             $query,
@@ -111,7 +111,7 @@ class NodeProxyOptionsService
     {
         $options['query'] = $query;
         $options['method'] = 'patch';
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy',
             ['{name}' => $name],
             $query,
@@ -137,7 +137,7 @@ class NodeProxyOptionsService
     {
         $options['query'] = $query;
         $options['method'] = 'put';
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy',
             ['{name}' => $name],
             $query,
@@ -163,7 +163,7 @@ class NodeProxyOptionsService
     {
         $options['query'] = $query;
         $options['method'] = 'options';
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy',
             ['{name}' => $name],
             $query,
@@ -189,7 +189,7 @@ class NodeProxyOptionsService
     {
         $options['query'] = $query;
         $options['method'] = 'head';
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy',
             ['{name}' => $name],
             $query,
@@ -215,7 +215,7 @@ class NodeProxyOptionsService
     {
         $options['query'] = $query;
         $options['method'] = 'get';
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy/{path}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class NodeProxyOptionsService
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy/{path}',
             ['{name}' => $name],
             $query,
@@ -267,7 +267,7 @@ class NodeProxyOptionsService
     {
         $options['query'] = $query;
         $options['method'] = 'post';
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy/{path}',
             ['{name}' => $name],
             $query,
@@ -293,7 +293,7 @@ class NodeProxyOptionsService
     {
         $options['query'] = $query;
         $options['method'] = 'patch';
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy/{path}',
             ['{name}' => $name],
             $query,
@@ -319,7 +319,7 @@ class NodeProxyOptionsService
     {
         $options['query'] = $query;
         $options['method'] = 'put';
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy/{path}',
             ['{name}' => $name],
             $query,
@@ -345,7 +345,7 @@ class NodeProxyOptionsService
     {
         $options['query'] = $query;
         $options['method'] = 'options';
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy/{path}',
             ['{name}' => $name],
             $query,
@@ -371,7 +371,7 @@ class NodeProxyOptionsService
     {
         $options['query'] = $query;
         $options['method'] = 'head';
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy/{path}',
             ['{name}' => $name],
             $query,

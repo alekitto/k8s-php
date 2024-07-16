@@ -50,7 +50,7 @@ class CSIStorageCapacityService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = CSIStorageCapacityList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csistoragecapacities',
             [],
             $query,
@@ -88,7 +88,7 @@ class CSIStorageCapacityService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = CSIStorageCapacityList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities',
             [],
             $query,
@@ -127,7 +127,7 @@ class CSIStorageCapacityService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities',
             [],
             $query,
@@ -160,7 +160,7 @@ class CSIStorageCapacityService
         $options['method'] = 'post';
         $options['body'] = $cSIStorageCapacity;
         $options['model'] = CSIStorageCapacity::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities',
             [],
             $query,
@@ -187,7 +187,7 @@ class CSIStorageCapacityService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = CSIStorageCapacity::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities/{name}',
             ['{name}' => $name],
             $query,
@@ -218,7 +218,7 @@ class CSIStorageCapacityService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities/{name}',
             ['{name}' => $name],
             $query,
@@ -253,7 +253,7 @@ class CSIStorageCapacityService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = CSIStorageCapacity::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities/{name}',
             ['{name}' => $name],
             $query,
@@ -287,7 +287,7 @@ class CSIStorageCapacityService
         $options['method'] = 'put';
         $options['body'] = $cSIStorageCapacity;
         $options['model'] = CSIStorageCapacity::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities/{name}',
             ['{name}' => $name],
             $query,
@@ -328,7 +328,7 @@ class CSIStorageCapacityService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/watch/csistoragecapacities',
             [],
             $query,
@@ -369,7 +369,7 @@ class CSIStorageCapacityService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/watch/namespaces/{namespace}/csistoragecapacities',
             [],
             $query,
@@ -410,7 +410,7 @@ class CSIStorageCapacityService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/watch/namespaces/{namespace}/csistoragecapacities/{name}',
             ['{name}' => $name],
             $query,

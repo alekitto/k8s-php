@@ -50,7 +50,7 @@ class PodTemplateService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = PodTemplateList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/podtemplates',
             [],
             $query,
@@ -89,7 +89,7 @@ class PodTemplateService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/podtemplates',
             [],
             $query,
@@ -120,7 +120,7 @@ class PodTemplateService
         $options['method'] = 'post';
         $options['body'] = $podTemplate;
         $options['model'] = PodTemplate::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/podtemplates',
             [],
             $query,
@@ -147,7 +147,7 @@ class PodTemplateService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = PodTemplate::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/podtemplates/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class PodTemplateService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = PodTemplate::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/podtemplates/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class PodTemplateService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = PodTemplate::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/podtemplates/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class PodTemplateService
         $options['method'] = 'put';
         $options['body'] = $podTemplate;
         $options['model'] = PodTemplate::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/podtemplates/{name}',
             ['{name}' => $name],
             $query,
@@ -279,7 +279,7 @@ class PodTemplateService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = PodTemplateList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/podtemplates',
             [],
             $query,
@@ -320,7 +320,7 @@ class PodTemplateService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/podtemplates',
             [],
             $query,
@@ -361,7 +361,7 @@ class PodTemplateService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/podtemplates/{name}',
             ['{name}' => $name],
             $query,
@@ -402,7 +402,7 @@ class PodTemplateService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/podtemplates',
             [],
             $query,

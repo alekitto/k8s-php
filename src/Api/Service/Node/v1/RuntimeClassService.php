@@ -50,7 +50,7 @@ class RuntimeClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = RuntimeClassList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/node.k8s.io/v1/runtimeclasses',
             [],
             $query,
@@ -89,7 +89,7 @@ class RuntimeClassService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/node.k8s.io/v1/runtimeclasses',
             [],
             $query,
@@ -120,7 +120,7 @@ class RuntimeClassService
         $options['method'] = 'post';
         $options['body'] = $runtimeClass;
         $options['model'] = RuntimeClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/node.k8s.io/v1/runtimeclasses',
             [],
             $query,
@@ -147,7 +147,7 @@ class RuntimeClassService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = RuntimeClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/node.k8s.io/v1/runtimeclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class RuntimeClassService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/node.k8s.io/v1/runtimeclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class RuntimeClassService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = RuntimeClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/node.k8s.io/v1/runtimeclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class RuntimeClassService
         $options['method'] = 'put';
         $options['body'] = $runtimeClass;
         $options['model'] = RuntimeClass::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/node.k8s.io/v1/runtimeclasses/{name}',
             ['{name}' => $name],
             $query,
@@ -282,7 +282,7 @@ class RuntimeClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/node.k8s.io/v1/watch/runtimeclasses',
             [],
             $query,
@@ -323,7 +323,7 @@ class RuntimeClassService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/node.k8s.io/v1/watch/runtimeclasses/{name}',
             ['{name}' => $name],
             $query,

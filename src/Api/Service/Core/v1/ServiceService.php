@@ -50,7 +50,7 @@ class ServiceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ServiceList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services',
             [],
             $query,
@@ -89,7 +89,7 @@ class ServiceService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services',
             [],
             $query,
@@ -120,7 +120,7 @@ class ServiceService
         $options['method'] = 'post';
         $options['body'] = $service;
         $options['model'] = Service::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services',
             [],
             $query,
@@ -147,7 +147,7 @@ class ServiceService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = Service::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class ServiceService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Service::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class ServiceService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = Service::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class ServiceService
         $options['method'] = 'put';
         $options['body'] = $service;
         $options['model'] = Service::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}',
             ['{name}' => $name],
             $query,
@@ -268,7 +268,7 @@ class ServiceService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = Service::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}/status',
             ['{name}' => $name],
             $query,
@@ -300,7 +300,7 @@ class ServiceService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = Service::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}/status',
             ['{name}' => $name],
             $query,
@@ -331,7 +331,7 @@ class ServiceService
         $options['method'] = 'put';
         $options['body'] = $service;
         $options['model'] = Service::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}/status',
             ['{name}' => $name],
             $query,
@@ -369,7 +369,7 @@ class ServiceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ServiceList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/services',
             [],
             $query,
@@ -410,7 +410,7 @@ class ServiceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/services',
             [],
             $query,
@@ -451,7 +451,7 @@ class ServiceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/services/{name}',
             ['{name}' => $name],
             $query,
@@ -492,7 +492,7 @@ class ServiceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/services',
             [],
             $query,

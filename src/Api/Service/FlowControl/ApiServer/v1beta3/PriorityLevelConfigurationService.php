@@ -52,7 +52,7 @@ class PriorityLevelConfigurationService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = PriorityLevelConfigurationList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1beta3/prioritylevelconfigurations',
             [],
             $query,
@@ -91,7 +91,7 @@ class PriorityLevelConfigurationService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1beta3/prioritylevelconfigurations',
             [],
             $query,
@@ -124,7 +124,7 @@ class PriorityLevelConfigurationService
         $options['method'] = 'post';
         $options['body'] = $priorityLevelConfiguration;
         $options['model'] = PriorityLevelConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1beta3/prioritylevelconfigurations',
             [],
             $query,
@@ -151,7 +151,7 @@ class PriorityLevelConfigurationService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = PriorityLevelConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1beta3/prioritylevelconfigurations/{name}',
             ['{name}' => $name],
             $query,
@@ -182,7 +182,7 @@ class PriorityLevelConfigurationService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1beta3/prioritylevelconfigurations/{name}',
             ['{name}' => $name],
             $query,
@@ -217,7 +217,7 @@ class PriorityLevelConfigurationService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = PriorityLevelConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1beta3/prioritylevelconfigurations/{name}',
             ['{name}' => $name],
             $query,
@@ -251,7 +251,7 @@ class PriorityLevelConfigurationService
         $options['method'] = 'put';
         $options['body'] = $priorityLevelConfiguration;
         $options['model'] = PriorityLevelConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1beta3/prioritylevelconfigurations/{name}',
             ['{name}' => $name],
             $query,
@@ -278,7 +278,7 @@ class PriorityLevelConfigurationService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = PriorityLevelConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1beta3/prioritylevelconfigurations/{name}/status',
             ['{name}' => $name],
             $query,
@@ -313,7 +313,7 @@ class PriorityLevelConfigurationService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = PriorityLevelConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1beta3/prioritylevelconfigurations/{name}/status',
             ['{name}' => $name],
             $query,
@@ -347,7 +347,7 @@ class PriorityLevelConfigurationService
         $options['method'] = 'put';
         $options['body'] = $priorityLevelConfiguration;
         $options['model'] = PriorityLevelConfiguration::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1beta3/prioritylevelconfigurations/{name}/status',
             ['{name}' => $name],
             $query,
@@ -388,7 +388,7 @@ class PriorityLevelConfigurationService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1beta3/watch/prioritylevelconfigurations',
             [],
             $query,
@@ -429,7 +429,7 @@ class PriorityLevelConfigurationService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1beta3/watch/prioritylevelconfigurations/{name}',
             ['{name}' => $name],
             $query,

@@ -50,7 +50,7 @@ class APIServiceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = APIServiceList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiregistration.k8s.io/v1/apiservices',
             [],
             $query,
@@ -89,7 +89,7 @@ class APIServiceService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiregistration.k8s.io/v1/apiservices',
             [],
             $query,
@@ -120,7 +120,7 @@ class APIServiceService
         $options['method'] = 'post';
         $options['body'] = $aPIService;
         $options['model'] = APIService::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiregistration.k8s.io/v1/apiservices',
             [],
             $query,
@@ -147,7 +147,7 @@ class APIServiceService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = APIService::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiregistration.k8s.io/v1/apiservices/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class APIServiceService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiregistration.k8s.io/v1/apiservices/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class APIServiceService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = APIService::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiregistration.k8s.io/v1/apiservices/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class APIServiceService
         $options['method'] = 'put';
         $options['body'] = $aPIService;
         $options['model'] = APIService::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiregistration.k8s.io/v1/apiservices/{name}',
             ['{name}' => $name],
             $query,
@@ -268,7 +268,7 @@ class APIServiceService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = APIService::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiregistration.k8s.io/v1/apiservices/{name}/status',
             ['{name}' => $name],
             $query,
@@ -300,7 +300,7 @@ class APIServiceService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = APIService::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiregistration.k8s.io/v1/apiservices/{name}/status',
             ['{name}' => $name],
             $query,
@@ -334,7 +334,7 @@ class APIServiceService
         $options['method'] = 'put';
         $options['body'] = $aPIService;
         $options['model'] = APIService::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiregistration.k8s.io/v1/apiservices/{name}/status',
             ['{name}' => $name],
             $query,
@@ -375,7 +375,7 @@ class APIServiceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiregistration.k8s.io/v1/watch/apiservices',
             [],
             $query,
@@ -416,7 +416,7 @@ class APIServiceService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/apis/apiregistration.k8s.io/v1/watch/apiservices/{name}',
             ['{name}' => $name],
             $query,

@@ -54,7 +54,7 @@ class PersistentVolumeService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = PersistentVolumeList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/persistentvolumes',
             [],
             $query,
@@ -93,7 +93,7 @@ class PersistentVolumeService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/persistentvolumes',
             [],
             $query,
@@ -124,7 +124,7 @@ class PersistentVolumeService
         $options['method'] = 'post';
         $options['body'] = $persistentVolume;
         $options['model'] = PersistentVolume::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/persistentvolumes',
             [],
             $query,
@@ -151,7 +151,7 @@ class PersistentVolumeService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = PersistentVolume::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/persistentvolumes/{name}',
             ['{name}' => $name],
             $query,
@@ -182,7 +182,7 @@ class PersistentVolumeService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = PersistentVolume::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/persistentvolumes/{name}',
             ['{name}' => $name],
             $query,
@@ -214,7 +214,7 @@ class PersistentVolumeService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = PersistentVolume::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/persistentvolumes/{name}',
             ['{name}' => $name],
             $query,
@@ -245,7 +245,7 @@ class PersistentVolumeService
         $options['method'] = 'put';
         $options['body'] = $persistentVolume;
         $options['model'] = PersistentVolume::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/persistentvolumes/{name}',
             ['{name}' => $name],
             $query,
@@ -272,7 +272,7 @@ class PersistentVolumeService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = PersistentVolume::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/persistentvolumes/{name}/status',
             ['{name}' => $name],
             $query,
@@ -304,7 +304,7 @@ class PersistentVolumeService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = PersistentVolume::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/persistentvolumes/{name}/status',
             ['{name}' => $name],
             $query,
@@ -338,7 +338,7 @@ class PersistentVolumeService
         $options['method'] = 'put';
         $options['body'] = $persistentVolume;
         $options['model'] = PersistentVolume::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/persistentvolumes/{name}/status',
             ['{name}' => $name],
             $query,
@@ -379,7 +379,7 @@ class PersistentVolumeService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/persistentvolumes',
             [],
             $query,
@@ -420,7 +420,7 @@ class PersistentVolumeService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/persistentvolumes/{name}',
             ['{name}' => $name],
             $query,

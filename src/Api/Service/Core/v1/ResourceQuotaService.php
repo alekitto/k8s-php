@@ -50,7 +50,7 @@ class ResourceQuotaService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ResourceQuotaList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/resourcequotas',
             [],
             $query,
@@ -89,7 +89,7 @@ class ResourceQuotaService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = Status::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/resourcequotas',
             [],
             $query,
@@ -120,7 +120,7 @@ class ResourceQuotaService
         $options['method'] = 'post';
         $options['body'] = $resourceQuota;
         $options['model'] = ResourceQuota::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/resourcequotas',
             [],
             $query,
@@ -147,7 +147,7 @@ class ResourceQuotaService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ResourceQuota::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/resourcequotas/{name}',
             ['{name}' => $name],
             $query,
@@ -178,7 +178,7 @@ class ResourceQuotaService
         $options['query'] = $query;
         $options['method'] = 'delete';
         $options['model'] = ResourceQuota::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/resourcequotas/{name}',
             ['{name}' => $name],
             $query,
@@ -210,7 +210,7 @@ class ResourceQuotaService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ResourceQuota::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/resourcequotas/{name}',
             ['{name}' => $name],
             $query,
@@ -241,7 +241,7 @@ class ResourceQuotaService
         $options['method'] = 'put';
         $options['body'] = $resourceQuota;
         $options['model'] = ResourceQuota::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/resourcequotas/{name}',
             ['{name}' => $name],
             $query,
@@ -268,7 +268,7 @@ class ResourceQuotaService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ResourceQuota::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/resourcequotas/{name}/status',
             ['{name}' => $name],
             $query,
@@ -300,7 +300,7 @@ class ResourceQuotaService
         $options['method'] = 'patch';
         $options['body'] = $patch;
         $options['model'] = ResourceQuota::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/resourcequotas/{name}/status',
             ['{name}' => $name],
             $query,
@@ -334,7 +334,7 @@ class ResourceQuotaService
         $options['method'] = 'put';
         $options['body'] = $resourceQuota;
         $options['model'] = ResourceQuota::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/resourcequotas/{name}/status',
             ['{name}' => $name],
             $query,
@@ -372,7 +372,7 @@ class ResourceQuotaService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ResourceQuotaList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/resourcequotas',
             [],
             $query,
@@ -413,7 +413,7 @@ class ResourceQuotaService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/resourcequotas',
             [],
             $query,
@@ -454,7 +454,7 @@ class ResourceQuotaService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/namespaces/{namespace}/resourcequotas/{name}',
             ['{name}' => $name],
             $query,
@@ -495,7 +495,7 @@ class ResourceQuotaService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = WatchEvent::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/watch/resourcequotas',
             [],
             $query,

@@ -53,7 +53,7 @@ class ComponentStatusService
         $options['method'] = 'get';
         $options['handler'] = $handler;
         $options['model'] = ComponentStatusList::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/componentstatuses',
             [],
             $query,
@@ -82,7 +82,7 @@ class ComponentStatusService
         $options['query'] = $query;
         $options['method'] = 'get';
         $options['model'] = ComponentStatus::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/componentstatuses/{name}',
             ['{name}' => $name],
             $query,

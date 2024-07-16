@@ -42,7 +42,7 @@ readonly class RequestFactory
     ) {
     }
 
-    public function makeRequest(
+    public function build(
         string $uri,
         string $action,
         string|null $acceptType = null,
@@ -83,7 +83,7 @@ readonly class RequestFactory
         return $this->addAuthIfNeeded($request);
     }
 
-    public function makeFromRequest(string $uri, RequestInterface $request): RequestInterface
+    public function fromRequest(string $uri, RequestInterface $request): RequestInterface
     {
         return $this->addAuthIfNeeded($request)
             ->withUri($this->uriFactory->createUri($uri));

@@ -67,7 +67,7 @@ readonly class OperationMethodCodeGenerator
                 $definition = $metadata->findDefinitionByGoPackageName($param->getDefinitionGoPackageName());
                 if ($definition->isValidModel()) {
                     $paramName = $this->parameterNameFormatter->format($definition);
-                    $paramFqcn = $this->makeFinalNamespace($definition->getPhpFqcn(), $options);
+                    $paramFqcn = $this->computeNamespace($definition->getPhpFqcn(), $options);
 
                     $namespace->addUse($paramFqcn);
                     $method->addParameter($paramName)
@@ -125,8 +125,8 @@ readonly class OperationMethodCodeGenerator
         switch ($operation->getReturnedType()) {
             case 'model':
                 $model = $operation->getReturnedDefinition();
-                $namespace->addUse($this->makeFinalNamespace($model->getPhpFqcn(), $options));
-                $method->setReturnType($this->makeFinalNamespace(
+                $namespace->addUse($this->computeNamespace($model->getPhpFqcn(), $options));
+                $method->setReturnType($this->computeNamespace(
                     $model->getPhpFqcn(),
                     $options,
                 ));
@@ -141,7 +141,7 @@ readonly class OperationMethodCodeGenerator
 
         $method->setReturnNullable($operation->isNullable());
 
-        $docblocks = array_merge($docblocks, $this->makeDocblock($operation, $options));
+        $docblocks = array_merge($docblocks, $this->generateDocblock($operation, $options));
         if (! empty($docblocks) && $method->getComment()) {
             $method->addComment('');
         }
@@ -166,7 +166,7 @@ readonly class OperationMethodCodeGenerator
     }
 
     /** @return array<string, string>[] */
-    private function makeDocblock(OperationMetadata $operation, CodeOptions $options): array
+    private function generateDocblock(OperationMetadata $operation, CodeOptions $options): array
     {
         $docblocks = [];
 

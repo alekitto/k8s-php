@@ -39,7 +39,7 @@ class EvictionService
         $options['method'] = 'post';
         $options['body'] = $eviction;
         $options['model'] = Eviction::class;
-        $uri = $this->api->makeUri(
+        $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/pods/{name}/eviction',
             ['{name}' => $name],
             $query,
