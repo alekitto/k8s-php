@@ -211,13 +211,13 @@ class ServiceProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
      */
-    public function connectGetNamespacedServiceProxyWithPath(string $name, array $query = []): string
+    public function connectGetNamespacedServiceProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'get';
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -237,13 +237,13 @@ class ServiceProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
      */
-    public function connectDeleteNamespacedServiceProxyWithPath(string $name, array $query = []): string
+    public function connectDeleteNamespacedServiceProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -263,13 +263,13 @@ class ServiceProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
      */
-    public function connectPostNamespacedServiceProxyWithPath(string $name, array $query = []): string
+    public function connectPostNamespacedServiceProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'post';
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -289,13 +289,13 @@ class ServiceProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
      */
-    public function connectPatchNamespacedServiceProxyWithPath(string $name, array $query = []): string
+    public function connectPatchNamespacedServiceProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'patch';
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -315,13 +315,13 @@ class ServiceProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
      */
-    public function connectPutNamespacedServiceProxyWithPath(string $name, array $query = []): string
+    public function connectPutNamespacedServiceProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'put';
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -341,13 +341,16 @@ class ServiceProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
      */
-    public function connectOptionsNamespacedServiceProxyWithPath(string $name, array $query = []): string
-    {
+    public function connectOptionsNamespacedServiceProxyWithPath(
+        string $name,
+        string $path,
+        array $query = [],
+    ): string {
         $options['query'] = $query;
         $options['method'] = 'options';
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -367,13 +370,13 @@ class ServiceProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
      */
-    public function connectHeadNamespacedServiceProxyWithPath(string $name, array $query = []): string
+    public function connectHeadNamespacedServiceProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'head';
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );

@@ -39,7 +39,7 @@ use Kcs\K8s\Collection;
     response: 'self',
 )]
 #[Kubernetes\Operation(
-    'deletecollection-all',
+    'deletecollection',
     path: '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/resourceclaimparameters',
     response: Status::class,
 )]

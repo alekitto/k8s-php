@@ -9,6 +9,7 @@ use Kcs\K8s\ApiGenerator\Code\CodeGenerator\CodeGeneratorTrait;
 use Kcs\K8s\ApiGenerator\Parser\Metadata\DefinitionMetadata;
 use Kcs\K8s\ApiGenerator\Parser\Metadata\PropertyMetadata;
 use Kcs\K8s\Attribute\AttributeType;
+use OpenApi\Generator;
 
 readonly class ModelProperty
 {
@@ -229,7 +230,7 @@ readonly class ModelProperty
 
     public function getDescription(): string
     {
-        return $this->property->getDescription();
+        return $this->property->getDescription() !== Generator::UNDEFINED ? $this->property->getDescription() : '';
     }
 
     /** @return PropertyMetadata[] */

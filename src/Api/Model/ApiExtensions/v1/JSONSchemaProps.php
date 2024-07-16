@@ -38,7 +38,7 @@ class JSONSchemaProps
     #[Kubernetes\Attribute('anyOf', type: \Kcs\K8s\Attribute\AttributeType::Collection, model: JSONSchemaProps::class)]
     protected $anyOf = null;
 
-    /** @var mixed|null */
+    /** @var string|null */
     #[Kubernetes\Attribute('default')]
     protected $default = null;
 
@@ -54,11 +54,11 @@ class JSONSchemaProps
     #[Kubernetes\Attribute('description')]
     protected $description = null;
 
-    /** @var mixed[]|null */
+    /** @var string[]|null */
     #[Kubernetes\Attribute('enum')]
     protected $enum = null;
 
-    /** @var mixed|null */
+    /** @var string|null */
     #[Kubernetes\Attribute('example')]
     protected $example = null;
 
@@ -82,7 +82,7 @@ class JSONSchemaProps
     #[Kubernetes\Attribute('id')]
     protected $id = null;
 
-    /** @var array|null */
+    /** @var string|null */
     #[Kubernetes\Attribute('items')]
     protected $items = null;
 
@@ -324,7 +324,7 @@ class JSONSchemaProps
      * default is a default value for undefined object fields. Defaulting is a beta feature under the
      * CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
      *
-     * @return mixed
+     * @return string
      */
     public function getDefault()
     {
@@ -335,7 +335,7 @@ class JSONSchemaProps
      * default is a default value for undefined object fields. Defaulting is a beta feature under the
      * CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
      *
-     * @param mixed $default
+     * @param string $default
      * @return static
      */
     public function setDefault($default)
@@ -391,7 +391,7 @@ class JSONSchemaProps
     }
 
     /**
-     * @return mixed[]
+     * @return string[]
      */
     public function getEnum()
     {
@@ -399,7 +399,7 @@ class JSONSchemaProps
     }
 
     /**
-     * @param mixed[] $enum
+     * @param string[] $enum
      * @return static
      */
     public function setEnum($enum)
@@ -410,7 +410,7 @@ class JSONSchemaProps
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getExample()
     {
@@ -418,7 +418,7 @@ class JSONSchemaProps
     }
 
     /**
-     * @param mixed $example
+     * @param string $example
      * @return static
      */
     public function setExample($example)
@@ -561,7 +561,7 @@ class JSONSchemaProps
     }
 
     /**
-     * @return array
+     * @return string
      */
     public function getItems()
     {
@@ -569,7 +569,7 @@ class JSONSchemaProps
     }
 
     /**
-     * @param array $items
+     * @param string $items
      * @return static
      */
     public function setItems($items)

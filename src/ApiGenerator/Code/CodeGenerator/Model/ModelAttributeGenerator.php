@@ -16,10 +16,14 @@ use Nette\PhpGenerator\Literal;
 use Nette\PhpGenerator\PhpNamespace;
 
 use function array_filter;
+use function in_array;
+use function str_replace;
 
 readonly class ModelAttributeGenerator
 {
     use CodeGeneratorTrait;
+
+    public const OPERATION_BODY_DENY_LIST = ['io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions'];
 
     public function generate(DefinitionMetadata $model, ClassType $class, Metadata $metadata, CodeOptions $options, PhpNamespace $namespace): void
     {
@@ -70,13 +74,12 @@ readonly class ModelAttributeGenerator
         foreach (array_filter($operations) as $action => $operation) {
             $params = [$action, 'path' => $operation->getUriPath()];
 
-            foreach ($operation->getParameters() as $parameter) {
-                if (! $parameter->isRequiredDefinition()) {
-                    continue;
+            if ($operation->hasRequestBody()) {
+                $ref = str_replace('#/components/schemas/', '', (string) $operation->getRequestBodyRef());
+                if (! in_array($ref, self::OPERATION_BODY_DENY_LIST, true)) {
+                    $definition = $metadata->findDefinitionByGoPackageName($ref);
+                    $params['body'] = $definition?->isValidModel() ? 'model' : 'patch';
                 }
-
-                $definition = $metadata->findDefinitionByGoPackageName($parameter->getDefinitionGoPackageName());
-                $params['body'] = $definition->isValidModel() ? 'model' : 'patch';
             }
 
             $isWatchAction = ($action === 'watch' || $action === 'watch-all');

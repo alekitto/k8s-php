@@ -51,7 +51,7 @@ use Kcs\K8s\Attribute\AttributeType;
     response: 'self',
 )]
 #[Kubernetes\Operation(
-    'deletecollection-all',
+    'deletecollection',
     path: '/apis/resource.k8s.io/v1alpha2/namespaces/{namespace}/podschedulingcontexts',
     response: Status::class,
 )]

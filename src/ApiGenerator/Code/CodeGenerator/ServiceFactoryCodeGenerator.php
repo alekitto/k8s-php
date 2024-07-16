@@ -6,7 +6,6 @@ namespace Kcs\K8s\ApiGenerator\Code\CodeGenerator;
 
 use Kcs\K8s\ApiGenerator\Code\CodeFile;
 use Kcs\K8s\ApiGenerator\Code\CodeOptions;
-use Kcs\K8s\ApiGenerator\Parser\Metadata\Metadata;
 use Kcs\K8s\ApiGenerator\Parser\Metadata\ServiceGroupMetadata;
 use Kcs\K8s\Contract\ApiInterface;
 use Nette\PhpGenerator\PhpNamespace;
@@ -21,7 +20,7 @@ readonly class ServiceFactoryCodeGenerator
 {
     use CodeGeneratorTrait;
 
-    public function generate(Metadata $metadata, CodeOptions $options): CodeFile
+    public function generate(array $metadata, CodeOptions $options): CodeFile
     {
         $namespace = new PhpNamespace($this->computeNamespace('Service', $options));
         $namespace->addUse(ApiInterface::class);
@@ -36,20 +35,27 @@ readonly class ServiceFactoryCodeGenerator
         $param->setType(ApiInterface::class);
         $constructor->addBody('$this->api = $api;');
 
-        foreach ($metadata->getServiceGroups() as $serviceGroup) {
-            $serviceFqcn = $this->computeNamespace(
-                $serviceGroup->getFqcn(),
-                $options,
-            );
+        foreach ($metadata as $meta) {
+            foreach ($meta->getServiceGroups() as $serviceGroup) {
+                $serviceFqcn = $this->computeNamespace(
+                    $serviceGroup->getFqcn(),
+                    $options,
+                );
 
-            $namespace->addUse($serviceFqcn);
+                $namespace->addUse($serviceFqcn);
+                $methodName = $this->generateMethodName($serviceGroup);
 
-            $method = $class->addMethod($this->generateMethodName($serviceGroup));
-            $method->setReturnType($serviceFqcn);
-            $method->addBody(sprintf(
-                'return new %s($this->api);',
-                $namespace->simplifyName($serviceFqcn),
-            ));
+                if ($class->hasMethod($methodName)) {
+                    continue;
+                }
+
+                $method = $class->addMethod($methodName);
+                $method->setReturnType($serviceFqcn);
+                $method->addBody(sprintf(
+                    'return new %s($this->api);',
+                    $namespace->simplifyName($serviceFqcn),
+                ));
+            }
         }
 
         return new CodeFile(

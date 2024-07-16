@@ -55,7 +55,7 @@ use Kcs\K8s\Attribute\AttributeType;
     response: 'self',
 )]
 #[Kubernetes\Operation(
-    'deletecollection-all',
+    'deletecollection',
     path: '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities',
     response: Status::class,
 )]

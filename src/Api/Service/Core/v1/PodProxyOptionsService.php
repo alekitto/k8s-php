@@ -211,13 +211,13 @@ class PodProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
-    public function connectGetNamespacedPodProxyWithPath(string $name, array $query = []): string
+    public function connectGetNamespacedPodProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'get';
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -237,13 +237,13 @@ class PodProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
-    public function connectDeleteNamespacedPodProxyWithPath(string $name, array $query = []): string
+    public function connectDeleteNamespacedPodProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -263,13 +263,13 @@ class PodProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
-    public function connectPostNamespacedPodProxyWithPath(string $name, array $query = []): string
+    public function connectPostNamespacedPodProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'post';
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -289,13 +289,13 @@ class PodProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
-    public function connectPatchNamespacedPodProxyWithPath(string $name, array $query = []): string
+    public function connectPatchNamespacedPodProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'patch';
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -315,13 +315,13 @@ class PodProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
-    public function connectPutNamespacedPodProxyWithPath(string $name, array $query = []): string
+    public function connectPutNamespacedPodProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'put';
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -341,13 +341,13 @@ class PodProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
-    public function connectOptionsNamespacedPodProxyWithPath(string $name, array $query = []): string
+    public function connectOptionsNamespacedPodProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'options';
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -367,13 +367,13 @@ class PodProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podproxyoptions-v1-core
      */
-    public function connectHeadNamespacedPodProxyWithPath(string $name, array $query = []): string
+    public function connectHeadNamespacedPodProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'head';
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );

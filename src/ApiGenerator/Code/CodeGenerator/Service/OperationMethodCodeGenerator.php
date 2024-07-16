@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kcs\K8s\ApiGenerator\Code\CodeGenerator\Service;
 
 use Kcs\K8s\ApiGenerator\Code\CodeGenerator\CodeGeneratorTrait;
+use Kcs\K8s\ApiGenerator\Code\CodeGenerator\Model\ModelAttributeGenerator;
 use Kcs\K8s\ApiGenerator\Code\CodeOptions;
 use Kcs\K8s\ApiGenerator\Code\DocLinkGenerator;
 use Kcs\K8s\ApiGenerator\Code\Formatter\DocBlockFormatterTrait;
@@ -16,7 +17,9 @@ use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\PhpNamespace;
 
 use function array_merge;
+use function in_array;
 use function sprintf;
+use function str_replace;
 
 readonly class OperationMethodCodeGenerator
 {
@@ -62,26 +65,33 @@ readonly class OperationMethodCodeGenerator
 
         $body = null;
         $queryParams = [];
-        foreach ($operation->getParameters() as $param) {
-            if ($param->isRequiredDefinition()) {
-                $definition = $metadata->findDefinitionByGoPackageName($param->getDefinitionGoPackageName());
-                if ($definition->isValidModel()) {
+        if ($operation->hasRequestBody()) {
+            $ref = str_replace('#/components/schemas/', '', (string) $operation->getRequestBodyRef());
+            if (! in_array($ref, ModelAttributeGenerator::OPERATION_BODY_DENY_LIST, true)) {
+                $definition = $metadata->findDefinitionByGoPackageName($ref);
+
+                if ($definition?->isValidModel()) {
                     $paramName = $this->parameterNameFormatter->format($definition);
                     $paramFqcn = $this->computeNamespace($definition->getPhpFqcn(), $options);
 
                     $namespace->addUse($paramFqcn);
-                    $method->addParameter($paramName)
-                        ->setType($paramFqcn);
+                    $method->addParameter($paramName)->setType($paramFqcn);
                     $body = $paramName;
-                } elseif ($definition->isPatch()) {
+                } elseif ($definition?->isPatch()) {
                     $namespace->addUse(PatchInterface::class);
                     $method->addParameter('patch')
-                        ->setType(PatchInterface::class);
+                           ->setType(PatchInterface::class);
                     $body = 'patch';
                 }
-            } elseif ($param->isQueryParam()) {
-                $queryParams[$param->getName()] = $param->getDescription();
             }
+        }
+
+        foreach ($operation->getParameters() as $param) {
+            if (! $param->isQueryParam()) {
+                continue;
+            }
+
+            $queryParams[$param->getName()] = $param->getDescription();
         }
 
         if (! empty($queryParams)) {

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Kcs\K8s\ApiGenerator\Parser;
 
+use OpenApi\Annotations\AbstractAnnotation;
+use OpenApi\Annotations\OpenApi;
+use OpenApi\Annotations\Parameter;
+use OpenApi\Annotations\Schema;
 use RuntimeException;
-use Swagger\Annotations\AbstractAnnotation;
-use Swagger\Annotations\Definition;
-use Swagger\Annotations\Parameter;
-use Swagger\Annotations\Swagger;
 
 use function get_debug_type;
 use function sprintf;
@@ -17,7 +17,7 @@ readonly class OpenApiContext
 {
     public function __construct(
         private AbstractAnnotation $subject,
-        private Swagger $openApi,
+        private OpenApi $openApi,
     ) {
     }
 
@@ -26,18 +26,18 @@ readonly class OpenApiContext
         return $this->subject;
     }
 
-    public function findDefinition(string $ref): Definition
+    public function findSchema(string $ref): Schema
     {
-        $definition = $this->openApi->ref($ref);
-        if (! $definition instanceof Definition) {
+        $schema = $this->openApi->ref($ref);
+        if (! $schema instanceof Schema) {
             throw new RuntimeException(sprintf(
                 'Expected a Definition for %s, got: %s',
                 $ref,
-                get_debug_type($definition),
+                get_debug_type($schema),
             ));
         }
 
-        return $definition;
+        return $schema;
     }
 
     public function findParameter(string $ref): Parameter

@@ -38,7 +38,7 @@ use Kcs\K8s\Attribute\AttributeType;
 )]
 #[Kubernetes\Operation('put', path: '/apis/apps/v1/namespaces/{namespace}/controllerrevisions/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
-    'deletecollection-all',
+    'deletecollection',
     path: '/apis/apps/v1/namespaces/{namespace}/controllerrevisions',
     response: Status::class,
 )]

@@ -33,7 +33,7 @@ use Kcs\K8s\Collection;
 )]
 #[Kubernetes\Operation('put', path: '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
-    'deletecollection-all',
+    'deletecollection',
     path: '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles',
     response: Status::class,
 )]

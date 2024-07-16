@@ -221,49 +221,14 @@ class ServiceFactory
         return new EvictionService($this->api);
     }
 
-    public function v1PolicyPodDisruptionBudget(): PodDisruptionBudgetService
-    {
-        return new PodDisruptionBudgetService($this->api);
-    }
-
     public function v1AutoscalingScale(): ScaleService
     {
         return new ScaleService($this->api);
     }
 
-    public function v1AutoscalingHorizontalPodAutoscaler(): HorizontalPodAutoscalerService
-    {
-        return new HorizontalPodAutoscalerService($this->api);
-    }
-
-    public function v2AutoscalingHorizontalPodAutoscaler(): HorizontalPodAutoscalerService1
-    {
-        return new HorizontalPodAutoscalerService1($this->api);
-    }
-
     public function v1AuthenticationTokenRequest(): TokenRequestService
     {
         return new TokenRequestService($this->api);
-    }
-
-    public function v1AuthenticationSelfSubjectReview(): SelfSubjectReviewService
-    {
-        return new SelfSubjectReviewService($this->api);
-    }
-
-    public function v1alpha1AuthenticationSelfSubjectReview(): SelfSubjectReviewService1
-    {
-        return new SelfSubjectReviewService1($this->api);
-    }
-
-    public function v1beta1AuthenticationSelfSubjectReview(): SelfSubjectReviewService2
-    {
-        return new SelfSubjectReviewService2($this->api);
-    }
-
-    public function v1AuthenticationTokenReview(): TokenReviewService
-    {
-        return new TokenReviewService($this->api);
     }
 
     public function v1AdmissionregistrationMutatingWebhookConfiguration(): MutatingWebhookConfigurationService
@@ -276,19 +241,19 @@ class ServiceFactory
         return new ValidatingAdmissionPolicyService($this->api);
     }
 
-    public function v1alpha1AdmissionregistrationValidatingAdmissionPolicy(): ValidatingAdmissionPolicyService1
-    {
-        return new ValidatingAdmissionPolicyService1($this->api);
-    }
-
-    public function v1beta1AdmissionregistrationValidatingAdmissionPolicy(): ValidatingAdmissionPolicyService2
-    {
-        return new ValidatingAdmissionPolicyService2($this->api);
-    }
-
     public function v1AdmissionregistrationValidatingAdmissionPolicyBinding(): ValidatingAdmissionPolicyBindingService
     {
         return new ValidatingAdmissionPolicyBindingService($this->api);
+    }
+
+    public function v1AdmissionregistrationValidatingWebhookConfiguration(): ValidatingWebhookConfigurationService
+    {
+        return new ValidatingWebhookConfigurationService($this->api);
+    }
+
+    public function v1alpha1AdmissionregistrationValidatingAdmissionPolicy(): ValidatingAdmissionPolicyService1
+    {
+        return new ValidatingAdmissionPolicyService1($this->api);
     }
 
     public function v1alpha1AdmissionregistrationValidatingAdmissionPolicyBinding(): ValidatingAdmissionPolicyBindingService1
@@ -296,14 +261,14 @@ class ServiceFactory
         return new ValidatingAdmissionPolicyBindingService1($this->api);
     }
 
+    public function v1beta1AdmissionregistrationValidatingAdmissionPolicy(): ValidatingAdmissionPolicyService2
+    {
+        return new ValidatingAdmissionPolicyService2($this->api);
+    }
+
     public function v1beta1AdmissionregistrationValidatingAdmissionPolicyBinding(): ValidatingAdmissionPolicyBindingService2
     {
         return new ValidatingAdmissionPolicyBindingService2($this->api);
-    }
-
-    public function v1AdmissionregistrationValidatingWebhookConfiguration(): ValidatingWebhookConfigurationService
-    {
-        return new ValidatingWebhookConfigurationService($this->api);
     }
 
     public function v1ApiextensionsCustomResourceDefinition(): CustomResourceDefinitionService
@@ -341,6 +306,26 @@ class ServiceFactory
         return new StatefulSetService($this->api);
     }
 
+    public function v1AuthenticationSelfSubjectReview(): SelfSubjectReviewService
+    {
+        return new SelfSubjectReviewService($this->api);
+    }
+
+    public function v1AuthenticationTokenReview(): TokenReviewService
+    {
+        return new TokenReviewService($this->api);
+    }
+
+    public function v1alpha1AuthenticationSelfSubjectReview(): SelfSubjectReviewService1
+    {
+        return new SelfSubjectReviewService1($this->api);
+    }
+
+    public function v1beta1AuthenticationSelfSubjectReview(): SelfSubjectReviewService2
+    {
+        return new SelfSubjectReviewService2($this->api);
+    }
+
     public function v1AuthorizationLocalSubjectAccessReview(): LocalSubjectAccessReviewService
     {
         return new LocalSubjectAccessReviewService($this->api);
@@ -359,6 +344,16 @@ class ServiceFactory
     public function v1AuthorizationSubjectAccessReview(): SubjectAccessReviewService
     {
         return new SubjectAccessReviewService($this->api);
+    }
+
+    public function v1AutoscalingHorizontalPodAutoscaler(): HorizontalPodAutoscalerService
+    {
+        return new HorizontalPodAutoscalerService($this->api);
+    }
+
+    public function v2AutoscalingHorizontalPodAutoscaler(): HorizontalPodAutoscalerService1
+    {
+        return new HorizontalPodAutoscalerService1($this->api);
     }
 
     public function v1BatchCronJob(): CronJobService
@@ -401,14 +396,14 @@ class ServiceFactory
         return new FlowSchemaService($this->api);
     }
 
-    public function v1beta3FlowcontrolFlowSchema(): FlowSchemaService1
-    {
-        return new FlowSchemaService1($this->api);
-    }
-
     public function v1FlowcontrolPriorityLevelConfiguration(): PriorityLevelConfigurationService
     {
         return new PriorityLevelConfigurationService($this->api);
+    }
+
+    public function v1beta3FlowcontrolFlowSchema(): FlowSchemaService1
+    {
+        return new FlowSchemaService1($this->api);
     }
 
     public function v1beta3FlowcontrolPriorityLevelConfiguration(): PriorityLevelConfigurationService1
@@ -449,6 +444,11 @@ class ServiceFactory
     public function v1NodeRuntimeClass(): RuntimeClassService
     {
         return new RuntimeClassService($this->api);
+    }
+
+    public function v1PolicyPodDisruptionBudget(): PodDisruptionBudgetService
+    {
+        return new PodDisruptionBudgetService($this->api);
     }
 
     public function v1RbacClusterRoleBinding(): ClusterRoleBindingService

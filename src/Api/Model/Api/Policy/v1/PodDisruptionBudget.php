@@ -40,7 +40,7 @@ use Kcs\K8s\Attribute\AttributeType;
     response: 'self',
 )]
 #[Kubernetes\Operation(
-    'deletecollection-all',
+    'deletecollection',
     path: '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets',
     response: Status::class,
 )]

@@ -34,7 +34,7 @@ use Kcs\K8s\Collection;
 )]
 #[Kubernetes\Operation('put', path: '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
-    'deletecollection-all',
+    'deletecollection',
     path: '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices',
     response: Status::class,
 )]

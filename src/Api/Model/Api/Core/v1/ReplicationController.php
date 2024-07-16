@@ -38,7 +38,7 @@ use Kcs\K8s\Attribute\AttributeType;
     response: 'self',
 )]
 #[Kubernetes\Operation(
-    'deletecollection-all',
+    'deletecollection',
     path: '/api/v1/namespaces/{namespace}/replicationcontrollers',
     response: Status::class,
 )]

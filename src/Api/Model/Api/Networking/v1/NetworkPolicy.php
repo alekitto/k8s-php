@@ -32,7 +32,7 @@ use Kcs\K8s\Attribute\AttributeType;
 )]
 #[Kubernetes\Operation('put', path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
-    'deletecollection-all',
+    'deletecollection',
     path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies',
     response: Status::class,
 )]

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Kcs\K8s\ApiGenerator\Parser\Metadata;
 
-use Swagger\Annotations\Parameter;
+use OpenApi\Annotations\Parameter;
 
 use function str_replace;
 
@@ -22,7 +22,7 @@ readonly class ParameterMetadata
     public function isRequiredDefinition(): bool
     {
         return $this->parameter->in === 'body'
-            && $this->parameter->required;
+            && $this->parameter->required === true;
     }
 
     public function isQueryParam(): bool
@@ -41,7 +41,7 @@ readonly class ParameterMetadata
             return '';
         }
 
-        $toReplace = '#/definitions/';
+        $toReplace = '#/components/schemas/';
 
         return str_replace($toReplace, '', $this->parameter->schema->ref);
     }
@@ -58,7 +58,7 @@ readonly class ParameterMetadata
 
     public function getPhpDocType(): string
     {
-        $type = $this->parameter->type ?? 'mixed';
+        $type = $this->parameter->schema->type ?? 'mixed';
         if (isset(self::TYPE_MAP[$type])) {
             return self::TYPE_MAP[$type];
         }

@@ -29,7 +29,7 @@ use Kcs\K8s\Collection;
 )]
 #[Kubernetes\Operation('put', path: '/api/v1/namespaces/{namespace}/serviceaccounts/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
-    'deletecollection-all',
+    'deletecollection',
     path: '/api/v1/namespaces/{namespace}/serviceaccounts',
     response: Status::class,
 )]

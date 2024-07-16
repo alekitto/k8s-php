@@ -49,7 +49,7 @@ use Kcs\K8s\Attribute\AttributeType;
     response: 'self',
 )]
 #[Kubernetes\Operation(
-    'deletecollection-all',
+    'deletecollection',
     path: '/apis/autoscaling/v2/namespaces/{namespace}/horizontalpodautoscalers',
     response: Status::class,
 )]

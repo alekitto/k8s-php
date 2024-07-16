@@ -211,13 +211,13 @@ class NodeProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
      */
-    public function connectGetNodeProxyWithPath(string $name, array $query = []): string
+    public function connectGetNodeProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'get';
         $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -237,13 +237,13 @@ class NodeProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
      */
-    public function connectDeleteNodeProxyWithPath(string $name, array $query = []): string
+    public function connectDeleteNodeProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
         $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -263,13 +263,13 @@ class NodeProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
      */
-    public function connectPostNodeProxyWithPath(string $name, array $query = []): string
+    public function connectPostNodeProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'post';
         $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -289,13 +289,13 @@ class NodeProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
      */
-    public function connectPatchNodeProxyWithPath(string $name, array $query = []): string
+    public function connectPatchNodeProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'patch';
         $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -315,13 +315,13 @@ class NodeProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
      */
-    public function connectPutNodeProxyWithPath(string $name, array $query = []): string
+    public function connectPutNodeProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'put';
         $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -341,13 +341,13 @@ class NodeProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
      */
-    public function connectOptionsNodeProxyWithPath(string $name, array $query = []): string
+    public function connectOptionsNodeProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'options';
         $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );
@@ -367,13 +367,13 @@ class NodeProxyOptionsService
      *
      * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
      */
-    public function connectHeadNodeProxyWithPath(string $name, array $query = []): string
+    public function connectHeadNodeProxyWithPath(string $name, string $path, array $query = []): string
     {
         $options['query'] = $query;
         $options['method'] = 'head';
         $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}/proxy/{path}',
-            ['{name}' => $name],
+            ['{name}' => $name, '{path}' => $path],
             $query,
             $this->namespace,
         );

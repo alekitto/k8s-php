@@ -8,10 +8,10 @@ use Kcs\K8s\ApiGenerator\Parser\Metadata\Metadata;
 use Kcs\K8s\ApiGenerator\Parser\Metadata\OperationMetadata;
 use Kcs\K8s\ApiGenerator\Parser\Metadata\ResponseMetadata;
 use Kcs\K8s\ApiGenerator\Parser\OpenApiContext;
+use OpenApi\Annotations\PathItem;
+use OpenApi\Annotations\Response;
+use OpenApi\Generator;
 use RuntimeException;
-use Swagger\Annotations\Operation;
-use Swagger\Annotations\Path;
-use Swagger\Annotations\Response;
 
 use function assert;
 
@@ -31,7 +31,7 @@ class OperationMetadataGenerator
     public function generate(OpenApiContext $openApiObject, Metadata $generatedApi): array
     {
         $path = $openApiObject->getSubject();
-        assert($path instanceof Path);
+        assert($path instanceof PathItem);
 
         $serviceOperations = [];
         foreach (self::OPERATIONS as $httpOperation) {
@@ -40,7 +40,10 @@ class OperationMetadataGenerator
             }
 
             $apiOperation = $path->$httpOperation;
-            assert($apiOperation instanceof Operation);
+            if ($apiOperation === Generator::UNDEFINED) {
+                continue;
+            }
+
             $responses = $this->parseResponses(
                 $apiOperation->responses,
                 $openApiObject,
@@ -59,7 +62,7 @@ class OperationMetadataGenerator
 
     public function supports(OpenApiContext $openApiObject): bool
     {
-        return $openApiObject->getSubject() instanceof Path;
+        return $openApiObject->getSubject() instanceof PathItem;
     }
 
     /**
@@ -71,21 +74,27 @@ class OperationMetadataGenerator
     {
         $responsesMetadata = [];
 
-        foreach ($responses as $response) {
+        foreach ($responses as $statusCode => $response) {
             assert($response instanceof Response);
-            if (empty($response->schema) || empty($response->schema->ref)) {
-                $responsesMetadata[] = new ResponseMetadata($response);
+            if ($response->content === Generator::UNDEFINED) {
+                continue;
+            }
+
+            $mediaType = $response->content['application/json'] ?? $response->content['*/*'] ?? $response->content['application/jwk-set+json'];
+            $ref = $mediaType->schema === Generator::UNDEFINED ? null : ($mediaType->schema->ref === Generator::UNDEFINED ? null : $mediaType->schema->ref);
+            if ($ref === null) {
+                $responsesMetadata[] = new ResponseMetadata($statusCode, $mediaType);
 
                 continue;
             }
 
-            $def = $openApiContext->findDefinition($response->schema->ref);
-            $definition = $generatedApi->findDefinitionByGoPackageName($def->definition);
+            $def = $openApiContext->findSchema($ref);
+            $definition = $generatedApi->findDefinitionByGoPackageName($def->schema);
             if (! $definition) {
-                throw new RuntimeException('No model found: ' . $def->definition);
+                throw new RuntimeException('No model found: ' . $def->schema);
             }
 
-            $responsesMetadata[] = new ResponseMetadata($response, $definition);
+            $responsesMetadata[] = new ResponseMetadata($statusCode, $mediaType, $definition);
         }
 
         return $responsesMetadata;

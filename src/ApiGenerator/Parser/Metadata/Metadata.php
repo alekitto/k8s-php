@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kcs\K8s\ApiGenerator\Parser\Metadata;
 
+use OpenApi\Generator;
 use RuntimeException;
 
 use function array_filter;
@@ -79,6 +80,10 @@ class Metadata
 
     public function findDefinitionByGoPackageName(string $name): DefinitionMetadata|null
     {
+        if ($name === Generator::UNDEFINED) {
+            return null;
+        }
+
         foreach ($this->definitions as $definition) {
             if ($definition->getGoPackageName() === $name) {
                 return $definition;

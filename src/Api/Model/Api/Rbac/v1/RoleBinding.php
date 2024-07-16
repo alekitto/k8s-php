@@ -40,7 +40,7 @@ use Kcs\K8s\Collection;
     response: 'self',
 )]
 #[Kubernetes\Operation(
-    'deletecollection-all',
+    'deletecollection',
     path: '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/rolebindings',
     response: Status::class,
 )]

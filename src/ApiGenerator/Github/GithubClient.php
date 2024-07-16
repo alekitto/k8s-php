@@ -19,7 +19,7 @@ use const JSON_THROW_ON_ERROR;
 
 class GithubClient
 {
-    private const GITHUB_API_BASE = 'https://api.github.com';
+    public const GITHUB_API_BASE = 'https://api.github.com';
 
     private HttpClientInterface $httpClient;
 
@@ -52,6 +52,17 @@ class GithubClient
         }
 
         return new GitTags($gitTags);
+    }
+
+    public function getRepositoryArchive(GitTag $tag): string
+    {
+        $response = $this->httpClient->request(
+            'GET',
+            $tag->getDownloadUrl('zip'),
+            $this->options(),
+        );
+
+        return $response->getContent();
     }
 
     public function getBlob(string $owner, string $repo, GitTag $tag, string $path): GitBlob

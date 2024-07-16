@@ -11,7 +11,8 @@ use Kcs\K8s\ApiGenerator\Parser\Metadata\Metadata;
 use Kcs\K8s\ApiGenerator\Parser\Metadata\OperationMetadata;
 use Kcs\K8s\ApiGenerator\Parser\Metadata\ServiceGroupMetadata;
 use Kcs\K8s\ApiGenerator\Parser\MetadataGenerator\OperationMetadataGenerator;
-use Swagger\Annotations\Swagger;
+use OpenApi\Annotations\OpenApi;
+use OpenApi\Generator;
 
 readonly class MetadataParser
 {
@@ -25,13 +26,13 @@ readonly class MetadataParser
         $this->groupNameFormatter = new ServiceGroupNameFormatter();
     }
 
-    public function parse(Swagger $openApi): Metadata
+    public function parse(OpenApi $openApi): Metadata
     {
         $metadata = new Metadata();
-
-        foreach ($openApi->definitions as $definition) {
+        $schemas = $openApi->components->schemas !== Generator::UNDEFINED ? $openApi->components->schemas : [];
+        foreach ($schemas as $name => $definition) {
             $metadata->addDefinition(new DefinitionMetadata(
-                $this->goPkgNameFormatter->format($definition->definition),
+                $this->goPkgNameFormatter->format($name),
                 $definition,
             ));
         }

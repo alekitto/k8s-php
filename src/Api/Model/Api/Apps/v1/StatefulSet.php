@@ -41,7 +41,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('put', path: '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation('put-status', path: '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/status', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
-    'deletecollection-all',
+    'deletecollection',
     path: '/apis/apps/v1/namespaces/{namespace}/statefulsets',
     response: Status::class,
 )]

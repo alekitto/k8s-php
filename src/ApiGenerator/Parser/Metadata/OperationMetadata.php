@@ -6,9 +6,10 @@ namespace Kcs\K8s\ApiGenerator\Parser\Metadata;
 
 use Kcs\K8s\ApiGenerator\Parser\Formatter\GoPackageNameFormatter;
 use Kcs\K8s\ApiGenerator\Parser\OpenApiContext;
-use Swagger\Annotations\Operation;
-use Swagger\Annotations\Parameter;
-use Swagger\Annotations\Path;
+use OpenApi\Annotations\Operation;
+use OpenApi\Annotations\Parameter;
+use OpenApi\Annotations\PathItem;
+use OpenApi\Generator;
 
 use function array_filter;
 use function array_keys;
@@ -38,19 +39,21 @@ readonly class OperationMetadata
     private array $parameterRefs;
 
     /** @param ResponseMetadata[] $responses */
-    public function __construct(OpenApiContext $context, private Path $path, private Operation $operation, private array $responses)
+    public function __construct(OpenApiContext $context, private PathItem $path, private Operation $operation, private array $responses)
     {
         $parameterRefs = [];
-        foreach ($this->operation->parameters ?? [] as $parameter) {
-            if (empty($parameter->ref) || isset($this->parameterRefs[$parameter->ref])) {
+        $parameters = $this->operation->parameters !== Generator::UNDEFINED ? $this->operation->parameters : [];
+        foreach ($parameters as $parameter) {
+            if ($parameter->ref === Generator::UNDEFINED || isset($this->parameterRefs[$parameter->ref])) {
                 continue;
             }
 
             $parameterRefs[$parameter->ref] = $context->findParameter($parameter->ref);
         }
 
-        foreach ($this->path->parameters ?? [] as $parameter) {
-            if (empty($parameter->ref) || isset($this->parameterRefs[$parameter->ref])) {
+        $parameters = $this->path->parameters !== Generator::UNDEFINED ? $this->path->parameters : [];
+        foreach ($parameters as $parameter) {
+            if ($parameter->ref === Generator::UNDEFINED || isset($this->parameterRefs[$parameter->ref])) {
                 continue;
             }
 
@@ -126,7 +129,7 @@ readonly class OperationMetadata
 
         $parameters = [];
         foreach ($this->path->parameters as $parameter) {
-            if (! $parameter->required) {
+            if ($parameter->required === Generator::UNDEFINED || ! $parameter->required) {
                 continue;
             }
 
@@ -267,7 +270,7 @@ readonly class OperationMetadata
     public function getParameters(): array
     {
         $toMetadata = function (Parameter $parameter) {
-            if ($parameter->ref) {
+            if ($parameter->ref !== Generator::UNDEFINED) {
                 return new ParameterMetadata($this->parameterRefs[$parameter->ref]);
             }
 
@@ -275,9 +278,34 @@ readonly class OperationMetadata
         };
 
         return array_merge(
-            array_map($toMetadata, $this->operation->parameters ?? []),
-            array_map($toMetadata, $this->path->parameters ?? []),
+            array_map($toMetadata, $this->operation->parameters !== Generator::UNDEFINED ? $this->operation->parameters : []),
+            array_map($toMetadata, $this->path->parameters !== Generator::UNDEFINED ? $this->path->parameters : []),
         );
+    }
+
+    public function hasRequestBody(): bool
+    {
+        return $this->operation->requestBody !== Generator::UNDEFINED;
+    }
+
+    public function getRequestBodyRef(): string|null
+    {
+        if ($this->hasRequestBody()) {
+            if (isset($this->operation->requestBody->content['application/json-patch+json'])) {
+                return $this->operation->requestBody->content['application/json-patch+json']->schema->ref;
+            }
+
+            if (
+                $this->operation->requestBody->content['*/*']->schema !== Generator::UNDEFINED
+                && $this->operation->requestBody->content['*/*']->schema->ref !== Generator::UNDEFINED
+            ) {
+                return $this->operation->requestBody->content['*/*']->schema->ref;
+            }
+
+            return null;
+        }
+
+        return null;
     }
 
     public function hasQueryParameters(): bool

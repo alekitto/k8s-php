@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace Kcs\K8s\ApiGenerator\Parser\Metadata;
 
 use Kcs\K8s\ApiGenerator\Parser\Formatter\GoPackageName;
-use Swagger\Annotations\Definition;
-use Swagger\Annotations\Property;
+use OpenApi\Annotations\Property;
+use OpenApi\Annotations\Schema;
+use OpenApi\Generator;
 
 use function array_filter;
 use function array_map;
 use function in_array;
+use function is_string;
 use function sprintf;
 use function str_contains;
 use function str_ends_with;
@@ -35,7 +37,7 @@ readonly class DefinitionMetadata
 
     public const TYPE_DATETIME = 'DateTime';
 
-    public function __construct(private GoPackageName $goPackageName, private Definition $definition)
+    public function __construct(private GoPackageName $goPackageName, private Schema $schema)
     {
     }
 
@@ -70,7 +72,7 @@ readonly class DefinitionMetadata
 
     public function getDescription(): string
     {
-        return (string) $this->definition->description;
+        return $this->schema->description !== Generator::UNDEFINED ? $this->schema->description : '';
     }
 
     public function isDeprecated(): bool
@@ -81,7 +83,7 @@ readonly class DefinitionMetadata
     /** @return string[] */
     public function required(): array
     {
-        return (array) $this->definition->required;
+        return (array) $this->schema->required;
     }
 
     /** @return PropertyMetadata[] */
@@ -90,9 +92,9 @@ readonly class DefinitionMetadata
         return array_map(
             fn (Property $property) => new PropertyMetadata(
                 $property,
-                in_array($property->property, (array) $this->definition->required, true),
+                in_array($property->property, (array) $this->schema->required, true),
             ),
-            (array) $this->definition->properties,
+            array_filter((array) $this->schema->properties, static fn ($property) => ! is_string($property)),
         );
     }
 
@@ -107,11 +109,6 @@ readonly class DefinitionMetadata
         return null;
     }
 
-    public function getDefinitionReference(): string
-    {
-        return $this->definition->definition;
-    }
-
     public function isValidModel(): bool
     {
         return $this->isObject()
@@ -122,30 +119,30 @@ readonly class DefinitionMetadata
     {
         // There order here is odd, but in Kubernetes 1.13 and below they were not setting this to an object.
         // So we use this logic universally to catch Kubernetes 1.14 and above, and the last return logic for 1.13 and below.
-        if ($this->definition->type && $this->definition->type === 'object') {
+        if ($this->schema->type && $this->schema->type === 'object') {
             return true;
         }
 
-        return ! $this->definition->type
+        return ! $this->schema->type
             && ! empty($this->getProperties());
     }
 
     public function isDateTime(): bool
     {
-        return $this->definition->type === 'string'
-            && $this->definition->format === 'date-time';
+        return ($this->schema->type === 'string' || $this->schema->type === Generator::UNDEFINED)
+            && $this->schema->format === 'date-time';
     }
 
     public function isIntOrString(): bool
     {
-        return $this->definition->type === 'string'
-            && $this->definition->format === 'int-or-string';
+        return ($this->schema->type === 'string' || $this->schema->type === Generator::UNDEFINED)
+            && $this->schema->format === 'int-or-string';
     }
 
     public function isString(): bool
     {
-        return $this->definition->type === 'string'
-            && ! isset($this->definition->format);
+        return ($this->schema->type === 'string' || $this->schema->type === Generator::UNDEFINED)
+            && $this->schema->format === Generator::UNDEFINED;
     }
 
     public function isJSONSchemaPropsOrBool(): bool
@@ -185,7 +182,7 @@ readonly class DefinitionMetadata
             return self::TYPE_MIXED;
         }
 
-        return $this->definition->type;
+        return $this->schema->type;
     }
 
     public function isKindWithSpecAndMetadata(): bool
@@ -213,29 +210,29 @@ readonly class DefinitionMetadata
 
     public function getKubernetesGroup(): string|null
     {
-        if (! isset($this->definition->x['kubernetes-group-version-kind'][0])) {
+        if (! isset($this->schema->x['kubernetes-group-version-kind'][0])) {
             return null;
         }
 
-        return $this->definition->x['kubernetes-group-version-kind'][0]->group;
+        return $this->schema->x['kubernetes-group-version-kind'][0]->group;
     }
 
     public function getKubernetesVersion(): string|null
     {
-        if (! isset($this->definition->x['kubernetes-group-version-kind'][0])) {
+        if (! isset($this->schema->x['kubernetes-group-version-kind'][0])) {
             return null;
         }
 
-        return $this->definition->x['kubernetes-group-version-kind'][0]->version;
+        return $this->schema->x['kubernetes-group-version-kind'][0]->version;
     }
 
     public function getKubernetesKind(): string|null
     {
-        if (! isset($this->definition->x['kubernetes-group-version-kind'][0])) {
+        if (! isset($this->schema->x['kubernetes-group-version-kind'][0])) {
             return null;
         }
 
-        return $this->definition->x['kubernetes-group-version-kind'][0]->kind;
+        return $this->schema->x['kubernetes-group-version-kind'][0]->kind;
     }
 
     public function isPatch(): bool
@@ -251,7 +248,7 @@ readonly class DefinitionMetadata
 
     private function definitionEndsWith(string $value): bool
     {
-        return substr_compare($this->definition->definition, $value, -strlen($value)) === 0;
+        return substr_compare($this->schema->schema, $value, -strlen($value)) === 0;
     }
 
     private function computeNamespace(string $fqcn): string

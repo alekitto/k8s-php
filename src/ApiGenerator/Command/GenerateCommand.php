@@ -13,18 +13,27 @@ use Kcs\K8s\ApiGenerator\Config\ConfigurationManager;
 use Kcs\K8s\ApiGenerator\Github\GithubClient;
 use Kcs\K8s\ApiGenerator\Github\GitTag;
 use Kcs\K8s\ApiGenerator\Parser\MetadataParser;
-use Swagger\Annotations\Swagger;
-use Swagger\Serializer;
+use OpenApi\Annotations\OpenApi;
+use OpenApi\Context;
+use OpenApi\Serializer;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\VarDumper\Caster\StubCaster;
+use Symfony\Component\VarDumper\Cloner\AbstractCloner;
 use Throwable;
+use ZipArchive;
 
 use function assert;
+use function file_exists;
+use function file_put_contents;
 use function is_string;
+use function mkdir;
 use function sprintf;
+use function substr;
 use function version_compare;
 
 #[AsCommand('k8s:generate')]
@@ -87,6 +96,8 @@ class GenerateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        AbstractCloner::$defaultCasters[Context::class] = StubCaster::class . '::cutInternals';
+
         $apiVersion = $input->getOption('api-version');
         $rootNamespace = $input->getOption('root-namespace');
         $srcDir = $input->getOption('src-dir');
@@ -109,10 +120,18 @@ class GenerateCommand extends Command
             return self::FAILURE;
         }
 
-        $tag = $this->getTagFromRepo(
-            $output,
-            $apiVersion,
-        );
+        if ($apiVersion) {
+            $tag = new GitTag([
+                'ref' => 'refs/tags/' . $apiVersion,
+                'url' => GithubClient::GITHUB_API_BASE . '/repos/' . self::GITHUB_OWNER . '/' . self::GITHUB_REPO . '/git/refs/tags/' . $apiVersion,
+            ]);
+        } else {
+            $tag = $this->getTagFromRepo(
+                $output,
+                $apiVersion,
+            );
+        }
+
         $apiVersion ??= $tag->getCommonName();
 
         $config = $this->configManager->read();
@@ -131,22 +150,21 @@ class GenerateCommand extends Command
         }
 
         $output->writeln('<info>Fetching Open-API specification for API data...</info>');
-        $gitContent = $this->githubClient->getBlob(
-            self::GITHUB_OWNER,
-            self::GITHUB_REPO,
-            $tag,
-            self::SWAGGER_SPEC_PATH,
-        );
+        $cacheFile = '.cache/' . $apiVersion . '.zip';
+        if (! file_exists($cacheFile)) {
+            @mkdir('.cache', 0777, true);
+            file_put_contents($cacheFile, $this->githubClient->getRepositoryArchive($tag));
 
-        try {
-            $openApi = $this->serializer->deserialize($gitContent->getContent(), Swagger::class);
-            assert($openApi instanceof Swagger);
-        } catch (Throwable $exception) {
-            $output->writeln('<error>Unable to parse the OpenAPI specification:</error>');
-            $output->writeln('<error>' . $exception->getMessage() . '</error>');
-
-            return self::FAILURE;
+            $archive = new ZipArchive();
+            $archive->open($cacheFile);
+            $archive->extractTo('.cache/' . $apiVersion);
+            $archive->close();
         }
+
+        $simpleVersion = substr($apiVersion, 1);
+        $finder = Finder::create()
+            ->in(['.cache/' . $apiVersion . '/' . $tag->getRepositoryName() . '-' . $simpleVersion . '/api/openapi-spec/v3'])
+            ->name('*.json');
 
         $codeOptions = new CodeOptions(
             $tag->getCommonName(),
@@ -154,18 +172,31 @@ class GenerateCommand extends Command
             $rootNamespace,
             $srcDir,
         );
-        $metadata = $this->metadataParser->parse($openApi);
-
-        if (! $input->getOption('no-delete')) {
-            $this->codeRemover->removeCode($output, $codeOptions);
-        }
 
         $output->writeln(sprintf(
             '<info>Generating API data for version %s</info>',
             $tag->getCommonName(),
         ));
 
-        $this->codeGenerator->generateCode($metadata, $codeOptions);
+        foreach ($finder as $file) {
+            try {
+                $openApi = $this->serializer->deserializeFile($file->getRealPath());
+                assert($openApi instanceof OpenApi);
+            } catch (Throwable $exception) {
+                $output->writeln('<error>Unable to parse the OpenAPI specification:</error>');
+                $output->writeln('<error>' . $exception->getMessage() . '</error>');
+
+                return self::FAILURE;
+            }
+
+            $this->codeGenerator->addMetadata($this->metadataParser->parse($openApi));
+        }
+
+        if (! $input->getOption('no-delete')) {
+            $this->codeRemover->removeCode($output, $codeOptions);
+        }
+
+        $this->codeGenerator->generateCode($codeOptions);
         $this->codeCleaner->cleanCode($codeOptions, $output);
 
         if ($config) {

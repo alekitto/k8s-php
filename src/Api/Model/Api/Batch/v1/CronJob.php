@@ -33,7 +33,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('put', path: '/apis/batch/v1/namespaces/{namespace}/cronjobs/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation('put-status', path: '/apis/batch/v1/namespaces/{namespace}/cronjobs/{name}/status', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
-    'deletecollection-all',
+    'deletecollection',
     path: '/apis/batch/v1/namespaces/{namespace}/cronjobs',
     response: Status::class,
 )]
