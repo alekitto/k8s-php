@@ -47,13 +47,12 @@ readonly class ModelProperty
         }
 
         return $this->property->isArray()
-            && $this->definition->isValidModel();
+            && $this->isValidModel();
     }
 
     public function isModel(): bool
     {
-        return $this->definition
-            && $this->definition->isValidModel();
+        return $this->isValidModel();
     }
 
     public function isDateTime(): bool
@@ -69,16 +68,16 @@ readonly class ModelProperty
 
     public function getModelFqcn(): string|null
     {
-        if (! $this->definition || ! $this->definition->isValidModel()) {
+        if (! $this->definition || ! $this->isValidModel()) {
             return null;
         }
 
-        return $this->computeNamespace($this->definition->getPhpFqcn(), $this->options);
+        return $this->getPhpFqcn();
     }
 
     public function getModelClassName(): string|null
     {
-        if (! $this->definition || ! $this->definition->isValidModel()) {
+        if (! $this->definition || ! $this->isValidModel()) {
             return null;
         }
 
@@ -102,8 +101,8 @@ readonly class ModelProperty
             return 'iterable';
         }
 
-        if ($this->definition->isValidModel()) {
-            return $this->computeNamespace($this->definition->getPhpFqcn(), $this->options);
+        if ($this->isValidModel()) {
+            return $this->getPhpFqcn();
         }
 
         if ($this->definition->isDateTime()) {
@@ -127,7 +126,7 @@ readonly class ModelProperty
             return $this->property->getType();
         }
 
-        if ($this->definition->isValidModel()) {
+        if ($this->isValidModel()) {
             return 'model';
         }
 
@@ -173,7 +172,7 @@ readonly class ModelProperty
             return $docType;
         }
 
-        if ($this->definition->isValidModel()) {
+        if ($this->isValidModel()) {
             $docType = $this->definition->getClassName();
         } elseif ($this->definition->isDateTime()) {
             $docType = 'DateTimeInterface';
@@ -189,13 +188,6 @@ readonly class ModelProperty
             $docType = 'array';
         } else {
             $docType = 'object';
-
-            if (str_starts_with($this->definition->getGoPackageName(), 'io.k8s.')) {
-                $proposedType = 'Kcs\K8s\Api\\'.$this->definition->getPhpFqcn();
-                if (class_exists($proposedType)) {
-                    $docType = '\\'.$proposedType;
-                }
-            }
         }
 
         if ($this->property->isArray() && $docType !== 'array') {
@@ -260,5 +252,37 @@ readonly class ModelProperty
         }
 
         return $this->definition->getRequiredProperties();
+    }
+
+    private function isValidModel(): bool
+    {
+        if (!$this->definition) {
+            return false;
+        }
+
+        if ($this->definition->isValidModel()) {
+            return true;
+        }
+
+        if (str_starts_with($this->definition->getGoPackageName(), 'io.k8s.')) {
+            $proposedType = 'Kcs\K8s\Api\\'.$this->definition->getPhpFqcn();
+            if (class_exists($proposedType)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function getPhpFqcn(): string
+    {
+        if (!$this->definition->isValidModel() && str_starts_with($this->definition->getGoPackageName(), 'io.k8s.')) {
+            $proposedType = 'Kcs\K8s\Api\\'.$this->definition->getPhpFqcn();
+            if (class_exists($proposedType)) {
+                return $proposedType;
+            }
+        }
+
+        return $this->computeNamespace($this->definition->getPhpFqcn(), $this->options);
     }
 }
