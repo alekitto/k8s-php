@@ -70,8 +70,15 @@ readonly class ModelPropertyGenerator
             $annotationProps['type'] = $modelProp->getAnnotationType();
         }
 
-        if ($modelProp->getModelFqcn()) {
-            $annotationProps['model'] = new Literal(sprintf('%s::class', $namespace->simplifyName($modelProp->getModelFqcn())));
+        $modelFqcn = $modelProp->getModelFqcn();
+        if ($modelFqcn) {
+            if ($modelFqcn === $namespace->resolveName($class->getName())) {
+                $modelName = $modelFqcn;
+            } else {
+                $modelName = $namespace->simplifyName($modelFqcn);
+            }
+
+            $annotationProps['model'] = new Literal(sprintf('%s::class', $modelName));
         }
 
         if ($modelProp->isRequired()) {

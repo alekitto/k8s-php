@@ -11,6 +11,7 @@ use Kcs\K8s\ApiGenerator\Parser\Metadata\PropertyMetadata;
 use Kcs\K8s\Attribute\AttributeType;
 use OpenApi\Generator;
 
+use function class_exists;
 use function str_starts_with;
 
 readonly class ModelProperty
@@ -256,7 +257,7 @@ readonly class ModelProperty
 
     private function isValidModel(): bool
     {
-        if (!$this->definition) {
+        if (! $this->definition) {
             return false;
         }
 
@@ -265,7 +266,7 @@ readonly class ModelProperty
         }
 
         if (str_starts_with($this->definition->getGoPackageName(), 'io.k8s.')) {
-            $proposedType = 'Kcs\K8s\Api\\'.$this->definition->getPhpFqcn();
+            $proposedType = 'Kcs\K8s\Api\\' . $this->definition->getPhpFqcn();
             if (class_exists($proposedType)) {
                 return true;
             }
@@ -276,8 +277,8 @@ readonly class ModelProperty
 
     private function getPhpFqcn(): string
     {
-        if (!$this->definition->isValidModel() && str_starts_with($this->definition->getGoPackageName(), 'io.k8s.')) {
-            $proposedType = 'Kcs\K8s\Api\\'.$this->definition->getPhpFqcn();
+        if (! $this->definition->isValidModel() && str_starts_with($this->definition->getGoPackageName(), 'io.k8s.')) {
+            $proposedType = 'Kcs\K8s\Api\\' . $this->definition->getPhpFqcn();
             if (class_exists($proposedType)) {
                 return $proposedType;
             }

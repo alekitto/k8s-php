@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Kcs\K8s\Api\Model\ApiExtensions\v1;
 
-use Kcs\K8s\Api\Model\ApiExtensions\v1\JSONSchemaProps as JSONSchemaProps1;
 use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 use Kcs\K8s\Collection;
@@ -14,307 +13,260 @@ use Kcs\K8s\Collection;
  */
 class JSONSchemaProps
 {
-    /** @var string|null */
     #[Kubernetes\Attribute('$ref')]
-    protected $ref = null;
+    protected string|null $ref = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('$schema')]
-    protected $schema = null;
+    protected string|null $schema = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('additionalItems')]
-    protected $additionalItems = null;
+    protected string|null $additionalItems = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('additionalProperties')]
-    protected $additionalProperties = null;
+    protected string|null $additionalProperties = null;
 
     /** @var iterable|JSONSchemaProps[]|null */
-    #[Kubernetes\Attribute('allOf', type: \Kcs\K8s\Attribute\AttributeType::Collection, model: JSONSchemaProps::class)]
+    #[Kubernetes\Attribute(
+        'allOf',
+        type: AttributeType::Collection,
+        model: self::class,
+    )]
     protected $allOf = null;
 
     /** @var iterable|JSONSchemaProps[]|null */
-    #[Kubernetes\Attribute('anyOf', type: \Kcs\K8s\Attribute\AttributeType::Collection, model: JSONSchemaProps::class)]
+    #[Kubernetes\Attribute(
+        'anyOf',
+        type: AttributeType::Collection,
+        model: self::class,
+    )]
     protected $anyOf = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('default')]
-    protected $default = null;
+    protected string|null $default = null;
 
     /** @var object[]|null */
     #[Kubernetes\Attribute('definitions')]
-    protected $definitions = null;
+    protected array|null $definitions = null;
 
     /** @var object[]|null */
     #[Kubernetes\Attribute('dependencies')]
-    protected $dependencies = null;
+    protected array|null $dependencies = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('description')]
-    protected $description = null;
+    protected string|null $description = null;
 
     /** @var string[]|null */
     #[Kubernetes\Attribute('enum')]
-    protected $enum = null;
+    protected array|null $enum = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('example')]
-    protected $example = null;
+    protected string|null $example = null;
 
-    /** @var bool|null */
     #[Kubernetes\Attribute('exclusiveMaximum')]
-    protected $exclusiveMaximum = null;
+    protected bool|null $exclusiveMaximum = null;
 
-    /** @var bool|null */
     #[Kubernetes\Attribute('exclusiveMinimum')]
-    protected $exclusiveMinimum = null;
+    protected bool|null $exclusiveMinimum = null;
 
-    /** @var ExternalDocumentation|null */
-    #[Kubernetes\Attribute('externalDocs', type: \Kcs\K8s\Attribute\AttributeType::Model, model: ExternalDocumentation::class)]
-    protected $externalDocs = null;
+    #[Kubernetes\Attribute('externalDocs', type: AttributeType::Model, model: ExternalDocumentation::class)]
+    protected ExternalDocumentation|null $externalDocs = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('format')]
-    protected $format = null;
+    protected string|null $format = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('id')]
-    protected $id = null;
+    protected string|null $id = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('items')]
-    protected $items = null;
+    protected string|null $items = null;
 
-    /** @var int|null */
     #[Kubernetes\Attribute('maxItems')]
-    protected $maxItems = null;
+    protected int|null $maxItems = null;
 
-    /** @var int|null */
     #[Kubernetes\Attribute('maxLength')]
-    protected $maxLength = null;
+    protected int|null $maxLength = null;
 
-    /** @var int|null */
     #[Kubernetes\Attribute('maxProperties')]
-    protected $maxProperties = null;
+    protected int|null $maxProperties = null;
 
-    /** @var mixed|null */
     #[Kubernetes\Attribute('maximum')]
-    protected $maximum = null;
+    protected mixed $maximum = null;
 
-    /** @var int|null */
     #[Kubernetes\Attribute('minItems')]
-    protected $minItems = null;
+    protected int|null $minItems = null;
 
-    /** @var int|null */
     #[Kubernetes\Attribute('minLength')]
-    protected $minLength = null;
+    protected int|null $minLength = null;
 
-    /** @var int|null */
     #[Kubernetes\Attribute('minProperties')]
-    protected $minProperties = null;
+    protected int|null $minProperties = null;
 
-    /** @var mixed|null */
     #[Kubernetes\Attribute('minimum')]
-    protected $minimum = null;
+    protected mixed $minimum = null;
 
-    /** @var mixed|null */
     #[Kubernetes\Attribute('multipleOf')]
-    protected $multipleOf = null;
+    protected mixed $multipleOf = null;
 
-    /** @var JSONSchemaProps|null */
-    #[Kubernetes\Attribute('not', type: \Kcs\K8s\Attribute\AttributeType::Model, model: JSONSchemaProps::class)]
-    protected $not = null;
+    #[Kubernetes\Attribute('not', type: AttributeType::Model, model: self::class)]
+    protected JSONSchemaProps|null $not = null;
 
-    /** @var bool|null */
     #[Kubernetes\Attribute('nullable')]
-    protected $nullable = null;
+    protected bool|null $nullable = null;
 
     /** @var iterable|JSONSchemaProps[]|null */
-    #[Kubernetes\Attribute('oneOf', type: \Kcs\K8s\Attribute\AttributeType::Collection, model: JSONSchemaProps::class)]
+    #[Kubernetes\Attribute(
+        'oneOf',
+        type: AttributeType::Collection,
+        model: self::class,
+    )]
     protected $oneOf = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('pattern')]
-    protected $pattern = null;
+    protected string|null $pattern = null;
 
     /** @var object[]|null */
     #[Kubernetes\Attribute('patternProperties')]
-    protected $patternProperties = null;
+    protected array|null $patternProperties = null;
 
     /** @var object[]|null */
     #[Kubernetes\Attribute('properties')]
-    protected $properties = null;
+    protected array|null $properties = null;
 
     /** @var string[]|null */
     #[Kubernetes\Attribute('required')]
-    protected $required = null;
+    protected array|null $required = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('title')]
-    protected $title = null;
+    protected string|null $title = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('type')]
-    protected $type = null;
+    protected string|null $type = null;
 
-    /** @var bool|null */
     #[Kubernetes\Attribute('uniqueItems')]
-    protected $uniqueItems = null;
+    protected bool|null $uniqueItems = null;
 
-    /** @var bool|null */
     #[Kubernetes\Attribute('x-kubernetes-embedded-resource')]
-    protected $xKubernetesEmbeddedResource = null;
+    protected bool|null $xKubernetesEmbeddedResource = null;
 
-    /** @var bool|null */
     #[Kubernetes\Attribute('x-kubernetes-int-or-string')]
-    protected $xKubernetesIntOrString = null;
+    protected bool|null $xKubernetesIntOrString = null;
 
     /** @var string[]|null */
     #[Kubernetes\Attribute('x-kubernetes-list-map-keys')]
-    protected $xKubernetesListMapKeys = null;
+    protected array|null $xKubernetesListMapKeys = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('x-kubernetes-list-type')]
-    protected $xKubernetesListType = null;
+    protected string|null $xKubernetesListType = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('x-kubernetes-map-type')]
-    protected $xKubernetesMapType = null;
+    protected string|null $xKubernetesMapType = null;
 
-    /** @var bool|null */
     #[Kubernetes\Attribute('x-kubernetes-preserve-unknown-fields')]
-    protected $xKubernetesPreserveUnknownFields = null;
+    protected bool|null $xKubernetesPreserveUnknownFields = null;
 
     /** @var iterable|ValidationRule[]|null */
-    #[Kubernetes\Attribute('x-kubernetes-validations', type: \Kcs\K8s\Attribute\AttributeType::Collection, model: ValidationRule::class)]
+    #[Kubernetes\Attribute('x-kubernetes-validations', type: AttributeType::Collection, model: ValidationRule::class)]
     protected $xKubernetesValidations = null;
 
-    public function getRef(): ?string
+    public function getRef(): string|null
     {
         return $this->ref;
     }
 
-    /**
-     * @return static
-     */
-    public function setRef(string $ref)
+    /** @return static */
+    public function setRef(string $ref): static
     {
         $this->ref = $ref;
 
         return $this;
     }
 
-    public function getSchema(): ?string
+    public function getSchema(): string|null
     {
         return $this->schema;
     }
 
-    /**
-     * @return static
-     */
-    public function setSchema(string $schema)
+    /** @return static */
+    public function setSchema(string $schema): static
     {
         $this->schema = $schema;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getAdditionalItems()
+    public function getAdditionalItems(): string
     {
         return $this->additionalItems;
     }
 
-    /**
-     * @param string $additionalItems
-     * @return static
-     */
-    public function setAdditionalItems($additionalItems)
+    /** @return static */
+    public function setAdditionalItems(string $additionalItems): static
     {
         $this->additionalItems = $additionalItems;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getAdditionalProperties()
+    public function getAdditionalProperties(): string
     {
         return $this->additionalProperties;
     }
 
-    /**
-     * @param string $additionalProperties
-     * @return static
-     */
-    public function setAdditionalProperties($additionalProperties)
+    /** @return static */
+    public function setAdditionalProperties(string $additionalProperties): static
     {
         $this->additionalProperties = $additionalProperties;
 
         return $this;
     }
 
-    /**
-     * @return iterable|JSONSchemaProps[]
-     */
-    public function getAllOf(): ?iterable
+    /** @return iterable|JSONSchemaProps[] */
+    public function getAllOf(): iterable|null
     {
         return $this->allOf;
     }
 
-    /**
-     * @return static
-     */
-    public function setAllOf(iterable $allOf)
+    /** @return static */
+    public function setAllOf(iterable $allOf): static
     {
         $this->allOf = $allOf;
 
         return $this;
     }
 
-    /**
-     * @return static
-     */
-    public function addAllOf(JSONSchemaProps $allOf)
+    /** @return static */
+    public function addAllOf(JSONSchemaProps $allOf): static
     {
-        if (!$this->allOf) {
+        if (! $this->allOf) {
             $this->allOf = new Collection();
         }
+
         $this->allOf[] = $allOf;
 
         return $this;
     }
 
-    /**
-     * @return iterable|JSONSchemaProps[]
-     */
-    public function getAnyOf(): ?iterable
+    /** @return iterable|JSONSchemaProps[] */
+    public function getAnyOf(): iterable|null
     {
         return $this->anyOf;
     }
 
-    /**
-     * @return static
-     */
-    public function setAnyOf(iterable $anyOf)
+    /** @return static */
+    public function setAnyOf(iterable $anyOf): static
     {
         $this->anyOf = $anyOf;
 
         return $this;
     }
 
-    /**
-     * @return static
-     */
-    public function addAnyOf(JSONSchemaProps $anyOf)
+    /** @return static */
+    public function addAnyOf(JSONSchemaProps $anyOf): static
     {
-        if (!$this->anyOf) {
+        if (! $this->anyOf) {
             $this->anyOf = new Collection();
         }
+
         $this->anyOf[] = $anyOf;
 
         return $this;
@@ -323,10 +275,8 @@ class JSONSchemaProps
     /**
      * default is a default value for undefined object fields. Defaulting is a beta feature under the
      * CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
-     *
-     * @return string
      */
-    public function getDefault()
+    public function getDefault(): string
     {
         return $this->default;
     }
@@ -335,138 +285,118 @@ class JSONSchemaProps
      * default is a default value for undefined object fields. Defaulting is a beta feature under the
      * CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
      *
-     * @param string $default
      * @return static
      */
-    public function setDefault($default)
+    public function setDefault(string $default): static
     {
         $this->default = $default;
 
         return $this;
     }
 
-    public function getDefinitions(): ?array
+    public function getDefinitions(): array|null
     {
         return $this->definitions;
     }
 
-    /**
-     * @return static
-     */
-    public function setDefinitions(array $definitions)
+    /** @return static */
+    public function setDefinitions(array $definitions): static
     {
         $this->definitions = $definitions;
 
         return $this;
     }
 
-    public function getDependencies(): ?array
+    public function getDependencies(): array|null
     {
         return $this->dependencies;
     }
 
-    /**
-     * @return static
-     */
-    public function setDependencies(array $dependencies)
+    /** @return static */
+    public function setDependencies(array $dependencies): static
     {
         $this->dependencies = $dependencies;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getDescription(): string|null
     {
         return $this->description;
     }
 
-    /**
-     * @return static
-     */
-    public function setDescription(string $description)
+    /** @return static */
+    public function setDescription(string $description): static
     {
         $this->description = $description;
 
         return $this;
     }
 
-    /**
-     * @return string[]
-     */
-    public function getEnum()
+    /** @return string[] */
+    public function getEnum(): array
     {
         return $this->enum;
     }
 
     /**
      * @param string[] $enum
+     *
      * @return static
      */
-    public function setEnum($enum)
+    public function setEnum(array $enum): static
     {
         $this->enum = $enum;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getExample()
+    public function getExample(): string
     {
         return $this->example;
     }
 
-    /**
-     * @param string $example
-     * @return static
-     */
-    public function setExample($example)
+    /** @return static */
+    public function setExample(string $example): static
     {
         $this->example = $example;
 
         return $this;
     }
 
-    public function isExclusiveMaximum(): ?bool
+    public function isExclusiveMaximum(): bool|null
     {
         return $this->exclusiveMaximum;
     }
 
-    /**
-     * @return static
-     */
-    public function setIsExclusiveMaximum(bool $exclusiveMaximum)
+    /** @return static */
+    public function setIsExclusiveMaximum(bool $exclusiveMaximum): static
     {
         $this->exclusiveMaximum = $exclusiveMaximum;
 
         return $this;
     }
 
-    public function isExclusiveMinimum(): ?bool
+    public function isExclusiveMinimum(): bool|null
     {
         return $this->exclusiveMinimum;
     }
 
-    /**
-     * @return static
-     */
-    public function setIsExclusiveMinimum(bool $exclusiveMinimum)
+    /** @return static */
+    public function setIsExclusiveMinimum(bool $exclusiveMinimum): static
     {
         $this->exclusiveMinimum = $exclusiveMinimum;
 
         return $this;
     }
 
-    public function getExternalDocs(): ?ExternalDocumentation
+    public function getExternalDocs(): ExternalDocumentation|null
     {
         return $this->externalDocs;
     }
 
-    /**
-     * @return static
-     */
-    public function setExternalDocs(ExternalDocumentation $externalDocs)
+    /** @return static */
+    public function setExternalDocs(ExternalDocumentation $externalDocs): static
     {
         $this->externalDocs = $externalDocs;
 
@@ -502,7 +432,7 @@ class JSONSchemaProps
      * by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string
      * like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
      */
-    public function getFormat(): ?string
+    public function getFormat(): string|null
     {
         return $this->format;
     }
@@ -531,361 +461,302 @@ class JSONSchemaProps
      * with any non digit characters mixed in - ssn: a U.S. social security number following the regex
      * ^\d{3}[- ]?\d{2}[- ]?\d{4}$ - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex
      * ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$ - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559" -
-     * byte: base64 encoded binary data - password: any kind of string - date: a date string like
+     *                                              * * * * * * * * * byte: base64 encoded binary data - password: any kind of string - date: a date string like
      * "2006-01-02" as defined by full-date in RFC3339 - duration: a duration string like "22 ns" as parsed
-     * by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string
+     *                                         * * * * * * * * by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string
      * like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+     *
+
      *
      * @return static
      */
-    public function setFormat(string $format)
+    public function setFormat(string $format): static
     {
         $this->format = $format;
 
         return $this;
     }
 
-    public function getId(): ?string
+    public function getId(): string|null
     {
         return $this->id;
     }
 
-    /**
-     * @return static
-     */
-    public function setId(string $id)
+    /** @return static */
+    public function setId(string $id): static
     {
         $this->id = $id;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getItems()
+    public function getItems(): string
     {
         return $this->items;
     }
 
-    /**
-     * @param string $items
-     * @return static
-     */
-    public function setItems($items)
+    /** @return static */
+    public function setItems(string $items): static
     {
         $this->items = $items;
 
         return $this;
     }
 
-    public function getMaxItems(): ?int
+    public function getMaxItems(): int|null
     {
         return $this->maxItems;
     }
 
-    /**
-     * @return static
-     */
-    public function setMaxItems(int $maxItems)
+    /** @return static */
+    public function setMaxItems(int $maxItems): static
     {
         $this->maxItems = $maxItems;
 
         return $this;
     }
 
-    public function getMaxLength(): ?int
+    public function getMaxLength(): int|null
     {
         return $this->maxLength;
     }
 
-    /**
-     * @return static
-     */
-    public function setMaxLength(int $maxLength)
+    /** @return static */
+    public function setMaxLength(int $maxLength): static
     {
         $this->maxLength = $maxLength;
 
         return $this;
     }
 
-    public function getMaxProperties(): ?int
+    public function getMaxProperties(): int|null
     {
         return $this->maxProperties;
     }
 
-    /**
-     * @return static
-     */
-    public function setMaxProperties(int $maxProperties)
+    /** @return static */
+    public function setMaxProperties(int $maxProperties): static
     {
         $this->maxProperties = $maxProperties;
 
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getMaximum()
+    public function getMaximum(): mixed
     {
         return $this->maximum;
     }
 
-    /**
-     * @param mixed $maximum
-     * @return static
-     */
-    public function setMaximum($maximum)
+    /** @return static */
+    public function setMaximum(mixed $maximum): static
     {
         $this->maximum = $maximum;
 
         return $this;
     }
 
-    public function getMinItems(): ?int
+    public function getMinItems(): int|null
     {
         return $this->minItems;
     }
 
-    /**
-     * @return static
-     */
-    public function setMinItems(int $minItems)
+    /** @return static */
+    public function setMinItems(int $minItems): static
     {
         $this->minItems = $minItems;
 
         return $this;
     }
 
-    public function getMinLength(): ?int
+    public function getMinLength(): int|null
     {
         return $this->minLength;
     }
 
-    /**
-     * @return static
-     */
-    public function setMinLength(int $minLength)
+    /** @return static */
+    public function setMinLength(int $minLength): static
     {
         $this->minLength = $minLength;
 
         return $this;
     }
 
-    public function getMinProperties(): ?int
+    public function getMinProperties(): int|null
     {
         return $this->minProperties;
     }
 
-    /**
-     * @return static
-     */
-    public function setMinProperties(int $minProperties)
+    /** @return static */
+    public function setMinProperties(int $minProperties): static
     {
         $this->minProperties = $minProperties;
 
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getMinimum()
+    public function getMinimum(): mixed
     {
         return $this->minimum;
     }
 
-    /**
-     * @param mixed $minimum
-     * @return static
-     */
-    public function setMinimum($minimum)
+    /** @return static */
+    public function setMinimum(mixed $minimum): static
     {
         $this->minimum = $minimum;
 
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getMultipleOf()
+    public function getMultipleOf(): mixed
     {
         return $this->multipleOf;
     }
 
-    /**
-     * @param mixed $multipleOf
-     * @return static
-     */
-    public function setMultipleOf($multipleOf)
+    /** @return static */
+    public function setMultipleOf(mixed $multipleOf): static
     {
         $this->multipleOf = $multipleOf;
 
         return $this;
     }
 
-    public function getNot(): ?JSONSchemaProps
+    public function getNot(): JSONSchemaProps|null
     {
         return $this->not;
     }
 
-    /**
-     * @return static
-     */
-    public function setNot(JSONSchemaProps $not)
+    /** @return static */
+    public function setNot(JSONSchemaProps $not): static
     {
         $this->not = $not;
 
         return $this;
     }
 
-    public function isNullable(): ?bool
+    public function isNullable(): bool|null
     {
         return $this->nullable;
     }
 
-    /**
-     * @return static
-     */
-    public function setIsNullable(bool $nullable)
+    /** @return static */
+    public function setIsNullable(bool $nullable): static
     {
         $this->nullable = $nullable;
 
         return $this;
     }
 
-    /**
-     * @return iterable|JSONSchemaProps[]
-     */
-    public function getOneOf(): ?iterable
+    /** @return iterable|JSONSchemaProps[] */
+    public function getOneOf(): iterable|null
     {
         return $this->oneOf;
     }
 
-    /**
-     * @return static
-     */
-    public function setOneOf(iterable $oneOf)
+    /** @return static */
+    public function setOneOf(iterable $oneOf): static
     {
         $this->oneOf = $oneOf;
 
         return $this;
     }
 
-    /**
-     * @return static
-     */
-    public function addOneOf(JSONSchemaProps $oneOf)
+    /** @return static */
+    public function addOneOf(JSONSchemaProps $oneOf): static
     {
-        if (!$this->oneOf) {
+        if (! $this->oneOf) {
             $this->oneOf = new Collection();
         }
+
         $this->oneOf[] = $oneOf;
 
         return $this;
     }
 
-    public function getPattern(): ?string
+    public function getPattern(): string|null
     {
         return $this->pattern;
     }
 
-    /**
-     * @return static
-     */
-    public function setPattern(string $pattern)
+    /** @return static */
+    public function setPattern(string $pattern): static
     {
         $this->pattern = $pattern;
 
         return $this;
     }
 
-    public function getPatternProperties(): ?array
+    public function getPatternProperties(): array|null
     {
         return $this->patternProperties;
     }
 
-    /**
-     * @return static
-     */
-    public function setPatternProperties(array $patternProperties)
+    /** @return static */
+    public function setPatternProperties(array $patternProperties): static
     {
         $this->patternProperties = $patternProperties;
 
         return $this;
     }
 
-    public function getProperties(): ?array
+    public function getProperties(): array|null
     {
         return $this->properties;
     }
 
-    /**
-     * @return static
-     */
-    public function setProperties(array $properties)
+    /** @return static */
+    public function setProperties(array $properties): static
     {
         $this->properties = $properties;
 
         return $this;
     }
 
-    public function getRequired(): ?array
+    public function getRequired(): array|null
     {
         return $this->required;
     }
 
-    /**
-     * @return static
-     */
-    public function setRequired(array $required)
+    /** @return static */
+    public function setRequired(array $required): static
     {
         $this->required = $required;
 
         return $this;
     }
 
-    public function getTitle(): ?string
+    public function getTitle(): string|null
     {
         return $this->title;
     }
 
-    /**
-     * @return static
-     */
-    public function setTitle(string $title)
+    /** @return static */
+    public function setTitle(string $title): static
     {
         $this->title = $title;
 
         return $this;
     }
 
-    public function getType(): ?string
+    public function getType(): string|null
     {
         return $this->type;
     }
 
-    /**
-     * @return static
-     */
-    public function setType(string $type)
+    /** @return static */
+    public function setType(string $type): static
     {
         $this->type = $type;
 
         return $this;
     }
 
-    public function isUniqueItems(): ?bool
+    public function isUniqueItems(): bool|null
     {
         return $this->uniqueItems;
     }
 
-    /**
-     * @return static
-     */
-    public function setIsUniqueItems(bool $uniqueItems)
+    /** @return static */
+    public function setIsUniqueItems(bool $uniqueItems): static
     {
         $this->uniqueItems = $uniqueItems;
 
@@ -899,7 +770,7 @@ class JSONSchemaProps
      * x-kubernetes-preserve-unknown-fields is allowed to be true, but does not have to be if the object is
      * fully specified (up to kind, apiVersion, metadata).
      */
-    public function isXKubernetesEmbeddedResource(): ?bool
+    public function isXKubernetesEmbeddedResource(): bool|null
     {
         return $this->xKubernetesEmbeddedResource;
     }
@@ -913,7 +784,7 @@ class JSONSchemaProps
      *
      * @return static
      */
-    public function setIsXKubernetesEmbeddedResource(bool $xKubernetesEmbeddedResource)
+    public function setIsXKubernetesEmbeddedResource(bool $xKubernetesEmbeddedResource): static
     {
         $this->xKubernetesEmbeddedResource = $xKubernetesEmbeddedResource;
 
@@ -934,7 +805,7 @@ class JSONSchemaProps
      *      - type: string
      *    - ... zero or more
      */
-    public function isXKubernetesIntOrString(): ?bool
+    public function isXKubernetesIntOrString(): bool|null
     {
         return $this->xKubernetesIntOrString;
     }
@@ -955,7 +826,7 @@ class JSONSchemaProps
      *
      * @return static
      */
-    public function setIsXKubernetesIntOrString(bool $xKubernetesIntOrString)
+    public function setIsXKubernetesIntOrString(bool $xKubernetesIntOrString): static
     {
         $this->xKubernetesIntOrString = $xKubernetesIntOrString;
 
@@ -973,7 +844,7 @@ class JSONSchemaProps
      * The properties specified must either be required or have a default value, to ensure those properties
      * are present for all list items.
      */
-    public function getXKubernetesListMapKeys(): ?array
+    public function getXKubernetesListMapKeys(): array|null
     {
         return $this->xKubernetesListMapKeys;
     }
@@ -991,7 +862,7 @@ class JSONSchemaProps
      *
      * @return static
      */
-    public function setXKubernetesListMapKeys(array $xKubernetesListMapKeys)
+    public function setXKubernetesListMapKeys(array $xKubernetesListMapKeys): static
     {
         $this->xKubernetesListMapKeys = $xKubernetesListMapKeys;
 
@@ -1015,7 +886,7 @@ class JSONSchemaProps
      *      must only be used on a list with elements of type object.
      * Defaults to atomic for arrays.
      */
-    public function getXKubernetesListType(): ?string
+    public function getXKubernetesListType(): string|null
     {
         return $this->xKubernetesListType;
     }
@@ -1039,7 +910,7 @@ class JSONSchemaProps
      *
      * @return static
      */
-    public function setXKubernetesListType(string $xKubernetesListType)
+    public function setXKubernetesListType(string $xKubernetesListType): static
     {
         $this->xKubernetesListType = $xKubernetesListType;
 
@@ -1057,7 +928,7 @@ class JSONSchemaProps
      * 2) `atomic`: the list is treated as a single entity, like a scalar.
      *      Atomic maps will be entirely replaced when updated.
      */
-    public function getXKubernetesMapType(): ?string
+    public function getXKubernetesMapType(): string|null
     {
         return $this->xKubernetesMapType;
     }
@@ -1075,7 +946,7 @@ class JSONSchemaProps
      *
      * @return static
      */
-    public function setXKubernetesMapType(string $xKubernetesMapType)
+    public function setXKubernetesMapType(string $xKubernetesMapType): static
     {
         $this->xKubernetesMapType = $xKubernetesMapType;
 
@@ -1088,7 +959,7 @@ class JSONSchemaProps
      * normal pruning behaviour if nested properties or additionalProperties are specified in the schema.
      * This can either be true or undefined. False is forbidden.
      */
-    public function isXKubernetesPreserveUnknownFields(): ?bool
+    public function isXKubernetesPreserveUnknownFields(): bool|null
     {
         return $this->xKubernetesPreserveUnknownFields;
     }
@@ -1101,7 +972,7 @@ class JSONSchemaProps
      *
      * @return static
      */
-    public function setIsXKubernetesPreserveUnknownFields(bool $xKubernetesPreserveUnknownFields)
+    public function setIsXKubernetesPreserveUnknownFields(bool $xKubernetesPreserveUnknownFields): static
     {
         $this->xKubernetesPreserveUnknownFields = $xKubernetesPreserveUnknownFields;
 
@@ -1115,7 +986,7 @@ class JSONSchemaProps
      *
      * @return iterable|ValidationRule[]
      */
-    public function getXKubernetesValidations(): ?iterable
+    public function getXKubernetesValidations(): iterable|null
     {
         return $this->xKubernetesValidations;
     }
@@ -1127,21 +998,20 @@ class JSONSchemaProps
      *
      * @return static
      */
-    public function setXKubernetesValidations(iterable $xKubernetesValidations)
+    public function setXKubernetesValidations(iterable $xKubernetesValidations): static
     {
         $this->xKubernetesValidations = $xKubernetesValidations;
 
         return $this;
     }
 
-    /**
-     * @return static
-     */
-    public function addXKubernetesValidations(ValidationRule $xKubernetesValidation)
+    /** @return static */
+    public function addXKubernetesValidations(ValidationRule $xKubernetesValidation): static
     {
-        if (!$this->xKubernetesValidations) {
+        if (! $this->xKubernetesValidations) {
             $this->xKubernetesValidations = new Collection();
         }
+
         $this->xKubernetesValidations[] = $xKubernetesValidation;
 
         return $this;
