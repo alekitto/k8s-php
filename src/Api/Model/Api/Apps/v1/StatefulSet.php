@@ -28,11 +28,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/apps/v1/namespaces/{namespace}/statefulsets', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/apps/v1/namespaces/{namespace}/statefulsets',
@@ -464,8 +460,7 @@ class StatefulSet
     /**
      * ordinals controls the numbering of replica indices in a StatefulSet. The default ordinals behavior
      * assigns a "0" index to the first replica and increments the index by one for each additional replica
-     * requested. Using the ordinals field requires the StatefulSetStartOrdinal feature gate to be enabled,
-     * which is beta.
+     * requested.
      */
     public function getOrdinals(): StatefulSetOrdinals|null
     {
@@ -475,8 +470,7 @@ class StatefulSet
     /**
      * ordinals controls the numbering of replica indices in a StatefulSet. The default ordinals behavior
      * assigns a "0" index to the first replica and increments the index by one for each additional replica
-     * requested. Using the ordinals field requires the StatefulSetStartOrdinal feature gate to be enabled,
-     * which is beta.
+     * requested.
      *
      * @return static
      */
@@ -492,8 +486,7 @@ class StatefulSet
      * from volumeClaimTemplates. By default, all persistent volume claims are created as needed and
      * retained until manually deleted. This policy allows the lifecycle to be altered, for example by
      * deleting persistent volume claims when their stateful set is deleted, or when their pod is scaled
-     * down. This requires the StatefulSetAutoDeletePVC feature gate to be enabled, which is alpha.
-     * +optional
+     * down. This requires the StatefulSetAutoDeletePVC feature gate to be enabled, which is beta.
      */
     public function getPersistentVolumeClaimRetentionPolicy(): StatefulSetPersistentVolumeClaimRetentionPolicy|null
     {
@@ -505,8 +498,7 @@ class StatefulSet
      * from volumeClaimTemplates. By default, all persistent volume claims are created as needed and
      * retained until manually deleted. This policy allows the lifecycle to be altered, for example by
      * deleting persistent volume claims when their stateful set is deleted, or when their pod is scaled
-     * down. This requires the StatefulSetAutoDeletePVC feature gate to be enabled, which is alpha.
-     * +optional
+     * down. This requires the StatefulSetAutoDeletePVC feature gate to be enabled, which is beta.
      *
      * @return static
      */

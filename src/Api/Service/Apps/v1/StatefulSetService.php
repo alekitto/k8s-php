@@ -42,7 +42,7 @@ class StatefulSetService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-statefulset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-statefulset-v1-apps
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): StatefulSetList|null
     {
@@ -82,7 +82,7 @@ class StatefulSetService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-statefulset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-statefulset-v1-apps
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class StatefulSetService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-statefulset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-statefulset-v1-apps
      */
     public function createNamespaced(StatefulSet $statefulSet, array $query = []): StatefulSet
     {
@@ -140,7 +140,7 @@ class StatefulSetService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-statefulset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-statefulset-v1-apps
      */
     public function readNamespaced(string $name, array $query = []): StatefulSet
     {
@@ -171,13 +171,12 @@ class StatefulSetService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-statefulset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-statefulset-v1-apps
      */
-    public function deleteNamespaced(string $name, array $query = []): Status
+    public function deleteNamespaced(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}',
             ['{name}' => $name],
@@ -202,7 +201,7 @@ class StatefulSetService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-statefulset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-statefulset-v1-apps
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): StatefulSet
     {
@@ -233,7 +232,7 @@ class StatefulSetService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-statefulset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-statefulset-v1-apps
      */
     public function replaceNamespaced(string $name, StatefulSet $statefulSet, array $query = []): StatefulSet
     {
@@ -261,7 +260,7 @@ class StatefulSetService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-statefulset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-statefulset-v1-apps
      */
     public function readNamespacedStatus(string $name, array $query = []): StatefulSet
     {
@@ -292,7 +291,7 @@ class StatefulSetService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-statefulset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-statefulset-v1-apps
      */
     public function patchNamespacedStatus(string $name, PatchInterface $patch, array $query = []): StatefulSet
     {
@@ -323,7 +322,7 @@ class StatefulSetService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-statefulset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-statefulset-v1-apps
      */
     public function replaceNamespacedStatus(string $name, StatefulSet $statefulSet, array $query = []): StatefulSet
     {
@@ -361,7 +360,7 @@ class StatefulSetService
      *   timeoutSeconds
      *   watch
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-statefulset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-statefulset-v1-apps
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): StatefulSetList|null
     {
@@ -402,7 +401,7 @@ class StatefulSetService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-statefulset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-statefulset-v1-apps
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -443,7 +442,7 @@ class StatefulSetService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-statefulset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-statefulset-v1-apps
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -484,7 +483,7 @@ class StatefulSetService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-statefulset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-statefulset-v1-apps
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

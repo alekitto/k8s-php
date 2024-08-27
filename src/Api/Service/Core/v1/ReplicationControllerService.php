@@ -42,7 +42,7 @@ class ReplicationControllerService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-replicationcontroller-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-replicationcontroller-v1-core
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): ReplicationControllerList|null
     {
@@ -82,7 +82,7 @@ class ReplicationControllerService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-replicationcontroller-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-replicationcontroller-v1-core
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class ReplicationControllerService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-replicationcontroller-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-replicationcontroller-v1-core
      */
     public function createNamespaced(
         ReplicationController $replicationController,
@@ -142,7 +142,7 @@ class ReplicationControllerService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-replicationcontroller-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-replicationcontroller-v1-core
      */
     public function readNamespaced(string $name, array $query = []): ReplicationController
     {
@@ -173,13 +173,12 @@ class ReplicationControllerService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-replicationcontroller-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-replicationcontroller-v1-core
      */
-    public function deleteNamespaced(string $name, array $query = []): Status
+    public function deleteNamespaced(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}',
             ['{name}' => $name],
@@ -204,7 +203,7 @@ class ReplicationControllerService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-replicationcontroller-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-replicationcontroller-v1-core
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): ReplicationController
     {
@@ -235,7 +234,7 @@ class ReplicationControllerService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-replicationcontroller-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-replicationcontroller-v1-core
      */
     public function replaceNamespaced(
         string $name,
@@ -266,7 +265,7 @@ class ReplicationControllerService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-replicationcontroller-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-replicationcontroller-v1-core
      */
     public function readNamespacedStatus(string $name, array $query = []): ReplicationController
     {
@@ -297,7 +296,7 @@ class ReplicationControllerService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-replicationcontroller-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-replicationcontroller-v1-core
      */
     public function patchNamespacedStatus(
         string $name,
@@ -331,7 +330,7 @@ class ReplicationControllerService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-replicationcontroller-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-replicationcontroller-v1-core
      */
     public function replaceNamespacedStatus(
         string $name,
@@ -372,7 +371,7 @@ class ReplicationControllerService
      *   timeoutSeconds
      *   watch
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-replicationcontroller-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-replicationcontroller-v1-core
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): ReplicationControllerList|null
     {
@@ -413,7 +412,7 @@ class ReplicationControllerService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-replicationcontroller-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-replicationcontroller-v1-core
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -454,7 +453,7 @@ class ReplicationControllerService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-replicationcontroller-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-replicationcontroller-v1-core
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -495,7 +494,7 @@ class ReplicationControllerService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-replicationcontroller-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-replicationcontroller-v1-core
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

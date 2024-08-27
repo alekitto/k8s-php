@@ -23,11 +23,7 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Kind('RoleBinding', group: 'rbac.authorization.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/rolebindings/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/rolebindings', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/rolebindings/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/rolebindings/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/rolebindings',

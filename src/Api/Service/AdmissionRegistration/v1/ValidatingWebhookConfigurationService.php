@@ -42,7 +42,7 @@ class ValidatingWebhookConfigurationService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function listAdmissionRegistrationV1(
         array $query = [],
@@ -84,7 +84,7 @@ class ValidatingWebhookConfigurationService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function deleteAdmissionRegistrationV1Collection(array $query = []): Status
     {
@@ -114,7 +114,7 @@ class ValidatingWebhookConfigurationService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function createAdmissionRegistrationV1(
         ValidatingWebhookConfiguration $validatingWebhookConfiguration,
@@ -144,7 +144,7 @@ class ValidatingWebhookConfigurationService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function readAdmissionRegistrationV1(string $name, array $query = []): ValidatingWebhookConfiguration
     {
@@ -175,13 +175,12 @@ class ValidatingWebhookConfigurationService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
-    public function deleteAdmissionRegistrationV1(string $name, array $query = []): Status
+    public function deleteAdmissionRegistrationV1(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/validatingwebhookconfigurations/{name}',
             ['{name}' => $name],
@@ -206,7 +205,7 @@ class ValidatingWebhookConfigurationService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function patchAdmissionRegistrationV1(
         string $name,
@@ -240,7 +239,7 @@ class ValidatingWebhookConfigurationService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function replaceAdmissionRegistrationV1(
         string $name,
@@ -284,7 +283,7 @@ class ValidatingWebhookConfigurationService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function watchAdmissionRegistrationV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -326,7 +325,7 @@ class ValidatingWebhookConfigurationService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-validatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function watchAdmissionRegistrationV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

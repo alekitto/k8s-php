@@ -42,7 +42,7 @@ class ResourceQuotaService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-resourcequota-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-resourcequota-v1-core
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): ResourceQuotaList|null
     {
@@ -82,7 +82,7 @@ class ResourceQuotaService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-resourcequota-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-resourcequota-v1-core
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class ResourceQuotaService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-resourcequota-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-resourcequota-v1-core
      */
     public function createNamespaced(ResourceQuota $resourceQuota, array $query = []): ResourceQuota
     {
@@ -140,7 +140,7 @@ class ResourceQuotaService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-resourcequota-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-resourcequota-v1-core
      */
     public function readNamespaced(string $name, array $query = []): ResourceQuota
     {
@@ -171,13 +171,12 @@ class ResourceQuotaService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-resourcequota-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-resourcequota-v1-core
      */
-    public function deleteNamespaced(string $name, array $query = []): ResourceQuota
+    public function deleteNamespaced(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = ResourceQuota::class;
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/resourcequotas/{name}',
             ['{name}' => $name],
@@ -202,7 +201,7 @@ class ResourceQuotaService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-resourcequota-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-resourcequota-v1-core
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): ResourceQuota
     {
@@ -233,7 +232,7 @@ class ResourceQuotaService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-resourcequota-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-resourcequota-v1-core
      */
     public function replaceNamespaced(string $name, ResourceQuota $resourceQuota, array $query = []): ResourceQuota
     {
@@ -261,7 +260,7 @@ class ResourceQuotaService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-resourcequota-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-resourcequota-v1-core
      */
     public function readNamespacedStatus(string $name, array $query = []): ResourceQuota
     {
@@ -292,7 +291,7 @@ class ResourceQuotaService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-resourcequota-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-resourcequota-v1-core
      */
     public function patchNamespacedStatus(string $name, PatchInterface $patch, array $query = []): ResourceQuota
     {
@@ -323,7 +322,7 @@ class ResourceQuotaService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-resourcequota-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-resourcequota-v1-core
      */
     public function replaceNamespacedStatus(
         string $name,
@@ -364,7 +363,7 @@ class ResourceQuotaService
      *   timeoutSeconds
      *   watch
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-resourcequota-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-resourcequota-v1-core
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): ResourceQuotaList|null
     {
@@ -405,7 +404,7 @@ class ResourceQuotaService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-resourcequota-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-resourcequota-v1-core
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -446,7 +445,7 @@ class ResourceQuotaService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-resourcequota-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-resourcequota-v1-core
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -487,7 +486,7 @@ class ResourceQuotaService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-resourcequota-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-resourcequota-v1-core
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

@@ -42,7 +42,7 @@ class PodDisruptionBudgetService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-poddisruptionbudget-v1-policy
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-poddisruptionbudget-v1-policy
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): PodDisruptionBudgetList|null
     {
@@ -82,7 +82,7 @@ class PodDisruptionBudgetService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-poddisruptionbudget-v1-policy
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-poddisruptionbudget-v1-policy
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class PodDisruptionBudgetService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-poddisruptionbudget-v1-policy
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-poddisruptionbudget-v1-policy
      */
     public function createNamespaced(PodDisruptionBudget $podDisruptionBudget, array $query = []): PodDisruptionBudget
     {
@@ -140,7 +140,7 @@ class PodDisruptionBudgetService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-poddisruptionbudget-v1-policy
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-poddisruptionbudget-v1-policy
      */
     public function readNamespaced(string $name, array $query = []): PodDisruptionBudget
     {
@@ -171,13 +171,12 @@ class PodDisruptionBudgetService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-poddisruptionbudget-v1-policy
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-poddisruptionbudget-v1-policy
      */
-    public function deleteNamespaced(string $name, array $query = []): Status
+    public function deleteNamespaced(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets/{name}',
             ['{name}' => $name],
@@ -202,7 +201,7 @@ class PodDisruptionBudgetService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-poddisruptionbudget-v1-policy
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-poddisruptionbudget-v1-policy
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): PodDisruptionBudget
     {
@@ -233,7 +232,7 @@ class PodDisruptionBudgetService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-poddisruptionbudget-v1-policy
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-poddisruptionbudget-v1-policy
      */
     public function replaceNamespaced(
         string $name,
@@ -264,7 +263,7 @@ class PodDisruptionBudgetService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-poddisruptionbudget-v1-policy
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-poddisruptionbudget-v1-policy
      */
     public function readNamespacedStatus(string $name, array $query = []): PodDisruptionBudget
     {
@@ -295,7 +294,7 @@ class PodDisruptionBudgetService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-poddisruptionbudget-v1-policy
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-poddisruptionbudget-v1-policy
      */
     public function patchNamespacedStatus(string $name, PatchInterface $patch, array $query = []): PodDisruptionBudget
     {
@@ -326,7 +325,7 @@ class PodDisruptionBudgetService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-poddisruptionbudget-v1-policy
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-poddisruptionbudget-v1-policy
      */
     public function replaceNamespacedStatus(
         string $name,
@@ -367,7 +366,7 @@ class PodDisruptionBudgetService
      *   timeoutSeconds
      *   watch
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-poddisruptionbudget-v1-policy
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-poddisruptionbudget-v1-policy
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): PodDisruptionBudgetList|null
     {
@@ -408,7 +407,7 @@ class PodDisruptionBudgetService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-poddisruptionbudget-v1-policy
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-poddisruptionbudget-v1-policy
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -449,7 +448,7 @@ class PodDisruptionBudgetService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-poddisruptionbudget-v1-policy
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-poddisruptionbudget-v1-policy
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -490,7 +489,7 @@ class PodDisruptionBudgetService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-poddisruptionbudget-v1-policy
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-poddisruptionbudget-v1-policy
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

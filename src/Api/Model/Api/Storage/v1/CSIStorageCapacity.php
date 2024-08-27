@@ -38,11 +38,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('CSIStorageCapacity', group: 'storage.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities',

@@ -145,7 +145,7 @@ class SecurityContext
     }
 
     /**
-     * procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount
+     * procMount denotes the type of proc mount to use for the containers. The default value is Default
      * which uses the container runtime defaults for readonly paths and masked paths. This requires the
      * ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is
      * windows.
@@ -156,7 +156,7 @@ class SecurityContext
     }
 
     /**
-     * procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount
+     * procMount denotes the type of proc mount to use for the containers. The default value is Default
      * which uses the container runtime defaults for readonly paths and masked paths. This requires the
      * ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is
      * windows.

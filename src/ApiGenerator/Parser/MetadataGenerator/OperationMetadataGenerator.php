@@ -8,6 +8,7 @@ use Kcs\K8s\ApiGenerator\Parser\Metadata\Metadata;
 use Kcs\K8s\ApiGenerator\Parser\Metadata\OperationMetadata;
 use Kcs\K8s\ApiGenerator\Parser\Metadata\ResponseMetadata;
 use Kcs\K8s\ApiGenerator\Parser\OpenApiContext;
+use OpenApi\Annotations\Operation;
 use OpenApi\Annotations\PathItem;
 use OpenApi\Annotations\Response;
 use OpenApi\Generator;
@@ -42,6 +43,20 @@ class OperationMetadataGenerator
             $apiOperation = $path->$httpOperation;
             if ($apiOperation === Generator::UNDEFINED) {
                 continue;
+            }
+
+            assert($apiOperation instanceof Operation);
+
+            if ($httpOperation === 'delete' && $apiOperation->x['kubernetes-action'] === 'delete') {
+                foreach ($apiOperation->responses as $statusCode => $response) {
+                    if ($statusCode < 200 || $statusCode >= 300) {
+                        continue;
+                    }
+
+                    foreach ($response->content as $content) {
+                        $content->schema->ref = Generator::UNDEFINED;
+                    }
+                }
             }
 
             $responses = $this->parseResponses(

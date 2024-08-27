@@ -22,11 +22,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/apps/v1/namespaces/{namespace}/daemonsets', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/apps/v1/namespaces/{namespace}/daemonsets',

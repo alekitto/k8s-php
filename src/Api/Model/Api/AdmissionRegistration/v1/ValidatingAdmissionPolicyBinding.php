@@ -30,11 +30,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('ValidatingAdmissionPolicyBinding', group: 'admissionregistration.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicybindings/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicybindings', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicybindings/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicybindings/{name}')]
 #[Kubernetes\Operation(
     'put',
     path: '/apis/admissionregistration.k8s.io/v1/validatingadmissionpolicybindings/{name}',
@@ -97,8 +93,6 @@ class ValidatingAdmissionPolicyBinding
      * tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
      * modifying objects. More info:
      * https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations
-     *
-     * @return static
      */
     public function setAnnotations(array $annotations): static
     {
@@ -179,8 +173,6 @@ class ValidatingAdmissionPolicyBinding
      * produced by a component responsible for a finalizer later in the list, resulting in a deadlock.
      * Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to
      * ordering changes in the list.
-     *
-     * @return static
      */
     public function setFinalizers(array $finalizers): static
     {
@@ -217,8 +209,6 @@ class ValidatingAdmissionPolicyBinding
      *
      * Applied only if Name is not specified. More info:
      * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency
-     *
-     * @return static
      */
     public function setGenerateName(string $generateName): static
     {
@@ -250,8 +240,6 @@ class ValidatingAdmissionPolicyBinding
      * Map of string keys and values that can be used to organize and categorize (scope and select)
      * objects. May match selectors of replication controllers and services. More info:
      * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
-     *
-     * @return static
      */
     public function setLabels(array $labels): static
     {
@@ -280,8 +268,6 @@ class ValidatingAdmissionPolicyBinding
      * this field. A workflow can be the user's name, a controller's name, or the name of a specific apply
      * path like "ci-cd". The set of fields is always in the version that the workflow used when modifying
      * the object.
-     *
-     * @return static
      */
     public function setManagedFields(iterable $managedFields): static
     {
@@ -290,7 +276,6 @@ class ValidatingAdmissionPolicyBinding
         return $this;
     }
 
-    /** @return static */
     public function addManagedFields(ManagedFieldsEntry $managedField): static
     {
         $this->metadata->addManagedFields($managedField);
@@ -314,8 +299,6 @@ class ValidatingAdmissionPolicyBinding
      * may allow a client to request the generation of an appropriate name automatically. Name is primarily
      * intended for creation idempotence and configuration definition. Cannot be updated. More info:
      * https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names
-     *
-     * @return static
      */
     public function setName(string $name): static
     {
@@ -344,8 +327,6 @@ class ValidatingAdmissionPolicyBinding
      *
      * Must be a DNS_LABEL. Cannot be updated. More info:
      * https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces
-     *
-     * @return static
      */
     public function setNamespace(string $namespace): static
     {
@@ -372,8 +353,6 @@ class ValidatingAdmissionPolicyBinding
      * will be garbage collected. If this object is managed by a controller, then an entry in this list
      * will point to this controller, with the controller field set to true. There cannot be more than one
      * managing controller.
-     *
-     * @return static
      */
     public function setOwnerReferences(iterable $ownerReferences): static
     {
@@ -382,7 +361,6 @@ class ValidatingAdmissionPolicyBinding
         return $this;
     }
 
-    /** @return static */
     public function addOwnerReferences(OwnerReference $ownerReference): static
     {
         $this->metadata->addOwnerReferences($ownerReference);
@@ -415,8 +393,6 @@ class ValidatingAdmissionPolicyBinding
 
     /**
      * Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.
-     *
-     * @return static
      */
     public function setSelfLink(string $selfLink): static
     {
@@ -457,8 +433,6 @@ class ValidatingAdmissionPolicyBinding
      * by this binding When resourceRules is unset, it does not constrain resource matching. If a resource
      * is matched by the other fields of this object, it will be validated. Note that this is differs from
      * ValidatingAdmissionPolicy matchConstraints, where resourceRules are required.
-     *
-     * @return static
      */
     public function setMatchResources(MatchResources $matchResources): static
     {
@@ -487,8 +461,6 @@ class ValidatingAdmissionPolicyBinding
      * binding is considered mis-configured and the FailurePolicy of the ValidatingAdmissionPolicy applied.
      * If the policy does not specify a ParamKind then this field is ignored, and the rules are evaluated
      * without a param.
-     *
-     * @return static
      */
     public function setParamRef(ParamRef $paramRef): static
     {
@@ -511,8 +483,6 @@ class ValidatingAdmissionPolicyBinding
      * PolicyName references a ValidatingAdmissionPolicy name which the ValidatingAdmissionPolicyBinding
      * binds to. If the referenced resource does not exist, this binding is considered invalid and will be
      * ignored Required.
-     *
-     * @return static
      */
     public function setPolicyName(string $policyName): static
     {
@@ -596,15 +566,9 @@ class ValidatingAdmissionPolicyBinding
      * Clients should expect to handle additional values by ignoring any values not recognized.
      *
      * "Deny" and "Warn" may not be used together since this combination needlessly duplicates the
-     *                                                        * * * * * * * * * * * validation failure both in the API response body and the HTTP warning headers.
+     * validation failure both in the API response body and the HTTP warning headers.
      *
-     *                                                        * * * * * * * * * * * Required.
-     *
-
-     *
-
-     *
-     * @return static
+     * Required.
      */
     public function setValidationActions(array $validationActions): static
     {
@@ -627,8 +591,6 @@ class ValidatingAdmissionPolicyBinding
      * APIVersion defines the versioned schema of this representation of an object. Servers should convert
      * recognized schemas to the latest internal value, and may reject unrecognized values. More info:
      * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-     *
-     * @return static
      */
     public function setApiVersion(string $apiVersion): static
     {
@@ -693,8 +655,6 @@ class ValidatingAdmissionPolicyBinding
 
     /**
      * Specification of the desired behavior of the ValidatingAdmissionPolicyBinding.
-     *
-     * @return static
      */
     public function setSpec(ValidatingAdmissionPolicyBindingSpec $spec): static
     {

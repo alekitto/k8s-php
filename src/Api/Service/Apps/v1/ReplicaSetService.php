@@ -42,7 +42,7 @@ class ReplicaSetService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-replicaset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-replicaset-v1-apps
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): ReplicaSetList|null
     {
@@ -82,7 +82,7 @@ class ReplicaSetService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-replicaset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-replicaset-v1-apps
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class ReplicaSetService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-replicaset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-replicaset-v1-apps
      */
     public function createNamespaced(ReplicaSet $replicaSet, array $query = []): ReplicaSet
     {
@@ -140,7 +140,7 @@ class ReplicaSetService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-replicaset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-replicaset-v1-apps
      */
     public function readNamespaced(string $name, array $query = []): ReplicaSet
     {
@@ -171,13 +171,12 @@ class ReplicaSetService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-replicaset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-replicaset-v1-apps
      */
-    public function deleteNamespaced(string $name, array $query = []): Status
+    public function deleteNamespaced(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/replicasets/{name}',
             ['{name}' => $name],
@@ -202,7 +201,7 @@ class ReplicaSetService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-replicaset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-replicaset-v1-apps
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): ReplicaSet
     {
@@ -233,7 +232,7 @@ class ReplicaSetService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-replicaset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-replicaset-v1-apps
      */
     public function replaceNamespaced(string $name, ReplicaSet $replicaSet, array $query = []): ReplicaSet
     {
@@ -261,7 +260,7 @@ class ReplicaSetService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-replicaset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-replicaset-v1-apps
      */
     public function readNamespacedStatus(string $name, array $query = []): ReplicaSet
     {
@@ -292,7 +291,7 @@ class ReplicaSetService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-replicaset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-replicaset-v1-apps
      */
     public function patchNamespacedStatus(string $name, PatchInterface $patch, array $query = []): ReplicaSet
     {
@@ -323,7 +322,7 @@ class ReplicaSetService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-replicaset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-replicaset-v1-apps
      */
     public function replaceNamespacedStatus(string $name, ReplicaSet $replicaSet, array $query = []): ReplicaSet
     {
@@ -361,7 +360,7 @@ class ReplicaSetService
      *   timeoutSeconds
      *   watch
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-replicaset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-replicaset-v1-apps
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): ReplicaSetList|null
     {
@@ -402,7 +401,7 @@ class ReplicaSetService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-replicaset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-replicaset-v1-apps
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -443,7 +442,7 @@ class ReplicaSetService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-replicaset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-replicaset-v1-apps
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -484,7 +483,7 @@ class ReplicaSetService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-replicaset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-replicaset-v1-apps
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

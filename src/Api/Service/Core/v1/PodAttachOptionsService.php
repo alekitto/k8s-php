@@ -31,7 +31,7 @@ class PodAttachOptionsService
      *   stdout
      *   tty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podattachoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-podattachoptions-v1-core
      */
     public function connectGetNamespacedPodAttach(string $name, callable|object $handler, array $query = []): void
     {
@@ -62,7 +62,7 @@ class PodAttachOptionsService
      *   stdout
      *   tty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podattachoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-podattachoptions-v1-core
      */
     public function connectPostNamespacedPodAttach(string $name, callable|object $handler, array $query = []): void
     {

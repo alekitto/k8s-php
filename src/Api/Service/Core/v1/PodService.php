@@ -42,7 +42,7 @@ class PodService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-pod-v1-core
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): PodList|null
     {
@@ -82,7 +82,7 @@ class PodService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-pod-v1-core
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class PodService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-pod-v1-core
      */
     public function createNamespaced(Pod $pod, array $query = []): Pod
     {
@@ -140,7 +140,7 @@ class PodService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-pod-v1-core
      */
     public function readNamespaced(string $name, array $query = []): Pod
     {
@@ -171,13 +171,12 @@ class PodService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-pod-v1-core
      */
-    public function deleteNamespaced(string $name, array $query = []): Pod
+    public function deleteNamespaced(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Pod::class;
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/pods/{name}',
             ['{name}' => $name],
@@ -202,7 +201,7 @@ class PodService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-pod-v1-core
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): Pod
     {
@@ -233,7 +232,7 @@ class PodService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-pod-v1-core
      */
     public function replaceNamespaced(string $name, Pod $pod, array $query = []): Pod
     {
@@ -261,7 +260,7 @@ class PodService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-pod-v1-core
      */
     public function readNamespacedEphemeralcontainers(string $name, array $query = []): Pod
     {
@@ -292,7 +291,7 @@ class PodService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-pod-v1-core
      */
     public function patchNamespacedEphemeralcontainers(string $name, PatchInterface $patch, array $query = []): Pod
     {
@@ -323,7 +322,7 @@ class PodService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-pod-v1-core
      */
     public function replaceNamespacedEphemeralcontainers(string $name, Pod $pod, array $query = []): Pod
     {
@@ -359,7 +358,7 @@ class PodService
      *   tailLines
      *   timestamps
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-pod-v1-core
      */
     public function readNamespacedLog(string $name, array $query = [], callable|object|null $handler = null): string|null
     {
@@ -386,7 +385,7 @@ class PodService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-pod-v1-core
      */
     public function readNamespacedStatus(string $name, array $query = []): Pod
     {
@@ -417,7 +416,7 @@ class PodService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-pod-v1-core
      */
     public function patchNamespacedStatus(string $name, PatchInterface $patch, array $query = []): Pod
     {
@@ -448,7 +447,7 @@ class PodService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-pod-v1-core
      */
     public function replaceNamespacedStatus(string $name, Pod $pod, array $query = []): Pod
     {
@@ -486,7 +485,7 @@ class PodService
      *   timeoutSeconds
      *   watch
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-pod-v1-core
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): PodList|null
     {
@@ -527,7 +526,7 @@ class PodService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-pod-v1-core
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -568,7 +567,7 @@ class PodService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-pod-v1-core
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -609,7 +608,7 @@ class PodService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-pod-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-pod-v1-core
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

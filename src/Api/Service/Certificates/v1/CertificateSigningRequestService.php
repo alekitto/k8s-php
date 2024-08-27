@@ -42,7 +42,7 @@ class CertificateSigningRequestService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-certificatesigningrequest-v1-certificates-k8s-io
      */
     public function listCertificatesV1(array $query = [], callable|object|null $handler = null): CertificateSigningRequestList|null
     {
@@ -82,7 +82,7 @@ class CertificateSigningRequestService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-certificatesigningrequest-v1-certificates-k8s-io
      */
     public function deleteCertificatesV1Collection(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class CertificateSigningRequestService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-certificatesigningrequest-v1-certificates-k8s-io
      */
     public function createCertificatesV1(
         CertificateSigningRequest $certificateSigningRequest,
@@ -142,7 +142,7 @@ class CertificateSigningRequestService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-certificatesigningrequest-v1-certificates-k8s-io
      */
     public function readCertificatesV1(string $name, array $query = []): CertificateSigningRequest
     {
@@ -173,13 +173,12 @@ class CertificateSigningRequestService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-certificatesigningrequest-v1-certificates-k8s-io
      */
-    public function deleteCertificatesV1(string $name, array $query = []): Status
+    public function deleteCertificatesV1(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}',
             ['{name}' => $name],
@@ -204,7 +203,7 @@ class CertificateSigningRequestService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-certificatesigningrequest-v1-certificates-k8s-io
      */
     public function patchCertificatesV1(
         string $name,
@@ -238,7 +237,7 @@ class CertificateSigningRequestService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-certificatesigningrequest-v1-certificates-k8s-io
      */
     public function replaceCertificatesV1(
         string $name,
@@ -269,7 +268,7 @@ class CertificateSigningRequestService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-certificatesigningrequest-v1-certificates-k8s-io
      */
     public function readCertificatesV1Approval(string $name, array $query = []): CertificateSigningRequest
     {
@@ -300,7 +299,7 @@ class CertificateSigningRequestService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-certificatesigningrequest-v1-certificates-k8s-io
      */
     public function patchCertificatesV1Approval(
         string $name,
@@ -334,7 +333,7 @@ class CertificateSigningRequestService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-certificatesigningrequest-v1-certificates-k8s-io
      */
     public function replaceCertificatesV1Approval(
         string $name,
@@ -365,7 +364,7 @@ class CertificateSigningRequestService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-certificatesigningrequest-v1-certificates-k8s-io
      */
     public function readCertificatesV1Status(string $name, array $query = []): CertificateSigningRequest
     {
@@ -396,7 +395,7 @@ class CertificateSigningRequestService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-certificatesigningrequest-v1-certificates-k8s-io
      */
     public function patchCertificatesV1Status(
         string $name,
@@ -430,7 +429,7 @@ class CertificateSigningRequestService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-certificatesigningrequest-v1-certificates-k8s-io
      */
     public function replaceCertificatesV1Status(
         string $name,
@@ -474,7 +473,7 @@ class CertificateSigningRequestService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-certificatesigningrequest-v1-certificates-k8s-io
      */
     public function watchCertificatesV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -515,7 +514,7 @@ class CertificateSigningRequestService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-certificatesigningrequest-v1-certificates-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-certificatesigningrequest-v1-certificates-k8s-io
      */
     public function watchCertificatesV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

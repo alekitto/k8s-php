@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kcs\K8s\Api\Model\Api\Authorization\v1;
 
 use Kcs\K8s\Attribute as Kubernetes;
+use Kcs\K8s\Attribute\AttributeType;
 
 /**
  * ResourceAttributes includes the authorization attributes available for resource requests to the
@@ -12,8 +13,14 @@ use Kcs\K8s\Attribute as Kubernetes;
  */
 class ResourceAttributes
 {
+    #[Kubernetes\Attribute('fieldSelector', type: AttributeType::Model, model: FieldSelectorAttributes::class)]
+    protected FieldSelectorAttributes|null $fieldSelector = null;
+
     #[Kubernetes\Attribute('group')]
     protected string|null $group = null;
+
+    #[Kubernetes\Attribute('labelSelector', type: AttributeType::Model, model: LabelSelectorAttributes::class)]
+    protected LabelSelectorAttributes|null $labelSelector = null;
 
     #[Kubernetes\Attribute('name')]
     protected string|null $name = null;
@@ -34,6 +41,34 @@ class ResourceAttributes
     protected string|null $version = null;
 
     /**
+     * fieldSelector describes the limitation on access based on field.  It can only limit access, not
+     * broaden it.
+     *
+     * This field  is alpha-level. To use this field, you must enable the `AuthorizeWithSelectors` feature
+     * gate (disabled by default).
+     */
+    public function getFieldSelector(): FieldSelectorAttributes|null
+    {
+        return $this->fieldSelector;
+    }
+
+    /**
+     * fieldSelector describes the limitation on access based on field.  It can only limit access, not
+     * broaden it.
+     *
+     * This field  is alpha-level. To use this field, you must enable the `AuthorizeWithSelectors` feature
+     * gate (disabled by default).
+     *
+     * @return static
+     */
+    public function setFieldSelector(FieldSelectorAttributes $fieldSelector): static
+    {
+        $this->fieldSelector = $fieldSelector;
+
+        return $this;
+    }
+
+    /**
      * Group is the API Group of the Resource.  "*" means all.
      */
     public function getGroup(): string|null
@@ -49,6 +84,34 @@ class ResourceAttributes
     public function setGroup(string $group): static
     {
         $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * labelSelector describes the limitation on access based on labels.  It can only limit access, not
+     * broaden it.
+     *
+     * This field  is alpha-level. To use this field, you must enable the `AuthorizeWithSelectors` feature
+     * gate (disabled by default).
+     */
+    public function getLabelSelector(): LabelSelectorAttributes|null
+    {
+        return $this->labelSelector;
+    }
+
+    /**
+     * labelSelector describes the limitation on access based on labels.  It can only limit access, not
+     * broaden it.
+     *
+     * This field  is alpha-level. To use this field, you must enable the `AuthorizeWithSelectors` feature
+     * gate (disabled by default).
+     *
+     * @return static
+     */
+    public function setLabelSelector(LabelSelectorAttributes $labelSelector): static
+    {
+        $this->labelSelector = $labelSelector;
 
         return $this;
     }

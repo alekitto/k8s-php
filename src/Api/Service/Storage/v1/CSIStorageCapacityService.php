@@ -42,7 +42,7 @@ class CSIStorageCapacityService
      *   timeoutSeconds
      *   watch
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-csistoragecapacity-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-csistoragecapacity-v1-storage-k8s-io
      */
     public function listStorageV1ForAllNamespaces(array $query = [], callable|object|null $handler = null): CSIStorageCapacityList|null
     {
@@ -80,7 +80,7 @@ class CSIStorageCapacityService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-csistoragecapacity-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-csistoragecapacity-v1-storage-k8s-io
      */
     public function listStorageV1Namespaced(array $query = [], callable|object|null $handler = null): CSIStorageCapacityList|null
     {
@@ -120,7 +120,7 @@ class CSIStorageCapacityService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-csistoragecapacity-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-csistoragecapacity-v1-storage-k8s-io
      */
     public function deleteStorageV1CollectionNamespaced(array $query = []): Status
     {
@@ -150,7 +150,7 @@ class CSIStorageCapacityService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-csistoragecapacity-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-csistoragecapacity-v1-storage-k8s-io
      */
     public function createStorageV1Namespaced(
         CSIStorageCapacity $cSIStorageCapacity,
@@ -180,7 +180,7 @@ class CSIStorageCapacityService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-csistoragecapacity-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-csistoragecapacity-v1-storage-k8s-io
      */
     public function readStorageV1Namespaced(string $name, array $query = []): CSIStorageCapacity
     {
@@ -211,13 +211,12 @@ class CSIStorageCapacityService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-csistoragecapacity-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-csistoragecapacity-v1-storage-k8s-io
      */
-    public function deleteStorageV1Namespaced(string $name, array $query = []): Status
+    public function deleteStorageV1Namespaced(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities/{name}',
             ['{name}' => $name],
@@ -242,7 +241,7 @@ class CSIStorageCapacityService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-csistoragecapacity-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-csistoragecapacity-v1-storage-k8s-io
      */
     public function patchStorageV1Namespaced(
         string $name,
@@ -276,7 +275,7 @@ class CSIStorageCapacityService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-csistoragecapacity-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-csistoragecapacity-v1-storage-k8s-io
      */
     public function replaceStorageV1Namespaced(
         string $name,
@@ -320,7 +319,7 @@ class CSIStorageCapacityService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-csistoragecapacity-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-csistoragecapacity-v1-storage-k8s-io
      */
     public function watchStorageV1ListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
@@ -361,7 +360,7 @@ class CSIStorageCapacityService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-csistoragecapacity-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-csistoragecapacity-v1-storage-k8s-io
      */
     public function watchStorageV1NamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -402,7 +401,7 @@ class CSIStorageCapacityService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-csistoragecapacity-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-csistoragecapacity-v1-storage-k8s-io
      */
     public function watchStorageV1Namespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {

@@ -32,11 +32,7 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Kind('Endpoints', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/api/v1/namespaces/{namespace}/endpoints/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/api/v1/namespaces/{namespace}/endpoints', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/api/v1/namespaces/{namespace}/endpoints/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{namespace}/endpoints/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/api/v1/namespaces/{namespace}/endpoints',

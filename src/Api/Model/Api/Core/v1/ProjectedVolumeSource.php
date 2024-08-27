@@ -56,7 +56,7 @@ class ProjectedVolumeSource
     }
 
     /**
-     * sources is the list of volume projections
+     * sources is the list of volume projections. Each entry in this list handles one source.
      *
      * @return iterable|VolumeProjection[]
      */
@@ -66,7 +66,7 @@ class ProjectedVolumeSource
     }
 
     /**
-     * sources is the list of volume projections
+     * sources is the list of volume projections. Each entry in this list handles one source.
      *
      * @return static
      */

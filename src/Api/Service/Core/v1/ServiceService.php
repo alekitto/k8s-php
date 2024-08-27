@@ -42,7 +42,7 @@ class ServiceService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-service-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-service-v1-core
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): ServiceList|null
     {
@@ -82,7 +82,7 @@ class ServiceService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-service-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-service-v1-core
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class ServiceService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-service-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-service-v1-core
      */
     public function createNamespaced(Service $service, array $query = []): Service
     {
@@ -140,7 +140,7 @@ class ServiceService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-service-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-service-v1-core
      */
     public function readNamespaced(string $name, array $query = []): Service
     {
@@ -171,13 +171,12 @@ class ServiceService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-service-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-service-v1-core
      */
-    public function deleteNamespaced(string $name, array $query = []): Service
+    public function deleteNamespaced(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Service::class;
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/services/{name}',
             ['{name}' => $name],
@@ -202,7 +201,7 @@ class ServiceService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-service-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-service-v1-core
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): Service
     {
@@ -233,7 +232,7 @@ class ServiceService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-service-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-service-v1-core
      */
     public function replaceNamespaced(string $name, Service $service, array $query = []): Service
     {
@@ -261,7 +260,7 @@ class ServiceService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-service-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-service-v1-core
      */
     public function readNamespacedStatus(string $name, array $query = []): Service
     {
@@ -292,7 +291,7 @@ class ServiceService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-service-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-service-v1-core
      */
     public function patchNamespacedStatus(string $name, PatchInterface $patch, array $query = []): Service
     {
@@ -323,7 +322,7 @@ class ServiceService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-service-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-service-v1-core
      */
     public function replaceNamespacedStatus(string $name, Service $service, array $query = []): Service
     {
@@ -361,7 +360,7 @@ class ServiceService
      *   timeoutSeconds
      *   watch
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-service-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-service-v1-core
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): ServiceList|null
     {
@@ -402,7 +401,7 @@ class ServiceService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-service-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-service-v1-core
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -443,7 +442,7 @@ class ServiceService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-service-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-service-v1-core
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -484,7 +483,7 @@ class ServiceService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-service-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-service-v1-core
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

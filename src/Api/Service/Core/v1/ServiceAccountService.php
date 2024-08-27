@@ -42,7 +42,7 @@ class ServiceAccountService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-serviceaccount-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-serviceaccount-v1-core
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): ServiceAccountList|null
     {
@@ -82,7 +82,7 @@ class ServiceAccountService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-serviceaccount-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-serviceaccount-v1-core
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class ServiceAccountService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-serviceaccount-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-serviceaccount-v1-core
      */
     public function createNamespaced(ServiceAccount $serviceAccount, array $query = []): ServiceAccount
     {
@@ -140,7 +140,7 @@ class ServiceAccountService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-serviceaccount-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-serviceaccount-v1-core
      */
     public function readNamespaced(string $name, array $query = []): ServiceAccount
     {
@@ -171,13 +171,12 @@ class ServiceAccountService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-serviceaccount-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-serviceaccount-v1-core
      */
-    public function deleteNamespaced(string $name, array $query = []): ServiceAccount
+    public function deleteNamespaced(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = ServiceAccount::class;
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/serviceaccounts/{name}',
             ['{name}' => $name],
@@ -202,7 +201,7 @@ class ServiceAccountService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-serviceaccount-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-serviceaccount-v1-core
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): ServiceAccount
     {
@@ -233,7 +232,7 @@ class ServiceAccountService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-serviceaccount-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-serviceaccount-v1-core
      */
     public function replaceNamespaced(string $name, ServiceAccount $serviceAccount, array $query = []): ServiceAccount
     {
@@ -271,7 +270,7 @@ class ServiceAccountService
      *   timeoutSeconds
      *   watch
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-serviceaccount-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-serviceaccount-v1-core
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): ServiceAccountList|null
     {
@@ -312,7 +311,7 @@ class ServiceAccountService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-serviceaccount-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-serviceaccount-v1-core
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -353,7 +352,7 @@ class ServiceAccountService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-serviceaccount-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-serviceaccount-v1-core
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -394,7 +393,7 @@ class ServiceAccountService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-serviceaccount-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-serviceaccount-v1-core
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

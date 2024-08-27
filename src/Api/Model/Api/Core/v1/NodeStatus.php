@@ -35,6 +35,9 @@ class NodeStatus
     #[Kubernetes\Attribute('daemonEndpoints', type: AttributeType::Model, model: NodeDaemonEndpoints::class)]
     protected NodeDaemonEndpoints|null $daemonEndpoints = null;
 
+    #[Kubernetes\Attribute('features', type: AttributeType::Model, model: NodeFeatures::class)]
+    protected NodeFeatures|null $features = null;
+
     /** @var iterable|ContainerImage[]|null */
     #[Kubernetes\Attribute('images', type: AttributeType::Collection, model: ContainerImage::class)]
     protected $images = null;
@@ -127,7 +130,7 @@ class NodeStatus
 
     /**
      * Capacity represents the total resources of a node. More info:
-     * https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
+     * https://kubernetes.io/docs/reference/node/node-status/#capacity
      */
     public function getCapacity(): array|null
     {
@@ -136,7 +139,7 @@ class NodeStatus
 
     /**
      * Capacity represents the total resources of a node. More info:
-     * https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
+     * https://kubernetes.io/docs/reference/node/node-status/#capacity
      *
      * @return static
      */
@@ -219,6 +222,26 @@ class NodeStatus
     public function setDaemonEndpoints(NodeDaemonEndpoints $daemonEndpoints): static
     {
         $this->daemonEndpoints = $daemonEndpoints;
+
+        return $this;
+    }
+
+    /**
+     * Features describes the set of features implemented by the CRI implementation.
+     */
+    public function getFeatures(): NodeFeatures|null
+    {
+        return $this->features;
+    }
+
+    /**
+     * Features describes the set of features implemented by the CRI implementation.
+     *
+     * @return static
+     */
+    public function setFeatures(NodeFeatures $features): static
+    {
+        $this->features = $features;
 
         return $this;
     }

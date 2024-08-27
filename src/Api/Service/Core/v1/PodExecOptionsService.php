@@ -32,7 +32,7 @@ class PodExecOptionsService
      *   stdout
      *   tty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podexecoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-podexecoptions-v1-core
      */
     public function connectGetNamespacedPodExec(string $name, callable|object $handler, array $query = []): void
     {
@@ -64,7 +64,7 @@ class PodExecOptionsService
      *   stdout
      *   tty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podexecoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-podexecoptions-v1-core
      */
     public function connectPostNamespacedPodExec(string $name, callable|object $handler, array $query = []): void
     {

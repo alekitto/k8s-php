@@ -25,7 +25,7 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Kind('StorageClass', group: 'storage.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/storage.k8s.io/v1/storageclasses/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/storage.k8s.io/v1/storageclasses', body: 'model', response: 'self')]
-#[Kubernetes\Operation('delete', path: '/apis/storage.k8s.io/v1/storageclasses/{name}', response: 'self')]
+#[Kubernetes\Operation('delete', path: '/apis/storage.k8s.io/v1/storageclasses/{name}')]
 #[Kubernetes\Operation('put', path: '/apis/storage.k8s.io/v1/storageclasses/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',

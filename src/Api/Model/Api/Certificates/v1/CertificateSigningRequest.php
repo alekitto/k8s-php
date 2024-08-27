@@ -31,11 +31,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/certificates.k8s.io/v1/certificatesigningrequests', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}')]
 #[Kubernetes\Operation('put', path: '/apis/certificates.k8s.io/v1/certificatesigningrequests/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'put-status',

@@ -23,7 +23,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/apis/storage.k8s.io/v1/volumeattachments/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/apis/storage.k8s.io/v1/volumeattachments/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/storage.k8s.io/v1/volumeattachments', body: 'model', response: 'self')]
-#[Kubernetes\Operation('delete', path: '/apis/storage.k8s.io/v1/volumeattachments/{name}', response: 'self')]
+#[Kubernetes\Operation('delete', path: '/apis/storage.k8s.io/v1/volumeattachments/{name}')]
 #[Kubernetes\Operation('put', path: '/apis/storage.k8s.io/v1/volumeattachments/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation('put-status', path: '/apis/storage.k8s.io/v1/volumeattachments/{name}/status', body: 'model', response: 'self')]
 #[Kubernetes\Operation(

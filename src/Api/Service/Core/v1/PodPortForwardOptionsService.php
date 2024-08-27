@@ -27,7 +27,7 @@ class PodPortForwardOptionsService
      * Allowed query parameters:
      *   ports
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podportforwardoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-podportforwardoptions-v1-core
      */
     public function connectGetNamespacedPodPortforward(string $name, callable|object $handler, array $query = []): void
     {
@@ -54,7 +54,7 @@ class PodPortForwardOptionsService
      * Allowed query parameters:
      *   ports
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-podportforwardoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-podportforwardoptions-v1-core
      */
     public function connectPostNamespacedPodPortforward(string $name, callable|object $handler, array $query = []): void
     {

@@ -22,11 +22,7 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Kind('EndpointSlice', group: 'discovery.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/discovery.k8s.io/v1/namespaces/{namespace}/endpointslices',

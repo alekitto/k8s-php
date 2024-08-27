@@ -22,11 +22,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('IngressClass', group: 'networking.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/networking.k8s.io/v1/ingressclasses/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/networking.k8s.io/v1/ingressclasses', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/networking.k8s.io/v1/ingressclasses/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/networking.k8s.io/v1/ingressclasses/{name}')]
 #[Kubernetes\Operation('put', path: '/apis/networking.k8s.io/v1/ingressclasses/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',

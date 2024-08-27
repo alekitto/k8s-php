@@ -21,7 +21,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/api/v1/namespaces/{namespace}/persistentvolumeclaims', body: 'model', response: 'self')]
-#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}', response: 'self')]
+#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/api/v1/namespaces/{namespace}/persistentvolumeclaims',
@@ -621,8 +621,8 @@ class PersistentVolumeClaim
      * by the persistentvolume controller if it exists. If the resource referred to by
      * volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as
      * reflected by the modifyVolumeStatus field, until such as a resource exists. More info:
-     * https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Alpha) Using this field
-     * requires the VolumeAttributesClass feature gate to be enabled.
+     * https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Beta) Using this field
+     * requires the VolumeAttributesClass feature gate to be enabled (off by default).
      */
     public function getVolumeAttributesClassName(): string|null
     {
@@ -639,8 +639,8 @@ class PersistentVolumeClaim
      * by the persistentvolume controller if it exists. If the resource referred to by
      * volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as
      * reflected by the modifyVolumeStatus field, until such as a resource exists. More info:
-     * https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Alpha) Using this field
-     * requires the VolumeAttributesClass feature gate to be enabled.
+     * https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Beta) Using this field
+     * requires the VolumeAttributesClass feature gate to be enabled (off by default).
      *
      * @return static
      */

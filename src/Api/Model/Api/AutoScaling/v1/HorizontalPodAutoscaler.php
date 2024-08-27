@@ -24,11 +24,7 @@ use Kcs\K8s\Attribute\AttributeType;
     response: 'self',
 )]
 #[Kubernetes\Operation('post', path: '/apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/autoscaling/v1/namespaces/{namespace}/horizontalpodautoscalers',

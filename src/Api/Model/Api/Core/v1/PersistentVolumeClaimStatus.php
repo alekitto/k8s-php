@@ -274,8 +274,8 @@ class PersistentVolumeClaimStatus
 
     /**
      * currentVolumeAttributesClassName is the current name of the VolumeAttributesClass the PVC is using.
-     * When unset, there is no VolumeAttributeClass applied to this PersistentVolumeClaim This is an alpha
-     * field and requires enabling VolumeAttributesClass feature.
+     * When unset, there is no VolumeAttributeClass applied to this PersistentVolumeClaim This is a beta
+     * field and requires enabling VolumeAttributesClass feature (off by default).
      */
     public function getCurrentVolumeAttributesClassName(): string|null
     {
@@ -284,8 +284,8 @@ class PersistentVolumeClaimStatus
 
     /**
      * currentVolumeAttributesClassName is the current name of the VolumeAttributesClass the PVC is using.
-     * When unset, there is no VolumeAttributeClass applied to this PersistentVolumeClaim This is an alpha
-     * field and requires enabling VolumeAttributesClass feature.
+     * When unset, there is no VolumeAttributeClass applied to this PersistentVolumeClaim This is a beta
+     * field and requires enabling VolumeAttributesClass feature (off by default).
      *
      * @return static
      */
@@ -298,8 +298,8 @@ class PersistentVolumeClaimStatus
 
     /**
      * ModifyVolumeStatus represents the status object of ControllerModifyVolume operation. When this is
-     * unset, there is no ModifyVolume operation being attempted. This is an alpha field and requires
-     * enabling VolumeAttributesClass feature.
+     * unset, there is no ModifyVolume operation being attempted. This is a beta field and requires
+     * enabling VolumeAttributesClass feature (off by default).
      */
     public function getModifyVolumeStatus(): ModifyVolumeStatus|null
     {
@@ -308,8 +308,8 @@ class PersistentVolumeClaimStatus
 
     /**
      * ModifyVolumeStatus represents the status object of ControllerModifyVolume operation. When this is
-     * unset, there is no ModifyVolume operation being attempted. This is an alpha field and requires
-     * enabling VolumeAttributesClass feature.
+     * unset, there is no ModifyVolume operation being attempted. This is a beta field and requires
+     * enabling VolumeAttributesClass feature (off by default).
      *
      * @return static
      */

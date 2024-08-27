@@ -25,9 +25,9 @@ class ValidatingAdmissionPolicyList implements IteratorAggregate
     #[Kubernetes\Attribute('apiVersion')]
     protected string|null $apiVersion = 'admissionregistration.k8s.io/v1';
 
-    /** @var iterable|ValidatingAdmissionPolicy[]|null */
-    #[Kubernetes\Attribute('items', type: AttributeType::Collection, model: ValidatingAdmissionPolicy::class)]
-    protected $items = null;
+    /** @var iterable|ValidatingAdmissionPolicy[] */
+    #[Kubernetes\Attribute('items', type: AttributeType::Collection, model: ValidatingAdmissionPolicy::class, required: true)]
+    protected iterable $items;
 
     #[Kubernetes\Attribute('kind')]
     protected string|null $kind = 'ValidatingAdmissionPolicyList';
@@ -35,8 +35,10 @@ class ValidatingAdmissionPolicyList implements IteratorAggregate
     #[Kubernetes\Attribute('metadata', type: AttributeType::Model, model: ListMeta::class)]
     protected ListMeta|null $metadata = null;
 
-    public function __construct()
+    /** @param iterable|ValidatingAdmissionPolicy[] $items */
+    public function __construct(iterable $items)
     {
+        $this->items = new Collection($items);
     }
 
     /**
@@ -122,7 +124,7 @@ class ValidatingAdmissionPolicyList implements IteratorAggregate
      *
      * @return iterable|ValidatingAdmissionPolicy[]
      */
-    public function getItems(): iterable|null
+    public function getItems(): iterable
     {
         return $this->items;
     }

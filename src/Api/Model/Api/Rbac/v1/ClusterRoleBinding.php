@@ -21,11 +21,7 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Kind('ClusterRoleBinding', group: 'rbac.authorization.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/rbac.authorization.k8s.io/v1/clusterrolebindings/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/rbac.authorization.k8s.io/v1/clusterrolebindings', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/rbac.authorization.k8s.io/v1/clusterrolebindings/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/rbac.authorization.k8s.io/v1/clusterrolebindings/{name}')]
 #[Kubernetes\Operation('put', path: '/apis/rbac.authorization.k8s.io/v1/clusterrolebindings/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',

@@ -35,11 +35,7 @@ use Kcs\K8s\Attribute\AttributeType;
     body: 'model',
     response: 'self',
 )]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicybindings/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicybindings/{name}')]
 #[Kubernetes\Operation(
     'put',
     path: '/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicybindings/{name}',
@@ -601,15 +597,9 @@ class ValidatingAdmissionPolicyBinding
      * Clients should expect to handle additional values by ignoring any values not recognized.
      *
      * "Deny" and "Warn" may not be used together since this combination needlessly duplicates the
-     *                                                        * * * * * * * * * * * validation failure both in the API response body and the HTTP warning headers.
+     * validation failure both in the API response body and the HTTP warning headers.
      *
-     *                                                        * * * * * * * * * * * Required.
-     *
-
-     *
-
-     *
-     * @return static
+     * Required.
      */
     public function setValidationActions(array $validationActions): static
     {

@@ -46,7 +46,7 @@ class PersistentVolumeService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-persistentvolume-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-persistentvolume-v1-core
      */
     public function list(array $query = [], callable|object|null $handler = null): PersistentVolumeList|null
     {
@@ -86,7 +86,7 @@ class PersistentVolumeService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-persistentvolume-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-persistentvolume-v1-core
      */
     public function deleteCollection(array $query = []): Status
     {
@@ -116,7 +116,7 @@ class PersistentVolumeService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-persistentvolume-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-persistentvolume-v1-core
      */
     public function create(PersistentVolume $persistentVolume, array $query = []): PersistentVolume
     {
@@ -144,7 +144,7 @@ class PersistentVolumeService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-persistentvolume-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-persistentvolume-v1-core
      */
     public function read(string $name, array $query = []): PersistentVolume
     {
@@ -175,13 +175,12 @@ class PersistentVolumeService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-persistentvolume-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-persistentvolume-v1-core
      */
-    public function delete(string $name, array $query = []): PersistentVolume
+    public function delete(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = PersistentVolume::class;
         $uri = $this->api->buildUri(
             '/api/v1/persistentvolumes/{name}',
             ['{name}' => $name],
@@ -206,7 +205,7 @@ class PersistentVolumeService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-persistentvolume-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-persistentvolume-v1-core
      */
     public function patch(string $name, PatchInterface $patch, array $query = []): PersistentVolume
     {
@@ -237,7 +236,7 @@ class PersistentVolumeService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-persistentvolume-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-persistentvolume-v1-core
      */
     public function replace(string $name, PersistentVolume $persistentVolume, array $query = []): PersistentVolume
     {
@@ -265,7 +264,7 @@ class PersistentVolumeService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-persistentvolume-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-persistentvolume-v1-core
      */
     public function readStatus(string $name, array $query = []): PersistentVolume
     {
@@ -296,7 +295,7 @@ class PersistentVolumeService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-persistentvolume-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-persistentvolume-v1-core
      */
     public function patchStatus(string $name, PatchInterface $patch, array $query = []): PersistentVolume
     {
@@ -327,7 +326,7 @@ class PersistentVolumeService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-persistentvolume-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-persistentvolume-v1-core
      */
     public function replaceStatus(
         string $name,
@@ -371,7 +370,7 @@ class PersistentVolumeService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-persistentvolume-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-persistentvolume-v1-core
      */
     public function watchList(array $query = [], callable|object|null $handler = null): void
     {
@@ -412,7 +411,7 @@ class PersistentVolumeService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-persistentvolume-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-persistentvolume-v1-core
      */
     public function watch(string $name, array $query = [], callable|object|null $handler = null): void
     {

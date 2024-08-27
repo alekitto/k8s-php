@@ -17,6 +17,10 @@ class ContainerStatus
     #[Kubernetes\Attribute('allocatedResources')]
     protected array|null $allocatedResources = null;
 
+    /** @var iterable|ResourceStatus[]|null */
+    #[Kubernetes\Attribute('allocatedResourcesStatus', type: AttributeType::Collection, model: ResourceStatus::class)]
+    protected $allocatedResourcesStatus = null;
+
     #[Kubernetes\Attribute('containerID')]
     protected string|null $containerID = null;
 
@@ -46,6 +50,9 @@ class ContainerStatus
 
     #[Kubernetes\Attribute('state', type: AttributeType::Model, model: ContainerState::class)]
     protected ContainerState|null $state = null;
+
+    #[Kubernetes\Attribute('user', type: AttributeType::Model, model: ContainerUser::class)]
+    protected ContainerUser|null $user = null;
 
     /** @var iterable|VolumeMountStatus[]|null */
     #[Kubernetes\Attribute('volumeMounts', type: AttributeType::Collection, model: VolumeMountStatus::class)]
@@ -80,6 +87,40 @@ class ContainerStatus
     public function setAllocatedResources(array $allocatedResources): static
     {
         $this->allocatedResources = $allocatedResources;
+
+        return $this;
+    }
+
+    /**
+     * AllocatedResourcesStatus represents the status of various resources allocated for this Pod.
+     *
+     * @return iterable|ResourceStatus[]
+     */
+    public function getAllocatedResourcesStatus(): iterable|null
+    {
+        return $this->allocatedResourcesStatus;
+    }
+
+    /**
+     * AllocatedResourcesStatus represents the status of various resources allocated for this Pod.
+     *
+     * @return static
+     */
+    public function setAllocatedResourcesStatus(iterable $allocatedResourcesStatus): static
+    {
+        $this->allocatedResourcesStatus = $allocatedResourcesStatus;
+
+        return $this;
+    }
+
+    /** @return static */
+    public function addAllocatedResourcesStatus(ResourceStatus $allocatedResourcesStatu): static
+    {
+        if (! $this->allocatedResourcesStatus) {
+            $this->allocatedResourcesStatus = new Collection();
+        }
+
+        $this->allocatedResourcesStatus[] = $allocatedResourcesStatu;
 
         return $this;
     }
@@ -318,6 +359,26 @@ class ContainerStatus
     public function setState(ContainerState $state): static
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * User represents user identity information initially attached to the first process of the container
+     */
+    public function getUser(): ContainerUser|null
+    {
+        return $this->user;
+    }
+
+    /**
+     * User represents user identity information initially attached to the first process of the container
+     *
+     * @return static
+     */
+    public function setUser(ContainerUser $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

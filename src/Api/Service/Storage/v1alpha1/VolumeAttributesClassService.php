@@ -42,7 +42,7 @@ class VolumeAttributesClassService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-volumeattributesclass-v1alpha1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-volumeattributesclass-v1alpha1-storage-k8s-io
      */
     public function listStorageV1alpha1(array $query = [], callable|object|null $handler = null): VolumeAttributesClassList|null
     {
@@ -82,7 +82,7 @@ class VolumeAttributesClassService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-volumeattributesclass-v1alpha1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-volumeattributesclass-v1alpha1-storage-k8s-io
      */
     public function deleteStorageV1alpha1Collection(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class VolumeAttributesClassService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-volumeattributesclass-v1alpha1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-volumeattributesclass-v1alpha1-storage-k8s-io
      */
     public function createStorageV1alpha1(
         VolumeAttributesClass $volumeAttributesClass,
@@ -142,7 +142,7 @@ class VolumeAttributesClassService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-volumeattributesclass-v1alpha1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-volumeattributesclass-v1alpha1-storage-k8s-io
      */
     public function readStorageV1alpha1(string $name, array $query = []): VolumeAttributesClass
     {
@@ -173,13 +173,12 @@ class VolumeAttributesClassService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-volumeattributesclass-v1alpha1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-volumeattributesclass-v1alpha1-storage-k8s-io
      */
-    public function deleteStorageV1alpha1(string $name, array $query = []): VolumeAttributesClass
+    public function deleteStorageV1alpha1(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = VolumeAttributesClass::class;
         $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1alpha1/volumeattributesclasses/{name}',
             ['{name}' => $name],
@@ -204,7 +203,7 @@ class VolumeAttributesClassService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-volumeattributesclass-v1alpha1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-volumeattributesclass-v1alpha1-storage-k8s-io
      */
     public function patchStorageV1alpha1(
         string $name,
@@ -238,7 +237,7 @@ class VolumeAttributesClassService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-volumeattributesclass-v1alpha1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-volumeattributesclass-v1alpha1-storage-k8s-io
      */
     public function replaceStorageV1alpha1(
         string $name,
@@ -282,7 +281,7 @@ class VolumeAttributesClassService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-volumeattributesclass-v1alpha1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-volumeattributesclass-v1alpha1-storage-k8s-io
      */
     public function watchStorageV1alpha1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -323,7 +322,7 @@ class VolumeAttributesClassService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-volumeattributesclass-v1alpha1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-volumeattributesclass-v1alpha1-storage-k8s-io
      */
     public function watchStorageV1alpha1(string $name, array $query = [], callable|object|null $handler = null): void
     {

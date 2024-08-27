@@ -22,11 +22,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/policy/v1/namespaces/{namespace}/poddisruptionbudgets',

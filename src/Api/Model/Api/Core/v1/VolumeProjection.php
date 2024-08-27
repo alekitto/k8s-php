@@ -8,7 +8,8 @@ use Kcs\K8s\Attribute as Kubernetes;
 use Kcs\K8s\Attribute\AttributeType;
 
 /**
- * Projection that may be projected along with other supported volume types
+ * Projection that may be projected along with other supported volume types. Exactly one of these
+ * fields must be set.
  */
 class VolumeProjection
 {

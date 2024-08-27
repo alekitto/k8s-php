@@ -25,11 +25,7 @@ use Kcs\K8s\Attribute\AttributeType;
     response: 'self',
 )]
 #[Kubernetes\Operation('post', path: '/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies/{name}')]
 #[Kubernetes\Operation(
     'put',
     path: '/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies/{name}',

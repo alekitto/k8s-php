@@ -42,7 +42,7 @@ class StorageVersionService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-storageversion-v1alpha1-internal-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-storageversion-v1alpha1-internal-apiserver-k8s-io
      */
     public function listInternalApiServerV1alpha1(array $query = [], callable|object|null $handler = null): StorageVersionList|null
     {
@@ -82,7 +82,7 @@ class StorageVersionService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-storageversion-v1alpha1-internal-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-storageversion-v1alpha1-internal-apiserver-k8s-io
      */
     public function deleteInternalApiServerV1alpha1Collection(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class StorageVersionService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-storageversion-v1alpha1-internal-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-storageversion-v1alpha1-internal-apiserver-k8s-io
      */
     public function createInternalApiServerV1alpha1(StorageVersion $storageVersion, array $query = []): StorageVersion
     {
@@ -140,7 +140,7 @@ class StorageVersionService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-storageversion-v1alpha1-internal-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-storageversion-v1alpha1-internal-apiserver-k8s-io
      */
     public function readInternalApiServerV1alpha1(string $name, array $query = []): StorageVersion
     {
@@ -171,13 +171,12 @@ class StorageVersionService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-storageversion-v1alpha1-internal-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-storageversion-v1alpha1-internal-apiserver-k8s-io
      */
-    public function deleteInternalApiServerV1alpha1(string $name, array $query = []): Status
+    public function deleteInternalApiServerV1alpha1(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions/{name}',
             ['{name}' => $name],
@@ -202,7 +201,7 @@ class StorageVersionService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-storageversion-v1alpha1-internal-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-storageversion-v1alpha1-internal-apiserver-k8s-io
      */
     public function patchInternalApiServerV1alpha1(
         string $name,
@@ -236,7 +235,7 @@ class StorageVersionService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-storageversion-v1alpha1-internal-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-storageversion-v1alpha1-internal-apiserver-k8s-io
      */
     public function replaceInternalApiServerV1alpha1(
         string $name,
@@ -267,7 +266,7 @@ class StorageVersionService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-storageversion-v1alpha1-internal-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-storageversion-v1alpha1-internal-apiserver-k8s-io
      */
     public function readInternalApiServerV1alpha1Status(string $name, array $query = []): StorageVersion
     {
@@ -298,7 +297,7 @@ class StorageVersionService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-storageversion-v1alpha1-internal-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-storageversion-v1alpha1-internal-apiserver-k8s-io
      */
     public function patchInternalApiServerV1alpha1Status(
         string $name,
@@ -332,7 +331,7 @@ class StorageVersionService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-storageversion-v1alpha1-internal-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-storageversion-v1alpha1-internal-apiserver-k8s-io
      */
     public function replaceInternalApiServerV1alpha1Status(
         string $name,
@@ -376,7 +375,7 @@ class StorageVersionService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-storageversion-v1alpha1-internal-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-storageversion-v1alpha1-internal-apiserver-k8s-io
      */
     public function watchInternalApiServerV1alpha1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -417,7 +416,7 @@ class StorageVersionService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-storageversion-v1alpha1-internal-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-storageversion-v1alpha1-internal-apiserver-k8s-io
      */
     public function watchInternalApiServerV1alpha1(string $name, array $query = [], callable|object|null $handler = null): void
     {

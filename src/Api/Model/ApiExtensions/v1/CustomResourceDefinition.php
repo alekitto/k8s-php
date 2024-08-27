@@ -21,11 +21,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/apis/apiextensions.k8s.io/v1/customresourcedefinitions/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/apis/apiextensions.k8s.io/v1/customresourcedefinitions/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/apiextensions.k8s.io/v1/customresourcedefinitions', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/apiextensions.k8s.io/v1/customresourcedefinitions/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/apiextensions.k8s.io/v1/customresourcedefinitions/{name}')]
 #[Kubernetes\Operation('put', path: '/apis/apiextensions.k8s.io/v1/customresourcedefinitions/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'put-status',

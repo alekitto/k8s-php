@@ -42,7 +42,7 @@ class MutatingWebhookConfigurationService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function listAdmissionRegistrationV1(array $query = [], callable|object|null $handler = null): MutatingWebhookConfigurationList|null
     {
@@ -82,7 +82,7 @@ class MutatingWebhookConfigurationService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function deleteAdmissionRegistrationV1Collection(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class MutatingWebhookConfigurationService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function createAdmissionRegistrationV1(
         MutatingWebhookConfiguration $mutatingWebhookConfiguration,
@@ -142,7 +142,7 @@ class MutatingWebhookConfigurationService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function readAdmissionRegistrationV1(string $name, array $query = []): MutatingWebhookConfiguration
     {
@@ -173,13 +173,12 @@ class MutatingWebhookConfigurationService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
-    public function deleteAdmissionRegistrationV1(string $name, array $query = []): Status
+    public function deleteAdmissionRegistrationV1(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations/{name}',
             ['{name}' => $name],
@@ -204,7 +203,7 @@ class MutatingWebhookConfigurationService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function patchAdmissionRegistrationV1(
         string $name,
@@ -238,7 +237,7 @@ class MutatingWebhookConfigurationService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function replaceAdmissionRegistrationV1(
         string $name,
@@ -282,7 +281,7 @@ class MutatingWebhookConfigurationService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function watchAdmissionRegistrationV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -324,7 +323,7 @@ class MutatingWebhookConfigurationService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-mutatingwebhookconfiguration-v1-admissionregistration-k8s-io
      */
     public function watchAdmissionRegistrationV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

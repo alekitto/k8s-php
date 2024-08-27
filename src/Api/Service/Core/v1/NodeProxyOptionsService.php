@@ -27,7 +27,7 @@ class NodeProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-nodeproxyoptions-v1-core
      */
     public function connectGetNodeProxy(string $name, array $query = []): string
     {
@@ -53,7 +53,7 @@ class NodeProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-nodeproxyoptions-v1-core
      */
     public function connectDeleteNodeProxy(string $name, array $query = []): string
     {
@@ -79,7 +79,7 @@ class NodeProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-nodeproxyoptions-v1-core
      */
     public function connectPostNodeProxy(string $name, array $query = []): string
     {
@@ -105,7 +105,7 @@ class NodeProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-nodeproxyoptions-v1-core
      */
     public function connectPatchNodeProxy(string $name, array $query = []): string
     {
@@ -131,7 +131,7 @@ class NodeProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-nodeproxyoptions-v1-core
      */
     public function connectPutNodeProxy(string $name, array $query = []): string
     {
@@ -157,7 +157,7 @@ class NodeProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-nodeproxyoptions-v1-core
      */
     public function connectOptionsNodeProxy(string $name, array $query = []): string
     {
@@ -183,7 +183,7 @@ class NodeProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-nodeproxyoptions-v1-core
      */
     public function connectHeadNodeProxy(string $name, array $query = []): string
     {
@@ -209,7 +209,7 @@ class NodeProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-nodeproxyoptions-v1-core
      */
     public function connectGetNodeProxyWithPath(string $name, string $path, array $query = []): string
     {
@@ -235,7 +235,7 @@ class NodeProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-nodeproxyoptions-v1-core
      */
     public function connectDeleteNodeProxyWithPath(string $name, string $path, array $query = []): string
     {
@@ -261,7 +261,7 @@ class NodeProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-nodeproxyoptions-v1-core
      */
     public function connectPostNodeProxyWithPath(string $name, string $path, array $query = []): string
     {
@@ -287,7 +287,7 @@ class NodeProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-nodeproxyoptions-v1-core
      */
     public function connectPatchNodeProxyWithPath(string $name, string $path, array $query = []): string
     {
@@ -313,7 +313,7 @@ class NodeProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-nodeproxyoptions-v1-core
      */
     public function connectPutNodeProxyWithPath(string $name, string $path, array $query = []): string
     {
@@ -339,7 +339,7 @@ class NodeProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-nodeproxyoptions-v1-core
      */
     public function connectOptionsNodeProxyWithPath(string $name, string $path, array $query = []): string
     {
@@ -365,7 +365,7 @@ class NodeProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-nodeproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-nodeproxyoptions-v1-core
      */
     public function connectHeadNodeProxyWithPath(string $name, string $path, array $query = []): string
     {

@@ -21,11 +21,7 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Kind('Role', group: 'rbac.authorization.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles',

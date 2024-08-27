@@ -36,6 +36,7 @@ use Kcs\K8s\Api\Service\Batch\v1\JobService;
 use Kcs\K8s\Api\Service\Certificates\v1\CertificateSigningRequestService;
 use Kcs\K8s\Api\Service\Certificates\v1alpha1\ClusterTrustBundleService;
 use Kcs\K8s\Api\Service\Coordination\v1\LeaseService;
+use Kcs\K8s\Api\Service\Coordination\v1alpha1\LeaseCandidateService;
 use Kcs\K8s\Api\Service\Core\v1\BindingService;
 use Kcs\K8s\Api\Service\Core\v1\ComponentStatusService;
 use Kcs\K8s\Api\Service\Core\v1\ConfigMapService;
@@ -69,8 +70,8 @@ use Kcs\K8s\Api\Service\Internal\ApiServer\v1alpha1\StorageVersionService;
 use Kcs\K8s\Api\Service\Networking\v1\IngressClassService;
 use Kcs\K8s\Api\Service\Networking\v1\IngressService;
 use Kcs\K8s\Api\Service\Networking\v1\NetworkPolicyService;
-use Kcs\K8s\Api\Service\Networking\v1alpha1\IPAddressService;
-use Kcs\K8s\Api\Service\Networking\v1alpha1\ServiceCIDRService;
+use Kcs\K8s\Api\Service\Networking\v1beta1\IPAddressService;
+use Kcs\K8s\Api\Service\Networking\v1beta1\ServiceCIDRService;
 use Kcs\K8s\Api\Service\Node\v1\RuntimeClassService;
 use Kcs\K8s\Api\Service\Policy\v1\EvictionService;
 use Kcs\K8s\Api\Service\Policy\v1\PodDisruptionBudgetService;
@@ -78,13 +79,11 @@ use Kcs\K8s\Api\Service\Rbac\Authorization\v1\ClusterRoleBindingService;
 use Kcs\K8s\Api\Service\Rbac\Authorization\v1\ClusterRoleService;
 use Kcs\K8s\Api\Service\Rbac\Authorization\v1\RoleBindingService;
 use Kcs\K8s\Api\Service\Rbac\Authorization\v1\RoleService;
-use Kcs\K8s\Api\Service\Resource\v1alpha2\PodSchedulingContextService;
-use Kcs\K8s\Api\Service\Resource\v1alpha2\ResourceClaimParametersService;
-use Kcs\K8s\Api\Service\Resource\v1alpha2\ResourceClaimService;
-use Kcs\K8s\Api\Service\Resource\v1alpha2\ResourceClaimTemplateService;
-use Kcs\K8s\Api\Service\Resource\v1alpha2\ResourceClassParametersService;
-use Kcs\K8s\Api\Service\Resource\v1alpha2\ResourceClassService;
-use Kcs\K8s\Api\Service\Resource\v1alpha2\ResourceSliceService;
+use Kcs\K8s\Api\Service\Resource\v1alpha3\DeviceClassService;
+use Kcs\K8s\Api\Service\Resource\v1alpha3\PodSchedulingContextService;
+use Kcs\K8s\Api\Service\Resource\v1alpha3\ResourceClaimService;
+use Kcs\K8s\Api\Service\Resource\v1alpha3\ResourceClaimTemplateService;
+use Kcs\K8s\Api\Service\Resource\v1alpha3\ResourceSliceService;
 use Kcs\K8s\Api\Service\Scheduling\v1\PriorityClassService;
 use Kcs\K8s\Api\Service\Storage\v1\CSIDriverService;
 use Kcs\K8s\Api\Service\Storage\v1\CSINodeService;
@@ -92,6 +91,7 @@ use Kcs\K8s\Api\Service\Storage\v1\CSIStorageCapacityService;
 use Kcs\K8s\Api\Service\Storage\v1\StorageClassService;
 use Kcs\K8s\Api\Service\Storage\v1\VolumeAttachmentService;
 use Kcs\K8s\Api\Service\Storage\v1alpha1\VolumeAttributesClassService;
+use Kcs\K8s\Api\Service\Storage\v1beta1\VolumeAttributesClassService as VolumeAttributesClassService1;
 use Kcs\K8s\Api\Service\Storagemigration\v1alpha1\StorageVersionMigrationService;
 use Kcs\K8s\Contract\ApiInterface;
 
@@ -381,6 +381,11 @@ class ServiceFactory
         return new LeaseService($this->api);
     }
 
+    public function v1alpha1CoordinationLeaseCandidate(): LeaseCandidateService
+    {
+        return new LeaseCandidateService($this->api);
+    }
+
     public function v1DiscoveryEndpointSlice(): EndpointSliceService
     {
         return new EndpointSliceService($this->api);
@@ -431,12 +436,12 @@ class ServiceFactory
         return new NetworkPolicyService($this->api);
     }
 
-    public function v1alpha1NetworkingIPAddress(): IPAddressService
+    public function v1beta1NetworkingIPAddress(): IPAddressService
     {
         return new IPAddressService($this->api);
     }
 
-    public function v1alpha1NetworkingServiceCIDR(): ServiceCIDRService
+    public function v1beta1NetworkingServiceCIDR(): ServiceCIDRService
     {
         return new ServiceCIDRService($this->api);
     }
@@ -471,37 +476,27 @@ class ServiceFactory
         return new RoleService($this->api);
     }
 
-    public function v1alpha2ResourcePodSchedulingContext(): PodSchedulingContextService
+    public function v1alpha3ResourceDeviceClass(): DeviceClassService
+    {
+        return new DeviceClassService($this->api);
+    }
+
+    public function v1alpha3ResourcePodSchedulingContext(): PodSchedulingContextService
     {
         return new PodSchedulingContextService($this->api);
     }
 
-    public function v1alpha2ResourceResourceClaimParameters(): ResourceClaimParametersService
-    {
-        return new ResourceClaimParametersService($this->api);
-    }
-
-    public function v1alpha2ResourceResourceClaim(): ResourceClaimService
+    public function v1alpha3ResourceResourceClaim(): ResourceClaimService
     {
         return new ResourceClaimService($this->api);
     }
 
-    public function v1alpha2ResourceResourceClaimTemplate(): ResourceClaimTemplateService
+    public function v1alpha3ResourceResourceClaimTemplate(): ResourceClaimTemplateService
     {
         return new ResourceClaimTemplateService($this->api);
     }
 
-    public function v1alpha2ResourceResourceClassParameters(): ResourceClassParametersService
-    {
-        return new ResourceClassParametersService($this->api);
-    }
-
-    public function v1alpha2ResourceResourceClass(): ResourceClassService
-    {
-        return new ResourceClassService($this->api);
-    }
-
-    public function v1alpha2ResourceResourceSlice(): ResourceSliceService
+    public function v1alpha3ResourceResourceSlice(): ResourceSliceService
     {
         return new ResourceSliceService($this->api);
     }
@@ -539,6 +534,11 @@ class ServiceFactory
     public function v1alpha1StorageVolumeAttributesClass(): VolumeAttributesClassService
     {
         return new VolumeAttributesClassService($this->api);
+    }
+
+    public function v1beta1StorageVolumeAttributesClass(): VolumeAttributesClassService1
+    {
+        return new VolumeAttributesClassService1($this->api);
     }
 
     public function v1alpha1StoragemigrationStorageVersionMigration(): StorageVersionMigrationService

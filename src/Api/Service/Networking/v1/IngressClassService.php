@@ -42,7 +42,7 @@ class IngressClassService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-ingressclass-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-ingressclass-v1-networking-k8s-io
      */
     public function listNetworkingV1(array $query = [], callable|object|null $handler = null): IngressClassList|null
     {
@@ -82,7 +82,7 @@ class IngressClassService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-ingressclass-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-ingressclass-v1-networking-k8s-io
      */
     public function deleteNetworkingV1Collection(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class IngressClassService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-ingressclass-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-ingressclass-v1-networking-k8s-io
      */
     public function createNetworkingV1(IngressClass $ingressClass, array $query = []): IngressClass
     {
@@ -140,7 +140,7 @@ class IngressClassService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-ingressclass-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-ingressclass-v1-networking-k8s-io
      */
     public function readNetworkingV1(string $name, array $query = []): IngressClass
     {
@@ -171,13 +171,12 @@ class IngressClassService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-ingressclass-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-ingressclass-v1-networking-k8s-io
      */
-    public function deleteNetworkingV1(string $name, array $query = []): Status
+    public function deleteNetworkingV1(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/ingressclasses/{name}',
             ['{name}' => $name],
@@ -202,7 +201,7 @@ class IngressClassService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-ingressclass-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-ingressclass-v1-networking-k8s-io
      */
     public function patchNetworkingV1(string $name, PatchInterface $patch, array $query = []): IngressClass
     {
@@ -233,7 +232,7 @@ class IngressClassService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-ingressclass-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-ingressclass-v1-networking-k8s-io
      */
     public function replaceNetworkingV1(string $name, IngressClass $ingressClass, array $query = []): IngressClass
     {
@@ -274,7 +273,7 @@ class IngressClassService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-ingressclass-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-ingressclass-v1-networking-k8s-io
      */
     public function watchNetworkingV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -315,7 +314,7 @@ class IngressClassService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-ingressclass-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-ingressclass-v1-networking-k8s-io
      */
     public function watchNetworkingV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

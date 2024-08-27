@@ -27,7 +27,7 @@ class ServiceProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-serviceproxyoptions-v1-core
      */
     public function connectGetNamespacedServiceProxy(string $name, array $query = []): string
     {
@@ -53,7 +53,7 @@ class ServiceProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-serviceproxyoptions-v1-core
      */
     public function connectDeleteNamespacedServiceProxy(string $name, array $query = []): string
     {
@@ -79,7 +79,7 @@ class ServiceProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-serviceproxyoptions-v1-core
      */
     public function connectPostNamespacedServiceProxy(string $name, array $query = []): string
     {
@@ -105,7 +105,7 @@ class ServiceProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-serviceproxyoptions-v1-core
      */
     public function connectPatchNamespacedServiceProxy(string $name, array $query = []): string
     {
@@ -131,7 +131,7 @@ class ServiceProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-serviceproxyoptions-v1-core
      */
     public function connectPutNamespacedServiceProxy(string $name, array $query = []): string
     {
@@ -157,7 +157,7 @@ class ServiceProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-serviceproxyoptions-v1-core
      */
     public function connectOptionsNamespacedServiceProxy(string $name, array $query = []): string
     {
@@ -183,7 +183,7 @@ class ServiceProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-serviceproxyoptions-v1-core
      */
     public function connectHeadNamespacedServiceProxy(string $name, array $query = []): string
     {
@@ -209,7 +209,7 @@ class ServiceProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-serviceproxyoptions-v1-core
      */
     public function connectGetNamespacedServiceProxyWithPath(string $name, string $path, array $query = []): string
     {
@@ -235,7 +235,7 @@ class ServiceProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-serviceproxyoptions-v1-core
      */
     public function connectDeleteNamespacedServiceProxyWithPath(string $name, string $path, array $query = []): string
     {
@@ -261,7 +261,7 @@ class ServiceProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-serviceproxyoptions-v1-core
      */
     public function connectPostNamespacedServiceProxyWithPath(string $name, string $path, array $query = []): string
     {
@@ -287,7 +287,7 @@ class ServiceProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-serviceproxyoptions-v1-core
      */
     public function connectPatchNamespacedServiceProxyWithPath(string $name, string $path, array $query = []): string
     {
@@ -313,7 +313,7 @@ class ServiceProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-serviceproxyoptions-v1-core
      */
     public function connectPutNamespacedServiceProxyWithPath(string $name, string $path, array $query = []): string
     {
@@ -339,7 +339,7 @@ class ServiceProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-serviceproxyoptions-v1-core
      */
     public function connectOptionsNamespacedServiceProxyWithPath(
         string $name,
@@ -368,7 +368,7 @@ class ServiceProxyOptionsService
      * Allowed query parameters:
      *   path
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#connect-serviceproxyoptions-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#connect-serviceproxyoptions-v1-core
      */
     public function connectHeadNamespacedServiceProxyWithPath(string $name, string $path, array $query = []): string
     {

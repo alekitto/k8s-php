@@ -11,10 +11,10 @@ use Kcs\K8s\Attribute as Kubernetes;
  */
 class PodIP
 {
-    #[Kubernetes\Attribute('ip')]
-    protected string|null $ip = null;
+    #[Kubernetes\Attribute('ip', required: true)]
+    protected string $ip;
 
-    public function __construct(string|null $ip = null)
+    public function __construct(string $ip)
     {
         $this->ip = $ip;
     }
@@ -22,7 +22,7 @@ class PodIP
     /**
      * IP is the IP address assigned to the pod
      */
-    public function getIp(): string|null
+    public function getIp(): string
     {
         return $this->ip;
     }

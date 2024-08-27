@@ -24,7 +24,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('CSINode', group: 'storage.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/storage.k8s.io/v1/csinodes/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/storage.k8s.io/v1/csinodes', body: 'model', response: 'self')]
-#[Kubernetes\Operation('delete', path: '/apis/storage.k8s.io/v1/csinodes/{name}', response: 'self')]
+#[Kubernetes\Operation('delete', path: '/apis/storage.k8s.io/v1/csinodes/{name}')]
 #[Kubernetes\Operation('put', path: '/apis/storage.k8s.io/v1/csinodes/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',

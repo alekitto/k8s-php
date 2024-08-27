@@ -25,11 +25,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('Event', group: 'events.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/events.k8s.io/v1/namespaces/{namespace}/events/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/events.k8s.io/v1/namespaces/{namespace}/events', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/events.k8s.io/v1/namespaces/{namespace}/events/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/events.k8s.io/v1/namespaces/{namespace}/events/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/events.k8s.io/v1/namespaces/{namespace}/events',

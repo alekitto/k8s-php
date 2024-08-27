@@ -20,11 +20,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/apis/flowcontrol.apiserver.k8s.io/v1/prioritylevelconfigurations/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/apis/flowcontrol.apiserver.k8s.io/v1/prioritylevelconfigurations/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/flowcontrol.apiserver.k8s.io/v1/prioritylevelconfigurations', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/flowcontrol.apiserver.k8s.io/v1/prioritylevelconfigurations/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/flowcontrol.apiserver.k8s.io/v1/prioritylevelconfigurations/{name}')]
 #[Kubernetes\Operation('put', path: '/apis/flowcontrol.apiserver.k8s.io/v1/prioritylevelconfigurations/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'put-status',

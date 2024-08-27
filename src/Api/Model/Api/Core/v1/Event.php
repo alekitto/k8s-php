@@ -22,11 +22,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('Event', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/api/v1/namespaces/{namespace}/events/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/api/v1/namespaces/{namespace}/events', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/api/v1/namespaces/{namespace}/events/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{namespace}/events/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/api/v1/namespaces/{namespace}/events',

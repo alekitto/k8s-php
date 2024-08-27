@@ -19,7 +19,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('PodTemplate', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/api/v1/namespaces/{namespace}/podtemplates/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/api/v1/namespaces/{namespace}/podtemplates', body: 'model', response: 'self')]
-#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{namespace}/podtemplates/{name}', response: 'self')]
+#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{namespace}/podtemplates/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/api/v1/namespaces/{namespace}/podtemplates',

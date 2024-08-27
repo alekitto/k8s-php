@@ -42,7 +42,7 @@ class ClusterRoleService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-clusterrole-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-clusterrole-v1-rbac-authorization-k8s-io
      */
     public function listRbacAuthorizationV1(array $query = [], callable|object|null $handler = null): ClusterRoleList|null
     {
@@ -82,7 +82,7 @@ class ClusterRoleService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-clusterrole-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-clusterrole-v1-rbac-authorization-k8s-io
      */
     public function deleteRbacAuthorizationV1Collection(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class ClusterRoleService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-clusterrole-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-clusterrole-v1-rbac-authorization-k8s-io
      */
     public function createRbacAuthorizationV1(ClusterRole $clusterRole, array $query = []): ClusterRole
     {
@@ -140,7 +140,7 @@ class ClusterRoleService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-clusterrole-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-clusterrole-v1-rbac-authorization-k8s-io
      */
     public function readRbacAuthorizationV1(string $name, array $query = []): ClusterRole
     {
@@ -171,13 +171,12 @@ class ClusterRoleService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-clusterrole-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-clusterrole-v1-rbac-authorization-k8s-io
      */
-    public function deleteRbacAuthorizationV1(string $name, array $query = []): Status
+    public function deleteRbacAuthorizationV1(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/clusterroles/{name}',
             ['{name}' => $name],
@@ -202,7 +201,7 @@ class ClusterRoleService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-clusterrole-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-clusterrole-v1-rbac-authorization-k8s-io
      */
     public function patchRbacAuthorizationV1(string $name, PatchInterface $patch, array $query = []): ClusterRole
     {
@@ -233,7 +232,7 @@ class ClusterRoleService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-clusterrole-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-clusterrole-v1-rbac-authorization-k8s-io
      */
     public function replaceRbacAuthorizationV1(string $name, ClusterRole $clusterRole, array $query = []): ClusterRole
     {
@@ -274,7 +273,7 @@ class ClusterRoleService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-clusterrole-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-clusterrole-v1-rbac-authorization-k8s-io
      */
     public function watchRbacAuthorizationV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -315,7 +314,7 @@ class ClusterRoleService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-clusterrole-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-clusterrole-v1-rbac-authorization-k8s-io
      */
     public function watchRbacAuthorizationV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

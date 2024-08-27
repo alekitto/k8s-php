@@ -576,8 +576,8 @@ class PersistentVolumeClaimTemplate
      * by the persistentvolume controller if it exists. If the resource referred to by
      * volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as
      * reflected by the modifyVolumeStatus field, until such as a resource exists. More info:
-     * https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Alpha) Using this field
-     * requires the VolumeAttributesClass feature gate to be enabled.
+     * https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Beta) Using this field
+     * requires the VolumeAttributesClass feature gate to be enabled (off by default).
      */
     public function getVolumeAttributesClassName(): string|null
     {
@@ -594,8 +594,8 @@ class PersistentVolumeClaimTemplate
      * by the persistentvolume controller if it exists. If the resource referred to by
      * volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as
      * reflected by the modifyVolumeStatus field, until such as a resource exists. More info:
-     * https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Alpha) Using this field
-     * requires the VolumeAttributesClass feature gate to be enabled.
+     * https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Beta) Using this field
+     * requires the VolumeAttributesClass feature gate to be enabled (off by default).
      *
      * @return static
      */

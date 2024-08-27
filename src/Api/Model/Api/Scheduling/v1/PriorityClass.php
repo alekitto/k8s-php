@@ -20,11 +20,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('PriorityClass', group: 'scheduling.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/scheduling.k8s.io/v1/priorityclasses/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/scheduling.k8s.io/v1/priorityclasses', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/scheduling.k8s.io/v1/priorityclasses/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/scheduling.k8s.io/v1/priorityclasses/{name}')]
 #[Kubernetes\Operation('put', path: '/apis/scheduling.k8s.io/v1/priorityclasses/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',

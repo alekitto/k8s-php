@@ -20,11 +20,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/apis/batch/v1/namespaces/{namespace}/cronjobs/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/apis/batch/v1/namespaces/{namespace}/cronjobs/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/batch/v1/namespaces/{namespace}/cronjobs', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/batch/v1/namespaces/{namespace}/cronjobs/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/batch/v1/namespaces/{namespace}/cronjobs/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/batch/v1/namespaces/{namespace}/cronjobs',

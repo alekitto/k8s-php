@@ -7,7 +7,14 @@ require 'vendor/autoload.php';
 
 use Kcs\K8s\ApiGenerator\Command\ApiVersionsCommand;
 use Kcs\K8s\ApiGenerator\Command\GenerateCommand;
+use OpenApi\Context;
 use Symfony\Component\Console\Application;
+use Symfony\Component\VarDumper\Caster\StubCaster;
+use Symfony\Component\VarDumper\Cloner\VarCloner;
+
+if (class_exists(VarCloner::class)) {
+    VarCloner::$defaultCasters[Context::class] = StubCaster::cutInternals(...);
+}
 
 $app = new Application(
     'K8s API Generator',

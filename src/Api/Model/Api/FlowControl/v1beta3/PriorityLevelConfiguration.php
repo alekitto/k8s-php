@@ -24,11 +24,7 @@ use Kcs\K8s\Attribute\AttributeType;
     response: 'self',
 )]
 #[Kubernetes\Operation('post', path: '/apis/flowcontrol.apiserver.k8s.io/v1beta3/prioritylevelconfigurations', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/flowcontrol.apiserver.k8s.io/v1beta3/prioritylevelconfigurations/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/flowcontrol.apiserver.k8s.io/v1beta3/prioritylevelconfigurations/{name}')]
 #[Kubernetes\Operation(
     'put',
     path: '/apis/flowcontrol.apiserver.k8s.io/v1beta3/prioritylevelconfigurations/{name}',

@@ -21,7 +21,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/api/v1/persistentvolumes/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/api/v1/persistentvolumes/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/api/v1/persistentvolumes', body: 'model', response: 'self')]
-#[Kubernetes\Operation('delete', path: '/api/v1/persistentvolumes/{name}', response: 'self')]
+#[Kubernetes\Operation('delete', path: '/api/v1/persistentvolumes/{name}')]
 #[Kubernetes\Operation('put', path: '/api/v1/persistentvolumes/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation('put-status', path: '/api/v1/persistentvolumes/{name}/status', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
@@ -1035,7 +1035,7 @@ class PersistentVolume
      * VolumeAttributesClass. This field is mutable and can be changed by the CSI driver after a volume has
      * been updated successfully to a new class. For an unbound PersistentVolume, the
      * volumeAttributesClassName will be matched with unbound PersistentVolumeClaims during the binding
-     * process. This is an alpha field and requires enabling VolumeAttributesClass feature.
+     * process. This is a beta field and requires enabling VolumeAttributesClass feature (off by default).
      */
     public function getVolumeAttributesClassName(): string|null
     {
@@ -1048,7 +1048,7 @@ class PersistentVolume
      * VolumeAttributesClass. This field is mutable and can be changed by the CSI driver after a volume has
      * been updated successfully to a new class. For an unbound PersistentVolume, the
      * volumeAttributesClassName will be matched with unbound PersistentVolumeClaims during the binding
-     * process. This is an alpha field and requires enabling VolumeAttributesClass feature.
+     * process. This is a beta field and requires enabling VolumeAttributesClass feature (off by default).
      *
      * @return static
      */

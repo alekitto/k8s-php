@@ -42,7 +42,7 @@ class PriorityLevelConfigurationService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
      */
     public function listFlowControlApiServerV1(array $query = [], callable|object|null $handler = null): PriorityLevelConfigurationList|null
     {
@@ -82,7 +82,7 @@ class PriorityLevelConfigurationService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
      */
     public function deleteFlowControlApiServerV1Collection(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class PriorityLevelConfigurationService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
      */
     public function createFlowControlApiServerV1(
         PriorityLevelConfiguration $priorityLevelConfiguration,
@@ -142,7 +142,7 @@ class PriorityLevelConfigurationService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
      */
     public function readFlowControlApiServerV1(string $name, array $query = []): PriorityLevelConfiguration
     {
@@ -173,13 +173,12 @@ class PriorityLevelConfigurationService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
      */
-    public function deleteFlowControlApiServerV1(string $name, array $query = []): Status
+    public function deleteFlowControlApiServerV1(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/flowcontrol.apiserver.k8s.io/v1/prioritylevelconfigurations/{name}',
             ['{name}' => $name],
@@ -204,7 +203,7 @@ class PriorityLevelConfigurationService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
      */
     public function patchFlowControlApiServerV1(
         string $name,
@@ -238,7 +237,7 @@ class PriorityLevelConfigurationService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
      */
     public function replaceFlowControlApiServerV1(
         string $name,
@@ -269,7 +268,7 @@ class PriorityLevelConfigurationService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
      */
     public function readFlowControlApiServerV1Status(string $name, array $query = []): PriorityLevelConfiguration
     {
@@ -300,7 +299,7 @@ class PriorityLevelConfigurationService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
      */
     public function patchFlowControlApiServerV1Status(
         string $name,
@@ -334,7 +333,7 @@ class PriorityLevelConfigurationService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
      */
     public function replaceFlowControlApiServerV1Status(
         string $name,
@@ -378,7 +377,7 @@ class PriorityLevelConfigurationService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
      */
     public function watchFlowControlApiServerV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -419,7 +418,7 @@ class PriorityLevelConfigurationService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-prioritylevelconfiguration-v1-flowcontrol-apiserver-k8s-io
      */
     public function watchFlowControlApiServerV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

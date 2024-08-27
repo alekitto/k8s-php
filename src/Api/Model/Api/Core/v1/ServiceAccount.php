@@ -21,7 +21,7 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Kind('ServiceAccount', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/api/v1/namespaces/{namespace}/serviceaccounts/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/api/v1/namespaces/{namespace}/serviceaccounts', body: 'model', response: 'self')]
-#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{namespace}/serviceaccounts/{name}', response: 'self')]
+#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{namespace}/serviceaccounts/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/api/v1/namespaces/{namespace}/serviceaccounts',

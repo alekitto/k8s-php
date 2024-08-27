@@ -31,7 +31,7 @@ class TokenReviewService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-tokenreview-v1-authentication-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-tokenreview-v1-authentication-k8s-io
      */
     public function createAuthenticationV1(TokenReview $tokenReview, array $query = []): TokenReview
     {

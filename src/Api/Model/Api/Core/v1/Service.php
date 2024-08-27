@@ -22,7 +22,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/api/v1/namespaces/{namespace}/services/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/api/v1/namespaces/{namespace}/services/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/api/v1/namespaces/{namespace}/services', body: 'model', response: 'self')]
-#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{namespace}/services/{name}', response: 'self')]
+#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{namespace}/services/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/api/v1/namespaces/{namespace}/services',

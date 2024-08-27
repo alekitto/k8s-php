@@ -29,11 +29,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('ClusterTrustBundle', group: 'certificates.k8s.io', version: 'v1alpha1')]
 #[Kubernetes\Operation('get', path: '/apis/certificates.k8s.io/v1alpha1/clustertrustbundles/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/certificates.k8s.io/v1alpha1/clustertrustbundles', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/certificates.k8s.io/v1alpha1/clustertrustbundles/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/certificates.k8s.io/v1alpha1/clustertrustbundles/{name}')]
 #[Kubernetes\Operation('put', path: '/apis/certificates.k8s.io/v1alpha1/clustertrustbundles/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',

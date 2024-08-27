@@ -22,11 +22,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/apis/flowcontrol.apiserver.k8s.io/v1beta3/flowschemas/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/apis/flowcontrol.apiserver.k8s.io/v1beta3/flowschemas/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/flowcontrol.apiserver.k8s.io/v1beta3/flowschemas', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/flowcontrol.apiserver.k8s.io/v1beta3/flowschemas/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/flowcontrol.apiserver.k8s.io/v1beta3/flowschemas/{name}')]
 #[Kubernetes\Operation('put', path: '/apis/flowcontrol.apiserver.k8s.io/v1beta3/flowschemas/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'put-status',

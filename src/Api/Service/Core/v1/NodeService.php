@@ -46,7 +46,7 @@ class NodeService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-node-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-node-v1-core
      */
     public function list(array $query = [], callable|object|null $handler = null): NodeList|null
     {
@@ -86,7 +86,7 @@ class NodeService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-node-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-node-v1-core
      */
     public function deleteCollection(array $query = []): Status
     {
@@ -116,7 +116,7 @@ class NodeService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-node-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-node-v1-core
      */
     public function create(Node $node, array $query = []): Node
     {
@@ -144,7 +144,7 @@ class NodeService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-node-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-node-v1-core
      */
     public function read(string $name, array $query = []): Node
     {
@@ -175,13 +175,12 @@ class NodeService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-node-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-node-v1-core
      */
-    public function delete(string $name, array $query = []): Status
+    public function delete(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/api/v1/nodes/{name}',
             ['{name}' => $name],
@@ -206,7 +205,7 @@ class NodeService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-node-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-node-v1-core
      */
     public function patch(string $name, PatchInterface $patch, array $query = []): Node
     {
@@ -237,7 +236,7 @@ class NodeService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-node-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-node-v1-core
      */
     public function replace(string $name, Node $node, array $query = []): Node
     {
@@ -265,7 +264,7 @@ class NodeService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-node-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-node-v1-core
      */
     public function readStatus(string $name, array $query = []): Node
     {
@@ -296,7 +295,7 @@ class NodeService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-node-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-node-v1-core
      */
     public function patchStatus(string $name, PatchInterface $patch, array $query = []): Node
     {
@@ -327,7 +326,7 @@ class NodeService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-node-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-node-v1-core
      */
     public function replaceStatus(string $name, Node $node, array $query = []): Node
     {
@@ -368,7 +367,7 @@ class NodeService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-node-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-node-v1-core
      */
     public function watchList(array $query = [], callable|object|null $handler = null): void
     {
@@ -409,7 +408,7 @@ class NodeService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-node-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-node-v1-core
      */
     public function watch(string $name, array $query = [], callable|object|null $handler = null): void
     {

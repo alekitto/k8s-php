@@ -20,11 +20,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/api/v1/namespaces/{namespace}/replicationcontrollers', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{namespace}/replicationcontrollers/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/api/v1/namespaces/{namespace}/replicationcontrollers',

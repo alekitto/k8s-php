@@ -42,7 +42,7 @@ class CustomResourceDefinitionService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-customresourcedefinition-v1-apiextensions-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-customresourcedefinition-v1-apiextensions-k8s-io
      */
     public function listApiExtensionsV1(array $query = [], callable|object|null $handler = null): CustomResourceDefinitionList|null
     {
@@ -82,7 +82,7 @@ class CustomResourceDefinitionService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-customresourcedefinition-v1-apiextensions-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-customresourcedefinition-v1-apiextensions-k8s-io
      */
     public function deleteApiExtensionsV1Collection(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class CustomResourceDefinitionService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-customresourcedefinition-v1-apiextensions-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-customresourcedefinition-v1-apiextensions-k8s-io
      */
     public function createApiExtensionsV1(
         CustomResourceDefinition $customResourceDefinition,
@@ -142,7 +142,7 @@ class CustomResourceDefinitionService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-customresourcedefinition-v1-apiextensions-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-customresourcedefinition-v1-apiextensions-k8s-io
      */
     public function readApiExtensionsV1(string $name, array $query = []): CustomResourceDefinition
     {
@@ -173,13 +173,12 @@ class CustomResourceDefinitionService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-customresourcedefinition-v1-apiextensions-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-customresourcedefinition-v1-apiextensions-k8s-io
      */
-    public function deleteApiExtensionsV1(string $name, array $query = []): Status
+    public function deleteApiExtensionsV1(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/apiextensions.k8s.io/v1/customresourcedefinitions/{name}',
             ['{name}' => $name],
@@ -204,7 +203,7 @@ class CustomResourceDefinitionService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-customresourcedefinition-v1-apiextensions-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-customresourcedefinition-v1-apiextensions-k8s-io
      */
     public function patchApiExtensionsV1(
         string $name,
@@ -238,7 +237,7 @@ class CustomResourceDefinitionService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-customresourcedefinition-v1-apiextensions-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-customresourcedefinition-v1-apiextensions-k8s-io
      */
     public function replaceApiExtensionsV1(
         string $name,
@@ -269,7 +268,7 @@ class CustomResourceDefinitionService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-customresourcedefinition-v1-apiextensions-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-customresourcedefinition-v1-apiextensions-k8s-io
      */
     public function readApiExtensionsV1Status(string $name, array $query = []): CustomResourceDefinition
     {
@@ -300,7 +299,7 @@ class CustomResourceDefinitionService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-customresourcedefinition-v1-apiextensions-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-customresourcedefinition-v1-apiextensions-k8s-io
      */
     public function patchApiExtensionsV1Status(
         string $name,
@@ -334,7 +333,7 @@ class CustomResourceDefinitionService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-customresourcedefinition-v1-apiextensions-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-customresourcedefinition-v1-apiextensions-k8s-io
      */
     public function replaceApiExtensionsV1Status(
         string $name,
@@ -378,7 +377,7 @@ class CustomResourceDefinitionService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-customresourcedefinition-v1-apiextensions-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-customresourcedefinition-v1-apiextensions-k8s-io
      */
     public function watchApiExtensionsV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -419,7 +418,7 @@ class CustomResourceDefinitionService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-customresourcedefinition-v1-apiextensions-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-customresourcedefinition-v1-apiextensions-k8s-io
      */
     public function watchApiExtensionsV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

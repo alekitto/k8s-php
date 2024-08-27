@@ -12,33 +12,25 @@ use Kcs\K8s\Attribute\AttributeType;
  */
 class ValidatingAdmissionPolicyBindingSpec
 {
-    /** @var MatchResources|null */
-    #[Kubernetes\Attribute('matchResources', type: \Kcs\K8s\Attribute\AttributeType::Model, model: MatchResources::class)]
-    protected $matchResources = null;
+    #[Kubernetes\Attribute('matchResources', type: AttributeType::Model, model: MatchResources::class)]
+    protected MatchResources|null $matchResources = null;
 
-    /** @var ParamRef|null */
-    #[Kubernetes\Attribute('paramRef', type: \Kcs\K8s\Attribute\AttributeType::Model, model: ParamRef::class)]
-    protected $paramRef = null;
+    #[Kubernetes\Attribute('paramRef', type: AttributeType::Model, model: ParamRef::class)]
+    protected ParamRef|null $paramRef = null;
 
-    /** @var string|null */
     #[Kubernetes\Attribute('policyName')]
-    protected $policyName = null;
+    protected string|null $policyName = null;
 
     /** @var string[]|null */
     #[Kubernetes\Attribute('validationActions')]
-    protected $validationActions = null;
+    protected array|null $validationActions = null;
 
-    /**
-     * @param MatchResources|null $matchResources
-     * @param ParamRef|null $paramRef
-     * @param string|null $policyName
-     * @param string[]|null $validationActions
-     */
+    /** @param string[]|null $validationActions */
     public function __construct(
-        ?MatchResources $matchResources = null,
-        ?ParamRef $paramRef = null,
-        ?string $policyName = null,
-        ?array $validationActions = null,
+        MatchResources|null $matchResources = null,
+        ParamRef|null $paramRef = null,
+        string|null $policyName = null,
+        array|null $validationActions = null,
     ) {
         $this->matchResources = $matchResources;
         $this->paramRef = $paramRef;
@@ -54,7 +46,7 @@ class ValidatingAdmissionPolicyBindingSpec
      * is matched by the other fields of this object, it will be validated. Note that this is differs from
      * ValidatingAdmissionPolicy matchConstraints, where resourceRules are required.
      */
-    public function getMatchResources(): ?MatchResources
+    public function getMatchResources(): MatchResources|null
     {
         return $this->matchResources;
     }
@@ -66,10 +58,8 @@ class ValidatingAdmissionPolicyBindingSpec
      * by this binding When resourceRules is unset, it does not constrain resource matching. If a resource
      * is matched by the other fields of this object, it will be validated. Note that this is differs from
      * ValidatingAdmissionPolicy matchConstraints, where resourceRules are required.
-     *
-     * @return static
      */
-    public function setMatchResources(MatchResources $matchResources)
+    public function setMatchResources(MatchResources $matchResources): static
     {
         $this->matchResources = $matchResources;
 
@@ -84,7 +74,7 @@ class ValidatingAdmissionPolicyBindingSpec
      * If the policy does not specify a ParamKind then this field is ignored, and the rules are evaluated
      * without a param.
      */
-    public function getParamRef(): ?ParamRef
+    public function getParamRef(): ParamRef|null
     {
         return $this->paramRef;
     }
@@ -96,10 +86,8 @@ class ValidatingAdmissionPolicyBindingSpec
      * binding is considered mis-configured and the FailurePolicy of the ValidatingAdmissionPolicy applied.
      * If the policy does not specify a ParamKind then this field is ignored, and the rules are evaluated
      * without a param.
-     *
-     * @return static
      */
-    public function setParamRef(ParamRef $paramRef)
+    public function setParamRef(ParamRef $paramRef): static
     {
         $this->paramRef = $paramRef;
 
@@ -111,7 +99,7 @@ class ValidatingAdmissionPolicyBindingSpec
      * binds to. If the referenced resource does not exist, this binding is considered invalid and will be
      * ignored Required.
      */
-    public function getPolicyName(): ?string
+    public function getPolicyName(): string|null
     {
         return $this->policyName;
     }
@@ -120,10 +108,8 @@ class ValidatingAdmissionPolicyBindingSpec
      * PolicyName references a ValidatingAdmissionPolicy name which the ValidatingAdmissionPolicyBinding
      * binds to. If the referenced resource does not exist, this binding is considered invalid and will be
      * ignored Required.
-     *
-     * @return static
      */
-    public function setPolicyName(string $policyName)
+    public function setPolicyName(string $policyName): static
     {
         $this->policyName = $policyName;
 
@@ -167,7 +153,7 @@ class ValidatingAdmissionPolicyBindingSpec
      *
      * Required.
      */
-    public function getValidationActions(): ?array
+    public function getValidationActions(): array|null
     {
         return $this->validationActions;
     }
@@ -208,10 +194,8 @@ class ValidatingAdmissionPolicyBindingSpec
      * validation failure both in the API response body and the HTTP warning headers.
      *
      * Required.
-     *
-     * @return static
      */
-    public function setValidationActions(array $validationActions)
+    public function setValidationActions(array $validationActions): static
     {
         $this->validationActions = $validationActions;
 

@@ -42,7 +42,7 @@ class NetworkPolicyService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-networkpolicy-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-networkpolicy-v1-networking-k8s-io
      */
     public function listNetworkingV1Namespaced(array $query = [], callable|object|null $handler = null): NetworkPolicyList|null
     {
@@ -82,7 +82,7 @@ class NetworkPolicyService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-networkpolicy-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-networkpolicy-v1-networking-k8s-io
      */
     public function deleteNetworkingV1CollectionNamespaced(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class NetworkPolicyService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-networkpolicy-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-networkpolicy-v1-networking-k8s-io
      */
     public function createNetworkingV1Namespaced(NetworkPolicy $networkPolicy, array $query = []): NetworkPolicy
     {
@@ -140,7 +140,7 @@ class NetworkPolicyService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-networkpolicy-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-networkpolicy-v1-networking-k8s-io
      */
     public function readNetworkingV1Namespaced(string $name, array $query = []): NetworkPolicy
     {
@@ -171,13 +171,12 @@ class NetworkPolicyService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-networkpolicy-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-networkpolicy-v1-networking-k8s-io
      */
-    public function deleteNetworkingV1Namespaced(string $name, array $query = []): Status
+    public function deleteNetworkingV1Namespaced(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}',
             ['{name}' => $name],
@@ -202,7 +201,7 @@ class NetworkPolicyService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-networkpolicy-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-networkpolicy-v1-networking-k8s-io
      */
     public function patchNetworkingV1Namespaced(string $name, PatchInterface $patch, array $query = []): NetworkPolicy
     {
@@ -233,7 +232,7 @@ class NetworkPolicyService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-networkpolicy-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-networkpolicy-v1-networking-k8s-io
      */
     public function replaceNetworkingV1Namespaced(
         string $name,
@@ -274,7 +273,7 @@ class NetworkPolicyService
      *   timeoutSeconds
      *   watch
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-networkpolicy-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-networkpolicy-v1-networking-k8s-io
      */
     public function listNetworkingV1ForAllNamespaces(array $query = [], callable|object|null $handler = null): NetworkPolicyList|null
     {
@@ -315,7 +314,7 @@ class NetworkPolicyService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-networkpolicy-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-networkpolicy-v1-networking-k8s-io
      */
     public function watchNetworkingV1NamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -356,7 +355,7 @@ class NetworkPolicyService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-networkpolicy-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-networkpolicy-v1-networking-k8s-io
      */
     public function watchNetworkingV1Namespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -397,7 +396,7 @@ class NetworkPolicyService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-networkpolicy-v1-networking-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-networkpolicy-v1-networking-k8s-io
      */
     public function watchNetworkingV1ListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

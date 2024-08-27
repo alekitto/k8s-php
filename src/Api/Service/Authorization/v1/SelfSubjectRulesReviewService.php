@@ -31,7 +31,7 @@ class SelfSubjectRulesReviewService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-selfsubjectrulesreview-v1-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-selfsubjectrulesreview-v1-authorization-k8s-io
      */
     public function createAuthorizationV1(
         SelfSubjectRulesReview $selfSubjectRulesReview,

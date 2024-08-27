@@ -42,7 +42,7 @@ class EndpointsService
      *   timeoutSeconds
      *   watch
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-endpoints-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-endpoints-v1-core
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): EndpointsList|null
     {
@@ -80,7 +80,7 @@ class EndpointsService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-endpoints-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-endpoints-v1-core
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): EndpointsList|null
     {
@@ -120,7 +120,7 @@ class EndpointsService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-endpoints-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-endpoints-v1-core
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -150,7 +150,7 @@ class EndpointsService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-endpoints-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-endpoints-v1-core
      */
     public function createNamespaced(Endpoints $endpoints, array $query = []): Endpoints
     {
@@ -178,7 +178,7 @@ class EndpointsService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-endpoints-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-endpoints-v1-core
      */
     public function readNamespaced(string $name, array $query = []): Endpoints
     {
@@ -209,13 +209,12 @@ class EndpointsService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-endpoints-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-endpoints-v1-core
      */
-    public function deleteNamespaced(string $name, array $query = []): Status
+    public function deleteNamespaced(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/api/v1/namespaces/{namespace}/endpoints/{name}',
             ['{name}' => $name],
@@ -240,7 +239,7 @@ class EndpointsService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-endpoints-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-endpoints-v1-core
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): Endpoints
     {
@@ -271,7 +270,7 @@ class EndpointsService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-endpoints-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-endpoints-v1-core
      */
     public function replaceNamespaced(string $name, Endpoints $endpoints, array $query = []): Endpoints
     {
@@ -312,7 +311,7 @@ class EndpointsService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-endpoints-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-endpoints-v1-core
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
@@ -353,7 +352,7 @@ class EndpointsService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-endpoints-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-endpoints-v1-core
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -394,7 +393,7 @@ class EndpointsService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-endpoints-v1-core
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-endpoints-v1-core
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {

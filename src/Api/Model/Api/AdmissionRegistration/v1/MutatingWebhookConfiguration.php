@@ -21,11 +21,7 @@ use Kcs\K8s\Collection;
 #[Kubernetes\Kind('MutatingWebhookConfiguration', group: 'admissionregistration.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations/{name}')]
 #[Kubernetes\Operation(
     'put',
     path: '/apis/admissionregistration.k8s.io/v1/mutatingwebhookconfigurations/{name}',

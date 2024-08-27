@@ -42,7 +42,7 @@ class JobService
      *   timeoutSeconds
      *   watch
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-job-v1-batch
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-job-v1-batch
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): JobList|null
     {
@@ -80,7 +80,7 @@ class JobService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-job-v1-batch
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-job-v1-batch
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): JobList|null
     {
@@ -120,7 +120,7 @@ class JobService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-job-v1-batch
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-job-v1-batch
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -150,7 +150,7 @@ class JobService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-job-v1-batch
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-job-v1-batch
      */
     public function createNamespaced(Job $job, array $query = []): Job
     {
@@ -178,7 +178,7 @@ class JobService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-job-v1-batch
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-job-v1-batch
      */
     public function readNamespaced(string $name, array $query = []): Job
     {
@@ -209,13 +209,12 @@ class JobService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-job-v1-batch
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-job-v1-batch
      */
-    public function deleteNamespaced(string $name, array $query = []): Status
+    public function deleteNamespaced(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/batch/v1/namespaces/{namespace}/jobs/{name}',
             ['{name}' => $name],
@@ -240,7 +239,7 @@ class JobService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-job-v1-batch
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-job-v1-batch
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): Job
     {
@@ -271,7 +270,7 @@ class JobService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-job-v1-batch
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-job-v1-batch
      */
     public function replaceNamespaced(string $name, Job $job, array $query = []): Job
     {
@@ -299,7 +298,7 @@ class JobService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-job-v1-batch
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-job-v1-batch
      */
     public function readNamespacedStatus(string $name, array $query = []): Job
     {
@@ -330,7 +329,7 @@ class JobService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-job-v1-batch
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-job-v1-batch
      */
     public function patchNamespacedStatus(string $name, PatchInterface $patch, array $query = []): Job
     {
@@ -361,7 +360,7 @@ class JobService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-job-v1-batch
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-job-v1-batch
      */
     public function replaceNamespacedStatus(string $name, Job $job, array $query = []): Job
     {
@@ -402,7 +401,7 @@ class JobService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-job-v1-batch
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-job-v1-batch
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
@@ -443,7 +442,7 @@ class JobService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-job-v1-batch
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-job-v1-batch
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -484,7 +483,7 @@ class JobService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-job-v1-batch
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-job-v1-batch
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {

@@ -20,11 +20,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions/{name}')]
 #[Kubernetes\Operation('put', path: '/apis/internal.apiserver.k8s.io/v1alpha1/storageversions/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'put-status',

@@ -19,11 +19,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('Lease', group: 'coordination.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/coordination.k8s.io/v1/namespaces/{namespace}/leases',
@@ -439,7 +435,9 @@ class Lease
     }
 
     /**
-     * holderIdentity contains the identity of the holder of a current lease.
+     * holderIdentity contains the identity of the holder of a current lease. If Coordinated Leader
+     * Election is used, the holder identity must be equal to the elected LeaseCandidate.metadata.name
+     * field.
      */
     public function getHolderIdentity(): string|null
     {
@@ -447,7 +445,9 @@ class Lease
     }
 
     /**
-     * holderIdentity contains the identity of the holder of a current lease.
+     * holderIdentity contains the identity of the holder of a current lease. If Coordinated Leader
+     * Election is used, the holder identity must be equal to the elected LeaseCandidate.metadata.name
+     * field.
      *
      * @return static
      */
@@ -460,7 +460,7 @@ class Lease
 
     /**
      * leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it.
-     * This is measure against time of last observed renewTime.
+     * This is measured against the time of last observed renewTime.
      */
     public function getLeaseDurationSeconds(): int|null
     {
@@ -469,7 +469,7 @@ class Lease
 
     /**
      * leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it.
-     * This is measure against time of last observed renewTime.
+     * This is measured against the time of last observed renewTime.
      *
      * @return static
      */
@@ -501,6 +501,28 @@ class Lease
     }
 
     /**
+     * PreferredHolder signals to a lease holder that the lease has a more optimal holder and should be
+     * given up. This field can only be set if Strategy is also set.
+     */
+    public function getPreferredHolder(): string|null
+    {
+        return $this->spec->getPreferredHolder();
+    }
+
+    /**
+     * PreferredHolder signals to a lease holder that the lease has a more optimal holder and should be
+     * given up. This field can only be set if Strategy is also set.
+     *
+     * @return static
+     */
+    public function setPreferredHolder(string $preferredHolder): static
+    {
+        $this->spec->setPreferredHolder($preferredHolder);
+
+        return $this;
+    }
+
+    /**
      * renewTime is a time when the current holder of a lease has last updated the lease.
      */
     public function getRenewTime(): DateTimeInterface|null
@@ -516,6 +538,30 @@ class Lease
     public function setRenewTime(DateTimeInterface $renewTime): static
     {
         $this->spec->setRenewTime($renewTime);
+
+        return $this;
+    }
+
+    /**
+     * Strategy indicates the strategy for picking the leader for coordinated leader election. If the field
+     * is not specified, there is no active coordination for this lease. (Alpha) Using this field requires
+     * the CoordinatedLeaderElection feature gate to be enabled.
+     */
+    public function getStrategy(): string|null
+    {
+        return $this->spec->getStrategy();
+    }
+
+    /**
+     * Strategy indicates the strategy for picking the leader for coordinated leader election. If the field
+     * is not specified, there is no active coordination for this lease. (Alpha) Using this field requires
+     * the CoordinatedLeaderElection feature gate to be enabled.
+     *
+     * @return static
+     */
+    public function setStrategy(string $strategy): static
+    {
+        $this->spec->setStrategy($strategy);
 
         return $this;
     }

@@ -25,22 +25,14 @@ class LeaseSpec
     #[Kubernetes\Attribute('leaseTransitions')]
     protected int|null $leaseTransitions = null;
 
+    #[Kubernetes\Attribute('preferredHolder')]
+    protected string|null $preferredHolder = null;
+
     #[Kubernetes\Attribute('renewTime', type: AttributeType::DateTime)]
     protected DateTimeInterface|null $renewTime = null;
 
-    public function __construct(
-        DateTimeInterface|null $acquireTime = null,
-        string|null $holderIdentity = null,
-        int|null $leaseDurationSeconds = null,
-        int|null $leaseTransitions = null,
-        DateTimeInterface|null $renewTime = null,
-    ) {
-        $this->acquireTime = $acquireTime;
-        $this->holderIdentity = $holderIdentity;
-        $this->leaseDurationSeconds = $leaseDurationSeconds;
-        $this->leaseTransitions = $leaseTransitions;
-        $this->renewTime = $renewTime;
-    }
+    #[Kubernetes\Attribute('strategy')]
+    protected string|null $strategy = null;
 
     /**
      * acquireTime is a time when the current lease was acquired.
@@ -63,7 +55,9 @@ class LeaseSpec
     }
 
     /**
-     * holderIdentity contains the identity of the holder of a current lease.
+     * holderIdentity contains the identity of the holder of a current lease. If Coordinated Leader
+     * Election is used, the holder identity must be equal to the elected LeaseCandidate.metadata.name
+     * field.
      */
     public function getHolderIdentity(): string|null
     {
@@ -71,7 +65,9 @@ class LeaseSpec
     }
 
     /**
-     * holderIdentity contains the identity of the holder of a current lease.
+     * holderIdentity contains the identity of the holder of a current lease. If Coordinated Leader
+     * Election is used, the holder identity must be equal to the elected LeaseCandidate.metadata.name
+     * field.
      *
      * @return static
      */
@@ -84,7 +80,7 @@ class LeaseSpec
 
     /**
      * leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it.
-     * This is measure against time of last observed renewTime.
+     * This is measured against the time of last observed renewTime.
      */
     public function getLeaseDurationSeconds(): int|null
     {
@@ -93,7 +89,7 @@ class LeaseSpec
 
     /**
      * leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it.
-     * This is measure against time of last observed renewTime.
+     * This is measured against the time of last observed renewTime.
      *
      * @return static
      */
@@ -125,6 +121,28 @@ class LeaseSpec
     }
 
     /**
+     * PreferredHolder signals to a lease holder that the lease has a more optimal holder and should be
+     * given up. This field can only be set if Strategy is also set.
+     */
+    public function getPreferredHolder(): string|null
+    {
+        return $this->preferredHolder;
+    }
+
+    /**
+     * PreferredHolder signals to a lease holder that the lease has a more optimal holder and should be
+     * given up. This field can only be set if Strategy is also set.
+     *
+     * @return static
+     */
+    public function setPreferredHolder(string $preferredHolder): static
+    {
+        $this->preferredHolder = $preferredHolder;
+
+        return $this;
+    }
+
+    /**
      * renewTime is a time when the current holder of a lease has last updated the lease.
      */
     public function getRenewTime(): DateTimeInterface|null
@@ -140,6 +158,30 @@ class LeaseSpec
     public function setRenewTime(DateTimeInterface $renewTime): static
     {
         $this->renewTime = $renewTime;
+
+        return $this;
+    }
+
+    /**
+     * Strategy indicates the strategy for picking the leader for coordinated leader election. If the field
+     * is not specified, there is no active coordination for this lease. (Alpha) Using this field requires
+     * the CoordinatedLeaderElection feature gate to be enabled.
+     */
+    public function getStrategy(): string|null
+    {
+        return $this->strategy;
+    }
+
+    /**
+     * Strategy indicates the strategy for picking the leader for coordinated leader election. If the field
+     * is not specified, there is no active coordination for this lease. (Alpha) Using this field requires
+     * the CoordinatedLeaderElection feature gate to be enabled.
+     *
+     * @return static
+     */
+    public function setStrategy(string $strategy): static
+    {
+        $this->strategy = $strategy;
 
         return $this;
     }

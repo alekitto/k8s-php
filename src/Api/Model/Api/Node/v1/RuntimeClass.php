@@ -23,11 +23,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('RuntimeClass', group: 'node.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/node.k8s.io/v1/runtimeclasses/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/node.k8s.io/v1/runtimeclasses', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/node.k8s.io/v1/runtimeclasses/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/node.k8s.io/v1/runtimeclasses/{name}')]
 #[Kubernetes\Operation('put', path: '/apis/node.k8s.io/v1/runtimeclasses/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation(
     'deletecollection-all',

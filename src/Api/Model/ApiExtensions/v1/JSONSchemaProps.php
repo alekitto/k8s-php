@@ -173,7 +173,6 @@ class JSONSchemaProps
         return $this->ref;
     }
 
-    /** @return static */
     public function setRef(string $ref): static
     {
         $this->ref = $ref;
@@ -186,7 +185,6 @@ class JSONSchemaProps
         return $this->schema;
     }
 
-    /** @return static */
     public function setSchema(string $schema): static
     {
         $this->schema = $schema;
@@ -199,7 +197,6 @@ class JSONSchemaProps
         return $this->additionalItems;
     }
 
-    /** @return static */
     public function setAdditionalItems(string $additionalItems): static
     {
         $this->additionalItems = $additionalItems;
@@ -212,7 +209,6 @@ class JSONSchemaProps
         return $this->additionalProperties;
     }
 
-    /** @return static */
     public function setAdditionalProperties(string $additionalProperties): static
     {
         $this->additionalProperties = $additionalProperties;
@@ -226,7 +222,6 @@ class JSONSchemaProps
         return $this->allOf;
     }
 
-    /** @return static */
     public function setAllOf(iterable $allOf): static
     {
         $this->allOf = $allOf;
@@ -234,7 +229,6 @@ class JSONSchemaProps
         return $this;
     }
 
-    /** @return static */
     public function addAllOf(JSONSchemaProps $allOf): static
     {
         if (! $this->allOf) {
@@ -252,7 +246,6 @@ class JSONSchemaProps
         return $this->anyOf;
     }
 
-    /** @return static */
     public function setAnyOf(iterable $anyOf): static
     {
         $this->anyOf = $anyOf;
@@ -260,7 +253,6 @@ class JSONSchemaProps
         return $this;
     }
 
-    /** @return static */
     public function addAnyOf(JSONSchemaProps $anyOf): static
     {
         if (! $this->anyOf) {
@@ -284,8 +276,6 @@ class JSONSchemaProps
     /**
      * default is a default value for undefined object fields. Defaulting is a beta feature under the
      * CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
-     *
-     * @return static
      */
     public function setDefault(string $default): static
     {
@@ -299,7 +289,6 @@ class JSONSchemaProps
         return $this->definitions;
     }
 
-    /** @return static */
     public function setDefinitions(array $definitions): static
     {
         $this->definitions = $definitions;
@@ -312,7 +301,6 @@ class JSONSchemaProps
         return $this->dependencies;
     }
 
-    /** @return static */
     public function setDependencies(array $dependencies): static
     {
         $this->dependencies = $dependencies;
@@ -325,7 +313,6 @@ class JSONSchemaProps
         return $this->description;
     }
 
-    /** @return static */
     public function setDescription(string $description): static
     {
         $this->description = $description;
@@ -333,17 +320,12 @@ class JSONSchemaProps
         return $this;
     }
 
-    /** @return string[] */
     public function getEnum(): array
     {
         return $this->enum;
     }
 
-    /**
-     * @param string[] $enum
-     *
-     * @return static
-     */
+    /** @param string[] $enum */
     public function setEnum(array $enum): static
     {
         $this->enum = $enum;
@@ -356,7 +338,6 @@ class JSONSchemaProps
         return $this->example;
     }
 
-    /** @return static */
     public function setExample(string $example): static
     {
         $this->example = $example;
@@ -369,7 +350,6 @@ class JSONSchemaProps
         return $this->exclusiveMaximum;
     }
 
-    /** @return static */
     public function setIsExclusiveMaximum(bool $exclusiveMaximum): static
     {
         $this->exclusiveMaximum = $exclusiveMaximum;
@@ -382,7 +362,6 @@ class JSONSchemaProps
         return $this->exclusiveMinimum;
     }
 
-    /** @return static */
     public function setIsExclusiveMinimum(bool $exclusiveMinimum): static
     {
         $this->exclusiveMinimum = $exclusiveMinimum;
@@ -395,7 +374,6 @@ class JSONSchemaProps
         return $this->externalDocs;
     }
 
-    /** @return static */
     public function setExternalDocs(ExternalDocumentation $externalDocs): static
     {
         $this->externalDocs = $externalDocs;
@@ -461,14 +439,10 @@ class JSONSchemaProps
      * with any non digit characters mixed in - ssn: a U.S. social security number following the regex
      * ^\d{3}[- ]?\d{2}[- ]?\d{4}$ - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex
      * ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$ - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559" -
-     *                                              * * * * * * * * * byte: base64 encoded binary data - password: any kind of string - date: a date string like
+     * byte: base64 encoded binary data - password: any kind of string - date: a date string like
      * "2006-01-02" as defined by full-date in RFC3339 - duration: a duration string like "22 ns" as parsed
-     *                                         * * * * * * * * by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string
+     * by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string
      * like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
-     *
-
-     *
-     * @return static
      */
     public function setFormat(string $format): static
     {
@@ -482,7 +456,6 @@ class JSONSchemaProps
         return $this->id;
     }
 
-    /** @return static */
     public function setId(string $id): static
     {
         $this->id = $id;
@@ -495,7 +468,6 @@ class JSONSchemaProps
         return $this->items;
     }
 
-    /** @return static */
     public function setItems(string $items): static
     {
         $this->items = $items;
@@ -508,7 +480,6 @@ class JSONSchemaProps
         return $this->maxItems;
     }
 
-    /** @return static */
     public function setMaxItems(int $maxItems): static
     {
         $this->maxItems = $maxItems;
@@ -521,7 +492,6 @@ class JSONSchemaProps
         return $this->maxLength;
     }
 
-    /** @return static */
     public function setMaxLength(int $maxLength): static
     {
         $this->maxLength = $maxLength;
@@ -534,7 +504,6 @@ class JSONSchemaProps
         return $this->maxProperties;
     }
 
-    /** @return static */
     public function setMaxProperties(int $maxProperties): static
     {
         $this->maxProperties = $maxProperties;
@@ -547,7 +516,6 @@ class JSONSchemaProps
         return $this->maximum;
     }
 
-    /** @return static */
     public function setMaximum(mixed $maximum): static
     {
         $this->maximum = $maximum;
@@ -560,7 +528,6 @@ class JSONSchemaProps
         return $this->minItems;
     }
 
-    /** @return static */
     public function setMinItems(int $minItems): static
     {
         $this->minItems = $minItems;
@@ -573,7 +540,6 @@ class JSONSchemaProps
         return $this->minLength;
     }
 
-    /** @return static */
     public function setMinLength(int $minLength): static
     {
         $this->minLength = $minLength;
@@ -586,7 +552,6 @@ class JSONSchemaProps
         return $this->minProperties;
     }
 
-    /** @return static */
     public function setMinProperties(int $minProperties): static
     {
         $this->minProperties = $minProperties;
@@ -599,7 +564,6 @@ class JSONSchemaProps
         return $this->minimum;
     }
 
-    /** @return static */
     public function setMinimum(mixed $minimum): static
     {
         $this->minimum = $minimum;
@@ -612,7 +576,6 @@ class JSONSchemaProps
         return $this->multipleOf;
     }
 
-    /** @return static */
     public function setMultipleOf(mixed $multipleOf): static
     {
         $this->multipleOf = $multipleOf;
@@ -625,7 +588,6 @@ class JSONSchemaProps
         return $this->not;
     }
 
-    /** @return static */
     public function setNot(JSONSchemaProps $not): static
     {
         $this->not = $not;
@@ -638,7 +600,6 @@ class JSONSchemaProps
         return $this->nullable;
     }
 
-    /** @return static */
     public function setIsNullable(bool $nullable): static
     {
         $this->nullable = $nullable;
@@ -652,7 +613,6 @@ class JSONSchemaProps
         return $this->oneOf;
     }
 
-    /** @return static */
     public function setOneOf(iterable $oneOf): static
     {
         $this->oneOf = $oneOf;
@@ -660,7 +620,6 @@ class JSONSchemaProps
         return $this;
     }
 
-    /** @return static */
     public function addOneOf(JSONSchemaProps $oneOf): static
     {
         if (! $this->oneOf) {
@@ -677,7 +636,6 @@ class JSONSchemaProps
         return $this->pattern;
     }
 
-    /** @return static */
     public function setPattern(string $pattern): static
     {
         $this->pattern = $pattern;
@@ -690,7 +648,6 @@ class JSONSchemaProps
         return $this->patternProperties;
     }
 
-    /** @return static */
     public function setPatternProperties(array $patternProperties): static
     {
         $this->patternProperties = $patternProperties;
@@ -703,7 +660,6 @@ class JSONSchemaProps
         return $this->properties;
     }
 
-    /** @return static */
     public function setProperties(array $properties): static
     {
         $this->properties = $properties;
@@ -716,7 +672,6 @@ class JSONSchemaProps
         return $this->required;
     }
 
-    /** @return static */
     public function setRequired(array $required): static
     {
         $this->required = $required;
@@ -729,7 +684,6 @@ class JSONSchemaProps
         return $this->title;
     }
 
-    /** @return static */
     public function setTitle(string $title): static
     {
         $this->title = $title;
@@ -742,7 +696,6 @@ class JSONSchemaProps
         return $this->type;
     }
 
-    /** @return static */
     public function setType(string $type): static
     {
         $this->type = $type;
@@ -755,7 +708,6 @@ class JSONSchemaProps
         return $this->uniqueItems;
     }
 
-    /** @return static */
     public function setIsUniqueItems(bool $uniqueItems): static
     {
         $this->uniqueItems = $uniqueItems;
@@ -781,8 +733,6 @@ class JSONSchemaProps
      * object. kind, apiVersion and metadata are validated automatically.
      * x-kubernetes-preserve-unknown-fields is allowed to be true, but does not have to be if the object is
      * fully specified (up to kind, apiVersion, metadata).
-     *
-     * @return static
      */
     public function setIsXKubernetesEmbeddedResource(bool $xKubernetesEmbeddedResource): static
     {
@@ -823,8 +773,6 @@ class JSONSchemaProps
      *      - type: integer
      *      - type: string
      *    - ... zero or more
-     *
-     * @return static
      */
     public function setIsXKubernetesIntOrString(bool $xKubernetesIntOrString): static
     {
@@ -859,8 +807,6 @@ class JSONSchemaProps
      *
      * The properties specified must either be required or have a default value, to ensure those properties
      * are present for all list items.
-     *
-     * @return static
      */
     public function setXKubernetesListMapKeys(array $xKubernetesListMapKeys): static
     {
@@ -907,8 +853,6 @@ class JSONSchemaProps
      *      used to identify them. Order is preserved upon merge. The map tag
      *      must only be used on a list with elements of type object.
      * Defaults to atomic for arrays.
-     *
-     * @return static
      */
     public function setXKubernetesListType(string $xKubernetesListType): static
     {
@@ -943,8 +887,6 @@ class JSONSchemaProps
      *      the default behaviour for all maps.
      * 2) `atomic`: the list is treated as a single entity, like a scalar.
      *      Atomic maps will be entirely replaced when updated.
-     *
-     * @return static
      */
     public function setXKubernetesMapType(string $xKubernetesMapType): static
     {
@@ -969,8 +911,6 @@ class JSONSchemaProps
      * are not specified in the validation schema. This affects fields recursively, but switches back to
      * normal pruning behaviour if nested properties or additionalProperties are specified in the schema.
      * This can either be true or undefined. False is forbidden.
-     *
-     * @return static
      */
     public function setIsXKubernetesPreserveUnknownFields(bool $xKubernetesPreserveUnknownFields): static
     {
@@ -981,8 +921,7 @@ class JSONSchemaProps
 
     /**
      * x-kubernetes-validations describes a list of validation rules written in the CEL expression
-     * language. This field is an alpha-level. Using this field requires the feature gate
-     * `CustomResourceValidationExpressions` to be enabled.
+     * language.
      *
      * @return iterable|ValidationRule[]
      */
@@ -993,10 +932,7 @@ class JSONSchemaProps
 
     /**
      * x-kubernetes-validations describes a list of validation rules written in the CEL expression
-     * language. This field is an alpha-level. Using this field requires the feature gate
-     * `CustomResourceValidationExpressions` to be enabled.
-     *
-     * @return static
+     * language.
      */
     public function setXKubernetesValidations(iterable $xKubernetesValidations): static
     {
@@ -1005,7 +941,6 @@ class JSONSchemaProps
         return $this;
     }
 
-    /** @return static */
     public function addXKubernetesValidations(ValidationRule $xKubernetesValidation): static
     {
         if (! $this->xKubernetesValidations) {

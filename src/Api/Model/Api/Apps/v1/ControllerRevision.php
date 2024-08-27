@@ -26,11 +26,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('ControllerRevision', group: 'apps', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/apps/v1/namespaces/{namespace}/controllerrevisions/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/apps/v1/namespaces/{namespace}/controllerrevisions', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/apps/v1/namespaces/{namespace}/controllerrevisions/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/apps/v1/namespaces/{namespace}/controllerrevisions/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/apps/v1/namespaces/{namespace}/controllerrevisions',

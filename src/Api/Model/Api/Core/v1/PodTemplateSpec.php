@@ -820,8 +820,11 @@ class PodTemplateSpec
     }
 
     /**
-     * NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler
-     * simply schedules this pod onto that node, assuming that it fits resource requirements.
+     * NodeName indicates in which node this pod is scheduled. If empty, this pod is a candidate for
+     * scheduling by the scheduler defined in schedulerName. Once this field is set, the kubelet for this
+     * node becomes responsible for the lifecycle of this pod. This field should not be used to express a
+     * desire for the pod to be scheduled on a specific node.
+     * https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename
      */
     public function getNodeName(): string|null
     {
@@ -829,8 +832,11 @@ class PodTemplateSpec
     }
 
     /**
-     * NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler
-     * simply schedules this pod onto that node, assuming that it fits resource requirements.
+     * NodeName indicates in which node this pod is scheduled. If empty, this pod is a candidate for
+     * scheduling by the scheduler defined in schedulerName. Once this field is set, the kubelet for this
+     * node becomes responsible for the lifecycle of this pod. This field should not be used to express a
+     * desire for the pod to be scheduled on a specific node.
+     * https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename
      *
      * @return static
      */
@@ -876,7 +882,8 @@ class PodTemplateSpec
      * spec.securityContext.seccompProfile - spec.securityContext.fsGroup -
      * spec.securityContext.fsGroupChangePolicy - spec.securityContext.sysctls - spec.shareProcessNamespace
      * - spec.securityContext.runAsUser - spec.securityContext.runAsGroup -
-     * spec.securityContext.supplementalGroups - spec.containers[*].securityContext.appArmorProfile -
+     * spec.securityContext.supplementalGroups - spec.securityContext.supplementalGroupsPolicy -
+     * spec.containers[*].securityContext.appArmorProfile -
      * spec.containers[*].securityContext.seLinuxOptions -
      * spec.containers[*].securityContext.seccompProfile - spec.containers[*].securityContext.capabilities
      * - spec.containers[*].securityContext.readOnlyRootFilesystem -
@@ -901,7 +908,8 @@ class PodTemplateSpec
      * spec.securityContext.seccompProfile - spec.securityContext.fsGroup -
      * spec.securityContext.fsGroupChangePolicy - spec.securityContext.sysctls - spec.shareProcessNamespace
      * - spec.securityContext.runAsUser - spec.securityContext.runAsGroup -
-     * spec.securityContext.supplementalGroups - spec.containers[*].securityContext.appArmorProfile -
+     * spec.securityContext.supplementalGroups - spec.securityContext.supplementalGroupsPolicy -
+     * spec.containers[*].securityContext.appArmorProfile -
      * spec.containers[*].securityContext.seLinuxOptions -
      * spec.containers[*].securityContext.seccompProfile - spec.containers[*].securityContext.capabilities
      * - spec.containers[*].securityContext.readOnlyRootFilesystem -

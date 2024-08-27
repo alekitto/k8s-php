@@ -19,11 +19,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('LimitRange', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/api/v1/namespaces/{namespace}/limitranges/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/api/v1/namespaces/{namespace}/limitranges', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/api/v1/namespaces/{namespace}/limitranges/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{namespace}/limitranges/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/api/v1/namespaces/{namespace}/limitranges',

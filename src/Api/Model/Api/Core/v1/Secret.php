@@ -20,11 +20,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('Secret', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/api/v1/namespaces/{namespace}/secrets/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/api/v1/namespaces/{namespace}/secrets', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/api/v1/namespaces/{namespace}/secrets/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/api/v1/namespaces/{namespace}/secrets/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/api/v1/namespaces/{namespace}/secrets',

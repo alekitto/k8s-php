@@ -42,7 +42,7 @@ class DaemonSetService
      *   timeoutSeconds
      *   watch
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-daemonset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-daemonset-v1-apps
      */
     public function listForAllNamespaces(array $query = [], callable|object|null $handler = null): DaemonSetList|null
     {
@@ -80,7 +80,7 @@ class DaemonSetService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-daemonset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-daemonset-v1-apps
      */
     public function listNamespaced(array $query = [], callable|object|null $handler = null): DaemonSetList|null
     {
@@ -120,7 +120,7 @@ class DaemonSetService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-daemonset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-daemonset-v1-apps
      */
     public function deleteCollectionNamespaced(array $query = []): Status
     {
@@ -150,7 +150,7 @@ class DaemonSetService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-daemonset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-daemonset-v1-apps
      */
     public function createNamespaced(DaemonSet $daemonSet, array $query = []): DaemonSet
     {
@@ -178,7 +178,7 @@ class DaemonSetService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-daemonset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-daemonset-v1-apps
      */
     public function readNamespaced(string $name, array $query = []): DaemonSet
     {
@@ -209,13 +209,12 @@ class DaemonSetService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-daemonset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-daemonset-v1-apps
      */
-    public function deleteNamespaced(string $name, array $query = []): Status
+    public function deleteNamespaced(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}',
             ['{name}' => $name],
@@ -240,7 +239,7 @@ class DaemonSetService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-daemonset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-daemonset-v1-apps
      */
     public function patchNamespaced(string $name, PatchInterface $patch, array $query = []): DaemonSet
     {
@@ -271,7 +270,7 @@ class DaemonSetService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-daemonset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-daemonset-v1-apps
      */
     public function replaceNamespaced(string $name, DaemonSet $daemonSet, array $query = []): DaemonSet
     {
@@ -299,7 +298,7 @@ class DaemonSetService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-daemonset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-daemonset-v1-apps
      */
     public function readNamespacedStatus(string $name, array $query = []): DaemonSet
     {
@@ -330,7 +329,7 @@ class DaemonSetService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-daemonset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-daemonset-v1-apps
      */
     public function patchNamespacedStatus(string $name, PatchInterface $patch, array $query = []): DaemonSet
     {
@@ -361,7 +360,7 @@ class DaemonSetService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-daemonset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-daemonset-v1-apps
      */
     public function replaceNamespacedStatus(string $name, DaemonSet $daemonSet, array $query = []): DaemonSet
     {
@@ -402,7 +401,7 @@ class DaemonSetService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-daemonset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-daemonset-v1-apps
      */
     public function watchListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {
@@ -443,7 +442,7 @@ class DaemonSetService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-daemonset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-daemonset-v1-apps
      */
     public function watchNamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -484,7 +483,7 @@ class DaemonSetService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-daemonset-v1-apps
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-daemonset-v1-apps
      */
     public function watchNamespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {

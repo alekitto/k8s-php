@@ -42,7 +42,7 @@ class RoleService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-role-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-role-v1-rbac-authorization-k8s-io
      */
     public function listRbacAuthorizationV1Namespaced(array $query = [], callable|object|null $handler = null): RoleList|null
     {
@@ -82,7 +82,7 @@ class RoleService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-role-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-role-v1-rbac-authorization-k8s-io
      */
     public function deleteRbacAuthorizationV1CollectionNamespaced(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class RoleService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-role-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-role-v1-rbac-authorization-k8s-io
      */
     public function createRbacAuthorizationV1Namespaced(Role $role, array $query = []): Role
     {
@@ -140,7 +140,7 @@ class RoleService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-role-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-role-v1-rbac-authorization-k8s-io
      */
     public function readRbacAuthorizationV1Namespaced(string $name, array $query = []): Role
     {
@@ -171,13 +171,12 @@ class RoleService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-role-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-role-v1-rbac-authorization-k8s-io
      */
-    public function deleteRbacAuthorizationV1Namespaced(string $name, array $query = []): Status
+    public function deleteRbacAuthorizationV1Namespaced(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/rbac.authorization.k8s.io/v1/namespaces/{namespace}/roles/{name}',
             ['{name}' => $name],
@@ -202,7 +201,7 @@ class RoleService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-role-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-role-v1-rbac-authorization-k8s-io
      */
     public function patchRbacAuthorizationV1Namespaced(string $name, PatchInterface $patch, array $query = []): Role
     {
@@ -233,7 +232,7 @@ class RoleService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-role-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-role-v1-rbac-authorization-k8s-io
      */
     public function replaceRbacAuthorizationV1Namespaced(string $name, Role $role, array $query = []): Role
     {
@@ -271,7 +270,7 @@ class RoleService
      *   timeoutSeconds
      *   watch
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-role-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-role-v1-rbac-authorization-k8s-io
      */
     public function listRbacAuthorizationV1ForAllNamespaces(array $query = [], callable|object|null $handler = null): RoleList|null
     {
@@ -312,7 +311,7 @@ class RoleService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-role-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-role-v1-rbac-authorization-k8s-io
      */
     public function watchRbacAuthorizationV1NamespacedList(array $query = [], callable|object|null $handler = null): void
     {
@@ -353,7 +352,7 @@ class RoleService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-role-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-role-v1-rbac-authorization-k8s-io
      */
     public function watchRbacAuthorizationV1Namespaced(string $name, array $query = [], callable|object|null $handler = null): void
     {
@@ -394,7 +393,7 @@ class RoleService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-role-v1-rbac-authorization-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-role-v1-rbac-authorization-k8s-io
      */
     public function watchRbacAuthorizationV1ListForAllNamespaces(array $query = [], callable|object|null $handler = null): void
     {

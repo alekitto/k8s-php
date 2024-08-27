@@ -29,7 +29,7 @@ class ScaleService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-scale-v1-autoscaling
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-scale-v1-autoscaling
      */
     public function readAppsV1NamespacedDeployment(string $name, array $query = []): Scale
     {
@@ -60,7 +60,7 @@ class ScaleService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-scale-v1-autoscaling
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-scale-v1-autoscaling
      */
     public function patchAppsV1NamespacedDeployment(string $name, PatchInterface $patch, array $query = []): Scale
     {
@@ -91,7 +91,7 @@ class ScaleService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-scale-v1-autoscaling
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-scale-v1-autoscaling
      */
     public function replaceAppsV1NamespacedDeployment(string $name, Scale $scale, array $query = []): Scale
     {
@@ -119,7 +119,7 @@ class ScaleService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-scale-v1-autoscaling
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-scale-v1-autoscaling
      */
     public function readAppsV1NamespacedReplicaSet(string $name, array $query = []): Scale
     {
@@ -150,7 +150,7 @@ class ScaleService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-scale-v1-autoscaling
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-scale-v1-autoscaling
      */
     public function patchAppsV1NamespacedReplicaSet(string $name, PatchInterface $patch, array $query = []): Scale
     {
@@ -181,7 +181,7 @@ class ScaleService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-scale-v1-autoscaling
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-scale-v1-autoscaling
      */
     public function replaceAppsV1NamespacedReplicaSet(string $name, Scale $scale, array $query = []): Scale
     {
@@ -209,7 +209,7 @@ class ScaleService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-scale-v1-autoscaling
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-scale-v1-autoscaling
      */
     public function readAppsV1NamespacedStatefulSet(string $name, array $query = []): Scale
     {
@@ -240,7 +240,7 @@ class ScaleService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-scale-v1-autoscaling
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-scale-v1-autoscaling
      */
     public function patchAppsV1NamespacedStatefulSet(string $name, PatchInterface $patch, array $query = []): Scale
     {
@@ -271,7 +271,7 @@ class ScaleService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-scale-v1-autoscaling
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-scale-v1-autoscaling
      */
     public function replaceAppsV1NamespacedStatefulSet(string $name, Scale $scale, array $query = []): Scale
     {

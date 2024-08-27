@@ -20,11 +20,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Kind('NetworkPolicy', group: 'networking.k8s.io', version: 'v1')]
 #[Kubernetes\Operation('get', path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}', response: 'self')]
 #[Kubernetes\Operation('post', path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies', body: 'model', response: 'self')]
-#[Kubernetes\Operation(
-    'delete',
-    path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}',
-    response: Status::class,
-)]
+#[Kubernetes\Operation('delete', path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}')]
 #[Kubernetes\Operation(
     'watch',
     path: '/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies',

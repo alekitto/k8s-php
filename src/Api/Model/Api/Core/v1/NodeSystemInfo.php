@@ -146,7 +146,7 @@ class NodeSystemInfo
     }
 
     /**
-     * KubeProxy Version reported by the node.
+     * Deprecated: KubeProxy Version reported by the node.
      */
     public function getKubeProxyVersion(): string
     {
@@ -154,7 +154,7 @@ class NodeSystemInfo
     }
 
     /**
-     * KubeProxy Version reported by the node.
+     * Deprecated: KubeProxy Version reported by the node.
      *
      * @return static
      */

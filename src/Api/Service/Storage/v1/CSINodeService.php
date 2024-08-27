@@ -42,7 +42,7 @@ class CSINodeService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-csinode-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-csinode-v1-storage-k8s-io
      */
     public function listStorageV1(array $query = [], callable|object|null $handler = null): CSINodeList|null
     {
@@ -82,7 +82,7 @@ class CSINodeService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-csinode-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-csinode-v1-storage-k8s-io
      */
     public function deleteStorageV1Collection(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class CSINodeService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-csinode-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-csinode-v1-storage-k8s-io
      */
     public function createStorageV1(CSINode $cSINode, array $query = []): CSINode
     {
@@ -140,7 +140,7 @@ class CSINodeService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-csinode-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-csinode-v1-storage-k8s-io
      */
     public function readStorageV1(string $name, array $query = []): CSINode
     {
@@ -171,13 +171,12 @@ class CSINodeService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-csinode-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-csinode-v1-storage-k8s-io
      */
-    public function deleteStorageV1(string $name, array $query = []): CSINode
+    public function deleteStorageV1(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = CSINode::class;
         $uri = $this->api->buildUri(
             '/apis/storage.k8s.io/v1/csinodes/{name}',
             ['{name}' => $name],
@@ -202,7 +201,7 @@ class CSINodeService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-csinode-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-csinode-v1-storage-k8s-io
      */
     public function patchStorageV1(string $name, PatchInterface $patch, array $query = []): CSINode
     {
@@ -233,7 +232,7 @@ class CSINodeService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-csinode-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-csinode-v1-storage-k8s-io
      */
     public function replaceStorageV1(string $name, CSINode $cSINode, array $query = []): CSINode
     {
@@ -274,7 +273,7 @@ class CSINodeService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-csinode-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-csinode-v1-storage-k8s-io
      */
     public function watchStorageV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -315,7 +314,7 @@ class CSINodeService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-csinode-v1-storage-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-csinode-v1-storage-k8s-io
      */
     public function watchStorageV1(string $name, array $query = [], callable|object|null $handler = null): void
     {

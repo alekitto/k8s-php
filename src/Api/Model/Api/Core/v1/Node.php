@@ -21,7 +21,7 @@ use Kcs\K8s\Attribute\AttributeType;
 #[Kubernetes\Operation('get', path: '/api/v1/nodes/{name}', response: 'self')]
 #[Kubernetes\Operation('get-status', path: '/api/v1/nodes/{name}/status', response: 'self')]
 #[Kubernetes\Operation('post', path: '/api/v1/nodes', body: 'model', response: 'self')]
-#[Kubernetes\Operation('delete', path: '/api/v1/nodes/{name}', response: Status::class)]
+#[Kubernetes\Operation('delete', path: '/api/v1/nodes/{name}')]
 #[Kubernetes\Operation('put', path: '/api/v1/nodes/{name}', body: 'model', response: 'self')]
 #[Kubernetes\Operation('put-status', path: '/api/v1/nodes/{name}/status', body: 'model', response: 'self')]
 #[Kubernetes\Operation('deletecollection-all', path: '/api/v1/nodes', response: Status::class)]

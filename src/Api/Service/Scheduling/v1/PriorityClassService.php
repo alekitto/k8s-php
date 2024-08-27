@@ -42,7 +42,7 @@ class PriorityClassService
      *   watch
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#list-priorityclass-v1-scheduling-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#list-priorityclass-v1-scheduling-k8s-io
      */
     public function listSchedulingV1(array $query = [], callable|object|null $handler = null): PriorityClassList|null
     {
@@ -82,7 +82,7 @@ class PriorityClassService
      *   timeoutSeconds
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-collection-priorityclass-v1-scheduling-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-collection-priorityclass-v1-scheduling-k8s-io
      */
     public function deleteSchedulingV1Collection(array $query = []): Status
     {
@@ -112,7 +112,7 @@ class PriorityClassService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#create-priorityclass-v1-scheduling-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#create-priorityclass-v1-scheduling-k8s-io
      */
     public function createSchedulingV1(PriorityClass $priorityClass, array $query = []): PriorityClass
     {
@@ -140,7 +140,7 @@ class PriorityClassService
      * Allowed query parameters:
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#read-priorityclass-v1-scheduling-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#read-priorityclass-v1-scheduling-k8s-io
      */
     public function readSchedulingV1(string $name, array $query = []): PriorityClass
     {
@@ -171,13 +171,12 @@ class PriorityClassService
      *   propagationPolicy
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#delete-priorityclass-v1-scheduling-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#delete-priorityclass-v1-scheduling-k8s-io
      */
-    public function deleteSchedulingV1(string $name, array $query = []): Status
+    public function deleteSchedulingV1(string $name, array $query = [])
     {
         $options['query'] = $query;
         $options['method'] = 'delete';
-        $options['model'] = Status::class;
         $uri = $this->api->buildUri(
             '/apis/scheduling.k8s.io/v1/priorityclasses/{name}',
             ['{name}' => $name],
@@ -202,7 +201,7 @@ class PriorityClassService
      *   force
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#patch-priorityclass-v1-scheduling-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#patch-priorityclass-v1-scheduling-k8s-io
      */
     public function patchSchedulingV1(string $name, PatchInterface $patch, array $query = []): PriorityClass
     {
@@ -233,7 +232,7 @@ class PriorityClassService
      *   fieldValidation
      *   pretty
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#put-priorityclass-v1-scheduling-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#put-priorityclass-v1-scheduling-k8s-io
      */
     public function replaceSchedulingV1(string $name, PriorityClass $priorityClass, array $query = []): PriorityClass
     {
@@ -274,7 +273,7 @@ class PriorityClassService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watchlist-priorityclass-v1-scheduling-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watchlist-priorityclass-v1-scheduling-k8s-io
      */
     public function watchSchedulingV1List(array $query = [], callable|object|null $handler = null): void
     {
@@ -315,7 +314,7 @@ class PriorityClassService
      *
      * @deprecated Use the 'watch' parameter with a list operation instead, filtered to a single item with the 'fieldSelector' parameter.
      *
-     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#watch-priorityclass-v1-scheduling-k8s-io
+     * @link https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#watch-priorityclass-v1-scheduling-k8s-io
      */
     public function watchSchedulingV1(string $name, array $query = [], callable|object|null $handler = null): void
     {
