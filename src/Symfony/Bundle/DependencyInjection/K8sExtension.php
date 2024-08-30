@@ -46,6 +46,9 @@ class K8sExtension extends Extension
             $container->findDefinition('k8s_client.options')
                 ->setFactory([Options::class, 'fromKubeconfigFile'])
                 ->setArguments([$container->resolveEnvPlaceholders($config['client']['kubeconfig'])]);
+        } else {
+            $container->findDefinition('k8s_client.options')
+                ->setFactory([Options::class, 'inCluster']);
         }
 
         if (isset($config['client']['endpoint'])) {
