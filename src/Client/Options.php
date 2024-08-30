@@ -81,17 +81,7 @@ class Options
 
         $opts = new self($uri, $defaultNamespace);
         $opts->setServerCertificateAuthority(self::SERVICE_CERTFILE ?? null);
-        $opts->setToken(static function () {
-            static $token = null;
-
-            // If reload from file fails, the last-read token should be used to avoid breaking
-            // clients that make token files available on process start and then remove them to
-            // limit credential exposure.
-            // https://github.com/kubernetes/kubernetes/issues/68164
-            $token = @file_get_contents(self::SERVICE_TOKENFILE) ?: $token;
-
-            return $token;
-        });
+        $opts->setTokenFile(self::SERVICE_TOKENFILE);
         $opts->setAuthType(AuthType::Token);
 
         $opts->initFactories();
@@ -210,6 +200,23 @@ class Options
         }
 
         return $this->token;
+    }
+
+    public function setTokenFile(string $tokenFile): self
+    {
+        $this->token = static function () use ($tokenFile) {
+            static $token = null;
+
+            // If reload from file fails, the last-read token should be used to avoid breaking
+            // clients that make token files available on process start and then remove them to
+            // limit credential exposure.
+            // https://github.com/kubernetes/kubernetes/issues/68164
+            $token = @file_get_contents($tokenFile) ?: $token;
+
+            return $token;
+        };
+
+        return $this;
     }
 
     public function setToken(string|callable $token): self
