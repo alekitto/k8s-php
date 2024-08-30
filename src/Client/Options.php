@@ -81,7 +81,17 @@ class Options
 
         $opts = new self($uri, $defaultNamespace);
         $opts->setServerCertificateAuthority(self::SERVICE_CERTFILE ?? null);
-        $opts->setToken(static fn () => (file_get_contents(self::SERVICE_TOKENFILE) ?: null));
+        $opts->setToken(static function () {
+            static $token = null;
+
+            // If reload from file fails, the last-read token should be used to avoid breaking
+            // clients that make token files available on process start and then remove them to
+            // limit credential exposure.
+            // https://github.com/kubernetes/kubernetes/issues/68164
+            $token = @file_get_contents(self::SERVICE_TOKENFILE) ?: $token;
+
+            return $token;
+        });
         $opts->setAuthType(AuthType::Token);
 
         $opts->initFactories();
