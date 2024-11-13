@@ -58,6 +58,16 @@ class K8sExtension extends Extension
 
         $container->setParameter('k8s_client.default_namespace', $config['client']['namespace']);
 
+        if (isset($config['client']['websocket_adapter_factory'])) {
+            $container->findDefinition('k8s_client.options')
+                ->addMethodCall('setWebsocketClientFactory', [new Reference($config['client']['websocket_adapter_factory'])]);
+        }
+
+        if (isset($config['client']['websocket_client'])) {
+            $container->findDefinition('k8s_client.options')
+                ->addMethodCall('setWebsocketClient', [new Reference($config['client']['websocket_client'])]);
+        }
+
         if (class_exists(Psr18Client::class)) {
             $container->removeDefinition('k8s_client.http_request_factory');
             $container->removeDefinition('k8s_client.http_stream_factory');

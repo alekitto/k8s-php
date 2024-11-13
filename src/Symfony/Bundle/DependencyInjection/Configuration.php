@@ -27,6 +27,8 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('namespace')
                             ->defaultValue('default')
                         ->end()
+                        ->scalarNode('websocket_adapter_factory')->defaultNull()->end()
+                        ->scalarNode('websocket_client')->defaultNull()->end()
                     ->end()
                 ->end()
                 ->arrayNode('metadata')
